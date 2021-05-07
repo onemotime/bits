@@ -32,7 +32,8 @@ const styles = StyleSheet.create({
     height: 40,
     borderColor: 'black',
     marginLeft: 35,
-    flexGrow: 3
+    flexGrow: 1,
+    marginTop: 20
   },
   iconNameWrapper: {
     flexDirection: 'row'

@@ -9,9 +9,9 @@ const FollowMate = () => {
   return (
     <View style={styles.followMateWrapper}>
       <Text style={styles.recommendText}>추천친구</Text>
-      {mockMateData.length > 0 && mockMateData.map((name) => {
+      {mockMateData.length > 0 && mockMateData.map((name, index) => {
         return (
-          <View style={styles.mateWrapper}>
+          <View style={styles.mateWrapper} key={index}>
             <View style={styles.profileImg}>
               <EvilIcons name="user" size={32} color="black" />
               <Text>{name}</Text>
@@ -29,7 +29,7 @@ const FollowMate = () => {
 const styles = StyleSheet.create({
   followMateWrapper: {
     width: '100%',
-    height: '70%',
+    height: '75%',
     backgroundColor: 'white'
   },
   recommendText: {
@@ -50,7 +50,7 @@ const styles = StyleSheet.create({
     marginLeft: 20
   },
   followButton: {
-    marginRight: 20,
+    marginRight: 30,
     justifyContent: 'center'
   }
 });

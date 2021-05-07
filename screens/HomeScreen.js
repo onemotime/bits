@@ -10,6 +10,7 @@ import MateRegister from '../components/MateRegister';
 import SettingHabit from '../components/SettingHabit';
 import LoginScreen from './LoginScreen';
 import FollowMate from '../components/FollowMate';
+import LiveFeed from '../components/LiveFeed';
 
 const HomeScreen = () => {
   const mockHabitData = [
@@ -45,7 +46,7 @@ const HomeScreen = () => {
   return (
     <View style={styles.wrapper}>
       <HomeTopNav />
-      <FollowMate />
+      <LiveFeed />
       <HomeBottomNav />
     </View>
   );
