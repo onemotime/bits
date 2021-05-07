@@ -6,7 +6,7 @@ import RegisterScreen from './screens/RegisterScreen';
 const App = () => {
   return (
     <>
-      <RegisterScreen />
+      <HomeScreen />
     </>
   );
 };

@@ -17,13 +17,6 @@ const HabitRegister = () => {
           </View>
         </View>
       </View>
-      <View style={styles.pressButtonWrapper}>
-        <Text style={styles.pressButtonText}>
-          Press Your Habit
-        </Text>
-        <View style={styles.circleWrapper}>
-        </View>
-      </View>
     </>
   );
 };
@@ -35,7 +28,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     width: '80%',
     height: '25%',
-    borderRadius: 10,
+    borderRadius: 10
   },
   textButtonWrapper: {
     height: '100%',
@@ -46,19 +39,6 @@ const styles = StyleSheet.create({
     fontWeight: '900',
     color: 'white',
     fontSize: 15
-  },
-  pressButtonWrapper: {
-    borderWidth: 1,
-    width: '80%',
-    height: '40%',
-    justifyContent: 'center',
-    alignItems: 'center',
-    marginBottom: 40,
-  },
-  circleWrapper: {
-    borderWidth: 1,
-    width: '80%',
-    height: '80%'
   }
 });
 
