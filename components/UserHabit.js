@@ -1,17 +1,105 @@
 import React from 'react';
-import { StyleSheet, View, Text } from 'react-native';
+import { Feather } from '@expo/vector-icons';
+import { StyleSheet, ScrollView, View, Text, Image, TouchableOpacity } from 'react-native';
 
 const UserHabit = ({ data }) => {
-  console.log(data);
+  const handleCancelPress = () => {
+    console.log('handle press working');
+  };
+
   return (
-    <View>
-      <Text>test</Text>
+    <View style={styles.userHabitWrapper}>
+      <ScrollView horizontal={true}>
+        {data.map((data, index) => {
+          const caculatedNumber = Math.floor(data.count / data.day * 100);
+
+          return (
+            <View style={styles.habitInfoWrapper} key={index}>
+              <View>
+                <Text>{data.img}</Text>
+              </View>
+              <View style={styles.habitInfo}>
+                <View style={styles.habbitName}>
+                  <Text style={styles.name}>{data.name}</Text>
+                </View>
+                <View style={styles.dayMateLike}>
+                  <Text style={styles.day}>Day {data.count} / {data.day}</Text>
+                  <Text style={styles.mate}>Mate {data.mate}</Text>
+                  <Text style={styles.like}>Like {data.like}</Text>
+                  <Text style={styles.status}>Status {caculatedNumber}%</Text>
+                </View>
+              </View>
+              <View style={styles.cancelWrapper}>
+                <TouchableOpacity onPress={handleCancelPress}>
+                  <Feather name="x-circle" size={25} color="black" />
+                </TouchableOpacity>
+              </View>
+            </View>
+          );
+        })}
+      </ScrollView>
     </View>
   );
 };
 
 const styles = StyleSheet.create({
-
+  userHabitWrapper: {
+    borderWidth: 1,
+    width: '80%',
+    height: '30%',
+    borderRadius: 10,
+    backgroundColor: '#F3E1B8'
+  },
+  habitInfoWrapper: {
+    flexDirection: 'row',
+    justifyContent: 'space-evenly',
+    alignItems: 'center'
+  },
+  habitInfo: {
+    borderWidth: 1,
+    height: '80%',
+    justifyContent: 'space-evenly',
+    marginLeft: 20
+  },
+  habbitName: {
+    borderWidth: 1,
+    alignItems: 'center'
+  },
+  name: {
+    color: 'white',
+    fontWeight: '800',
+    fontSize: 20
+  },
+  dayMateLike: {
+    borderWidth: 1,
+    justifyContent: 'space-evenly',
+    height: '60%'
+  },
+  day: {
+    color: 'white',
+    fontWeight: '600',
+    fontSize: 15
+  },
+  mate: {
+    color: 'white',
+    fontWeight: '600',
+    fontSize: 15
+  },
+  like: {
+    color: 'white',
+    fontWeight: '600',
+    fontSize: 15
+  },
+  status: {
+    color: 'white',
+    fontWeight: '600',
+    fontSize: 15
+  },
+  cancelWrapper: {
+    justifyContent: 'flex-start',
+    height: '90%',
+    marginLeft: 10
+  }
 });
 
 export default UserHabit;

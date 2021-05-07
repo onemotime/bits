@@ -3,6 +3,11 @@ import { Entypo } from '@expo/vector-icons';
 import { View, Text, TouchableOpacity, StyleSheet } from 'react-native';
 
 const HabitRegister = () => {
+  const handleRegisterHabitPress = () => {
+    // 습관 등록 시, 습관 등록 화면으로 이동하기
+    // 습관 등록 완료 후, 다시 홈 페이지로 돌아가게 만들기
+  };
+
   return (
     <>
       <View style={styles.habitRegisterWrapper}>
@@ -11,7 +16,7 @@ const HabitRegister = () => {
             <Text style={styles.registerText}>습관을 등록해주세요</Text>
           </View>
           <View style={styles.button}>
-            <TouchableOpacity>
+            <TouchableOpacity onPress={handleRegisterHabitPress}>
               <Entypo name="circle-with-plus" size={24} color='white' />
             </TouchableOpacity>
           </View>

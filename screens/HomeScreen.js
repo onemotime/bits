@@ -3,8 +3,8 @@ import { View, StyleSheet } from 'react-native';
 
 import HomeTopNav from '../components/HomeTopNav';
 import HabitRegister from '../components/HabitRegister';
-import HomeBottomNav from '../components/HomeBottomNav';
 import UserHabit from '../components/UserHabit';
+import HomeBottomNav from '../components/HomeBottomNav';
 import CountdownBtn from '../components/CountdownBtn';
 
 const HomeScreen = () => {
@@ -14,28 +14,34 @@ const HomeScreen = () => {
       name: '코딩',
       day: 30,
       count: 0,
-      like: 0
+      mate: 3,
+      like: 0,
+      img: 'mock img'
     },
     {
       type: 'swim',
       name: '수영',
       day: 15,
       count: 3,
-      like: 0
+      mate: 4,
+      like: 0,
+      img: 'mock img url'
     },
     {
       type: 'read',
       name: '독서',
       day: 22,
       count: 12,
-      like: 333
+      mate: 5,
+      like: 333,
+      img: 'mock img url'
     }
   ];
 
   return (
     <View style={styles.wrapper}>
       <HomeTopNav />
-      <HabitRegister />
+      <UserHabit data={mockHabitData} />
       <CountdownBtn />
       <HomeBottomNav />
     </View>

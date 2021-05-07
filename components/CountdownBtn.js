@@ -25,11 +25,7 @@ const CountdownBtn = () => {
           <CountdownCircleTimer
             isPlaying={isButtonPressed}
             duration={3}
-            colors={[
-              ['#004777', 0.4],
-              ['#F7B801', 0.4],
-              ['#A30000', 0.2],
-            ]}
+            colors="white"
             size={150}
             strokeWidth={10}
             onComplete={handleTimeColplete}
@@ -37,7 +33,7 @@ const CountdownBtn = () => {
             {({ remainingTime, animatedColor }) => (
               <Animated.Text style={{ color: animatedColor }}>
                 {isHabitDone
-                  ? 'Bit by Bit !'
+                  ? <Text style={styles.doneText}>Done !</Text>
                   : remainingTime}
               </Animated.Text>
             )}
@@ -63,6 +59,10 @@ const styles = StyleSheet.create({
   },
   circleWrapper: {
     marginBottom: 20
+  },
+  doneText: {
+    color: '#4cd137',
+    fontWeight: '600'
   }
 });
 
