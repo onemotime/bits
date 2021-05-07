@@ -3,9 +3,7 @@ import { Feather } from '@expo/vector-icons';
 import { StyleSheet, ScrollView, View, Text, Image, TouchableOpacity } from 'react-native';
 
 const UserHabit = ({ data }) => {
-  const handleCancelPress = () => {
-    console.log('handle press working');
-  };
+  const handleCancelPress = (deleteIndex) => {};
 
   return (
     <View style={styles.userHabitWrapper}>
@@ -30,8 +28,8 @@ const UserHabit = ({ data }) => {
                 </View>
               </View>
               <View style={styles.cancelWrapper}>
-                <TouchableOpacity onPress={handleCancelPress}>
-                  <Feather name="x-circle" size={25} color="black" />
+                <TouchableOpacity onPress={() => handleCancelPress(index)}>
+                  <Feather name="x-circle" size={22} color="black" />
                 </TouchableOpacity>
               </View>
             </View>

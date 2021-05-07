@@ -1,11 +1,15 @@
 import React from 'react';
-import { View, StyleSheet } from 'react-native';
+import { View, Text, StyleSheet } from 'react-native';
 
 import HomeTopNav from '../components/HomeTopNav';
 import HabitRegister from '../components/HabitRegister';
 import UserHabit from '../components/UserHabit';
 import HomeBottomNav from '../components/HomeBottomNav';
 import CountdownBtn from '../components/CountdownBtn';
+import MateRegister from '../components/MateRegister';
+import SettingHabit from '../components/SettingHabit';
+import LoginScreen from './LoginScreen';
+import FollowMate from '../components/FollowMate';
 
 const HomeScreen = () => {
   const mockHabitData = [
@@ -41,8 +45,7 @@ const HomeScreen = () => {
   return (
     <View style={styles.wrapper}>
       <HomeTopNav />
-      <UserHabit data={mockHabitData} />
-      <CountdownBtn />
+      <FollowMate />
       <HomeBottomNav />
     </View>
   );
@@ -51,8 +54,6 @@ const HomeScreen = () => {
 const styles = StyleSheet.create({
   wrapper: {
     flex: 1,
-    justifyContent: 'space-evenly',
-    alignItems: 'center',
     backgroundColor: '#E8BE64'
   }
 });

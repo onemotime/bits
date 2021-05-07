@@ -28,14 +28,13 @@ const HomeBottomNav = () => {
 
 const styles = StyleSheet.create({
   bottomNavWrapper: {
-    position: 'absolute',
-    bottom: 0,
     flexDirection: 'row',
     justifyContent: 'space-evenly',
     alignItems: 'center',
     width: '100%',
-    height: '8%',
-    backgroundColor: '#FAF0DB'
+    height: 50,
+    backgroundColor: '#FAF0DB',
+    flexGrow: 1
   }
 });
 

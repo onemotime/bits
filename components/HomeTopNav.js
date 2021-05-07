@@ -25,14 +25,14 @@ const HomeTopNav = () => {
 
 const styles = StyleSheet.create({
   topNavWrapper: {
-    position: 'absolute',
-    top: 30,
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
     width: '80%',
-    height: '10%',
-    borderColor: 'black'
+    height: 40,
+    borderColor: 'black',
+    marginLeft: 35,
+    flexGrow: 3
   },
   iconNameWrapper: {
     flexDirection: 'row'
