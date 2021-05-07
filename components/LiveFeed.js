@@ -32,6 +32,7 @@ const LiveFeed = () => {
     }
   ];
 
+  const handleLikePress = () => {};
   return (
     <View style={styles.liveFeedWrapper}>
       <ScrollView>
@@ -67,13 +68,15 @@ const LiveFeed = () => {
                       const habitImg = pickImgByType(habitData.type);
 
                       return (
-                        <View style={styles.habitWrapper}>
-                          <View style={styles.statusTextWrapper}>
-                            <Text style={styles.statusText}>지금</Text>
+                        <TouchableOpacity onPress={handleLikePress}>
+                          <View style={styles.habitWrapper}>
+                            <View style={styles.statusTextWrapper}>
+                              <Text style={styles.statusText}>지금</Text>
+                            </View>
+                            <View style={styles.habitImg}>{habitImg}</View>
+                            <Text style={styles.startTimeText}>In haBiTS</Text>
                           </View>
-                          <View style={styles.habitImg}>{habitImg}</View>
-                          <Text style={styles.startTimeText}>In haBiTS</Text>
-                        </View>
+                        </TouchableOpacity>
                       );
                     })}
                 </ScrollView>

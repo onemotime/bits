@@ -32,7 +32,6 @@ const styles = StyleSheet.create({
     justifyContent: 'space-evenly',
     alignItems: 'center',
     width: '100%',
-    height: 50,
     backgroundColor: '#FAF0DB',
     flexGrow: 1
   }
