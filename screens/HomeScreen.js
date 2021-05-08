@@ -8,6 +8,7 @@ import LiveFeed from '../components/LiveFeed';
 import HomeTopNav from '../components/HomeTopNav';
 import CountDownBtn from '../components/CountdownBtn';
 import HabitRegister from '../components/HabitRegister';
+import LoginScreen from './LoginScreen';
 
 const HomeScreen = () => {
   const mockHabitData = [
@@ -42,9 +43,7 @@ const HomeScreen = () => {
 
   return (
     <View style={styles.wrapper}>
-      <ProfileTopNav />
-      <Profile />
-      <HomeBottomNav />
+      <LoginScreen />
     </View>
   );
 };
