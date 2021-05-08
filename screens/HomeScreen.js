@@ -9,6 +9,7 @@ import HomeTopNav from '../components/HomeTopNav';
 import CountDownBtn from '../components/CountdownBtn';
 import HabitRegister from '../components/HabitRegister';
 import LoginScreen from './LoginScreen';
+import SignupScreen from './SignupScreen';
 
 const HomeScreen = () => {
   const mockHabitData = [
@@ -43,7 +44,7 @@ const HomeScreen = () => {
 
   return (
     <View style={styles.wrapper}>
-      <LoginScreen />
+      <SignupScreen />
     </View>
   );
 };

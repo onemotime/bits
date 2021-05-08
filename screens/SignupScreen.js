@@ -1,16 +1,11 @@
 import React from 'react';
 import { FontAwesome } from '@expo/vector-icons';
 import { View, Text, StyleSheet, TouchableOpacity, TextInput } from 'react-native';
-import {
-  GoogleIcon,
-  FacebookIcon,
-  InstagramIcon,
-} from '../assets/svgs/icon';
 
-const LoginScreen = () => {
+const SignupScreen = () => {
   return (
     <View style={styles.wrapper}>
-      <View style={styles.loginWrapper}>
+      <View style={styles.signupWrapper}>
         <View style={styles.logoWrapper}>
           <FontAwesome name="heartbeat" size={24} color="white" />
           <Text style={styles.logoText}>BiTS</Text>
@@ -32,21 +27,18 @@ const LoginScreen = () => {
               <TextInput placeholder={'비밀번호를 입력해주세요'} />
             </View>
           </View>
+          <View style={styles.confirmInputWrapper}>
+            <View style={styles.confirmTextWrapper}>
+              <Text style={styles.confirmText}>PW2</Text>
+            </View>
+            <View style={styles.confirmTextInputwrapper}>
+              <TextInput placeholder={'비밀번호를 확인해주세요'} />
+            </View>
+          </View>
         </View>
-        <View style={styles.loginBtnWrapper}>
-          <TouchableOpacity style={styles.loginBtn}>
-            <Text style={styles.loginText}>로그인</Text>
-          </TouchableOpacity>
-        </View>
-        <View style={styles.iconWrapper}>
-          <TouchableOpacity>
-            <GoogleIcon size={30} />
-          </TouchableOpacity>
-          <TouchableOpacity>
-            <FacebookIcon size={30} />
-          </TouchableOpacity>
-          <TouchableOpacity>
-            <InstagramIcon size={30} />
+        <View style={styles.signupBtnWrapper}>
+          <TouchableOpacity style={styles.signupBtn}>
+            <Text style={styles.signupText}>회원가입</Text>
           </TouchableOpacity>
         </View>
       </View>
@@ -60,7 +52,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center'
   },
-  loginWrapper: {
+  signupWrapper: {
     backgroundColor: '#EDCE8A',
     borderRadius: 10,
     justifyContent: 'center',
@@ -81,7 +73,7 @@ const styles = StyleSheet.create({
   },
   inputWrapper: {
     alignItems: 'center',
-    height: 100,
+    height: 200,
     justifyContent: 'space-evenly',
   },
   idInputWrapper: {
@@ -127,13 +119,34 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     justifyContent: 'center'
   },
-  loginBtnWrapper: {
+  confirmInputWrapper: {
+    backgroundColor: '#FAF0DB',
+    borderRadius: 10,
+    flexDirection: 'row',
+    justifyContent: 'space-evenly',
+    width: 200,
+    height: 35
+  },
+  confirmTextWrapper: {
+    justifyContent: 'center',
+    alignItems: 'center'
+  },
+  confirmText: {
+    color: '#E4B356',
+    fontWeight: '700'
+  },
+  confirmTextInputwrapper: {
+    width: '80%',
+    textAlign: 'center',
+    justifyContent: 'center'
+  },
+  signupBtnWrapper: {
     width: '100%',
     height: 50,
     justifyContent: 'center',
     alignItems: 'center',
   },
-  loginBtn: {
+  signupBtn: {
     backgroundColor: '#D78A41',
     borderRadius: 10,
     paddingLeft: 30,
@@ -141,17 +154,10 @@ const styles = StyleSheet.create({
     paddingTop: 10,
     paddingBottom: 10
   },
-  loginText: {
+  signupText: {
     color: 'white',
     fontWeight: '600'
   },
-  iconWrapper: {
-    flexDirection: 'row',
-    justifyContent: 'space-evenly',
-    alignItems: 'center',
-    width: '100%',
-    paddingBottom: 20
-  }
 });
 
-export default LoginScreen;
+export default SignupScreen;
