@@ -1,13 +1,39 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { FontAwesome } from '@expo/vector-icons';
 import { View, Text, StyleSheet, TouchableOpacity, TextInput } from 'react-native';
+import * as userAPI from '../api/userApi';
 
 const SignupScreen = () => {
+  const [id, setId] = useState('');
+  const [password, setPassword] = useState('');
+  const [confirmPassword, setConfirmPassword] = useState('');
+
+  const handleSingupPress = async () => {
+    if (id.length === 0 || password.length === 0 || confirmPassword.length === 0) return;
+    if (password !== confirmPassword) return;
+
+    try {
+      const signupInput = {
+        id,
+        password,
+        confirmPassword
+      };
+
+      const response = await userAPI.requestSignup(signupInput);
+
+      if (response.code === 200) {
+        // 사인인 페이지로 이동
+      }
+    } catch (err) {
+      console.err(err);
+    }
+  };
+
   return (
     <View style={styles.wrapper}>
       <View style={styles.signupWrapper}>
         <View style={styles.logoWrapper}>
-          <FontAwesome name="heartbeat" size={24} color="white" />
+          <FontAwesome name="heartbeat" size={24} color='white' />
           <Text style={styles.logoText}>BiTS</Text>
         </View>
         <View style={styles.inputWrapper}>
@@ -16,7 +42,11 @@ const SignupScreen = () => {
               <Text style={styles.idText}>ID</Text>
             </View>
             <View style={styles.idTextInputWrapper}>
-              <TextInput placeholder={'아이디를 입력해주세요'} />
+              <TextInput
+                placeholder={'아이디를 입력해주세요'}
+                value={id}
+                onChangeText={setId}
+              />
             </View>
           </View>
           <View style={styles.pwInputWrapper}>
@@ -24,7 +54,11 @@ const SignupScreen = () => {
               <Text style={styles.pwText}>PW</Text>
             </View>
             <View style={styles.pwTextInputWrapper}>
-              <TextInput placeholder={'비밀번호를 입력해주세요'} />
+              <TextInput
+                placeholder={'비밀번호를 입력해주세요'}
+                value={password}
+                onChangeText={setPassword}
+              />
             </View>
           </View>
           <View style={styles.confirmInputWrapper}>
@@ -32,12 +66,16 @@ const SignupScreen = () => {
               <Text style={styles.confirmText}>PW2</Text>
             </View>
             <View style={styles.confirmTextInputwrapper}>
-              <TextInput placeholder={'비밀번호를 확인해주세요'} />
+              <TextInput
+                placeholder={'비밀번호를 확인해주세요'}
+                value={confirmPassword}
+                onChangeText={setConfirmPassword}
+              />
             </View>
           </View>
         </View>
         <View style={styles.signupBtnWrapper}>
-          <TouchableOpacity style={styles.signupBtn}>
+          <TouchableOpacity style={styles.signupBtn} onPress={handleSingupPress}>
             <Text style={styles.signupText}>회원가입</Text>
           </TouchableOpacity>
         </View>
@@ -157,7 +195,7 @@ const styles = StyleSheet.create({
   signupText: {
     color: 'white',
     fontWeight: '600'
-  },
+  }
 });
 
 export default SignupScreen;

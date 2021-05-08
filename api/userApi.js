@@ -1,6 +1,6 @@
 import { SERVER_URL } from 'react-native-dotenv';
 
-export const requestSignin = async (signinInput) => {
+export const requestSignin = async (loginInput) => {
   const url = `${SERVER_URL}/user/signin`;
   const response = await fetch(url, {
     method: 'POST',
