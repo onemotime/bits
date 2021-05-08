@@ -9,7 +9,7 @@ const HabitRegister = () => {
   };
 
   return (
-    <>
+    <View style={styles.mainTopWrapper}>
       <View style={styles.habitRegisterWrapper}>
         <View style={styles.textButtonWrapper}>
           <View stlye={styles.registerTextWrapper}>
@@ -22,18 +22,25 @@ const HabitRegister = () => {
           </View>
         </View>
       </View>
-    </>
+    </View>
   );
 };
 
 const styles = StyleSheet.create({
+  mainTopWrapper: {
+    flexGrow: 0.4,
+    justifyContent: 'center',
+    alignItems: 'center',
+    borderWidth: 1
+  },
   habitRegisterWrapper: {
     backgroundColor: '#EDCD88',
     justifyContent: 'center',
     alignItems: 'center',
     width: '80%',
     height: '25%',
-    borderRadius: 10
+    borderRadius: 10,
+    flexGrow: 0.8
   },
   textButtonWrapper: {
     height: '100%',

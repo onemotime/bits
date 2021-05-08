@@ -33,7 +33,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     width: '100%',
     backgroundColor: '#FAF0DB',
-    flexGrow: 1
+    flexGrow: 0.1
   }
 });
 

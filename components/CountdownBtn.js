@@ -46,14 +46,12 @@ const CountdownBtn = () => {
 
 const styles = StyleSheet.create({
   pressButtonWrapper: {
-    width: '80%',
-    height: '20%',
     justifyContent: 'space-evenly',
-    alignItems: 'center'
+    alignItems: 'center',
+    flexGrow: 0.4,
+    borderWidth: 1
   },
   pressButtonText: {
-    position: 'relative',
-    bottom: 45,
     fontWeight: '600',
     color: 'white'
   },

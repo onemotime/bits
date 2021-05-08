@@ -45,13 +45,13 @@ const styles = StyleSheet.create({
     backgroundColor: '#E0C066',
     width: '100%',
     height: 40,
-    flexGrow: 1,
+    flexGrow: 0.2,
     flexDirection: 'row',
     justifyContent: 'space-between'
   },
   followStatusWrapper: {
     flexDirection: 'row',
-    marginTop: 30,
+    marginTop: 20,
     marginLeft: 20,
     width: 150,
     justifyContent: 'space-evenly',

@@ -4,6 +4,10 @@ import { View, Text, StyleSheet } from 'react-native';
 import HomeBottomNav from '../components/HomeBottomNav';
 import ProfileTopNav from '../components/ProfileTopNav';
 import Profile from '../components/Profile';
+import LiveFeed from '../components/LiveFeed';
+import HomeTopNav from '../components/HomeTopNav';
+import CountDownBtn from '../components/CountdownBtn';
+import HabitRegister from '../components/HabitRegister';
 
 const HomeScreen = () => {
   const mockHabitData = [
