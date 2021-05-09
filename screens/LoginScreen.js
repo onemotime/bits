@@ -15,15 +15,14 @@ const LoginScreen = ({ navigation }) => {
   const dispatch = useDispatch();
 
   const handleLoginPress = () => {
-    console.log('login press working');
     if (email.length === 0 || password.length === 0) return;
 
-    const signinInput = {
+    const loginInput = {
       email,
       password
     };
 
-    dispatch(fetchSignin(signinInput));
+    dispatch(fetchSignin(loginInput));
   };
 
   const handleSingupPress = () => {
@@ -133,7 +132,8 @@ const styles = StyleSheet.create({
   },
   idText: {
     color: '#E4B356',
-    fontWeight: '700'
+    fontWeight: '700',
+    fontSize: 12
   },
   idTextInputWrapper: {
     width: '80%',
@@ -154,7 +154,8 @@ const styles = StyleSheet.create({
   },
   pwText: {
     color: '#E4B356',
-    fontWeight: '700'
+    fontWeight: '700',
+    fontSize: 12
   },
   pwTextInputWrapper: {
     width: '80%',

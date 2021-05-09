@@ -1,13 +1,13 @@
 import { SERVER_URL } from '@env';
 
 export const requestSignin = async (loginInput) => {
-  const url = `${SERVER_URL}/user/signin`;
+  const url = `${SERVER_URL}/user/login`;
   const response = await fetch(url, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json'
     },
-    body: JSON.stringify(signinInput)
+    body: JSON.stringify(loginInput)
   });
 
   return await response.json();

@@ -9,13 +9,15 @@ import HomeScreen from '../screens/HomeScreen';
 const AppStack = createStackNavigator();
 
 const AppNavigator = () => {
-  const { isSignedIn } = useSelector(state => state.user);
-  console.log(isSignedIn);
+  const { accessToken } = useSelector(state => state.user);
+
   return (
     <NavigationContainer>
       <AppStack.Navigator screenOptions={{ headerShown: false }}>
-        {isSignedIn
-          ? <AppStack.Screen name='Home' component={HomeScreen} />
+        {accessToken
+          ? <>
+              <AppStack.Screen name='Home' component={HomeScreen} />
+            </>
           : <>
               <AppStack.Screen name='Login' component={LoginScreen} />
               <AppStack.Screen name='Signup' component={SignupScreen} />

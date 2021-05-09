@@ -1,15 +1,14 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import * as userApi from '../api/userApi';
-import thunk from 'redux-thunk';
 
 export const fetchSignin = createAsyncThunk(
   'user/fetchSignin',
   async (loginInput, thunkAPI) => {
     try {
       const response = await userApi.requestSignin(loginInput);
-      const { accessToken, currentUser } = response;
+      // const { accessToken, currentUser } = response;
 
-      if (response.code === 200) {
+      if (response.status === 200) {
         return response;
       }
 
@@ -25,6 +24,7 @@ export const userSlice = createSlice({
   initialState: {
     username: '',
     email: '',
+    habits: [],
     accessToken: '',
     isFetching: false,
     isSuccess: false,
@@ -35,11 +35,12 @@ export const userSlice = createSlice({
   },
   extraReducers: {
     [fetchSignin.fulfilled]: (state, { payload }) => {
+      state.accessToken = payload.accessToken;
+      state.email = payload.email;
+      state.userName = payload.userName;
+      state.habits = payload.habits;
       state.isFetching = false;
       state.isSuccess = true;
-      state.email = payload.currentUser.email;
-      state.username = payload.currentUser.username;
-      state.accessToken = payload.accessToken;
     },
     [fetchSignin.pending]: (state) => {
       state.isFetching = true;

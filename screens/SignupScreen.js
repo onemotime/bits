@@ -5,6 +5,7 @@ import * as userAPI from '../api/userApi';
 
 const SignupScreen = ({ navigation }) => {
   const [email, setEmail] = useState('');
+  const [userName, setUserName] = useState('');
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
 
@@ -19,12 +20,13 @@ const SignupScreen = ({ navigation }) => {
     try {
       const signupInput = {
         email,
+        userName,
         password
       };
 
       const response = await userAPI.requestSignup(signupInput);
 
-      if (response.code === 200) {
+      if (response.status === 201) {
         navigation.navigate('Login');
       }
     } catch (err) {
@@ -42,13 +44,25 @@ const SignupScreen = ({ navigation }) => {
         <View style={styles.inputWrapper}>
           <View style={styles.idInputWrapper}>
             <View style={styles.idTextWrapper}>
-              <Text style={styles.idText}>ID</Text>
+              <Text style={styles.idText}>EMAIL</Text>
             </View>
             <View style={styles.idTextInputWrapper}>
               <TextInput
                 placeholder={'아이디를 입력해주세요'}
                 value={email}
                 onChangeText={setEmail}
+              />
+            </View>
+          </View>
+          <View style={styles.nameInputWrapper}>
+            <View style={styles.nameTextWrapper}>
+              <Text style={styles.nameText}>NAME</Text>
+            </View>
+            <View style={styles.nameTextInputWrapper}>
+              <TextInput
+                placeholder={'이름을 입력해주세요'}
+                value={userName}
+                onChangeText={setUserName}
               />
             </View>
           </View>
@@ -66,7 +80,7 @@ const SignupScreen = ({ navigation }) => {
           </View>
           <View style={styles.confirmInputWrapper}>
             <View style={styles.confirmTextWrapper}>
-              <Text style={styles.confirmText}>PW2</Text>
+              <Text style={styles.confirmText}>CHECK</Text>
             </View>
             <View style={styles.confirmTextInputwrapper}>
               <TextInput
@@ -126,7 +140,7 @@ const styles = StyleSheet.create({
     borderRadius: 10,
     flexDirection: 'row',
     justifyContent: 'space-evenly',
-    width: 200,
+    width: 230,
     height: 35
   },
   idTextWrapper: {
@@ -136,19 +150,43 @@ const styles = StyleSheet.create({
   },
   idText: {
     color: '#E4B356',
-    fontWeight: '700'
+    fontWeight: '700',
+    fontSize: 12
   },
   idTextInputWrapper: {
     width: '80%',
     textAlign: 'center',
     justifyContent: 'center'
   },
+  nameTextWrapper: {
+    justifyContent: 'center',
+    alignItems: 'center',
+    width: '20%'
+  },
+  nameText: {
+    color: '#E4B356',
+    fontWeight: '700',
+    fontSize: 12
+  },
+  nameTextInputWrapper: {
+    width: '80%',
+    textAlign: 'center',
+    justifyContent: 'center'
+  },
+  nameInputWrapper: {
+    backgroundColor: '#FAF0DB',
+    borderRadius: 10,
+    flexDirection: 'row',
+    justifyContent: 'space-evenly',
+    width: 230,
+    height: 35
+  },
   pwInputWrapper: {
     backgroundColor: '#FAF0DB',
     borderRadius: 10,
     flexDirection: 'row',
     justifyContent: 'space-evenly',
-    width: 200,
+    width: 230,
     height: 35
   },
   pwTextWrapper: {
@@ -157,7 +195,8 @@ const styles = StyleSheet.create({
   },
   pwText: {
     color: '#E4B356',
-    fontWeight: '700'
+    fontWeight: '700',
+    fontSize: 12
   },
   pwTextInputWrapper: {
     width: '80%',
@@ -169,7 +208,7 @@ const styles = StyleSheet.create({
     borderRadius: 10,
     flexDirection: 'row',
     justifyContent: 'space-evenly',
-    width: 200,
+    width: 230,
     height: 35
   },
   confirmTextWrapper: {
@@ -178,7 +217,8 @@ const styles = StyleSheet.create({
   },
   confirmText: {
     color: '#E4B356',
-    fontWeight: '700'
+    fontWeight: '700',
+    fontSize: 12
   },
   confirmTextInputwrapper: {
     width: '80%',

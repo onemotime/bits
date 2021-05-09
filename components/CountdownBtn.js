@@ -25,7 +25,11 @@ const CountdownBtn = () => {
           <CountdownCircleTimer
             isPlaying={isButtonPressed}
             duration={3}
-            colors="white"
+            colors={[
+              ['#004777', 0.4],
+              ['#F7B801', 0.4],
+              ['#A30000', 0.2],
+            ]}
             size={150}
             strokeWidth={10}
             onComplete={handleTimeColplete}
