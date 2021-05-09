@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import { View, StyleSheet } from 'react-native';
 
 import HomeBottomNav from '../components/HomeBottomNav';
 import ProfileTopNav from '../components/ProfileTopNav';
@@ -44,7 +44,10 @@ const HomeScreen = () => {
 
   return (
     <View style={styles.wrapper}>
-      <SignupScreen />
+      <HomeTopNav />
+      <HabitRegister />
+      <CountDownBtn />
+      <HomeBottomNav />
     </View>
   );
 };

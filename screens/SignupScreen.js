@@ -3,29 +3,32 @@ import { FontAwesome } from '@expo/vector-icons';
 import { View, Text, StyleSheet, TouchableOpacity, TextInput } from 'react-native';
 import * as userAPI from '../api/userApi';
 
-const SignupScreen = () => {
-  const [id, setId] = useState('');
+const SignupScreen = ({ navigation }) => {
+  const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
 
+  const handleLoginPress = () => {
+    navigation.navigate('Login');
+  };
+
   const handleSingupPress = async () => {
-    if (id.length === 0 || password.length === 0 || confirmPassword.length === 0) return;
+    if (email.length === 0 || password.length === 0 || confirmPassword.length === 0) return;
     if (password !== confirmPassword) return;
 
     try {
       const signupInput = {
-        id,
-        password,
-        confirmPassword
+        email,
+        password
       };
 
       const response = await userAPI.requestSignup(signupInput);
 
       if (response.code === 200) {
-        // 사인인 페이지로 이동
+        navigation.navigate('Login');
       }
     } catch (err) {
-      console.err(err);
+      console.error(err);
     }
   };
 
@@ -44,8 +47,8 @@ const SignupScreen = () => {
             <View style={styles.idTextInputWrapper}>
               <TextInput
                 placeholder={'아이디를 입력해주세요'}
-                value={id}
-                onChangeText={setId}
+                value={email}
+                onChangeText={setEmail}
               />
             </View>
           </View>
@@ -75,6 +78,9 @@ const SignupScreen = () => {
           </View>
         </View>
         <View style={styles.signupBtnWrapper}>
+          <TouchableOpacity style={styles.loginBtn} onPress={handleLoginPress}>
+            <Text style={styles.loginText}>로그인</Text>
+          </TouchableOpacity>
           <TouchableOpacity style={styles.signupBtn} onPress={handleSingupPress}>
             <Text style={styles.signupText}>회원가입</Text>
           </TouchableOpacity>
@@ -88,7 +94,8 @@ const styles = StyleSheet.create({
   wrapper: {
     flex: 1,
     justifyContent: 'center',
-    alignItems: 'center'
+    alignItems: 'center',
+    backgroundColor: '#E8BE64'
   },
   signupWrapper: {
     backgroundColor: '#EDCE8A',
@@ -181,8 +188,21 @@ const styles = StyleSheet.create({
   signupBtnWrapper: {
     width: '100%',
     height: 50,
-    justifyContent: 'center',
+    justifyContent: 'space-evenly',
     alignItems: 'center',
+    flexDirection: 'row'
+  },
+  loginBtn: {
+    backgroundColor: '#D78A41',
+    borderRadius: 10,
+    paddingLeft: 30,
+    paddingRight: 30,
+    paddingTop: 10,
+    paddingBottom: 10
+  },
+  loginText: {
+    color: 'white',
+    fontWeight: '600'
   },
   signupBtn: {
     backgroundColor: '#D78A41',

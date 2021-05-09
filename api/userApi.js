@@ -1,4 +1,4 @@
-import { SERVER_URL } from 'react-native-dotenv';
+import { SERVER_URL } from '@env';
 
 export const requestSignin = async (loginInput) => {
   const url = `${SERVER_URL}/user/signin`;
@@ -22,4 +22,6 @@ export const requestSignup = async (signupInput) => {
     },
     body: JSON.stringify(signupInput)
   });
+
+  return await response.json();
 };

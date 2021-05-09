@@ -1,4 +1,6 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { fetchSignin } from '../redux/userSlice';
 import { FontAwesome } from '@expo/vector-icons';
 import { View, Text, StyleSheet, TouchableOpacity, TextInput } from 'react-native';
 import {
@@ -7,7 +9,27 @@ import {
   InstagramIcon,
 } from '../assets/svgs/icon';
 
-const LoginScreen = () => {
+const LoginScreen = ({ navigation }) => {
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const dispatch = useDispatch();
+
+  const handleLoginPress = () => {
+    console.log('login press working');
+    if (email.length === 0 || password.length === 0) return;
+
+    const signinInput = {
+      email,
+      password
+    };
+
+    dispatch(fetchSignin(signinInput));
+  };
+
+  const handleSingupPress = () => {
+    navigation.navigate('Signup');
+  };
+
   return (
     <View style={styles.wrapper}>
       <View style={styles.loginWrapper}>
@@ -18,10 +40,14 @@ const LoginScreen = () => {
         <View style={styles.inputWrapper}>
           <View style={styles.idInputWrapper}>
             <View style={styles.idTextWrapper}>
-              <Text style={styles.idText}>ID</Text>
+              <Text style={styles.idText}>Email</Text>
             </View>
             <View style={styles.idTextInputWrapper}>
-              <TextInput placeholder={'아이디를 입력해주세요'} />
+              <TextInput
+                placeholder={'아이디를 입력해주세요'}
+                value={email}
+                onChangeText={setEmail}
+              />
             </View>
           </View>
           <View style={styles.pwInputWrapper}>
@@ -29,13 +55,20 @@ const LoginScreen = () => {
               <Text style={styles.pwText}>PW</Text>
             </View>
             <View style={styles.pwTextInputWrapper}>
-              <TextInput placeholder={'비밀번호를 입력해주세요'} />
+              <TextInput
+                placeholder={'비밀번호를 입력해주세요'}
+                value={password}
+                onChangeText={setPassword}
+              />
             </View>
           </View>
         </View>
         <View style={styles.loginBtnWrapper}>
-          <TouchableOpacity style={styles.loginBtn}>
+          <TouchableOpacity style={styles.loginBtn} onPress={handleLoginPress}>
             <Text style={styles.loginText}>로그인</Text>
+          </TouchableOpacity>
+          <TouchableOpacity style={styles.signupBtn} onPress={handleSingupPress}>
+            <Text style={styles.signupText}>회원가입</Text>
           </TouchableOpacity>
         </View>
         <View style={styles.iconWrapper}>
@@ -58,7 +91,8 @@ const styles = StyleSheet.create({
   wrapper: {
     flex: 1,
     justifyContent: 'center',
-    alignItems: 'center'
+    alignItems: 'center',
+    backgroundColor: '#E8BE64'
   },
   loginWrapper: {
     backgroundColor: '#EDCE8A',
@@ -81,15 +115,15 @@ const styles = StyleSheet.create({
   },
   inputWrapper: {
     alignItems: 'center',
-    height: 100,
-    justifyContent: 'space-evenly',
+    height: 120,
+    justifyContent: 'space-evenly'
   },
   idInputWrapper: {
     backgroundColor: '#FAF0DB',
     borderRadius: 10,
     flexDirection: 'row',
     justifyContent: 'space-evenly',
-    width: 200,
+    width: 230,
     height: 35
   },
   idTextWrapper: {
@@ -111,7 +145,7 @@ const styles = StyleSheet.create({
     borderRadius: 10,
     flexDirection: 'row',
     justifyContent: 'space-evenly',
-    width: 200,
+    width: 230,
     height: 35
   },
   pwTextWrapper: {
@@ -129,9 +163,10 @@ const styles = StyleSheet.create({
   },
   loginBtnWrapper: {
     width: '100%',
-    height: 50,
-    justifyContent: 'center',
+    height:70,
+    justifyContent: 'space-evenly',
     alignItems: 'center',
+    flexDirection: 'row'
   },
   loginBtn: {
     backgroundColor: '#D78A41',
@@ -140,6 +175,18 @@ const styles = StyleSheet.create({
     paddingRight: 30,
     paddingTop: 10,
     paddingBottom: 10
+  },
+  signupBtn: {
+    backgroundColor: '#D78A41',
+    borderRadius: 10,
+    paddingLeft: 30,
+    paddingRight: 30,
+    paddingTop: 10,
+    paddingBottom: 10
+  },
+  signupText: {
+    color: 'white',
+    fontWeight: '600'
   },
   loginText: {
     color: 'white',
