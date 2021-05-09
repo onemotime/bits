@@ -8,9 +8,7 @@ import HomeBottomNav from '../components/HomeBottomNav';
 const RegisterScreen = () => {
   return (
     <View style={styles.wrapper}>
-      <HomeTopNav />
       <SettingHabit />
-      <HomeBottomNav />
     </View>
   );
 };

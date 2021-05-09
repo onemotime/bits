@@ -2,9 +2,9 @@ import React from 'react';
 import { useSelector } from 'react-redux';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
+import MainScreen from '../screens/MainScreen';
 import LoginScreen from '../screens/LoginScreen';
 import SignupScreen from '../screens/SignupScreen';
-import HomeScreen from '../screens/HomeScreen';
 
 const AppStack = createStackNavigator();
 
@@ -16,7 +16,7 @@ const AppNavigator = () => {
       <AppStack.Navigator screenOptions={{ headerShown: false }}>
         {accessToken
           ? <>
-              <AppStack.Screen name='Home' component={HomeScreen} />
+              <AppStack.Screen name="Main" component={MainScreen} />
             </>
           : <>
               <AppStack.Screen name='Login' component={LoginScreen} />

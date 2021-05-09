@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useSelector } from 'react-redux';
 import { View, Animated, Text, TouchableOpacity, StyleSheet } from 'react-native';
 import { CountdownCircleTimer } from 'react-native-countdown-circle-timer';
 
@@ -52,8 +53,7 @@ const styles = StyleSheet.create({
   pressButtonWrapper: {
     justifyContent: 'space-evenly',
     alignItems: 'center',
-    flexGrow: 0.4,
-    borderWidth: 1
+    flexGrow: 0.4
   },
   pressButtonText: {
     fontWeight: '600',
