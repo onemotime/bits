@@ -3,6 +3,7 @@ import { View, StyleSheet } from 'react-native';
 import { useSelector } from 'react-redux';
 import { useNavigation } from '@react-navigation/native';
 
+import HomeTopNav from '../components/HomeTopNav';
 import HabitRegister from '../components/HabitRegister';
 import UserHabit from '../components/UserHabit';
 import CountDownBtn from '../components/CountdownBtn';
@@ -22,6 +23,7 @@ const HomeScreen = () => {
 
   return (
     <View style={styles.wrapper}>
+      <HomeTopNav />
       {habits.length > 0
         ? <UserHabit habits={habits} />
         : <HabitRegister handlePress={handleRegisterHabitPress} />}
@@ -41,33 +43,3 @@ const styles = StyleSheet.create({
 });
 
 export default HomeScreen;
-
-// const mockHabitData = [
-//   {
-//     type: 'code',
-//     name: '코딩',
-//     day: 30,
-//     count: 0,
-//     mate: 3,
-//     like: 0,
-//     img: 'mock img'
-//   },
-//   {
-//     type: 'swim',
-//     name: '수영',
-//     day: 15,
-//     count: 3,
-//     mate: 4,
-//     like: 0,
-//     img: 'mock img url'
-//   },
-//   {
-//     type: 'read',
-//     name: '독서',
-//     day: 22,
-//     count: 12,
-//     mate: 5,
-//     like: 333,
-//     img: 'mock img url'
-//   }
-// ];

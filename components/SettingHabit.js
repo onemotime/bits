@@ -45,7 +45,9 @@ const SettingHabit = () => {
     setShowTime(false);
   };
 
-  const handleRegisterPress = () => {
+  const handleRegisterPress = async () => {
+    if (selectedAct === null || selectedDay === null || selectedTime === null) return;
+
     const registerInput = {
       email,
       actType: selectedAct,
@@ -53,9 +55,9 @@ const SettingHabit = () => {
       time: selectedTime
     };
 
-    dispatch(registerHabit(registerInput));
+    await dispatch(registerHabit(registerInput));
 
-    navigation.navigate('Main');
+    navigation.navigate('습관');
   };
 
   return (

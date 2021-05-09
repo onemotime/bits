@@ -27,7 +27,6 @@ export const requestSignup = async (signupInput) => {
 };
 
 export const postHabit = async (registerInput) => {
-  console.log('포스트 해빗 작동 중');
   const url = `${SERVER_URL}/habit`;
   const response = await fetch(url, {
     method: 'POST',

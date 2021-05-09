@@ -11,7 +11,7 @@ const UserHabit = ({ habits }) => {
     <View style={styles.userHabitWrapper}>
       <ScrollView horizontal={true}>
         {habits.map((data, index) => {
-          const caculatedNumber = Math.floor(data.count / data.day * 100);
+          const caculatedNumber = Math.floor(data.achivedDay / data.settedDay * 100);
           const icon = pickImgByType(data.habitType);
           const habitName = pickTextByType(data.habitType);
 
@@ -25,7 +25,7 @@ const UserHabit = ({ habits }) => {
                   <Text style={styles.name}>{habitName}</Text>
                 </View>
                 <View style={styles.dayMateLike}>
-                  <Text style={styles.day}>Day {data.count} / {data.day}</Text>
+                  <Text style={styles.day}>Day {data.achivedDay} / {data.settedDay}</Text>
                   <Text style={styles.mate}>Mate {data.mate}</Text>
                   <Text style={styles.like}>Like {data.like}</Text>
                   <Text style={styles.status}>Status {caculatedNumber}%</Text>

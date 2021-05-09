@@ -24,7 +24,7 @@ export const registerHabit = createAsyncThunk(
   async (registerInput, thunkAPI) => {
     try {
       const response = await userApi.postHabit(registerInput);
-      console.log('유저 등록 응답' + response);
+      console.log('유저슬라이스 레지스터해빗 함수 응답' + response);
       if (response.status === 201) {
         return response;
       }
@@ -68,9 +68,11 @@ export const userSlice = createSlice({
       state.errorMessage = payload.message;
     },
     [registerHabit.fulfilled]: (state, { payload }) => {
-      state.habits = state.habits.push(payload.newHabit);
+      state.habits.push(payload.newHabit);
+      state.isFetching = false;
+      state.isSuccess = true;
     },
-    [registerHabit.pending]: (state, { payload }) => {
+    [registerHabit.pending]: (state) => {
       state.isFetching = false;
     },
     [registerHabit.rejected]: (state, { payload }) => {

@@ -107,11 +107,11 @@ const SignupScreen = ({ navigation }) => {
 const styles = StyleSheet.create({
   wrapper: {
     flex: 1,
-    justifyContent: 'center',
     alignItems: 'center',
     backgroundColor: '#E8BE64'
   },
   signupWrapper: {
+    marginTop: '40%',
     backgroundColor: '#EDCE8A',
     borderRadius: 10,
     justifyContent: 'center',
