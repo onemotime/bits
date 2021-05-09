@@ -10,7 +10,7 @@ const MateRegister = () => {
         <Text style={styles.registerText}>새로운 메이트를 추가해보세요</Text>
       </View>
       <TouchableOpacity>
-        <Entypo name="circle-with-plus" size={24} color='#E8BE64' />
+        <Entypo name="circle-with-plus" size={24} color='white' />
       </TouchableOpacity>
     </View>
   );
@@ -20,17 +20,19 @@ const styles = StyleSheet.create({
   mateRegisterWrapper: {
     justifyContent: 'space-evenly',
     alignItems: 'center',
-    backgroundColor: 'white',
-    width: '100%',
-    height: '60%',
-    flexGrow: 8
+    backgroundColor: '#EDCD88',
+    width: '80%',
+    height: '30%',
+    borderRadius: 10
   },
   textWrapper: {
     alignItems: 'center'
   },
   registerText: {
-    fontWeight: '600',
-    padding: 10
+    fontWeight: '900',
+    color: 'white',
+    padding: 10,
+    fontSize: 15
   }
 });
 

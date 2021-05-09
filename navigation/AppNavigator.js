@@ -5,6 +5,7 @@ import { createStackNavigator } from '@react-navigation/stack';
 import MainScreen from '../screens/MainScreen';
 import LoginScreen from '../screens/LoginScreen';
 import SignupScreen from '../screens/SignupScreen';
+import RegisterScreen from '../screens/RegisterHabitScreen';
 
 const AppStack = createStackNavigator();
 
@@ -16,7 +17,8 @@ const AppNavigator = () => {
       <AppStack.Navigator screenOptions={{ headerShown: false }}>
         {accessToken
           ? <>
-              <AppStack.Screen name="Main" component={MainScreen} />
+              <AppStack.Screen name='Main' component={MainScreen} />
+              <AppStack.Screen name='Register' component={RegisterScreen} />
             </>
           : <>
               <AppStack.Screen name='Login' component={LoginScreen} />

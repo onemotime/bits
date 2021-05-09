@@ -1,15 +1,17 @@
 import React from 'react';
 import { View, StyleSheet } from 'react-native';
 import { useSelector } from 'react-redux';
+import { useNavigation } from '@react-navigation/native';
 
 import HabitRegister from '../components/HabitRegister';
 import UserHabit from '../components/UserHabit';
 import CountDownBtn from '../components/CountdownBtn';
 
-const HomeScreen = ({ navigation }) => {
+const HomeScreen = () => {
   const { habits } = useSelector(state => state.user);
+  const navigation = useNavigation();
   const handleRegisterHabitPress = () => {
-    navigation.navigate('RegistHabit');
+    navigation.navigate('Register');
   };
 
   return (
