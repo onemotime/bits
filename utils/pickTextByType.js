@@ -1,11 +1,15 @@
 const pickTextByType = (habitType) => {
   switch (habitType) {
+    case 'code':
+      return '코딩'
+      case 'read':
+        return '독서';
     case 'swim':
       return '수영';
-    case 'read':
-      return '독서';
-    case 'weight':
-      return '웨이트'
+    case 'meditate':
+      return '명상';
+    case 'Run':
+      return '달리기';
   }
 };
 

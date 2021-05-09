@@ -19,10 +19,27 @@ export const fetchSignin = createAsyncThunk(
   }
 );
 
+export const registerHabit = createAsyncThunk(
+  'user/registerHabit',
+  async (registerInput, thunkAPI) => {
+    try {
+      const response = await userApi.postHabit(registerInput);
+      console.log('유저 등록 응답' + response);
+      if (response.status === 201) {
+        return response;
+      }
+
+      return thunkAPI.rejectWithValue(response);
+    } catch (err) {
+      console.error(err);
+    }
+  }
+);
+
 export const userSlice = createSlice({
   name: 'user',
   initialState: {
-    username: '',
+    userName: '',
     email: '',
     habits: [],
     accessToken: '',
@@ -46,6 +63,17 @@ export const userSlice = createSlice({
       state.isFetching = true;
     },
     [fetchSignin.rejected]: (state, { payload }) => {
+      state.isFetching = false;
+      state.isError = true;
+      state.errorMessage = payload.message;
+    },
+    [registerHabit.fulfilled]: (state, { payload }) => {
+      state.habits = state.habits.push(payload.newHabit);
+    },
+    [registerHabit.pending]: (state, { payload }) => {
+      state.isFetching = false;
+    },
+    [registerHabit.rejected]: (state, { payload }) => {
       state.isFetching = false;
       state.isError = true;
       state.errorMessage = payload.message;

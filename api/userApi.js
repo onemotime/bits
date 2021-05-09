@@ -25,3 +25,17 @@ export const requestSignup = async (signupInput) => {
 
   return await response.json();
 };
+
+export const postHabit = async (registerInput) => {
+  console.log('포스트 해빗 작동 중');
+  const url = `${SERVER_URL}/habit`;
+  const response = await fetch(url, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(registerInput)
+  });
+
+  return await response.json();
+};

@@ -3,7 +3,7 @@ import { View, StyleSheet } from 'react-native';
 
 import SettingHabit from '../components/SettingHabit';
 
-const RegisterScreen = () => {
+const RegisterHabit = () => {
   return (
     <View style={styles.wrapper}>
       <SettingHabit />
@@ -20,4 +20,4 @@ const styles = StyleSheet.create({
   }
 });
 
-export default RegisterScreen;
+export default RegisterHabit;

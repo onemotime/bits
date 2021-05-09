@@ -1,14 +1,22 @@
 import React, { useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { useNavigation } from '@react-navigation/native';
+import { registerHabit } from '../redux/userSlice';
 import { Picker } from '@react-native-picker/picker';
-import { Button, View, Text, TextInput, TouchableOpacity, StyleSheet } from 'react-native';
+import { Button, View, Text, TouchableOpacity, StyleSheet } from 'react-native';
 
 const SettingHabit = () => {
-  const [isActShown, setShowAct] = useState(false);
+  const dispatch = useDispatch();
+  const { email } = useSelector(state => state.user);
+  const navigation = useNavigation();
+
   const [selectedAct, setAct] = useState(null);
-  const [isDayShown, setShowDay] = useState(false);
   const [selectedDay, setDay] = useState(null);
-  const [isTimeShown, setShowTime] = useState(false);
   const [selectedTime, setTime] = useState(null);
+
+  const [isActShown, setShowAct] = useState(false);
+  const [isDayShown, setShowDay] = useState(false);
+  const [isTimeShown, setShowTime] = useState(false);
 
   const handleActPress = () => {
     setShowAct(true);
@@ -37,7 +45,18 @@ const SettingHabit = () => {
     setShowTime(false);
   };
 
-  const handleSettingPress = () => {};
+  const handleRegisterPress = () => {
+    const registerInput = {
+      email,
+      actType: selectedAct,
+      day: selectedDay,
+      time: selectedTime
+    };
+
+    dispatch(registerHabit(registerInput));
+
+    navigation.navigate('Main');
+  };
 
   return (
     <View style={styles.subscribeWrapper}>
@@ -66,7 +85,7 @@ const SettingHabit = () => {
             <Picker.Item label='Read' value='read' />
             <Picker.Item label='Swim' value='swim' />
             <Picker.Item label='Meditate' value='meditate' />
-            <Picker.Item label='Pilates' value='pilates' />
+            <Picker.Item label='Run' value='run' />
           </Picker>}
         {(!isActShown && !isDayShown && !isTimeShown) &&
           <TouchableOpacity style={styles.dayInput} onPress={handleDayPress}>
@@ -111,14 +130,15 @@ const SettingHabit = () => {
               ]
             }}
           >
+            <Picker.Item label='3 s' value='10 s' />
+            <Picker.Item label='10 s' value='10 s' />
             <Picker.Item label='10 m' value='10 m' />
             <Picker.Item label='30 m' value='30 m' />
             <Picker.Item label='1 h' value='1 h' />
-            <Picker.Item label='2 h' value='2 h' />
         </Picker>}
       </View>
       <View style={styles.buttonWrapper}>
-        <Button title='설정' color='white' onPress={handleSettingPress} />
+        <Button title='등록' color='white' onPress={handleRegisterPress} />
       </View>
     </View>
   );

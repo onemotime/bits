@@ -1,24 +1,28 @@
 import React from 'react';
 import { Feather } from '@expo/vector-icons';
-import { StyleSheet, ScrollView, View, Text, Image, TouchableOpacity } from 'react-native';
+import { StyleSheet, ScrollView, View, Text, TouchableOpacity } from 'react-native';
+import pickImgByType from '../utils/pickIconByType';
+import pickTextByType from '../utils/pickTextByType';
 
-const UserHabit = ({ data }) => {
+const UserHabit = ({ habits }) => {
   const handleCancelPress = (deleteIndex) => {};
 
   return (
     <View style={styles.userHabitWrapper}>
       <ScrollView horizontal={true}>
-        {data.map((data, index) => {
+        {habits.map((data, index) => {
           const caculatedNumber = Math.floor(data.count / data.day * 100);
+          const icon = pickImgByType(data.habitType);
+          const habitName = pickTextByType(data.habitType);
 
           return (
             <View style={styles.habitInfoWrapper} key={index}>
               <View>
-                <Text>{data.img}</Text>
+                {icon}
               </View>
               <View style={styles.habitInfo}>
                 <View style={styles.habbitName}>
-                  <Text style={styles.name}>{data.name}</Text>
+                  <Text style={styles.name}>{habitName}</Text>
                 </View>
                 <View style={styles.dayMateLike}>
                   <Text style={styles.day}>Day {data.count} / {data.day}</Text>

@@ -3,8 +3,7 @@ import { useSelector } from 'react-redux';
 import { View, Animated, Text, TouchableOpacity, StyleSheet } from 'react-native';
 import { CountdownCircleTimer } from 'react-native-countdown-circle-timer';
 
-const CountdownBtn = () => {
-  const [isButtonPressed, setButtonPressedStatus] = useState(false);
+const CountdownBtn = ({ isCountDownOn, handlePress }) => {
   const [isHabitDone, setHabitDoneStatus] = useState(false);
 
   const handleCountdownPress = () => {
@@ -22,9 +21,9 @@ const CountdownBtn = () => {
         Press Your Habit
       </Text>
       <View style={styles.circleWrapper}>
-        <TouchableOpacity onPress={handleCountdownPress}>
+        <TouchableOpacity onPress={handlePress}>
           <CountdownCircleTimer
-            isPlaying={isButtonPressed}
+            isPlaying={isCountDownOn}
             duration={3}
             colors={[
               ['#004777', 0.4],
