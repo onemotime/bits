@@ -31,7 +31,6 @@ const styles = StyleSheet.create({
     width: '80%',
     borderColor: 'black',
     marginLeft: 35,
-    flexGrow: 0.1,
     marginTop: 20
   },
   iconNameWrapper: {

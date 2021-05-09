@@ -38,3 +38,16 @@ export const postHabit = async (registerInput) => {
 
   return await response.json();
 };
+
+export const deleteHabit = async (deleteInput) => {
+  const url = `${SERVER_URL}/habit`;
+  const response = await fetch(url, {
+    method: 'DELETE',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(deleteInput)
+  });
+
+  return await response.json();
+};

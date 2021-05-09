@@ -52,14 +52,15 @@ const styles = StyleSheet.create({
   pressButtonWrapper: {
     justifyContent: 'space-evenly',
     alignItems: 'center',
-    flexGrow: 0.4
+    borderWidth: 1
   },
   pressButtonText: {
-    fontWeight: '600',
+    fontWeight: '700',
+    fontSize: 17,
     color: 'white'
   },
   circleWrapper: {
-    marginBottom: 20
+    marginTop: 30
   },
   doneText: {
     color: '#4cd137',

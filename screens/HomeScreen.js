@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
 import { View, StyleSheet } from 'react-native';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import { useNavigation } from '@react-navigation/native';
+import { removeHabit } from '../redux/userSlice';
+
 
 import HomeTopNav from '../components/HomeTopNav';
 import HabitRegister from '../components/HabitRegister';
@@ -10,8 +12,18 @@ import CountDownBtn from '../components/CountdownBtn';
 
 const HomeScreen = () => {
   const [isCountDownOn, setCountDown] = useState(false);
-  const { habits } = useSelector(state => state.user);
+  const { habits, email } = useSelector(state => state.user);
   const navigation = useNavigation();
+  const dispatch = useDispatch();
+
+  const handleDeletePress = (targetIndex) => {
+    const deleteInput = {
+      email,
+      targetIndex
+    };
+
+    dispatch(removeHabit(deleteInput));
+  };
 
   const handleRegisterHabitPress = () => {
     navigation.navigate('Register');
@@ -25,7 +37,11 @@ const HomeScreen = () => {
     <View style={styles.wrapper}>
       <HomeTopNav />
       {habits.length > 0
-        ? <UserHabit habits={habits} />
+        ? <UserHabit
+          habits={habits}
+          handlePress={handleRegisterHabitPress}
+          handlePressX={(index) => handleDeletePress(index)}
+        />
         : <HabitRegister handlePress={handleRegisterHabitPress} />}
       <CountDownBtn
         handlePress={handleCountDownBtnPress}

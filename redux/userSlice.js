@@ -24,9 +24,26 @@ export const registerHabit = createAsyncThunk(
   async (registerInput, thunkAPI) => {
     try {
       const response = await userApi.postHabit(registerInput);
-      console.log('유저슬라이스 레지스터해빗 함수 응답' + response);
+
       if (response.status === 201) {
         return response;
+      }
+
+      return thunkAPI.rejectWithValue(response);
+    } catch (err) {
+      console.error(err);
+    }
+  }
+);
+
+export const removeHabit = createAsyncThunk(
+  'user/removeHabit',
+  async (deleteInput, thunkAPI) => {
+    try {
+      const response = await userApi.deleteHabit(deleteInput);
+
+      if (response.status === 200) {
+        return deleteInput.targetIndex;
       }
 
       return thunkAPI.rejectWithValue(response);
@@ -73,9 +90,23 @@ export const userSlice = createSlice({
       state.isSuccess = true;
     },
     [registerHabit.pending]: (state) => {
-      state.isFetching = false;
+      state.isFetching = true;
     },
     [registerHabit.rejected]: (state, { payload }) => {
+      state.isFetching = false;
+      state.isError = true;
+      state.errorMessage = payload.message;
+    },
+    [removeHabit.fulfilled]: (state, { payload }) => {
+      console.log('@@@@@@@@@페이로드 입니다' + payload);
+      state.habits.splice(payload, 1);
+      state.isFetching = false;
+      state.isSuccess = true;
+    },
+    [removeHabit.pending]: (state) => {
+      state.isFetching = true;
+    },
+    [removeHabit.rejected]: (state, { payload }) => {
       state.isFetching = false;
       state.isError = true;
       state.errorMessage = payload.message;
