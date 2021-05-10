@@ -7,7 +7,7 @@ import { Button, View, Text, TouchableOpacity, StyleSheet } from 'react-native';
 
 const SettingHabit = () => {
   const dispatch = useDispatch();
-  const { email } = useSelector(state => state.user);
+  const { email, habits } = useSelector(state => state.user);
   const navigation = useNavigation();
 
   const [selectedAct, setAct] = useState(null);
@@ -47,6 +47,12 @@ const SettingHabit = () => {
 
   const handleRegisterPress = async () => {
     if (selectedAct === null || selectedDay === null || selectedTime === null) return;
+
+    const isSameHabitRegistered = habits.some(habit => {
+      return habit.habitType === selectedAct;
+    });
+
+    if (isSameHabitRegistered) return;
 
     const registerInput = {
       email,
@@ -132,7 +138,7 @@ const SettingHabit = () => {
               ]
             }}
           >
-            <Picker.Item label='3 s' value='10 s' />
+            <Picker.Item label='3 s' value='3 s' />
             <Picker.Item label='10 s' value='10 s' />
             <Picker.Item label='10 m' value='10 m' />
             <Picker.Item label='30 m' value='30 m' />

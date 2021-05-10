@@ -1,14 +1,9 @@
 import React, { useState } from 'react';
-import { useSelector } from 'react-redux';
 import { View, Animated, Text, TouchableOpacity, StyleSheet } from 'react-native';
 import { CountdownCircleTimer } from 'react-native-countdown-circle-timer';
 
 const CountdownBtn = ({ isCountDownOn, handlePress }) => {
   const [isHabitDone, setHabitDoneStatus] = useState(false);
-
-  const handleCountdownPress = () => {
-    setButtonPressedStatus(true);
-  };
 
   const handleTimeColplete = () => {
     setButtonPressedStatus(false);
@@ -30,7 +25,7 @@ const CountdownBtn = ({ isCountDownOn, handlePress }) => {
               ['#F7B801', 0.4],
               ['#A30000', 0.2],
             ]}
-            size={150}
+            size={130}
             strokeWidth={10}
             onComplete={handleTimeColplete}
           >

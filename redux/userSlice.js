@@ -98,7 +98,6 @@ export const userSlice = createSlice({
       state.errorMessage = payload.message;
     },
     [removeHabit.fulfilled]: (state, { payload }) => {
-      console.log('@@@@@@@@@페이로드 입니다' + payload);
       state.habits.splice(payload, 1);
       state.isFetching = false;
       state.isSuccess = true;

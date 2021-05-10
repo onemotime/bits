@@ -4,21 +4,33 @@ import { StyleSheet, ScrollView, View, Text, TouchableOpacity } from 'react-nati
 import pickImgByType from '../utils/pickIconByType';
 import pickTextByType from '../utils/pickTextByType';
 
-const UserHabit = ({ habits, handlePress, handlePressX }) => {
+const UserHabit = ({
+  habits,
+  handlePress,
+  handleIconPress,
+  handlePressX,
+  isHabitSelected,
+  targetHabitType
+}) => {
+
   return (
     <View style={styles.wrapper}>
       <View style={styles.userHabitWrapper}>
         <ScrollView horizontal={true}>
           {habits.map((data, index) => {
             const caculatedNumber = Math.floor(data.achivedDay / data.settedDay * 100);
-            const icon = pickImgByType(data.habitType);
+            const icon = pickImgByType(data.habitType, isHabitSelected, targetHabitType);
             const habitName = pickTextByType(data.habitType);
 
             return (
               <View style={styles.habitInfoWrapper} key={index}>
-                <View style={styles.iconWrapper}>
-                  {icon}
-                </View>
+                <TouchableOpacity
+                  onPress={() => handleIconPress(index)}
+                >
+                  <View style={styles.iconWrapper}>
+                    {icon}
+                  </View>
+                </TouchableOpacity>
                 <View style={styles.habitInfo}>
                   <View style={styles.habbitName}>
                     <Text style={styles.name}>{habitName}</Text>
@@ -67,7 +79,7 @@ const styles = StyleSheet.create({
     alignItems: 'center'
   },
   iconWrapper: {
-    borderWidth: 1,
+    borderWidth: 2,
     backgroundColor: '#E5B75C',
     borderRadius: 10,
     padding: 15,
