@@ -1,42 +1,40 @@
 import React, { useState } from 'react';
 import { View, Animated, Text, TouchableOpacity, StyleSheet } from 'react-native';
 import { CountdownCircleTimer } from 'react-native-countdown-circle-timer';
+import { FontAwesome5 } from '@expo/vector-icons';
 
-const CountdownBtn = ({ isCountDownOn, handlePress }) => {
-  const [isHabitDone, setHabitDoneStatus] = useState(false);
+const CountdownBtn = ({ totalTime }) => {
+  const [isHabitDone, setHabitDone] = useState(false);
 
   const handleTimeColplete = () => {
-    setHabitDoneStatus(true);
+    setHabitDone(true);
   };
 
   return (
     <View style={styles.pressButtonWrapper}>
-      <Text style={styles.pressButtonText}>
-        Press Your Habit
-      </Text>
       <View style={styles.circleWrapper}>
-        <TouchableOpacity onPress={handlePress}>
-          <CountdownCircleTimer
-            isPlaying={isCountDownOn}
-            duration={3}
-            colors={[
-              ['#004777', 0.4],
-              ['#F7B801', 0.4],
-              ['#A30000', 0.2],
-            ]}
-            size={130}
-            strokeWidth={10}
-            onComplete={handleTimeColplete}
-          >
-            {({ remainingTime, animatedColor }) => (
-              <Animated.Text style={{ color: animatedColor }}>
-                {isHabitDone
-                  ? <Text style={styles.doneText}>Done !</Text>
-                  : remainingTime}
-              </Animated.Text>
-            )}
-          </CountdownCircleTimer>
-        </TouchableOpacity>
+        <CountdownCircleTimer
+          isPlaying={true}
+          duration={totalTime}
+          colors={[
+            ['#004777', 0.4],
+            ['#F7B801', 0.4],
+            ['#A30000', 0.2],
+          ]}
+          size={130}
+          strokeWidth={10}
+          onComplete={handleTimeColplete}
+        >
+          {({ remainingTime, animatedColor }) => (
+            <Animated.Text style={{ color: animatedColor }}>
+              {isHabitDone
+                ? <Text style={styles.doneText}>
+                    <FontAwesome5 name='calendar-check' size={30} color='#4cd137' />
+                  </Text>
+                : remainingTime}
+            </Animated.Text>
+          )}
+        </CountdownCircleTimer>
       </View>
     </View>
   );

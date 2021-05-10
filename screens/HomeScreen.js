@@ -1,18 +1,22 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import { View, StyleSheet } from 'react-native';
 import { useSelector, useDispatch } from 'react-redux';
 import { useNavigation } from '@react-navigation/native';
 import { removeHabit } from '../redux/userSlice';
+import convertTimeStrToSec from '../utils/convertTimeStrToSec';
 
 import HomeTopNav from '../components/HomeTopNav';
 import HabitRegister from '../components/HabitRegister';
 import UserHabit from '../components/UserHabit';
 import CountDownBtn from '../components/CountdownBtn';
+import StartCountDownBtn from '../components/StartCountDownBtn';
 
 const HomeScreen = () => {
-  const [isCountDownOn, setCountDown] = useState(false);
   const [isHabitSelected, setSelectedHabit] = useState(false);
   const [targetHabit, setTargetHabit] = useState(null);
+  const [countDownTime, setCountDownTime] = useState(0);
+  const [isStartCountBtnOn, setStartCountBtn] = useState(false);
+
   const { habits, email } = useSelector(state => state.user);
   const navigation = useNavigation();
   const dispatch = useDispatch();
@@ -28,39 +32,52 @@ const HomeScreen = () => {
 
   const handleIconPress = (targetIndex) => {
     const habitType = habits[targetIndex];
+    const sec = convertTimeStrToSec(habits[targetIndex].settedTime);
 
-    setSelectedHabit((prev) => !prev);
-    setTargetHabit(habitType);
+    setSelectedHabit((prev) => {
+
+      if (prev === false) {
+        setCountDownTime(sec);
+        setTargetHabit(habitType);
+
+        return !prev
+      }
+
+      setCountDownTime(0);
+      setTargetHabit(null);
+
+      return !prev;
+    });
   };
 
   const handleRegisterHabitPress = () => {
     navigation.navigate('Register');
   };
 
-  const handleCountDownBtnPress = () => {
+  const handleStartCountDownPress = () => {
     if (!targetHabit?.habitType || !isHabitSelected) return;
 
-    setCountDown(true);
+    setStartCountBtn(true);
   };
 
   return (
     <View style={styles.wrapper}>
       <HomeTopNav />
-      {habits.length > 0
-        ? <UserHabit
-            habits={habits}
-            handlePress={handleRegisterHabitPress}
-            handleIconPress={(index) => handleIconPress(index)}
-            handlePressX={(index) => handleDeletePress(index)}
-            isHabitSelected={isHabitSelected}
-            targetHabit={targetHabit}
-          />
-        : <HabitRegister handlePress={handleRegisterHabitPress} />}
-      <CountDownBtn
-        handlePress={handleCountDownBtnPress}
-        isCountDownOn={isCountDownOn}
-        targetHabit={targetHabit}
-      />
+      {isStartCountBtnOn
+        ? <View style={styles.complement}/>
+        : habits.length > 0
+            ? <UserHabit
+                habits={habits}
+                handlePress={handleRegisterHabitPress}
+                handleIconPress={(index) => handleIconPress(index)}
+                handlePressX={(index) => handleDeletePress(index)}
+                isHabitSelected={isHabitSelected}
+                targetHabit={targetHabit}
+              />
+            : <HabitRegister handlePress={handleRegisterHabitPress} />}
+      {isStartCountBtnOn
+        ? <CountDownBtn totalTime={countDownTime} />
+        : <StartCountDownBtn handlePress={handleStartCountDownPress} />}
     </View>
   );
 };
@@ -69,6 +86,9 @@ const styles = StyleSheet.create({
   wrapper: {
     flex: 1,
     backgroundColor: '#E8BE64'
+  },
+  complement: {
+    height: 150
   }
 });
 

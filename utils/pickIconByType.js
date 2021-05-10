@@ -6,21 +6,25 @@ import {
   MaterialCommunityIcons,
 } from '@expo/vector-icons';
 
-const pickImgByType = (habitType, isHabitSelected, targetHabitType) => {
+const pickImgByType = (
+  habitType,
+  isHabitSelected,
+  targetHabitType
+) => {
   switch (habitType) {
     case 'code':
       return (
         <AntDesign
           name='codesquare'
           size={40}
-          color={(isHabitSelected && (targetHabitType === 'code')) ? 'green' : 'white'} />
+          color={(isHabitSelected && (targetHabitType === 'code')) ? '#4cd137' : 'white'} />
       );
       case 'read':
         return (
           <Entypo
             name='open-book'
             size={40}
-            color={(isHabitSelected && (targetHabitType === 'read')) ? 'green' : 'white'}
+            color={(isHabitSelected && (targetHabitType === 'read')) ? '#4cd137' : 'white'}
           />
         );
     case 'swim':
@@ -28,7 +32,7 @@ const pickImgByType = (habitType, isHabitSelected, targetHabitType) => {
         <FontAwesome5
           name='swimmer'
           size={40}
-          color={(isHabitSelected && (targetHabitType === 'swim')) ? 'green' : 'white'}
+          color={(isHabitSelected && (targetHabitType === 'swim')) ? '#4cd137' : 'white'}
         />
       );
     case 'meditate':
@@ -36,7 +40,7 @@ const pickImgByType = (habitType, isHabitSelected, targetHabitType) => {
         <MaterialCommunityIcons
           name='meditation'
           size={40}
-          color={(isHabitSelected && (targetHabitType === 'meditate')) ? 'green' : 'white'}
+          color={(isHabitSelected && (targetHabitType === 'meditate')) ? '#4cd137' : 'white'}
         />
       );
     case 'run':
@@ -44,7 +48,7 @@ const pickImgByType = (habitType, isHabitSelected, targetHabitType) => {
         <MaterialCommunityIcons
           name='run-fast'
           size={40}
-          color={(isHabitSelected && (targetHabitType === 'run')) ? 'green' : 'white'}
+          color={(isHabitSelected && (targetHabitType === 'run')) ? '#4cd137' : 'white'}
         />
       );
   }
