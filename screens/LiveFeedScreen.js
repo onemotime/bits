@@ -2,13 +2,17 @@ import React from 'react';
 import { View, StyleSheet } from 'react-native';
 import { useSelector } from 'react-redux';
 
+import LiveFeed from '../components/LiveFeed';
 import MateRegister from '../components/MateRegister';
 
-const LiveFeedScreen = ({ navigation }) => {
+const LiveFeedScreen = () => {
+  const { email, following } = useSelector(state => state.user);
 
   return (
     <View style={styles.wrapper}>
-      <MateRegister />
+      {following.length > 0
+        ? <LiveFeed />
+        : <MateRegister email={email} />}
     </View>
   );
 };

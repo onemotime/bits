@@ -5,7 +5,6 @@ import { useNavigation } from '@react-navigation/native';
 import { removeHabit } from '../redux/userSlice';
 import convertTimeStrToSec from '../utils/convertTimeStrToSec';
 
-import HomeTopNav from '../components/HomeTopNav';
 import HabitRegister from '../components/HabitRegister';
 import UserHabit from '../components/UserHabit';
 import CountDownBtn from '../components/CountdownBtn';
@@ -63,7 +62,6 @@ const HomeScreen = () => {
 
   return (
     <View style={styles.wrapper}>
-      <HomeTopNav />
       {isStartCountBtnOn
         ? <View style={styles.complement}/>
         : habits.length > 0

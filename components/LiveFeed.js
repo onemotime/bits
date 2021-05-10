@@ -2,7 +2,7 @@ import React from 'react';
 import { EvilIcons } from '@expo/vector-icons';
 import { View, Text, TouchableOpacity, StyleSheet } from 'react-native';
 import { ScrollView } from 'react-native-gesture-handler';
-import pickImgByType from '../utils/pickImgByType';
+import pickIconByType from '../utils/pickIconByType';
 
 const LiveFeed = () => {
   const mockData = [
@@ -44,7 +44,7 @@ const LiveFeed = () => {
                 <ScrollView horizontal={true}>
                   {item.habit.length > 0 &&
                     item.habit.map(habitData => {
-                      const habitImg = pickImgByType(habitData.type);
+                      const habitIcon = pickIconByType(habitData.type);
 
                       return (
                         <TouchableOpacity onPress={handleLikePress}>
@@ -52,7 +52,7 @@ const LiveFeed = () => {
                             <View style={styles.statusTextWrapper}>
                               <Text style={styles.statusText}>지금</Text>
                             </View>
-                            <View style={styles.habitImg}>{habitImg}</View>
+                            <View style={styles.habitIcon}>{habitIcon}</View>
                             <Text style={styles.startTimeText}>In haBiTS</Text>
                           </View>
                         </TouchableOpacity>
@@ -106,7 +106,7 @@ const styles = StyleSheet.create({
     marginRight: 10,
     fontSize: 10
   },
-  habitImg: {
+  habitIcon: {
     justifyContent: 'center',
     alignItems: 'center'
   },

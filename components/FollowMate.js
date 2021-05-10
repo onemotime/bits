@@ -2,25 +2,26 @@ import React from 'react';
 import { EvilIcons, Entypo } from '@expo/vector-icons';
 import { View, Text, TouchableOpacity, StyleSheet } from 'react-native';
 
-const FollowMate = () => {
+const FollowMate = ({ allUsers }) => {
   const mockMateData = ['susan', 'Choy', 'seul.gi'];
   const handleFollowPress = () => {};
 
   return (
     <View style={styles.followMateWrapper}>
       <Text style={styles.recommendText}>추천친구</Text>
-      {mockMateData.length > 0 && mockMateData.map((name, index) => {
-        return (
-          <View style={styles.mateWrapper} key={index}>
-            <View style={styles.profileImg}>
-              <EvilIcons name="user" size={32} color="black" />
-              <Text>{name}</Text>
+      {allUsers.length > 0 &&
+        allUsers.map((userInfo, index) => {
+          return (
+            <View style={styles.mateWrapper} key={index}>
+              <View style={styles.profileImg}>
+                <EvilIcons name="user" size={32} color="black" />
+                <Text>{userInfo.userName}</Text>
+              </View>
+              <TouchableOpacity style={styles.followButton} onPress={handleFollowPress}>
+                <Entypo name="circle-with-plus" size={24} color='#E8BE64' />
+              </TouchableOpacity>
             </View>
-            <TouchableOpacity style={styles.followButton} onPress={handleFollowPress}>
-              <Entypo name="circle-with-plus" size={24} color='#E8BE64' />
-            </TouchableOpacity>
-          </View>
-        );
+          );
       })}
     </View>
   );

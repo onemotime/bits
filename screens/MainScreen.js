@@ -2,6 +2,7 @@ import React from 'react';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import HomeScreen from './HomeScreen';
 import LiveFeedScreen from './LiveFeedScreen';
+import LiveRegisterScreen from './LiveRegisterScreen';
 import {
   Entypo,
   Ionicons,
@@ -40,7 +41,7 @@ const Main = () => {
     >
       <BottomTab.Screen name='습관' component={HomeScreen} />
       <BottomTab.Screen name='라이브' component={LiveFeedScreen} />
-      <BottomTab.Screen name='검색' component={HomeScreen} />
+      <BottomTab.Screen name='검색' component={LiveRegisterScreen} />
       <BottomTab.Screen name='내정보' component={HomeScreen} />
     </BottomTab.Navigator>
   );

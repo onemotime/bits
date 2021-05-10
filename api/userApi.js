@@ -64,3 +64,16 @@ export const deleteHabit = async (deleteInput) => {
 
   return await response.json();
 };
+
+export const fetchUserName = async (userEmail) => {
+  // GET 메서드로 전환 필요
+  const url = `${SERVER_URL}/user/all`;
+  const response = await fetch(url, {
+    method: 'GET',
+    headers: {
+      'Content-Type': 'application/json'
+    }
+  });
+
+  return await response.json();
+};

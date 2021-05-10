@@ -26,8 +26,7 @@ const styles = StyleSheet.create({
   mainTopWrapper: {
     flexGrow: 0.4,
     justifyContent: 'center',
-    alignItems: 'center',
-    marginTop: 60
+    alignItems: 'center'
   },
   habitRegisterWrapper: {
     backgroundColor: '#EDCD88',
@@ -36,7 +35,8 @@ const styles = StyleSheet.create({
     width: '80%',
     height: '25%',
     borderRadius: 10,
-    flexGrow: 0.8
+    flexGrow: 0.8,
+    marginTop: 30
   },
   textButtonWrapper: {
     height: '100%',

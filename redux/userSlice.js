@@ -70,17 +70,38 @@ export const removeHabit = createAsyncThunk(
   }
 );
 
+export const fetchUser = createAsyncThunk(
+  'user/fetchUser',
+  async (userEmail, thunkAPI) => {
+    try {
+      const response = await userApi.fetchUserName(userEmail);
+
+      if (response.status === 200) {
+        return response.users;
+      }
+
+      return thunkAPI.rejectWithValue(response);
+    } catch (err) {
+      console.error(err);
+    }
+  }
+);
+
 export const userSlice = createSlice({
   name: 'user',
   initialState: {
-    userName: '',
     email: '',
+    userName: '',
+    followers: [],
+    following: [],
+    completedHabits: [],
     habits: [],
     accessToken: '',
     isFetching: false,
     isSuccess: false,
     isError: false,
-    errorMessage: ''
+    errorMessage: '',
+    allUsers: []
   },
   reducers: {
   },
@@ -139,6 +160,9 @@ export const userSlice = createSlice({
       state.isFetching = false;
       state.isError = true;
       state.errorMessage = payload.message;
+    },
+    [fetchUser.fulfilled]: (state, { payload }) => {
+      state.allUsers = payload;
     }
   }
 });
