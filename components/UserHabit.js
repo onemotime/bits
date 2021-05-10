@@ -10,7 +10,7 @@ const UserHabit = ({
   handleIconPress,
   handlePressX,
   isHabitSelected,
-  targetHabitType
+  targetHabit
 }) => {
 
   return (
@@ -19,7 +19,7 @@ const UserHabit = ({
         <ScrollView horizontal={true}>
           {habits.map((data, index) => {
             const caculatedNumber = Math.floor(data.achivedDay / data.settedDay * 100);
-            const icon = pickImgByType(data.habitType, isHabitSelected, targetHabitType);
+            const icon = pickImgByType(data.habitType, isHabitSelected, targetHabit?.habitType);
             const habitName = pickTextByType(data.habitType);
 
             return (

@@ -44,7 +44,7 @@ const pickImgByType = (habitType, isHabitSelected, targetHabitType) => {
         <MaterialCommunityIcons
           name='run-fast'
           size={40}
-          color='white'
+          color={(isHabitSelected && (targetHabitType === 'run')) ? 'green' : 'white'}
         />
       );
   }

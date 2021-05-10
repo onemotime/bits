@@ -12,7 +12,7 @@ import CountDownBtn from '../components/CountdownBtn';
 const HomeScreen = () => {
   const [isCountDownOn, setCountDown] = useState(false);
   const [isHabitSelected, setSelectedHabit] = useState(false);
-  const [selectedHabitType, setSelectedHabitType] = useState('');
+  const [targetHabit, setTargetHabit] = useState(null);
   const { habits, email } = useSelector(state => state.user);
   const navigation = useNavigation();
   const dispatch = useDispatch();
@@ -27,10 +27,10 @@ const HomeScreen = () => {
   };
 
   const handleIconPress = (targetIndex) => {
-    const habitType = habits[targetIndex].habitType;
+    const habitType = habits[targetIndex];
 
     setSelectedHabit((prev) => !prev);
-    setSelectedHabitType(habitType);
+    setTargetHabit(habitType);
   };
 
   const handleRegisterHabitPress = () => {
@@ -38,7 +38,9 @@ const HomeScreen = () => {
   };
 
   const handleCountDownBtnPress = () => {
+    if (!targetHabit?.habitType || !isHabitSelected) return;
 
+    setCountDown(true);
   };
 
   return (
@@ -51,12 +53,13 @@ const HomeScreen = () => {
             handleIconPress={(index) => handleIconPress(index)}
             handlePressX={(index) => handleDeletePress(index)}
             isHabitSelected={isHabitSelected}
-            targetHabitType={selectedHabitType}
+            targetHabit={targetHabit}
           />
         : <HabitRegister handlePress={handleRegisterHabitPress} />}
       <CountDownBtn
         handlePress={handleCountDownBtnPress}
         isCountDownOn={isCountDownOn}
+        targetHabit={targetHabit}
       />
     </View>
   );

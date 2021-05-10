@@ -6,7 +6,6 @@ const CountdownBtn = ({ isCountDownOn, handlePress }) => {
   const [isHabitDone, setHabitDoneStatus] = useState(false);
 
   const handleTimeColplete = () => {
-    setButtonPressedStatus(false);
     setHabitDoneStatus(true);
   };
 
