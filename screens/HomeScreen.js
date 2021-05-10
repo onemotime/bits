@@ -57,6 +57,7 @@ const HomeScreen = () => {
   const handleStartCountDownPress = () => {
     if (!targetHabit?.habitType || !isHabitSelected) return;
 
+    setSelectedHabit(false);
     setStartCountBtn(true);
   };
 
@@ -76,7 +77,12 @@ const HomeScreen = () => {
               />
             : <HabitRegister handlePress={handleRegisterHabitPress} />}
       {isStartCountBtnOn
-        ? <CountDownBtn totalTime={countDownTime} />
+        ? <CountDownBtn
+            totalTime={countDownTime}
+            setStartCountBtn={setStartCountBtn}
+            habitType={targetHabit.habitType}
+            email={email}
+          />
         : <StartCountDownBtn handlePress={handleStartCountDownPress} />}
     </View>
   );

@@ -1,20 +1,53 @@
 import React, { useState } from 'react';
+import { useDispatch } from 'react-redux';
 import { View, Animated, Text, TouchableOpacity, StyleSheet } from 'react-native';
 import { CountdownCircleTimer } from 'react-native-countdown-circle-timer';
-import { FontAwesome5 } from '@expo/vector-icons';
+import { updateHabit } from '../redux/userSlice';
+import {
+  FontAwesome5,
+  MaterialIcons,
+  MaterialCommunityIcons
+} from '@expo/vector-icons';
 
-const CountdownBtn = ({ totalTime }) => {
+const CountdownBtn = ({
+  totalTime,
+  setStartCountBtn,
+  habitType,
+  email
+}) => {
   const [isHabitDone, setHabitDone] = useState(false);
+  const [isPlaying, setPlaying] = useState(true);
+
+  const dispatch = useDispatch();
 
   const handleTimeColplete = () => {
+    const updateInput = {
+      habitType,
+      email
+    };
+
+    dispatch(updateHabit(updateInput));
+
     setHabitDone(true);
+  };
+
+  const handleFinishIconPress = () => {
+    setStartCountBtn(false);
+  };
+
+  const handlePausePress = () => {
+    setPlaying(prev => !prev);
+  };
+
+  const handleCancelPress = () => {
+    setStartCountBtn(false);
   };
 
   return (
     <View style={styles.pressButtonWrapper}>
       <View style={styles.circleWrapper}>
         <CountdownCircleTimer
-          isPlaying={true}
+          isPlaying={isPlaying}
           duration={totalTime}
           colors={[
             ['#004777', 0.4],
@@ -28,13 +61,22 @@ const CountdownBtn = ({ totalTime }) => {
           {({ remainingTime, animatedColor }) => (
             <Animated.Text style={{ color: animatedColor }}>
               {isHabitDone
-                ? <Text style={styles.doneText}>
-                    <FontAwesome5 name='calendar-check' size={30} color='#4cd137' />
-                  </Text>
+                ? <TouchableOpacity onPress={handleFinishIconPress}>
+                    <Text style={styles.doneText}>
+                      <FontAwesome5 name='calendar-check' size={50} color='#4cd137' />
+                    </Text>
+                  </TouchableOpacity>
                 : remainingTime}
-            </Animated.Text>
-          )}
+            </Animated.Text>)}
         </CountdownCircleTimer>
+      </View>
+      <View style={styles.btnWrapper}>
+        <TouchableOpacity style={styles.pauseBtn} onPress={handlePausePress}>
+          <MaterialCommunityIcons name="play-pause" size={40} color="black" />
+        </TouchableOpacity>
+        <TouchableOpacity style={styles.cancelBtn} onPress={handleCancelPress}>
+          <MaterialIcons name='cancel' size={40} color='red' />
+        </TouchableOpacity>
       </View>
     </View>
   );
@@ -57,6 +99,19 @@ const styles = StyleSheet.create({
   doneText: {
     color: '#4cd137',
     fontWeight: '600'
+  },
+  btnWrapper: {
+    flexDirection: 'row',
+    borderWidth: 1,
+    marginTop: 30
+  },
+  pauseBtn: {
+    borderWidth: 1,
+    marginRight: 10
+  },
+  cancelBtn: {
+    borderWidth: 1,
+    marginLeft: 10
   }
 });
 

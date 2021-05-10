@@ -36,6 +36,23 @@ export const registerHabit = createAsyncThunk(
   }
 );
 
+export const updateHabit = createAsyncThunk(
+  'user/updateHabit',
+  async (updateInput, thunkAPI) => {
+    try {
+      const response = await userApi.patchHabit(updateInput);
+
+      if (response.status === 200) {
+        return response.targetIndex;
+      }
+
+      return thunkAPI.rejectWithValue(response);
+    } catch (err) {
+      console.error(err);
+    }
+  }
+);
+
 export const removeHabit = createAsyncThunk(
   'user/removeHabit',
   async (deleteInput, thunkAPI) => {
@@ -109,6 +126,11 @@ export const userSlice = createSlice({
       state.isFetching = false;
       state.isError = true;
       state.errorMessage = payload.message;
-    }
+    },
+    [updateHabit.fulfilled]: (state, { payload }) => {
+      state.habits[payload].achivedDay = Number(state.habits[payload].achivedDay) + 1;
+      state.isFetching = false;
+      state.isSuccess = true;
+    },
   }
 });

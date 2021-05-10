@@ -39,6 +39,19 @@ export const postHabit = async (registerInput) => {
   return await response.json();
 };
 
+export const patchHabit = async (updateInput) => {
+  const url = `${SERVER_URL}/habit`;
+  const response = await fetch(url, {
+    method: 'PATCH',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(updateInput)
+  });
+
+  return await response.json();
+};
+
 export const deleteHabit = async (deleteInput) => {
   const url = `${SERVER_URL}/habit`;
   const response = await fetch(url, {
