@@ -114,6 +114,7 @@ const SettingHabit = () => {
               ]
             }}
           >
+            <Picker.Item label='2 days' value='2' />
             <Picker.Item label='7 days' value='7' />
             <Picker.Item label='14 days' value='14' />
             <Picker.Item label='21 days' value='21' />

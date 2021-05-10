@@ -26,7 +26,7 @@ export const registerHabit = createAsyncThunk(
       const response = await userApi.postHabit(registerInput);
 
       if (response.status === 201) {
-        return response;
+        return response.habits;
       }
 
       return thunkAPI.rejectWithValue(response);
@@ -43,7 +43,7 @@ export const updateHabit = createAsyncThunk(
       const response = await userApi.patchHabit(updateInput);
 
       if (response.status === 200) {
-        return response.targetIndex;
+        return response.habits;
       }
 
       return thunkAPI.rejectWithValue(response);
@@ -102,7 +102,7 @@ export const userSlice = createSlice({
       state.errorMessage = payload.message;
     },
     [registerHabit.fulfilled]: (state, { payload }) => {
-      state.habits.push(payload.newHabit);
+      state.habits = payload;
       state.isFetching = false;
       state.isSuccess = true;
     },
@@ -128,9 +128,17 @@ export const userSlice = createSlice({
       state.errorMessage = payload.message;
     },
     [updateHabit.fulfilled]: (state, { payload }) => {
-      state.habits[payload].achivedDay = Number(state.habits[payload].achivedDay) + 1;
+      state.habits = payload;
       state.isFetching = false;
       state.isSuccess = true;
     },
+    [updateHabit.pending]: (state) => {
+      state.isFetching = true;
+    },
+    [updateHabit.rejected]: (state, { payload }) => {
+      state.isFetching = false;
+      state.isError = true;
+      state.errorMessage = payload.message;
+    }
   }
 });
