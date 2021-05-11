@@ -6,7 +6,7 @@ import { fetchFollowingHabits } from '../redux/habitSlice';
 import { ScrollView } from 'react-native-gesture-handler';
 import pickIconByType from '../utils/pickIconByType';
 
-const LiveFeed = ({ email, habits, following }) => {
+const LiveFeed = ({ email, followingUserHabits, following }) => {
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -22,17 +22,18 @@ const LiveFeed = ({ email, habits, following }) => {
   return (
     <View style={styles.liveFeedWrapper}>
       <ScrollView>
-        {habits?.length > 0 &&
-          habits.map((following, index) => {
+        {followingUserHabits?.length > 0 &&
+          followingUserHabits.map((followingUser, index) => {
+
             return (
-              <View style={styles.mateLivewrapper} key={following._id}>
+              <View style={styles.mateLivewrapper} key={followingUser.userName}>
                 <View style={styles.profileImg}>
                   <EvilIcons name="user" size={40} color="black" style={styles.img}/>
-                  <Text style={styles.name}>{following.userName}</Text>
+                  <Text style={styles.name}>{followingUser.userName}</Text>
                 </View>
                 <ScrollView horizontal={true}>
-                  {following.habits.length > 0 &&
-                    following.habits.map(habitData => {
+                  {followingUser.habits.length > 0 &&
+                    followingUser.habits.map(habitData => {
                       const habitIcon = pickIconByType(habitData.habitType);
 
                       return (

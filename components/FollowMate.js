@@ -4,14 +4,14 @@ import { followUser, fetchUser } from '../redux/userSlice';
 import { EvilIcons, Entypo, FontAwesome } from '@expo/vector-icons';
 import { View, Text, TouchableOpacity, StyleSheet, ScrollView } from 'react-native';
 
-const FollowMate = ({ allUsers, following, email }) => {
+const FollowMate = ({ allUsers, following, email, userName }) => {
   const dispatch = useDispatch();
 
   useEffect(() => {
     dispatch(fetchUser(email));
   }, []);
-
-  const handleFollowPress = (userInfo, index) => {
+  console.log('팔로잉 ' + following);
+  const handleFollowPress = (userInfo) => {
     const followingInfo = {
       followId: userInfo._id,
       email
@@ -27,8 +27,12 @@ const FollowMate = ({ allUsers, following, email }) => {
         {allUsers.length > 0 &&
           allUsers.map((userInfo, index) => {
             const isFollowing = following.some(followUser => {
+              console.log('이건 팔로우 유저.ID ' + followUser.id);
+              console.log('이건 유저 인포._id ' + userInfo._id);
               return followUser.id === userInfo._id;
             });
+
+            if (userInfo.userName === userName) return;
 
             return (
               <View style={styles.mateWrapper} key={index}>

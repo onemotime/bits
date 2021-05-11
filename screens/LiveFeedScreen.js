@@ -15,7 +15,7 @@ const LiveFeedScreen = () => {
       {following.length > 0
         ? <LiveFeed
             email={email}
-            habits={followingUserHabits}
+            followingUserHabits={followingUserHabits}
             following={following}
           />
         : <MateRegister email={email} />}

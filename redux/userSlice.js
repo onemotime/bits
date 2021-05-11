@@ -77,7 +77,7 @@ export const fetchUser = createAsyncThunk(
       const response = await userApi.fetchUserName(userEmail);
 
       if (response.status === 200) {
-        return response.users;
+        return response.payload;
       }
 
       return thunkAPI.rejectWithValue(response);
@@ -182,7 +182,8 @@ export const userSlice = createSlice({
       state.errorMessage = payload.message;
     },
     [fetchUser.fulfilled]: (state, { payload }) => {
-      state.allUsers = payload;
+      state.allUsers = payload.users;
+      state.following = payload.following;
     },
     [fetchUser.pending]: (state) => {
       state.isFetching = true;

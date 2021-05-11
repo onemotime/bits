@@ -65,14 +65,15 @@ export const deleteHabit = async (deleteInput) => {
   return await response.json();
 };
 
-export const fetchUserName = async (userEmail) => {
+export const fetchUserName = async (email) => {
   // 나중 토큰 verify할 때 유저 이메일 대신 토큰 넣고 겟 요청 보내기
   const url = `${SERVER_URL}/user/all`;
   const response = await fetch(url, {
-    method: 'GET',
+    method: 'POST',
     headers: {
       'Content-Type': 'application/json'
-    }
+    },
+    body: JSON.stringify({ email })
   });
 
   return await response.json();
