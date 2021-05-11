@@ -43,7 +43,7 @@ export const updateHabit = createAsyncThunk(
       const response = await userApi.patchHabit(updateInput);
 
       if (response.status === 200) {
-        return response.habits;
+        return response;
       }
 
       return thunkAPI.rejectWithValue(response);
@@ -166,7 +166,8 @@ export const userSlice = createSlice({
       state.errorMessage = payload.message;
     },
     [updateHabit.fulfilled]: (state, { payload }) => {
-      state.habits = payload;
+      state.habits = payload.habits;
+      state.completedHabits = payload.completedHabits;
       state.isFetching = false;
       state.isSuccess = true;
     },

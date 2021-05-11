@@ -6,12 +6,16 @@ import { fetchFollowingHabits } from '../redux/habitSlice';
 import { ScrollView } from 'react-native-gesture-handler';
 import pickIconByType from '../utils/pickIconByType';
 
-const LiveFeed = ({ email, habits }) => {
+const LiveFeed = ({ email, habits, following }) => {
   const dispatch = useDispatch();
 
   useEffect(() => {
     dispatch(fetchFollowingHabits(email));
   }, []);
+
+  useEffect(() => {
+    dispatch(fetchFollowingHabits(email));
+  }, [following]);
 
   const handleLikePress = () => {};
 
@@ -29,13 +33,13 @@ const LiveFeed = ({ email, habits }) => {
                 <ScrollView horizontal={true}>
                   {following.habits.length > 0 &&
                     following.habits.map(habitData => {
-                      const habitIcon = pickIconByType(habitData.type);
+                      const habitIcon = pickIconByType(habitData.habitType);
 
                       return (
                         <TouchableOpacity onPress={handleLikePress} key={habitData._id}>
                           <View style={styles.habitWrapper}>
                             <View style={styles.statusTextWrapper}>
-                              <Text style={styles.statusText}>지금</Text>
+                              <Text style={styles.statusText}>{habitData.habitType}</Text>
                             </View>
                             <View style={styles.habitIcon}>{habitIcon}</View>
                             <Text style={styles.startTimeText}>BiTS</Text>
@@ -55,8 +59,7 @@ const LiveFeed = ({ email, habits }) => {
 const styles = StyleSheet.create({
   liveFeedWrapper: {
     width: '100%',
-    backgroundColor: 'white',
-    borderWidth: 1
+    backgroundColor: 'white'
   },
   mateLivewrapper: {
     paddingTop: 10,

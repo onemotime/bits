@@ -53,8 +53,7 @@ const styles = StyleSheet.create({
   followMateWrapper: {
     width: '100%',
     height: 2000,
-    backgroundColor: 'white',
-    borderWidth: 10
+    backgroundColor: 'white'
   },
   recommendText: {
     marginTop: 20,

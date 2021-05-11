@@ -1,17 +1,23 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { EvilIcons, Entypo } from '@expo/vector-icons';
 import { View, Text, TouchableOpacity, StyleSheet } from 'react-native';
 import { ScrollView } from 'react-native-gesture-handler';
-import pickImgByType from '../utils/pickImgByType';
+import pickIconByType from '../utils/pickIconByType';
 import pickTextByType from '../utils/pickTextByType';
 
-const Profile = () => {
-  const mockData = [
-    {
-      habit: [ { type: 'weight' }, { type: 'read' }, { type: 'swim' }, { type: 'weight' }, { type: 'read' }, { type: 'swim' } ],
-      name: 'choy'
-    }
-  ];
+const Profile = ({ userInfo }) => {
+  const [isActingHabitOn, setActingHabit] = useState(true);
+  const [isCompletedHabitOn, setCompletedHabit] = useState(false);
+
+  const handleActingPress = () => {
+    setActingHabit(true);
+    setCompletedHabit(false);
+  };
+
+  const handleCompletePress = () => {
+    setActingHabit(false);
+    setCompletedHabit(true);
+  };
 
   const handleRegisterHabitPress = () => {};
 
@@ -24,51 +30,86 @@ const Profile = () => {
         <View style={styles.actMateWrapper}>
           <View style={styles.actWrapper}>
             <Text style={styles.actText}>Act</Text>
-            <Text style={styles.actCountText}>05</Text>
+            <Text style={styles.actCountText}>
+              {userInfo.habits.length > 0
+                ? userInfo.habits.length
+                : 0}
+            </Text>
           </View>
           <View style={styles.mateWrapper}>
             <Text style={styles.mateText}>Mate</Text>
-            <Text style={styles.mateCountText}>130</Text>
+            <Text style={styles.mateCountText}>
+              {userInfo.following > 0
+                ? userInfo.following
+                : 0}
+            </Text>
           </View>
         </View>
         <View style={styles.doneStatusWrapper}>
           <TouchableOpacity>
-            <Text style={styles.statusText}>진행중</Text>
+            <Text style={styles.statusText} onPress={handleActingPress}>진행중</Text>
           </TouchableOpacity>
           <TouchableOpacity>
-            <Text style={styles.statusText}>완료</Text>
+            <Text style={styles.statusText} onPress={handleCompletePress}>완료</Text>
           </TouchableOpacity>
         </View>
         <View style={styles.divideLine} />
       </View>
       <View style={styles.profileBottomWrapper}>
-        {mockData[0].habit.length > 0
-          ? <ScrollView style={styles.scrollView}>
-              {mockData[0].habit.map(userHabit => {
-                const habitImg = pickImgByType(userHabit.type);
-                const habitText = pickTextByType(userHabit.type);
+        {isActingHabitOn &&
+          userInfo.habits.length > 0
+            ? <ScrollView style={styles.scrollView}>
+                {userInfo.habits.map(userHabit => {
+                  const habitIcon = pickIconByType(userHabit.habitType);
+                  const habitText = pickTextByType(userHabit.habitType);
 
-                return (
-                  <TouchableOpacity style={styles.userHabitWrapper}>
-                    <View style={styles.imgTextWrapper}>
-                      <View style={styles.habitImgWrapper}>
-                        {habitImg}
+                  return (
+                    <TouchableOpacity style={styles.userHabitWrapper} key={userHabit._id}>
+                      <View style={styles.imgTextWrapper}>
+                        <View>
+                          {habitIcon}
+                        </View>
+                        <View style={styles.habitTypeTextWrapper}>
+                          <Text style={styles.habitTypeText}>{habitText}</Text>
+                        </View>
                       </View>
-                      <View style={styles.habitTypeTextWrapper}>
-                        <Text style={styles.habitTypeText}>{habitText}</Text>
+                    </TouchableOpacity>
+                  );
+                })}
+              </ScrollView>
+          : !isCompletedHabitOn &&
+            <View style={styles.registerHabitWrapper}>
+              <View>
+                <Text style={styles.registerHabitText}>등록된 습관이 없습니다</Text>
+              </View>
+            </View>}
+        {isCompletedHabitOn &&
+          userInfo.completedHabits.length > 0
+            ? <ScrollView style={styles.scrollView}>
+                {userInfo.completedHabits.map((habitType, index) => {
+                  const habitIcon = pickIconByType(habitType);
+                  const habitText = pickTextByType(habitType);
+
+                  return (
+                    <View style={styles.userHabitWrapper} key={index}>
+                      <View style={styles.imgTextWrapper}>
+                        <View>
+                          {habitIcon}
+                        </View>
+                        <View style={styles.habitTypeTextWrapper}>
+                          <Text style={styles.habitTypeText}>{habitText}</Text>
+                        </View>
                       </View>
                     </View>
-                  </TouchableOpacity>
-                );
-              })}
-            </ScrollView>
-          : <View style={styles.registerHabitWrapper}>
-              <View><Text style={styles.registerHabitText}>등록된 습관이 없습니다</Text></View>
-              <View><Text style={styles.registerHabitText}>새로운 습관을 등록해주세요</Text></View>
-              <TouchableOpacity style={styles.followButton} onPress={handleRegisterHabitPress}>
-                <Entypo name="circle-with-plus" size={35} color='#E8BE64' />
-              </TouchableOpacity>
-            </View>}
+                  );
+                })}
+              </ScrollView>
+            : !isActingHabitOn &&
+              <View style={styles.completeHabitWrapper}>
+                <View>
+                  <Text style={styles.completeHabitText}>완료된 습관이 없습니다</Text>
+                </View>
+              </View>}
       </View>
     </View>
   );
@@ -154,25 +195,30 @@ const styles = StyleSheet.create({
     alignItems: 'center'
   },
   habitTypeText: {
-    fontWeight: '600',
+    fontWeight: '800',
     fontSize: 18,
     color: 'white',
-    marginLeft: 20,
+    marginLeft: 30,
   },
   registerHabitWrapper: {
     borderWidth: 1,
-    borderColor: 'red',
-    flexGrow: 1,
+    height: '72.5%',
     justifyContent: 'center',
     alignItems: 'center',
   },
   registerHabitText: {
     fontSize: 15,
-    fontWeight: '700',
+    fontWeight: '800',
     margin: 4
   },
-  followButton: {
-    marginTop: 20
+  completeHabitWrapper: {
+    borderWidth: 1,
+    height: '72.5%',
+    justifyContent: 'center',
+    alignItems: 'center'
+  },
+  completeHabitText: {
+    fontWeight: '800'
   }
 });
 

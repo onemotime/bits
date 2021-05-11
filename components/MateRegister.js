@@ -15,19 +15,26 @@ const MateRegister = ({ email }) => {
   };
 
   return (
-    <View style={styles.mateRegisterWrapper}>
-      <View style={styles.textWrapper}>
-        <Text style={styles.registerText}>등록된 메이트가 없습니다</Text>
-        <Text style={styles.registerText}>새로운 메이트를 추가해보세요</Text>
+    <View style={styles.wrapper}>
+      <View style={styles.mateRegisterWrapper}>
+        <View style={styles.textWrapper}>
+          <Text style={styles.registerText}>등록된 메이트가 없습니다</Text>
+          <Text style={styles.registerText}>새로운 메이트를 추가해보세요</Text>
+        </View>
+        <TouchableOpacity onPress={handleMateRegisterPress}>
+          <Entypo name="circle-with-plus" size={24} color='white' />
+        </TouchableOpacity>
       </View>
-      <TouchableOpacity onPress={handleMateRegisterPress}>
-        <Entypo name="circle-with-plus" size={24} color='white' />
-      </TouchableOpacity>
     </View>
   );
 };
 
 const styles = StyleSheet.create({
+  wrapper: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center'
+  },
   mateRegisterWrapper: {
     justifyContent: 'space-evenly',
     alignItems: 'center',
