@@ -92,7 +92,7 @@ export const followUser = createAsyncThunk(
   async (followingInfo, thunkApi) => {
     try {
       const response = await userApi.patchUserFollow(followingInfo);
-      console.log('유저 슬라디스 팔로우 유저 덩크 안 첫 리스폰스' + response);
+
       if (response.status == 200) {
         return response.following;
       }

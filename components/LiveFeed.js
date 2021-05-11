@@ -1,59 +1,44 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import { useDispatch } from 'react-redux';
 import { EvilIcons } from '@expo/vector-icons';
 import { View, Text, TouchableOpacity, StyleSheet } from 'react-native';
+import { fetchFollowingHabits } from '../redux/habitSlice';
 import { ScrollView } from 'react-native-gesture-handler';
 import pickIconByType from '../utils/pickIconByType';
 
-const LiveFeed = () => {
-  const mockData = [
-    {
-      habit: [ { type: 'weight' }, { type: 'read' }, { type: 'swim' }, { type: 'weight' }, { type: 'read' }, { type: 'swim' } ],
-      name: 'choy'
-    },
-    {
-      habit: [ { type: 'weight' }, { type: 'swim' }, { type: 'read' }, { type: 'weight' }, { type: 'read' }, { type: 'swim' } ],
-      name: 'seulgi'
-    },
-    {
-      habit: [ { type: 'swim' }, { type: 'read' }, { type: 'weight' }, { type: 'weight' }, { type: 'read' } ],
-      name: 'susan'
-    },
-    {
-      habit: [ { type: 'swim' }, { type: 'read' }, { type: 'weight' } ],
-      name: 'kim'
-    },
-    {
-      habit: [ { type: 'swim' }, { type: 'read' }, { type: 'weight' } ],
-      name: 'lee'
-    }
-  ];
+const LiveFeed = ({ email, habits }) => {
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(fetchFollowingHabits(email));
+  }, []);
 
   const handleLikePress = () => {};
+
   return (
     <View style={styles.liveFeedWrapper}>
       <ScrollView>
-        {mockData.length > 0 &&
-          mockData.map((item, index) => {
-
+        {habits?.length > 0 &&
+          habits.map((following, index) => {
             return (
-              <View style={styles.mateLivewrapper} key={index}>
+              <View style={styles.mateLivewrapper} key={following._id}>
                 <View style={styles.profileImg}>
                   <EvilIcons name="user" size={40} color="black" style={styles.img}/>
-                  <Text style={styles.name}>{item.name}</Text>
+                  <Text style={styles.name}>{following.userName}</Text>
                 </View>
                 <ScrollView horizontal={true}>
-                  {item.habit.length > 0 &&
-                    item.habit.map(habitData => {
+                  {following.habits.length > 0 &&
+                    following.habits.map(habitData => {
                       const habitIcon = pickIconByType(habitData.type);
 
                       return (
-                        <TouchableOpacity onPress={handleLikePress}>
+                        <TouchableOpacity onPress={handleLikePress} key={habitData._id}>
                           <View style={styles.habitWrapper}>
                             <View style={styles.statusTextWrapper}>
                               <Text style={styles.statusText}>지금</Text>
                             </View>
                             <View style={styles.habitIcon}>{habitIcon}</View>
-                            <Text style={styles.startTimeText}>In haBiTS</Text>
+                            <Text style={styles.startTimeText}>BiTS</Text>
                           </View>
                         </TouchableOpacity>
                       );
@@ -62,7 +47,7 @@ const LiveFeed = () => {
               </View>
             );
           })}
-        </ScrollView>
+      </ScrollView>
     </View>
   );
 };
@@ -70,8 +55,8 @@ const LiveFeed = () => {
 const styles = StyleSheet.create({
   liveFeedWrapper: {
     width: '100%',
-    height: '75%',
-    backgroundColor: 'white'
+    backgroundColor: 'white',
+    borderWidth: 1
   },
   mateLivewrapper: {
     paddingTop: 10,

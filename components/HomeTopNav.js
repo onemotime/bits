@@ -29,12 +29,13 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     alignItems: 'center',
     width: '100%',
+    height: 70,
     borderColor: 'black',
     marginTop: 20,
     borderWidth: 1,
     paddingTop: 10,
     paddingBottom: 10,
-    backgroundColor: '#F9BC56'
+    backgroundColor: '#F9BC56',
   },
   iconNameWrapper: {
     flexDirection: 'row',

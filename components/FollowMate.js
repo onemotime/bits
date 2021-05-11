@@ -52,9 +52,9 @@ const FollowMate = ({ allUsers, following, email }) => {
 const styles = StyleSheet.create({
   followMateWrapper: {
     width: '100%',
-    height: '75%',
+    height: 2000,
     backgroundColor: 'white',
-    flex: 1
+    borderWidth: 10
   },
   recommendText: {
     marginTop: 20,
