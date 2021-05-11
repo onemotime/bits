@@ -28,13 +28,17 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
-    width: '80%',
+    width: '100%',
     borderColor: 'black',
-    marginLeft: 35,
-    marginTop: 20
+    marginTop: 20,
+    borderWidth: 1,
+    paddingTop: 10,
+    paddingBottom: 10,
+    backgroundColor: '#F9BC56'
   },
   iconNameWrapper: {
-    flexDirection: 'row'
+    flexDirection: 'row',
+    marginLeft: 25
   },
   icon: {
     marginRight: 10
@@ -49,7 +53,7 @@ const styles = StyleSheet.create({
     fontSize: 15
   },
   gearWrapper: {
-    marginRight: 10
+    marginRight: 20
   }
 });
 

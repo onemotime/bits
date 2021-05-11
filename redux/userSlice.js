@@ -87,6 +87,23 @@ export const fetchUser = createAsyncThunk(
   }
 );
 
+export const followUser = createAsyncThunk(
+  'user/followUser',
+  async (followingInfo, thunkApi) => {
+    try {
+      const response = await userApi.patchUserFollow(followingInfo);
+      console.log('유저 슬라디스 팔로우 유저 덩크 안 첫 리스폰스' + response);
+      if (response.status == 200) {
+        return response.following;
+      }
+
+      return thunkApi.rejectWithValue(response);
+    } catch (err) {
+      console.error(err);
+    }
+  }
+);
+
 export const userSlice = createSlice({
   name: 'user',
   initialState: {
@@ -163,6 +180,25 @@ export const userSlice = createSlice({
     },
     [fetchUser.fulfilled]: (state, { payload }) => {
       state.allUsers = payload;
+    },
+    [fetchUser.pending]: (state) => {
+      state.isFetching = true;
+    },
+    [fetchUser.rejected]: (state, { payload }) => {
+      state.isFetching = false;
+      state.isError = true;
+      state.errorMessage = payload.message;
+    },
+    [followUser.fulfilled]: (state, { payload }) => {
+      state.following = payload;
+    },
+    [followUser.pending]: (state) => {
+      state.isFetching = true;
+    },
+    [followUser.rejected]: (state, { payload }) => {
+      state.isFetching = false;
+      state.isError = true;
+      state.errorMessage = payload.message;
     }
   }
 });

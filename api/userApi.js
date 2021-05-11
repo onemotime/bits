@@ -66,13 +66,26 @@ export const deleteHabit = async (deleteInput) => {
 };
 
 export const fetchUserName = async (userEmail) => {
-  // GET 메서드로 전환 필요
+  // 나중 토큰 verify할 때 유저 이메일 대신 토큰 넣고 겟 요청 보내기
   const url = `${SERVER_URL}/user/all`;
   const response = await fetch(url, {
     method: 'GET',
     headers: {
       'Content-Type': 'application/json'
     }
+  });
+
+  return await response.json();
+};
+
+export const patchUserFollow = async (followingInfo) => {
+  const url = `${SERVER_URL}/user/follow`;
+  const response = await fetch(url, {
+    method: 'PATCH',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(followingInfo)
   });
 
   return await response.json();

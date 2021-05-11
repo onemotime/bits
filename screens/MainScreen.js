@@ -2,7 +2,7 @@ import React from 'react';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import HomeScreen from './HomeScreen';
 import LiveFeedScreen from './LiveFeedScreen';
-import LiveRegisterScreen from './LiveRegisterScreen';
+import MateRegisterScreen from './MateRegisterScreen';
 import {
   Entypo,
   Ionicons,
@@ -37,11 +37,13 @@ const Main = () => {
       tabBarOptions={{
         activeTintColor: '#F48D3B',
         inactiveTintColor: 'gray',
+        inactiveBackgroundColor: '#FFF0D9',
+        activeBackgroundColor: '#FFF0D9'
       }}
     >
       <BottomTab.Screen name='습관' component={HomeScreen} />
       <BottomTab.Screen name='라이브' component={LiveFeedScreen} />
-      <BottomTab.Screen name='검색' component={LiveRegisterScreen} />
+      <BottomTab.Screen name='검색' component={MateRegisterScreen} />
       <BottomTab.Screen name='내정보' component={HomeScreen} />
     </BottomTab.Navigator>
   );
