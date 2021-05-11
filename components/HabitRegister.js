@@ -36,7 +36,6 @@ const styles = StyleSheet.create({
     height: '25%',
     borderRadius: 10,
     flexGrow: 0.8,
-    marginTop: 30
   },
   textButtonWrapper: {
     height: '100%',

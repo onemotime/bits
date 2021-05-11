@@ -64,8 +64,7 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    height: 250,
-    marginTop: 30
+    height: 200
   },
   userHabitWrapper: {
     borderWidth: 1,

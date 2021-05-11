@@ -127,7 +127,7 @@ export const userSlice = createSlice({
       state.accessToken = payload.accessToken;
       state.email = payload.email;
       state.userName = payload.userName;
-      state.habits = payload.habits;
+      state.habits = payload?.habits;
       state.isFetching = false;
       state.isSuccess = true;
     },
@@ -159,6 +159,7 @@ export const userSlice = createSlice({
     },
     [removeHabit.pending]: (state) => {
       state.isFetching = true;
+      state.isSuccess = false;
     },
     [removeHabit.rejected]: (state, { payload }) => {
       state.isFetching = false;
@@ -173,6 +174,7 @@ export const userSlice = createSlice({
     },
     [updateHabit.pending]: (state) => {
       state.isFetching = true;
+      state.isSuccess = false;
     },
     [updateHabit.rejected]: (state, { payload }) => {
       state.isFetching = false;
@@ -184,6 +186,7 @@ export const userSlice = createSlice({
     },
     [fetchUser.pending]: (state) => {
       state.isFetching = true;
+      state.isSuccess = false;
     },
     [fetchUser.rejected]: (state, { payload }) => {
       state.isFetching = false;
@@ -195,6 +198,7 @@ export const userSlice = createSlice({
     },
     [followUser.pending]: (state) => {
       state.isFetching = true;
+      state.isSuccess = false;
     },
     [followUser.rejected]: (state, { payload }) => {
       state.isFetching = false;

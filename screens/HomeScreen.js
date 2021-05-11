@@ -9,6 +9,7 @@ import HabitRegister from '../components/HabitRegister';
 import UserHabit from '../components/UserHabit';
 import CountDownBtn from '../components/CountdownBtn';
 import StartCountDownBtn from '../components/StartCountDownBtn';
+import HomeTopNav from '../components/HomeTopNav';
 
 const HomeScreen = () => {
   const [isHabitSelected, setSelectedHabit] = useState(false);
@@ -62,9 +63,10 @@ const HomeScreen = () => {
 
   return (
     <View style={styles.wrapper}>
+      <HomeTopNav />
       {isStartCountBtnOn
         ? <View style={styles.complement}/>
-        : habits.length > 0
+        : habits?.length > 0
             ? <UserHabit
                 habits={habits}
                 handlePress={handleRegisterHabitPress}

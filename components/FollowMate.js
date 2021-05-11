@@ -1,11 +1,15 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
-import { followUser } from '../redux/userSlice';
+import { followUser, fetchUser } from '../redux/userSlice';
 import { EvilIcons, Entypo, FontAwesome } from '@expo/vector-icons';
 import { View, Text, TouchableOpacity, StyleSheet, ScrollView } from 'react-native';
 
 const FollowMate = ({ allUsers, following, email }) => {
   const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(fetchUser(email));
+  }, []);
 
   const handleFollowPress = (userInfo, index) => {
     const followingInfo = {

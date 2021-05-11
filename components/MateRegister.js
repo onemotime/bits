@@ -10,7 +10,6 @@ const MateRegister = ({ email }) => {
   const navigation = useNavigation();
 
   const handleMateRegisterPress = () => {
-    dispatch(fetchUser(email));
     navigation.navigate('검색');
   };
 

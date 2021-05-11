@@ -9,6 +9,8 @@ const SettingHabit = () => {
   const dispatch = useDispatch();
   const { email, habits } = useSelector(state => state.user);
   const navigation = useNavigation();
+  console.log(habits);
+  console.log(email);
 
   const [selectedAct, setAct] = useState(null);
   const [selectedDay, setDay] = useState(null);
