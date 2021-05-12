@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import { View, Text, StyleSheet, TouchableOpacity, TextInput } from 'react-native';
+import Loading from "./LoadingScreen";
 import { fetchSignin } from '../redux/userSlice';
 import { FontAwesome } from '@expo/vector-icons';
-import { View, Text, StyleSheet, TouchableOpacity, TextInput } from 'react-native';
 import {
   GoogleIcon,
   FacebookIcon,
@@ -12,6 +13,7 @@ import {
 const LoginScreen = ({ navigation }) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const { isFetching } = useSelector(state => state.user);
   const dispatch = useDispatch();
 
   const handleLoginPress = () => {
@@ -30,59 +32,63 @@ const LoginScreen = ({ navigation }) => {
   };
 
   return (
-    <View style={styles.wrapper}>
-      <View style={styles.loginWrapper}>
-        <View style={styles.logoWrapper}>
-          <FontAwesome name="heartbeat" size={24} color="white" />
-          <Text style={styles.logoText}>BiTS</Text>
-        </View>
-        <View style={styles.inputWrapper}>
-          <View style={styles.idInputWrapper}>
-            <View style={styles.idTextWrapper}>
-              <Text style={styles.idText}>Email</Text>
+    <>
+      {isFetching
+        ?  <Loading />
+        :  <View style={styles.wrapper}>
+            <View style={styles.loginWrapper}>
+              <View style={styles.logoWrapper}>
+                <FontAwesome name="heartbeat" size={24} color="white" />
+                <Text style={styles.logoText}>BiTS</Text>
+              </View>
+              <View style={styles.inputWrapper}>
+                <View style={styles.idInputWrapper}>
+                  <View style={styles.idTextWrapper}>
+                    <Text style={styles.idText}>Email</Text>
+                  </View>
+                  <View style={styles.idTextInputWrapper}>
+                    <TextInput
+                      placeholder={'아이디를 입력해주세요'}
+                      value={email}
+                      onChangeText={setEmail}
+                    />
+                  </View>
+                </View>
+                <View style={styles.pwInputWrapper}>
+                  <View style={styles.pwTextWrapper}>
+                    <Text style={styles.pwText}>PW</Text>
+                  </View>
+                  <View style={styles.pwTextInputWrapper}>
+                    <TextInput
+                      placeholder={'비밀번호를 입력해주세요'}
+                      value={password}
+                      onChangeText={setPassword}
+                    />
+                  </View>
+                </View>
+              </View>
+              <View style={styles.loginBtnWrapper}>
+                <TouchableOpacity style={styles.loginBtn} onPress={handleLoginPress}>
+                  <Text style={styles.loginText}>로그인</Text>
+                </TouchableOpacity>
+                <TouchableOpacity style={styles.signupBtn} onPress={handleSingupPress}>
+                  <Text style={styles.signupText}>회원가입</Text>
+                </TouchableOpacity>
+              </View>
+              <View style={styles.iconWrapper}>
+                <TouchableOpacity>
+                  <GoogleIcon size={30} />
+                </TouchableOpacity>
+                <TouchableOpacity>
+                  <FacebookIcon size={30} />
+                </TouchableOpacity>
+                <TouchableOpacity>
+                  <InstagramIcon size={30} />
+                </TouchableOpacity>
+              </View>
             </View>
-            <View style={styles.idTextInputWrapper}>
-              <TextInput
-                placeholder={'아이디를 입력해주세요'}
-                value={email}
-                onChangeText={setEmail}
-              />
-            </View>
-          </View>
-          <View style={styles.pwInputWrapper}>
-            <View style={styles.pwTextWrapper}>
-              <Text style={styles.pwText}>PW</Text>
-            </View>
-            <View style={styles.pwTextInputWrapper}>
-              <TextInput
-                placeholder={'비밀번호를 입력해주세요'}
-                value={password}
-                onChangeText={setPassword}
-              />
-            </View>
-          </View>
-        </View>
-        <View style={styles.loginBtnWrapper}>
-          <TouchableOpacity style={styles.loginBtn} onPress={handleLoginPress}>
-            <Text style={styles.loginText}>로그인</Text>
-          </TouchableOpacity>
-          <TouchableOpacity style={styles.signupBtn} onPress={handleSingupPress}>
-            <Text style={styles.signupText}>회원가입</Text>
-          </TouchableOpacity>
-        </View>
-        <View style={styles.iconWrapper}>
-          <TouchableOpacity>
-            <GoogleIcon size={30} />
-          </TouchableOpacity>
-          <TouchableOpacity>
-            <FacebookIcon size={30} />
-          </TouchableOpacity>
-          <TouchableOpacity>
-            <InstagramIcon size={30} />
-          </TouchableOpacity>
-        </View>
-      </View>
-    </View>
+          </View>}
+    </>
   );
 };
 

@@ -1,14 +1,14 @@
 import React, { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { EvilIcons } from '@expo/vector-icons';
-import { View, Text, TouchableOpacity, StyleSheet } from 'react-native';
+import { View, Text, TouchableOpacity, Image, StyleSheet } from 'react-native';
 import { fetchFollowingHabits } from '../redux/habitSlice';
 import { ScrollView } from 'react-native-gesture-handler';
 import pickIconByType from '../utils/pickIconByType';
 
 const LiveFeed = ({ email, followingUserHabits, following }) => {
   const dispatch = useDispatch();
-
+  console.log('팔로잉 유저 해빗 🙆🏻‍♂️' + followingUserHabits)
   useEffect(() => {
     dispatch(fetchFollowingHabits(email));
   }, []);
@@ -28,7 +28,16 @@ const LiveFeed = ({ email, followingUserHabits, following }) => {
             return (
               <View style={styles.mateLivewrapper} key={followingUser.userName}>
                 <View style={styles.profileImg}>
-                  <EvilIcons name="user" size={40} color="black" style={styles.img}/>
+                  {followingUser.imgUri
+                    ? <Image
+                        source={{ uri: imageUri }}
+                        style={styles.profileImg}
+                      />
+                    : <EvilIcons
+                        name="user" size={40}
+                        color="black"
+                        style={styles.img}
+                      />}
                   <Text style={styles.name}>{followingUser.userName}</Text>
                 </View>
                 <ScrollView horizontal={true}>

@@ -59,14 +59,18 @@ const CountdownBtn = ({
           onComplete={handleTimeColplete}
         >
           {({ remainingTime, animatedColor }) => (
-            <Animated.Text style={{ color: animatedColor }}>
+            <Animated.Text style={{
+                color: animatedColor,
+                fontSize: 18,
+                fontWeight: '600'
+              }}>
               {isHabitDone
                 ? <TouchableOpacity onPress={handleFinishIconPress}>
                     <Text style={styles.doneText}>
                       <FontAwesome5 name='calendar-check' size={50} color='#4cd137' />
                     </Text>
                   </TouchableOpacity>
-                : remainingTime}
+                : remainingTime + ' 초'}
             </Animated.Text>)}
         </CountdownCircleTimer>
       </View>

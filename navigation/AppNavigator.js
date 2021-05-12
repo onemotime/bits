@@ -10,7 +10,7 @@ import RegisterHabitScreen from '../screens/RegisterHabitScreen';
 const AppStack = createStackNavigator();
 
 const AppNavigator = () => {
-  const { accessToken } = useSelector(state => state.user);
+  const { accessToken, iseFetching } = useSelector(state => state.user);
 
   return (
     <NavigationContainer>
@@ -21,7 +21,7 @@ const AppNavigator = () => {
               <AppStack.Screen name='Register' component={RegisterHabitScreen} />
             </>
           : <>
-              <AppStack.Screen name='Login' component={LoginScreen} />
+              <AppStack.Screen name='Login' component={LoginScreen} const={iseFetching} />
               <AppStack.Screen name='Signup' component={SignupScreen} />
             </>}
       </AppStack.Navigator>

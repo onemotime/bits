@@ -1,10 +1,10 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 import {
-  FontAwesome,
   FontAwesome5
 } from '@expo/vector-icons';
 import { View, Text, Image, StyleSheet } from 'react-native';
+import { TouchableOpacity } from 'react-native-gesture-handler';
 
 const HomeTopNav = () => {
   const { userName, imageUri } = useSelector(state => state.user);
@@ -28,7 +28,13 @@ const HomeTopNav = () => {
         </View>
       </View>
       <View style={styles.gearWrapper}>
-        <FontAwesome name='gear' size={24} color='white' />
+        <TouchableOpacity>
+          <FontAwesome5
+            name="door-open"
+            size={24}
+            color='black'
+          />
+        </TouchableOpacity>
       </View>
     </View>
   );
@@ -56,9 +62,10 @@ const styles = StyleSheet.create({
     marginRight: 10
   },
   profileImg: {
-    width: 35,
-    height: 35,
-    borderRadius: 100
+    width: 50,
+    height: 50,
+    borderRadius: 100,
+    borderWidth: 1
   },
   name: {
     alignItems: 'center',

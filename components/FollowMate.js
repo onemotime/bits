@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { followUser, fetchUser } from '../redux/userSlice';
 import { EvilIcons, Entypo, FontAwesome } from '@expo/vector-icons';
-import { View, Text, TouchableOpacity, StyleSheet, ScrollView } from 'react-native';
+import { View, Text, TouchableOpacity, Image, StyleSheet, ScrollView } from 'react-native';
 
 const FollowMate = ({ allUsers, following, email, userName }) => {
   const dispatch = useDispatch();
@@ -10,7 +10,7 @@ const FollowMate = ({ allUsers, following, email, userName }) => {
   useEffect(() => {
     dispatch(fetchUser(email));
   }, []);
-  console.log('팔로잉 ' + following);
+
   const handleFollowPress = (userInfo) => {
     const followingInfo = {
       followId: userInfo._id,
@@ -27,17 +27,25 @@ const FollowMate = ({ allUsers, following, email, userName }) => {
         {allUsers.length > 0 &&
           allUsers.map((userInfo, index) => {
             const isFollowing = following.some(followUser => {
-              console.log('이건 팔로우 유저.ID ' + followUser.id);
-              console.log('이건 유저 인포._id ' + userInfo._id);
               return followUser.id === userInfo._id;
             });
 
             if (userInfo.userName === userName) return;
-
             return (
               <View style={styles.mateWrapper} key={index}>
                 <View style={styles.profileImg}>
-                  <EvilIcons name="user" size={35} color="black" />
+                  {userInfo.imageUri
+                    ? <View style={styles.userProfileWrapper}>
+                        <Image
+                          source={{ uri: userInfo.imageUri }}
+                          style={styles.userProfileImg}
+                        />
+                      </View>
+                    : <EvilIcons
+                        name="user"
+                        size={60}
+                        color="black"
+                      />}
                   <View style={styles.userNameWrapper}>
                     <Text style={styles.userName}>{userInfo.userName}</Text>
                   </View>
@@ -81,6 +89,16 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     marginLeft: 20
+  },
+  userProfileWrapper: {
+    paddingLeft: 5,
+    paddingRight: 5
+  },
+  userProfileImg: {
+    width: 50,
+    height: 50,
+    borderRadius: 100,
+    borderWidth: 1
   },
   userNameWrapper: {
     justifyContent: 'center',
