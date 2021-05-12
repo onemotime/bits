@@ -4,7 +4,7 @@ import { View, Text, StyleSheet } from 'react-native';
 import ProfileStatus from './ProfileStatus';
 import ProgressHabit from './ProgressHabit';
 import CompletedHabit from './CompletedHabit';
-import Calendar from './Calendar';
+import Calendar from './ProfileCalendar';
 
 const Profile = ({ userInfo, email, imageUri }) => {
   const [isActingHabitOn, setActingHabit] = useState(true);
@@ -42,23 +42,21 @@ const Profile = ({ userInfo, email, imageUri }) => {
       />
       <View style={styles.profileBottomWrapper}>
         {isActingHabitOn &&
-          userInfo.habits.length > 0
+          (userInfo.habits.length > 0
             ? <ProgressHabit userInfo={userInfo} />
-            : !isCompletedHabitOn &&
-            <View style={styles.registerHabitWrapper}>
-              <View>
-                <Text style={styles.registerHabitText}>등록된 습관이 없습니다</Text>
-              </View>
-            </View>}
+            : <View style={styles.registerHabitWrapper}>
+                <View>
+                  <Text style={styles.registerHabitText}>등록된 습관이 없습니다</Text>
+                </View>
+              </View>)}
         {isCompletedHabitOn &&
-          userInfo.completedHabits.length > 0
+          (userInfo.completedHabits.length > 0
             ? <CompletedHabit userInfo={userInfo} />
-            : !isActingHabitOn &&
-              <View style={styles.completeHabitWrapper}>
+            : <View style={styles.completeHabitWrapper}>
                 <View>
                   <Text style={styles.completeHabitText}>완료된 습관이 없습니다</Text>
                 </View>
-              </View>}
+              </View>)}
         {isCalendarOn &&
           <Calendar />}
       </View>
@@ -70,15 +68,15 @@ const styles = StyleSheet.create({
   profileWrapper: {
     backgroundColor: 'white',
     borderWidth: 1,
-    flexGrow: 0.7,
+    flexGrow: 1
   },
   profileBottomWrapper: {
-    borderWidth: 1,
-    top: 15
+    flexGrow: 1,
+    justifyContent: 'center',
+    alignItems: 'center'
   },
   registerHabitWrapper: {
     borderWidth: 1,
-    height: '72.5%',
     justifyContent: 'center',
     alignItems: 'center',
   },

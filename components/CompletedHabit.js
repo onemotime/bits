@@ -31,7 +31,7 @@ const CompletedHabit = ({ userInfo }) => {
 const styles = StyleSheet.create({
   scrollView: {
     borderWidth: 1,
-    height: 300
+    width: '100%'
   },
   userHabitWrapper: {
     backgroundColor: '#E8C06C',

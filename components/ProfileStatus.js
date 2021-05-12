@@ -100,10 +100,11 @@ const ProfileStatus = ({
 const styles = StyleSheet.create({
   profileTopWrapper: {
     alignItems: 'center',
-    justifyContent: 'space-evenly'
+    justifyContent: 'space-evenly',
+    borderWidth: 1
   },
   profileImgWrapper: {
-    marginTop: 20
+    marginTop: 7,
   },
   profileImg: {
     width: 80,
@@ -153,6 +154,7 @@ const styles = StyleSheet.create({
   },
   divideLine: {
     borderWidth: 1,
+    marginTop: 3,
     borderColor: '#E0A935',
     width: '80%'
   }

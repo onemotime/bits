@@ -31,6 +31,10 @@ const ProgressHabit = ({ userInfo }) => {
 };
 
 const styles = StyleSheet.create({
+  scrollView: {
+    borderWidth: 1,
+    width: '100%'
+  },
   userHabitWrapper: {
     backgroundColor: '#E8C06C',
     borderRadius:10,
