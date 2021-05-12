@@ -59,6 +59,7 @@ const LiveFeed = ({ email, followingUserHabits, following }) => {
 
 const styles = StyleSheet.create({
   liveFeedWrapper: {
+    flex: 1,
     width: '100%',
     backgroundColor: 'white'
   },

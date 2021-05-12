@@ -10,7 +10,11 @@ const ProfileScreen = () => {
   return (
     <>
       <HomeTopNav />
-      <Profile userInfo={user} />
+      <Profile
+        userInfo={user}
+        email={user.email}
+        imageUri={user.imageUri}
+      />
     </>
   );
 };

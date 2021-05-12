@@ -69,9 +69,9 @@ const styles = StyleSheet.create({
   userHabitWrapper: {
     borderWidth: 1,
     width: '80%',
-    height: '60%',
+    height: '80%',
     borderRadius: 10,
-    backgroundColor: '#F3E1B8'
+    backgroundColor: '#FACC7D'
   },
   habitInfoWrapper: {
     flexDirection: 'row',
@@ -79,10 +79,9 @@ const styles = StyleSheet.create({
     alignItems: 'center'
   },
   iconWrapper: {
-    borderWidth: 2,
-    backgroundColor: '#E5B75C',
+    backgroundColor: '#F9BC56',
     borderRadius: 10,
-    padding: 15,
+    padding: 20,
     marginLeft: 10,
   },
   habitInfo: {
@@ -96,8 +95,8 @@ const styles = StyleSheet.create({
   },
   name: {
     color: 'white',
-    fontWeight: '800',
-    fontSize: 20
+    fontWeight: '900',
+    fontSize: 30
   },
   dayMateLike: {
     borderWidth: 1,

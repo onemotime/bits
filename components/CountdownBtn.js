@@ -85,8 +85,7 @@ const CountdownBtn = ({
 const styles = StyleSheet.create({
   pressButtonWrapper: {
     justifyContent: 'space-evenly',
-    alignItems: 'center',
-    borderWidth: 1
+    alignItems: 'center'
   },
   pressButtonText: {
     fontWeight: '700',

@@ -93,8 +93,25 @@ export const followUser = createAsyncThunk(
     try {
       const response = await userApi.patchUserFollow(followingInfo);
 
-      if (response.status == 200) {
+      if (response.status === 200) {
         return response.following;
+      }
+
+      return thunkApi.rejectWithValue(response);
+    } catch (err) {
+      console.error(err);
+    }
+  }
+);
+
+export const updateImageUri = createAsyncThunk(
+  'user/updateImageUri',
+  async (imageUriPayload, thunkApi) => {
+    try {
+      const response = await userApi.patchImageUri(imageUriPayload);
+
+      if (response.status === 201) {
+        return response.uri;
       }
 
       return thunkApi.rejectWithValue(response);
@@ -109,6 +126,7 @@ export const userSlice = createSlice({
   initialState: {
     email: '',
     userName: '',
+    imageUri: '',
     followers: [],
     following: [],
     completedHabits: [],
@@ -127,7 +145,9 @@ export const userSlice = createSlice({
       state.accessToken = payload.accessToken;
       state.email = payload.email;
       state.userName = payload.userName;
-      state.habits = payload?.habits;
+      state.habits = payload.habits;
+      state.following = payload.following;
+      state.imageUri = payload.imageUri;
       state.isFetching = false;
       state.isSuccess = true;
     },
@@ -205,6 +225,11 @@ export const userSlice = createSlice({
       state.isFetching = false;
       state.isError = true;
       state.errorMessage = payload.message;
+    },
+    [updateImageUri.fulfilled]: (state, { payload }) => {
+      state.imageUri = payload;
+      state.isFetching = false;
+      state.isSuccess = true;
     }
   }
 });

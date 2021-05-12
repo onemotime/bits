@@ -1,13 +1,35 @@
 import React, { useState } from 'react';
-import { EvilIcons, Entypo } from '@expo/vector-icons';
-import { View, Text, TouchableOpacity, StyleSheet } from 'react-native';
+import { useDispatch } from 'react-redux';
+import { EvilIcons } from '@expo/vector-icons';
+import { View, Text, Image,TouchableOpacity, StyleSheet } from 'react-native';
+import { updateImageUri } from '../redux/userSlice';
 import { ScrollView } from 'react-native-gesture-handler';
 import pickIconByType from '../utils/pickIconByType';
 import pickTextByType from '../utils/pickTextByType';
+import * as ImagePicker from 'expo-image-picker';
 
-const Profile = ({ userInfo }) => {
+const Profile = ({ userInfo, email, imageUri }) => {
+  const dispatch = useDispatch();
   const [isActingHabitOn, setActingHabit] = useState(true);
   const [isCompletedHabitOn, setCompletedHabit] = useState(false);
+
+  const pickImage = async () => {
+    const result = await ImagePicker.launchImageLibraryAsync({
+      mediaTypes: ImagePicker.MediaTypeOptions.All,
+      allowsEditing: true,
+      aspect: [4, 3],
+      quality: 1,
+    });
+
+    if (!result.cancelled) {
+      const imageUriPayload = {
+        uri: result.uri,
+        email
+      };
+
+      dispatch(updateImageUri(imageUriPayload));
+    }
+  };
 
   const handleActingPress = () => {
     setActingHabit(true);
@@ -24,8 +46,18 @@ const Profile = ({ userInfo }) => {
   return (
     <View style={styles.profileWrapper}>
       <View style={styles.profileTopWrapper}>
-        <TouchableOpacity>
-          <EvilIcons name="user" size={100} color="black" style={styles.img}/>
+        <TouchableOpacity onPress={pickImage} style={styles.profileImgWrapper}>
+          {imageUri
+            ? <Image
+                source={{ uri: imageUri }}
+                style={styles.profileImg}
+              />
+            : <EvilIcons
+                name="user"
+                size={100}
+                color="black"
+                style={styles.img}
+              />}
         </TouchableOpacity>
         <View style={styles.actMateWrapper}>
           <View style={styles.actWrapper}>
@@ -47,10 +79,20 @@ const Profile = ({ userInfo }) => {
         </View>
         <View style={styles.doneStatusWrapper}>
           <TouchableOpacity>
-            <Text style={styles.statusText} onPress={handleActingPress}>진행중</Text>
+            <Text
+              style={styles.statusText}
+              onPress={handleActingPress}
+            >
+              진행중
+            </Text>
           </TouchableOpacity>
           <TouchableOpacity>
-            <Text style={styles.statusText} onPress={handleCompletePress}>완료</Text>
+            <Text
+              style={styles.statusText}
+              onPress={handleCompletePress}
+            >
+              완료
+            </Text>
           </TouchableOpacity>
         </View>
         <View style={styles.divideLine} />
@@ -70,7 +112,9 @@ const Profile = ({ userInfo }) => {
                           {habitIcon}
                         </View>
                         <View style={styles.habitTypeTextWrapper}>
-                          <Text style={styles.habitTypeText}>{habitText}</Text>
+                          <Text style={styles.habitTypeText}>
+                            {habitText}
+                          </Text>
                         </View>
                       </View>
                     </TouchableOpacity>
@@ -124,6 +168,14 @@ const styles = StyleSheet.create({
   profileTopWrapper: {
     alignItems: 'center',
     justifyContent: 'space-evenly'
+  },
+  profileImgWrapper: {
+    marginTop: 30
+  },
+  profileImg: {
+    width: 80,
+    height: 80,
+    borderRadius: 100
   },
   actMateWrapper: {
     borderWidth: 1,

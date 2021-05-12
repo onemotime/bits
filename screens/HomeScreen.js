@@ -91,10 +91,10 @@ const HomeScreen = () => {
 const styles = StyleSheet.create({
   wrapper: {
     flex: 1,
-    backgroundColor: '#E8BE64'
+    backgroundColor: '#F9BC56'
   },
   complement: {
-    height: 150
+    height: 100
   }
 });
 
