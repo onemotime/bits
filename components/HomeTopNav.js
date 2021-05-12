@@ -1,8 +1,6 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
-import {
-  FontAwesome5
-} from '@expo/vector-icons';
+import { FontAwesome5 } from '@expo/vector-icons';
 import { View, Text, Image, StyleSheet } from 'react-native';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 
@@ -62,8 +60,8 @@ const styles = StyleSheet.create({
     marginRight: 10
   },
   profileImg: {
-    width: 50,
-    height: 50,
+    width: 40,
+    height: 40,
     borderRadius: 100,
     borderWidth: 1
   },
