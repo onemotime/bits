@@ -19,11 +19,14 @@ const CountdownBtn = ({
   const [isPlaying, setPlaying] = useState(true);
 
   const dispatch = useDispatch();
+  const date = new Date();
+  const currentDate = `${date.getFullYear()}-${date.getMonth() + 1}-${date.getDate()}`;
 
   const handleTimeColplete = () => {
     const updateInput = {
       habitType,
-      email
+      email,
+      date: currentDate
     };
 
     dispatch(updateHabit(updateInput));

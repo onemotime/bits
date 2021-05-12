@@ -130,6 +130,7 @@ export const userSlice = createSlice({
     followers: [],
     following: [],
     completedHabits: [],
+    completedDates: [],
     habits: [],
     accessToken: '',
     isFetching: false,
@@ -148,6 +149,7 @@ export const userSlice = createSlice({
       state.habits = payload.habits;
       state.following = payload.following;
       state.imageUri = payload.imageUri;
+      state.completedDates = payload.completedDates;
       state.isFetching = false;
       state.isSuccess = true;
     },
@@ -189,6 +191,7 @@ export const userSlice = createSlice({
     [updateHabit.fulfilled]: (state, { payload }) => {
       state.habits = payload.habits;
       state.completedHabits = payload.completedHabits;
+      state.completedDates = payload.completedDates;
       state.isFetching = false;
       state.isSuccess = true;
     },

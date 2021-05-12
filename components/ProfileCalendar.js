@@ -1,5 +1,8 @@
 import React from 'react';
+import { View, Text } from 'react-native';
 import {Calendar, LocaleConfig } from 'react-native-calendars';
+import { AntDesign } from '@expo/vector-icons';
+
 
 LocaleConfig.locales['fr'] = {
   monthNames: ['January','Feburary','March','April','May','June','July','August','September','October','November','December'],
@@ -9,14 +12,25 @@ LocaleConfig.locales['fr'] = {
 
 LocaleConfig.defaultLocale = 'fr';
 
-const ProfileCalendar = () => {
+const ProfileCalendar = ({ completedDates }) => {
 
   return (
     <Calendar
       theme={{
+        arrowColor: '#F9BC56',
         textMonthFontWeight: 'bold',
-        textDayFontSize: 12,
-        textDayFontWeight: '500',
+        textDayFontSize: 12
+      }}
+      dayComponent={({date, state}) => {
+        return (
+          <View>
+            <Text style={{textAlign: 'center', color: state === 'disabled' ? 'gray' : 'black'}}>
+              {completedDates.includes(`${date.year}-${date.month}-${date.day}`)
+                ?  <AntDesign name="checksquare" size={20} color='#4cd137' />
+                :  date.day}
+            </Text>
+          </View>
+        );
       }}
     />
   );

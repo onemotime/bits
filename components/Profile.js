@@ -58,9 +58,10 @@ const Profile = ({ userInfo, email, imageUri }) => {
                 </View>
               </View>)}
         {isCalendarOn &&
-          <Calendar />}
+          <Calendar completedDates={userInfo.completedDates} />}
       </View>
     </View>
+
   );
 };
 
@@ -87,11 +88,11 @@ const styles = StyleSheet.create({
   },
   completeHabitWrapper: {
     borderWidth: 1,
-    height: '72.5%',
     justifyContent: 'center',
     alignItems: 'center'
   },
   completeHabitText: {
+    fontSize: 15,
     fontWeight: '800'
   }
 });
