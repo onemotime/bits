@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { View, Animated, Text, TouchableOpacity, StyleSheet } from 'react-native';
 import { CountdownCircleTimer } from 'react-native-countdown-circle-timer';
-import { updateHabit } from '../redux/userSlice';
+import { updateHabit } from '../../redux/userSlice';
 import {
   FontAwesome5,
   MaterialIcons,

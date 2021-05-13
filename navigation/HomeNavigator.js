@@ -1,7 +1,7 @@
 import React from 'react';
 import { createStackNavigator } from '@react-navigation/stack';
-import HomeMain from '../screens/HomeMain';
-import RegisterHabit from '../screens/RegisterHabit';
+import HomeMain from '../screens/Home/HomeMain';
+import RegisterHabit from '../screens/RegisterHabit/RegisterHabit';
 
 const HomeStack = createStackNavigator();
 

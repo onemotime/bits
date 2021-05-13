@@ -2,9 +2,9 @@ import React, { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { EvilIcons } from '@expo/vector-icons';
 import { View, Text, TouchableOpacity, Image, StyleSheet } from 'react-native';
-import { fetchFollowingHabits } from '../redux/habitSlice';
+import { fetchFollowingHabits } from '../../redux/habitSlice';
 import { ScrollView } from 'react-native-gesture-handler';
-import pickIconByType from '../utils/pickIconByType';
+import pickIconByType from '../../utils/pickIconByType';
 
 const MateHabit = ({ email, followingUserHabits, following }) => {
   const dispatch = useDispatch();

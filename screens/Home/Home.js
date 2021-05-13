@@ -1,5 +1,5 @@
 import React from 'react';
-import HomeNavigator from '../navigation/HomeNavigator';
+import HomeNavigator from '../../navigation/HomeNavigator';
 
 const Home = () => {
   return (

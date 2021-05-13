@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { FontAwesome } from '@expo/vector-icons';
 import { View, Text, StyleSheet, TouchableOpacity, TextInput } from 'react-native';
-import * as userAPI from '../api/userApi';
+import * as userAPI from '../../api/userApi';
 
 const Signup = ({ navigation }) => {
   const [email, setEmail] = useState('');

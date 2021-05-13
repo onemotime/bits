@@ -2,9 +2,9 @@ import React from 'react';
 import { useSelector } from 'react-redux';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
-import MainScreen from '../screens/Main';
-import Login from '../screens/Login';
-import Signup from '../screens/Signup';
+import MainScreen from '../screens/Main/Main';
+import Login from '../screens/Login/Login';
+import Signup from '../screens/Signup/Signup';
 
 const AppStack = createStackNavigator();
 

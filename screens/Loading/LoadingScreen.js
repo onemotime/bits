@@ -1,5 +1,5 @@
 import React from 'react';
-import splashAnimation from '../assets/animation/splashAnimation.json';
+import splashAnimation from '../../assets/animation/splashAnimation.json';
 import { StyleSheet } from 'react-native';
 import LottieView from 'lottie-react-native';
 

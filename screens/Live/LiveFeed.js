@@ -1,9 +1,9 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
-import HomeTopNav from '../components/HomeTopNav';
+import TopNav from '../../components/shared/TopNav';
 
-import LiveFeed from '../components/MateHabit';
-import MateRegister from '../components/MateRegister';
+import MateHabit from '../../components/LiveBoard/MateHabit';
+import MateRegister from '../../components/LiveBoard/MateRegister';
 
 const LiveFeedScreen = () => {
   const { email, following } = useSelector(state => state.user);
@@ -11,9 +11,9 @@ const LiveFeedScreen = () => {
 
   return (
     <>
-      <HomeTopNav />
+      <TopNav />
       {following.length > 0
-        ? <LiveFeed
+        ? <MateHabit
             email={email}
             followingUserHabits={followingUserHabits}
             following={following}

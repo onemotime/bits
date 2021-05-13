@@ -1,8 +1,8 @@
 import React from 'react';
 import { View, Text, TouchableOpacity, StyleSheet } from 'react-native';
 import { ScrollView } from 'react-native-gesture-handler';
-import pickIconByType from '../utils/pickIconByType';
-import pickTextByType from '../utils/pickTextByType';
+import pickIconByType from '../../utils/pickIconByType';
+import pickTextByType from '../../utils/pickTextByType';
 
 const ProgressHabit = ({ userInfo }) => {
   return (

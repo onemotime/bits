@@ -1,14 +1,15 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { View, Text, StyleSheet, TouchableOpacity, TextInput } from 'react-native';
-import Loading from "./LoadingScreen";
-import { fetchSignin } from '../redux/userSlice';
+import Loading from '../Loading/LoadingScreen';
+import { fetchSignin } from '../../redux/userSlice';
 import { FontAwesome } from '@expo/vector-icons';
+
 import {
   GoogleIcon,
   FacebookIcon,
   InstagramIcon,
-} from '../assets/svgs/icon';
+} from '../../assets/svgs/icon';
 
 const Login = ({ navigation }) => {
   const [email, setEmail] = useState('');

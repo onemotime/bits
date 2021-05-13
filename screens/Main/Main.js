@@ -1,9 +1,9 @@
 import React from 'react';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import Home from './Home';
-import LiveFeed from './LiveFeed';
-import SearchMate from './SearchMate';
-import MyProfile from './MyProfile';
+import Home from '../Home/Home';
+import LiveFeed from '../Live/LiveFeed';
+import SearchMate from '../Search/SearchMate';
+import MyProfile from '../Profile/MyProfile';
 
 import {
   Entypo,
@@ -12,11 +12,11 @@ import {
   FontAwesome
 } from '@expo/vector-icons';
 
-const BottomTab = createBottomTabNavigator();
+const Tab = createBottomTabNavigator();
 
 const Main = () => {
   return (
-    <BottomTab.Navigator
+    <Tab.Navigator
       screenOptions={({ route }) => ({
         tabBarIcon: ({ focused, color, size }) => {
           switch (route.name) {
@@ -43,11 +43,11 @@ const Main = () => {
         activeBackgroundColor: '#FFF0D9'
       }}
     >
-      <BottomTab.Screen name='습관' component={Home} />
-      <BottomTab.Screen name='라이브' component={LiveFeed} />
-      <BottomTab.Screen name='검색' component={SearchMate} />
-      <BottomTab.Screen name='내정보' component={MyProfile} />
-    </BottomTab.Navigator>
+      <Tab.Screen name='습관' component={Home} />
+      <Tab.Screen name='라이브' component={LiveFeed} />
+      <Tab.Screen name='검색' component={SearchMate} />
+      <Tab.Screen name='내정보' component={MyProfile} />
+    </Tab.Navigator>
   );
 };
 

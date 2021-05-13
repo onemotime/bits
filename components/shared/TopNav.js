@@ -4,7 +4,7 @@ import { FontAwesome5 } from '@expo/vector-icons';
 import { View, Text, Image, StyleSheet } from 'react-native';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 
-const HomeTopNav = () => {
+const TopNav = () => {
   const { userName, imageUri } = useSelector(state => state.user);
   return (
     <View style={styles.topNavWrapper}>
@@ -79,4 +79,4 @@ const styles = StyleSheet.create({
   }
 });
 
-export default HomeTopNav;
+export default TopNav;

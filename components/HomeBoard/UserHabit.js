@@ -1,8 +1,8 @@
 import React from 'react';
 import { Feather, Entypo } from '@expo/vector-icons';
 import { StyleSheet, ScrollView, View, Text, TouchableOpacity } from 'react-native';
-import pickImgByType from '../utils/pickIconByType';
-import pickTextByType from '../utils/pickTextByType';
+import pickImgByType from '../../utils/pickIconByType';
+import pickTextByType from '../../utils/pickTextByType';
 
 const UserHabit = ({
   habits,

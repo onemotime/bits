@@ -2,15 +2,15 @@ import React, { useState } from 'react';
 import { View, StyleSheet } from 'react-native';
 import { useSelector, useDispatch } from 'react-redux';
 import { useNavigation } from '@react-navigation/native';
-import { removeHabit } from '../redux/userSlice';
-import convertTimeStrToSec from '../utils/convertTimeStrToSec';
+import { removeHabit } from '../../redux/userSlice';
+import convertTimeStrToSec from '../../utils/convertTimeStrToSec';
 
 
-import HabitRegister from '../components/HabitRegister';
-import UserHabit from '../components/UserHabit';
-import CountDownBtn from '../components/CountdownBtn';
-import StartCountDownBtn from '../components/StartCountDownBtn';
-import HomeTopNav from '../components/HomeTopNav';
+import HabitRegister from '../../components/HomeBoard/HabitRegister';
+import UserHabit from '../../components/HomeBoard/UserHabit';
+import CountDownBtn from '../../components/HomeBoard/CountdownBtn';
+import StartCountDownBtn from '../../components/HomeBoard/StartCountDownBtn';
+import TopNav from '../../components/shared/TopNav';
 
 const HomeMain = () => {
   const [isHabitSelected, setSelectedHabit] = useState(false);
@@ -64,7 +64,7 @@ const HomeMain = () => {
 
   return (
     <View style={styles.wrapper}>
-      <HomeTopNav />
+      <TopNav />
         {isStartCountBtnOn
           ? <View style={styles.complement}/>
           : habits?.length > 0

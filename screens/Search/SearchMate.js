@@ -1,15 +1,15 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 
-import HomeTopNav from '../components/HomeTopNav';
-import FollowMate from '../components/FollowMate';
+import TopNav from '../../components/shared/TopNav';
+import FollowMate from '../../components/SearchBoard/FollowMate';
 
 const SearchMate = () => {
   const { email, userName, allUsers, following } = useSelector(state => state.user);
 
   return (
     <>
-      <HomeTopNav />
+      <TopNav />
       <FollowMate
         allUsers={allUsers}
         following={following}

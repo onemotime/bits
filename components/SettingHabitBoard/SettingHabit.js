@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigation } from '@react-navigation/native';
-import { registerHabit } from '../redux/userSlice';
+import { registerHabit } from '../../redux/userSlice';
 import { Picker } from '@react-native-picker/picker';
 import { Button, View, Text, TouchableOpacity, StyleSheet } from 'react-native';
 
@@ -9,8 +9,6 @@ const SettingHabit = () => {
   const dispatch = useDispatch();
   const { email, habits } = useSelector(state => state.user);
   const navigation = useNavigation();
-  console.log(habits);
-  console.log(email);
 
   const [selectedAct, setAct] = useState(null);
   const [selectedDay, setDay] = useState(null);

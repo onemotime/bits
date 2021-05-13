@@ -1,7 +1,7 @@
 import React from 'react';
 import { View, StyleSheet } from 'react-native';
 
-import SettingHabit from '../components/SettingHabit';
+import SettingHabit from '../../components/SettingHabitBoard/SettingHabit';
 
 const RegisterHabit = () => {
   return (

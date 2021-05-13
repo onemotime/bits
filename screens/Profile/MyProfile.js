@@ -1,15 +1,15 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 
-import Profile from '../components/Profile';
-import HomeTopNav from '../components/HomeTopNav';
+import Profile from '../../components/ProfileBoard/Profile';
+import TopNav from '../../components/shared/TopNav';
 
 const MyProfile = () => {
   const user = useSelector(state => state.user);
 
   return (
     <>
-      <HomeTopNav />
+      <TopNav />
       <Profile
         userInfo={user}
         email={user.email}
