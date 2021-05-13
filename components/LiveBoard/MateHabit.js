@@ -24,17 +24,19 @@ const MateHabit = ({ email, followingUserHabits, following }) => {
       <ScrollView>
         {followingUserHabits?.length > 0 &&
           followingUserHabits.map((followingUser, index) => {
-
+            console.log('팔로잉 유저 이미지 유알아이 🌞' + followingUser.imageUri)
             return (
               <View style={styles.mateLivewrapper} key={followingUser.userName}>
                 <View style={styles.profileImg}>
-                  {followingUser.imgUri
-                    ? <Image
-                        source={{ uri: imageUri }}
-                        style={styles.profileImg}
-                      />
+                  {followingUser.imageUri
+                    ? <View style={styles.uriWrapper}>
+                        <Image
+                          source={{ uri: followingUser.imageUri }}
+                          style={styles.profileUriImg}
+                        />
+                      </View>
                     : <EvilIcons
-                        name="user" size={40}
+                        name="user" size={50}
                         color="black"
                         style={styles.img}
                       />}
@@ -80,8 +82,18 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center'
   },
+  uriWrapper: {
+    marginLeft: 10,
+    paddingRight: 10
+  },
+  profileUriImg: {
+    width: 40,
+    height: 40,
+    borderRadius: 100
+  },
   img: {
-    marginLeft: 10
+    marginLeft: 3,
+    paddingRight: 7
   },
   name: {
     marginLeft: 4,

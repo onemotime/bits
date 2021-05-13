@@ -5,7 +5,6 @@ import { useNavigation } from '@react-navigation/native';
 import { removeHabit } from '../../redux/userSlice';
 import convertTimeStrToSec from '../../utils/convertTimeStrToSec';
 
-
 import HabitRegister from '../../components/HomeBoard/HabitRegister';
 import UserHabit from '../../components/HomeBoard/UserHabit';
 import CountDownBtn from '../../components/HomeBoard/CountdownBtn';
@@ -36,7 +35,6 @@ const HomeMain = () => {
     const sec = convertTimeStrToSec(habits[targetIndex].settedTime);
 
     setSelectedHabit((prev) => {
-
       if (prev === false) {
         setCountDownTime(sec);
         setTargetHabit(habitType);

@@ -121,25 +121,30 @@ export const updateImageUri = createAsyncThunk(
   }
 );
 
+const initialState = {
+  email: '',
+  userName: '',
+  imageUri: '',
+  followers: [],
+  following: [],
+  completedHabits: [],
+  completedDates: [],
+  habits: [],
+  accessToken: '',
+  isFetching: false,
+  isSuccess: false,
+  isError: false,
+  errorMessage: '',
+  allUsers: []
+};
+
 export const userSlice = createSlice({
   name: 'user',
-  initialState: {
-    email: '',
-    userName: '',
-    imageUri: '',
-    followers: [],
-    following: [],
-    completedHabits: [],
-    completedDates: [],
-    habits: [],
-    accessToken: '',
-    isFetching: false,
-    isSuccess: false,
-    isError: false,
-    errorMessage: '',
-    allUsers: []
-  },
+  initialState,
   reducers: {
+    resetUserState: () => {
+      return initialState;
+    }
   },
   extraReducers: {
     [fetchSignin.fulfilled]: (state, { payload }) => {

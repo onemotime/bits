@@ -19,16 +19,21 @@ export const fetchFollowingHabits = createAsyncThunk(
   }
 );
 
+const initialState = {
+  followingUserHabits: [],
+  isFetching: false,
+  isSuccess: false,
+  isError: false,
+  errorMessage: ''
+};
+
 export const habitSlice = createSlice({
   name: 'habit',
-  initialState: {
-    followingUserHabits: [],
-    isFetching: false,
-    isSuccess: false,
-    isError: false,
-    errorMessage: ''
-  },
+  initialState,
   reducers: {
+    resetHabitState: () => {
+      return initialState;
+    }
   },
   extraReducers: {
     [fetchFollowingHabits.fulfilled]: (state, { payload }) => {

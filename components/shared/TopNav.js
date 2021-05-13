@@ -1,11 +1,22 @@
 import React from 'react';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
+import { userSlice } from '../../redux/userSlice';
+import { habitSlice } from '../../redux/habitSlice';
 import { FontAwesome5 } from '@expo/vector-icons';
 import { View, Text, Image, StyleSheet } from 'react-native';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 
 const TopNav = () => {
+  const dispatch = useDispatch();
+  const { resetUserState } = userSlice.actions;
+  const { resetHabitState } = habitSlice.actions;
   const { userName, imageUri } = useSelector(state => state.user);
+
+  const handleLogoutPress = () => {
+    dispatch(resetUserState());
+    dispatch(resetHabitState());
+  };
+
   return (
     <View style={styles.topNavWrapper}>
       <View style={styles.iconNameWrapper}>
@@ -26,7 +37,7 @@ const TopNav = () => {
         </View>
       </View>
       <View style={styles.gearWrapper}>
-        <TouchableOpacity>
+        <TouchableOpacity onPress={handleLogoutPress}>
           <FontAwesome5
             name="door-open"
             size={24}
@@ -47,7 +58,6 @@ const styles = StyleSheet.create({
     height: 70,
     borderColor: 'black',
     marginTop: 20,
-    borderWidth: 1,
     paddingTop: 10,
     paddingBottom: 10,
     backgroundColor: '#F9BC56',
@@ -63,7 +73,8 @@ const styles = StyleSheet.create({
     width: 40,
     height: 40,
     borderRadius: 100,
-    borderWidth: 1
+    borderWidth: 1,
+    borderColor: 'grey'
   },
   name: {
     alignItems: 'center',

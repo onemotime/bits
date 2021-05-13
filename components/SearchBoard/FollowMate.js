@@ -97,8 +97,7 @@ const styles = StyleSheet.create({
   userProfileImg: {
     width: 50,
     height: 50,
-    borderRadius: 100,
-    borderWidth: 1
+    borderRadius: 100
   },
   userNameWrapper: {
     justifyContent: 'center',
