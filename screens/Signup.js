@@ -3,7 +3,7 @@ import { FontAwesome } from '@expo/vector-icons';
 import { View, Text, StyleSheet, TouchableOpacity, TextInput } from 'react-native';
 import * as userAPI from '../api/userApi';
 
-const SignupScreen = ({ navigation }) => {
+const Signup = ({ navigation }) => {
   const [email, setEmail] = useState('');
   const [userName, setUserName] = useState('');
   const [password, setPassword] = useState('');
@@ -258,4 +258,4 @@ const styles = StyleSheet.create({
   }
 });
 
-export default SignupScreen;
+export default Signup;

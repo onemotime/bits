@@ -10,7 +10,7 @@ import {
   InstagramIcon,
 } from '../assets/svgs/icon';
 
-const LoginScreen = ({ navigation }) => {
+const Login = ({ navigation }) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const { isFetching } = useSelector(state => state.user);
@@ -208,4 +208,4 @@ const styles = StyleSheet.create({
   }
 });
 
-export default LoginScreen;
+export default Login;

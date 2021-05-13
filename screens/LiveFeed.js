@@ -2,7 +2,7 @@ import React from 'react';
 import { useSelector } from 'react-redux';
 import HomeTopNav from '../components/HomeTopNav';
 
-import LiveFeed from '../components/LiveFeed';
+import LiveFeed from '../components/MateHabit';
 import MateRegister from '../components/MateRegister';
 
 const LiveFeedScreen = () => {

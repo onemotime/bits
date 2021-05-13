@@ -1,12 +1,9 @@
 import React from 'react';
-import { useDispatch } from 'react-redux';
 import { View, Text, TouchableOpacity, StyleSheet } from 'react-native';
-import { fetchUser } from '../redux/userSlice';
 import { useNavigation } from '@react-navigation/native';
 import { Entypo } from '@expo/vector-icons';
 
-const MateRegister = ({ email }) => {
-  const dispatch = useDispatch();
+const MateRegister = () => {
   const navigation = useNavigation();
 
   const handleMateRegisterPress = () => {

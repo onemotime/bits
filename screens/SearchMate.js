@@ -1,11 +1,10 @@
 import React from 'react';
-import { View, StyleSheet } from 'react-native';
 import { useSelector } from 'react-redux';
 
 import HomeTopNav from '../components/HomeTopNav';
 import FollowMate from '../components/FollowMate';
 
-const MateRegisterScreen = () => {
+const SearchMate = () => {
   const { email, userName, allUsers, following } = useSelector(state => state.user);
 
   return (
@@ -21,5 +20,5 @@ const MateRegisterScreen = () => {
   );
 };
 
-export default MateRegisterScreen;
+export default SearchMate;
 

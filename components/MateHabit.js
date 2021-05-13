@@ -6,9 +6,9 @@ import { fetchFollowingHabits } from '../redux/habitSlice';
 import { ScrollView } from 'react-native-gesture-handler';
 import pickIconByType from '../utils/pickIconByType';
 
-const LiveFeed = ({ email, followingUserHabits, following }) => {
+const MateHabit = ({ email, followingUserHabits, following }) => {
   const dispatch = useDispatch();
-  console.log('팔로잉 유저 해빗 🙆🏻‍♂️' + followingUserHabits)
+
   useEffect(() => {
     dispatch(fetchFollowingHabits(email));
   }, []);
@@ -20,7 +20,7 @@ const LiveFeed = ({ email, followingUserHabits, following }) => {
   const handleLikePress = () => {};
 
   return (
-    <View style={styles.liveFeedWrapper}>
+    <View style={styles.mateHabitWrapper}>
       <ScrollView>
         {followingUserHabits?.length > 0 &&
           followingUserHabits.map((followingUser, index) => {
@@ -67,7 +67,7 @@ const LiveFeed = ({ email, followingUserHabits, following }) => {
 };
 
 const styles = StyleSheet.create({
-  liveFeedWrapper: {
+  mateHabitWrapper: {
     flex: 1,
     width: '100%',
     backgroundColor: 'white'
@@ -115,4 +115,4 @@ const styles = StyleSheet.create({
   }
 });
 
-export default LiveFeed;
+export default MateHabit;

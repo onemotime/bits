@@ -2,10 +2,9 @@ import React from 'react';
 import { useSelector } from 'react-redux';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
-import MainScreen from '../screens/MainScreen';
-import LoginScreen from '../screens/LoginScreen';
-import SignupScreen from '../screens/SignupScreen';
-import RegisterHabitScreen from '../screens/RegisterHabitScreen';
+import MainScreen from '../screens/Main';
+import Login from '../screens/Login';
+import Signup from '../screens/Signup';
 
 const AppStack = createStackNavigator();
 
@@ -18,11 +17,10 @@ const AppNavigator = () => {
         {accessToken
           ? <>
               <AppStack.Screen name='Main' component={MainScreen} />
-              <AppStack.Screen name='Register' component={RegisterHabitScreen} />
             </>
           : <>
-              <AppStack.Screen name='Login' component={LoginScreen} const={iseFetching} />
-              <AppStack.Screen name='Signup' component={SignupScreen} />
+              <AppStack.Screen name='Login' component={Login} const={iseFetching} />
+              <AppStack.Screen name='Signup' component={Signup} />
             </>}
       </AppStack.Navigator>
     </NavigationContainer>

@@ -6,20 +6,19 @@ import { removeHabit } from '../redux/userSlice';
 import convertTimeStrToSec from '../utils/convertTimeStrToSec';
 
 
-import Loading from '../screens/LoadingScreen';
 import HabitRegister from '../components/HabitRegister';
 import UserHabit from '../components/UserHabit';
 import CountDownBtn from '../components/CountdownBtn';
 import StartCountDownBtn from '../components/StartCountDownBtn';
 import HomeTopNav from '../components/HomeTopNav';
 
-const HomeScreen = () => {
+const HomeMain = () => {
   const [isHabitSelected, setSelectedHabit] = useState(false);
   const [targetHabit, setTargetHabit] = useState(null);
   const [countDownTime, setCountDownTime] = useState(0);
   const [isStartCountBtnOn, setStartCountBtn] = useState(false);
 
-  const { habits, email, isFetching } = useSelector(state => state.user);
+  const { habits, email } = useSelector(state => state.user);
   const navigation = useNavigation();
   const dispatch = useDispatch();
 
@@ -100,4 +99,4 @@ const styles = StyleSheet.create({
   }
 });
 
-export default HomeScreen;
+export default HomeMain;

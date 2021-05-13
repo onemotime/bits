@@ -4,7 +4,7 @@ import { useSelector } from 'react-redux';
 import Profile from '../components/Profile';
 import HomeTopNav from '../components/HomeTopNav';
 
-const ProfileScreen = () => {
+const MyProfile = () => {
   const user = useSelector(state => state.user);
 
   return (
@@ -19,4 +19,4 @@ const ProfileScreen = () => {
   );
 };
 
-export default ProfileScreen;
+export default MyProfile;

@@ -65,7 +65,7 @@ const SettingHabit = () => {
 
     await dispatch(registerHabit(registerInput));
 
-    navigation.navigate('습관');
+    navigation.navigate('Home');
   };
 
   return (
