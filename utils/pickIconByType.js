@@ -51,6 +51,22 @@ const pickImgByType = (
           color={(isHabitSelected && (targetHabitType === 'run')) ? '#4cd137' : 'white'}
         />
       );
+    case 'bicycle':
+      return (
+        <MaterialCommunityIcons
+          name='bicycle-basket'
+          size={50}
+          color={(isHabitSelected && (targetHabitType === 'bicycle')) ? '#4cd137' : 'white'}
+        />
+      );
+    case 'yoga':
+      return (
+        <MaterialCommunityIcons
+        name='yoga'
+        size={50}
+        color={(isHabitSelected && (targetHabitType === 'yoga')) ? '#4cd137' : 'white'}
+      />
+      );
   }
 };
 

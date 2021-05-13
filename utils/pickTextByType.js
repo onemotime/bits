@@ -10,6 +10,10 @@ const pickTextByType = (habitType) => {
       return '명상';
     case 'run':
       return '달리기';
+    case 'bicycle':
+      return '자전거';
+    case 'yoga':
+      return '요가';
   }
 };
 
