@@ -1,22 +1,10 @@
-import React, { useEffect } from 'react';
-import { useDispatch } from 'react-redux';
+import React from 'react';
 import { EvilIcons } from '@expo/vector-icons';
 import { View, Text, TouchableOpacity, Image, StyleSheet } from 'react-native';
-import { fetchFollowingHabits } from '../../redux/habitSlice';
 import { ScrollView } from 'react-native-gesture-handler';
 import pickIconByType from '../../utils/pickIconByType';
 
-const MateHabit = ({ email, followingUserHabits, following }) => {
-  const dispatch = useDispatch();
-
-  useEffect(() => {
-    dispatch(fetchFollowingHabits(email));
-  }, []);
-
-  useEffect(() => {
-    dispatch(fetchFollowingHabits(email));
-  }, [following]);
-
+const MateHabit = ({ followingUserHabits }) => {
   const handleLikePress = () => {};
 
   return (
@@ -24,7 +12,6 @@ const MateHabit = ({ email, followingUserHabits, following }) => {
       <ScrollView>
         {followingUserHabits?.length > 0 &&
           followingUserHabits.map((followingUser, index) => {
-            console.log('팔로잉 유저 이미지 유알아이 🌞' + followingUser.imageUri)
             return (
               <View style={styles.mateLivewrapper} key={followingUser.userName}>
                 <View style={styles.profileImg}>

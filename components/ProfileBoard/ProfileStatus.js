@@ -100,14 +100,12 @@ const ProfileStatus = ({
 const styles = StyleSheet.create({
   profileTopWrapper: {
     alignItems: 'center',
-    justifyContent: 'space-evenly',
-    borderWidth: 1
+    justifyContent: 'space-evenly'
   },
   profileImgWrapper: {
     marginTop: 7,
   },
   profileImg: {
-    borderWidth: 1,
     borderColor: 'grey',
     width: 80,
     height: 80,
@@ -143,7 +141,6 @@ const styles = StyleSheet.create({
     color: '#E0A935'
   },
   doneStatusWrapper: {
-    borderWidth: 1,
     flexDirection: 'row',
     justifyContent: 'space-evenly',
     width: '60%',
@@ -155,10 +152,10 @@ const styles = StyleSheet.create({
     color: '#E0A935'
   },
   divideLine: {
-    borderWidth: 1,
-    marginTop: 3,
+    borderWidth: 0.5,
+    marginTop: 5,
     borderColor: '#E0A935',
-    width: '80%'
+    width: '65%'
   }
 });
 

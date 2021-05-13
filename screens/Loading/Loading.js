@@ -3,7 +3,7 @@ import splashAnimation from '../../assets/animation/splashAnimation.json';
 import { StyleSheet } from 'react-native';
 import LottieView from 'lottie-react-native';
 
-const LoadingScreen = () => {
+const Loading = () => {
   return (
     <>
       <LottieView
@@ -23,4 +23,4 @@ const styles = StyleSheet.create({
   }
 });
 
-export default LoadingScreen;
+export default Loading;

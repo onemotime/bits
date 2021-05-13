@@ -23,7 +23,7 @@ const FollowMate = ({ allUsers, following, email, userName }) => {
   return (
     <View style={styles.followMateWrapper}>
       <Text style={styles.recommendText}>추천친구</Text>
-      <ScrollView>
+      <ScrollView style={styles.scroll}>
         {allUsers.length > 0 &&
           allUsers.map((userInfo, index) => {
             const isFollowing = following.some(followUser => {
@@ -68,8 +68,8 @@ const FollowMate = ({ allUsers, following, email, userName }) => {
 const styles = StyleSheet.create({
   followMateWrapper: {
     width: '100%',
-    height: 2000,
-    backgroundColor: 'white'
+    backgroundColor: 'white',
+    flex: 1
   },
   recommendText: {
     marginTop: 20,
@@ -79,9 +79,11 @@ const styles = StyleSheet.create({
     fontSize: 12,
     color: '#E4B356'
   },
+  scroll: {
+  },
   mateWrapper: {
     width: '100%',
-    height: '60%',
+    height: 100,
     flexDirection: 'row',
     justifyContent: 'space-between'
   },

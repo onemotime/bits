@@ -212,6 +212,8 @@ export const userSlice = createSlice({
     [fetchUser.fulfilled]: (state, { payload }) => {
       state.allUsers = payload.users;
       state.following = payload.following;
+      state.isFetching = false;
+      state.isSuccess = true;
     },
     [fetchUser.pending]: (state) => {
       state.isFetching = true;
@@ -224,6 +226,8 @@ export const userSlice = createSlice({
     },
     [followUser.fulfilled]: (state, { payload }) => {
       state.following = payload;
+      state.isFetching = false;
+      state.isSuccess = true;
     },
     [followUser.pending]: (state) => {
       state.isFetching = true;

@@ -1,7 +1,6 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { userSlice } from '../../redux/userSlice';
-import { habitSlice } from '../../redux/habitSlice';
 import { FontAwesome5 } from '@expo/vector-icons';
 import { View, Text, Image, StyleSheet } from 'react-native';
 import { TouchableOpacity } from 'react-native-gesture-handler';
@@ -9,12 +8,10 @@ import { TouchableOpacity } from 'react-native-gesture-handler';
 const TopNav = () => {
   const dispatch = useDispatch();
   const { resetUserState } = userSlice.actions;
-  const { resetHabitState } = habitSlice.actions;
   const { userName, imageUri } = useSelector(state => state.user);
 
   const handleLogoutPress = () => {
     dispatch(resetUserState());
-    dispatch(resetHabitState());
   };
 
   return (

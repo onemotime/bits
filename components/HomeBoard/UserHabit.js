@@ -85,13 +85,9 @@ const styles = StyleSheet.create({
     marginLeft: 10,
   },
   habitInfo: {
-    borderWidth: 1,
     height: '80%',
     justifyContent: 'space-evenly',
     marginLeft: 20
-  },
-  habbitName: {
-    borderWidth: 1
   },
   name: {
     color: 'white',
@@ -99,7 +95,6 @@ const styles = StyleSheet.create({
     fontSize: 30
   },
   dayMateLike: {
-    borderWidth: 1,
     justifyContent: 'space-evenly',
     height: '60%'
   },

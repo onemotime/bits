@@ -10,6 +10,6 @@ export const getFollowingHabits = async (userEmail) => {
     },
     body: JSON.stringify({ email: userEmail })
   });
-  console.log('패칭 후 유저 api getfolllowing 응답' + response);
+
   return await response.json();
 };

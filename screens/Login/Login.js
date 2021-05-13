@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { View, Text, StyleSheet, TouchableOpacity, TextInput } from 'react-native';
-import Loading from '../Loading/LoadingScreen';
+import Loading from '../Loading/Loading';
 import { fetchSignin } from '../../redux/userSlice';
 import { FontAwesome } from '@expo/vector-icons';
 

@@ -31,9 +31,6 @@ export const habitSlice = createSlice({
   name: 'habit',
   initialState,
   reducers: {
-    resetHabitState: () => {
-      return initialState;
-    }
   },
   extraReducers: {
     [fetchFollowingHabits.fulfilled]: (state, { payload }) => {
@@ -43,8 +40,9 @@ export const habitSlice = createSlice({
     },
     [fetchFollowingHabits.pending]: (state) => {
       state.isFetching = true;
+      state.isSuccess = false;
     },
-    [fetchSignin.rejected]: (state, { payload }) => {
+    [fetchFollowingHabits.rejected]: (state, { payload }) => {
       state.isFetching = false;
       state.isError = true;
       state.errorMessage = payload.message;
