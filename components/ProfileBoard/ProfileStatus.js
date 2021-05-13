@@ -42,9 +42,9 @@ const ProfileStatus = ({
               style={styles.profileImg}
             />
           : <EvilIcons
-              name="user"
+              name='user'
               size={100}
-              color="black"
+              color='black'
               style={styles.img}
             />}
       </TouchableOpacity>
@@ -60,8 +60,8 @@ const ProfileStatus = ({
         <View style={styles.mateWrapper}>
           <Text style={styles.mateText}>Mate</Text>
           <Text style={styles.mateCountText}>
-            {userInfo.following > 0
-              ? userInfo.following
+            {userInfo.following.length > 0
+              ? userInfo.following.length
               : 0}
           </Text>
         </View>

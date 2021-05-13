@@ -7,7 +7,7 @@ const StartCountDownBtn = ({ handlePress }) => {
       <TouchableOpacity onPress={handlePress}>
         <View style={styles.outterCircle}>
           <View style={styles.innerCircle}>
-            <Text style={styles.pressText}>Press your habits !</Text>
+            <Text style={styles.pressText}>PRESS HABIT</Text>
           </View>
         </View>
       </TouchableOpacity>
@@ -17,7 +17,6 @@ const StartCountDownBtn = ({ handlePress }) => {
 
 const styles = StyleSheet.create({
   wrapper: {
-    borderWidth: 1,
     justifyContent: 'center',
     alignItems: 'center',
     height: '44%'
@@ -40,7 +39,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#F4DFB0'
   },
   pressText: {
-    fontSize: 13,
+    fontSize: 15,
     fontWeight: '600'
   }
 });

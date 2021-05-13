@@ -44,7 +44,7 @@ const UserHabit = ({
                 </View>
                 <View style={styles.cancelWrapper}>
                   <TouchableOpacity onPress={() => handlePressX(index)}>
-                    <Feather name="x-circle" size={20} color="black" />
+                    <Feather name='x-circle' size={20} color='black' />
                   </TouchableOpacity>
                 </View>
               </View>
@@ -61,13 +61,11 @@ const UserHabit = ({
 
 const styles = StyleSheet.create({
   wrapper: {
-    borderWidth: 1,
     justifyContent: 'center',
     alignItems: 'center',
     height: 200
   },
   userHabitWrapper: {
-    borderWidth: 1,
     width: '80%',
     height: '80%',
     borderRadius: 10,
@@ -76,7 +74,8 @@ const styles = StyleSheet.create({
   habitInfoWrapper: {
     flexDirection: 'row',
     justifyContent: 'space-evenly',
-    alignItems: 'center'
+    alignItems: 'center',
+    width: 255
   },
   iconWrapper: {
     backgroundColor: '#F9BC56',
@@ -124,7 +123,6 @@ const styles = StyleSheet.create({
     marginLeft: 10
   },
   addBtnWrapper: {
-    borderWidth: 1,
     top: 15
   }
 });
