@@ -18,8 +18,9 @@ const LiveFeed = () => {
 
   return (
     <>
-      {!isFetching
-        ? <>
+      {isFetching
+        ? <Loading />
+        : <>
             <TopNav />
               {following.length > 0
                 ? <MateHabit
@@ -28,8 +29,7 @@ const LiveFeed = () => {
                     following={following}
                   />
                 : <MateRegister email={email} />}
-          </>
-        : <Loading />}
+          </>}
     </>
   );
 };

@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { useDispatch } from 'react-redux';
 import { followUser, fetchUser } from '../../redux/userSlice';
 import { EvilIcons, Entypo, FontAwesome } from '@expo/vector-icons';
@@ -6,10 +6,6 @@ import { View, Text, TouchableOpacity, Image, StyleSheet, ScrollView } from 'rea
 
 const FollowMate = ({ allUsers, following, email, userName }) => {
   const dispatch = useDispatch();
-
-  useEffect(() => {
-    dispatch(fetchUser(email));
-  }, []);
 
   const handleFollowPress = (userInfo) => {
     const followingInfo = {
@@ -31,6 +27,7 @@ const FollowMate = ({ allUsers, following, email, userName }) => {
             });
 
             if (userInfo.userName === userName) return;
+
             return (
               <View style={styles.mateWrapper} key={index}>
                 <View style={styles.profileImg}>
