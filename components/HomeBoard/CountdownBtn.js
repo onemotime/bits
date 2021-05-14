@@ -13,7 +13,7 @@ const CountdownBtn = ({
   totalTime,
   setStartCountBtn,
   habitType,
-  email
+  accessToken
 }) => {
   const [isHabitDone, setHabitDone] = useState(false);
   const [isPlaying, setPlaying] = useState(true);
@@ -25,7 +25,7 @@ const CountdownBtn = ({
   const handleTimeColplete = () => {
     const updateInput = {
       habitType,
-      email,
+      accessToken,
       date: currentDate
     };
 
@@ -34,15 +34,15 @@ const CountdownBtn = ({
     setHabitDone(true);
   };
 
-  const handleFinishIconPress = () => {
+  const onFinishIconPress = () => {
     setStartCountBtn(false);
   };
 
-  const handlePausePress = () => {
+  const onPausePress = () => {
     setPlaying(prev => !prev);
   };
 
-  const handleCancelPress = () => {
+  const onQuitPress = () => {
     setStartCountBtn(false);
   };
 
@@ -68,7 +68,7 @@ const CountdownBtn = ({
                 fontWeight: '600'
               }}>
               {isHabitDone
-                ? <TouchableOpacity onPress={handleFinishIconPress}>
+                ? <TouchableOpacity onPress={onFinishIconPress}>
                     <Text style={styles.doneText}>
                       <FontAwesome5 name='calendar-check' size={50} color='#4cd137' />
                     </Text>
@@ -78,10 +78,10 @@ const CountdownBtn = ({
         </CountdownCircleTimer>
       </View>
       <View style={styles.btnWrapper}>
-        <TouchableOpacity style={styles.pauseBtn} onPress={handlePausePress}>
+        <TouchableOpacity style={styles.pauseBtn} onPress={onPausePress}>
           <MaterialCommunityIcons name="play-pause" size={40} color="black" />
         </TouchableOpacity>
-        <TouchableOpacity style={styles.cancelBtn} onPress={handleCancelPress}>
+        <TouchableOpacity style={styles.cancelBtn} onPress={onQuitPress}>
           <MaterialIcons name='cancel' size={40} color='red' />
         </TouchableOpacity>
       </View>
@@ -92,7 +92,8 @@ const CountdownBtn = ({
 const styles = StyleSheet.create({
   pressButtonWrapper: {
     justifyContent: 'space-evenly',
-    alignItems: 'center'
+    alignItems: 'center',
+    flex: 1
   },
   pressButtonText: {
     fontWeight: '700',
@@ -108,16 +109,12 @@ const styles = StyleSheet.create({
   },
   btnWrapper: {
     flexDirection: 'row',
-    borderWidth: 1,
-    marginTop: 30
   },
   pauseBtn: {
-    borderWidth: 1,
-    marginRight: 10
+    marginRight: 15
   },
   cancelBtn: {
-    borderWidth: 1,
-    marginLeft: 10
+    marginLeft: 15
   }
 });
 

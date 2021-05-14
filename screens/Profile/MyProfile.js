@@ -12,7 +12,7 @@ const MyProfile = () => {
       <TopNav />
       <Profile
         userInfo={user}
-        email={user.email}
+        accessToken={user.accessToken}
         imageUri={user.imageUri}
       />
     </>

@@ -1,3 +1,4 @@
+import generateHeaderOption from '../utils/generateHeaderOption';
 import { SERVER_URL } from '@env';
 
 export const requestSignin = async (loginInput) => {
@@ -30,12 +31,11 @@ export const requestSignup = async (signupInput) => {
 
 export const postHabit = async (registerInput) => {
   const url = `${SERVER_URL}/habit`;
+  const headers = generateHeaderOption(registerInput.accessToken);
 
   const response = await fetch(url, {
     method: 'POST',
-    headers: {
-      'Content-Type': 'application/json'
-    },
+    headers,
     body: JSON.stringify(registerInput)
   });
 
@@ -44,12 +44,11 @@ export const postHabit = async (registerInput) => {
 
 export const patchHabit = async (updateInput) => {
   const url = `${SERVER_URL}/habit`;
+  const headers = generateHeaderOption(updateInput.accessToken);
 
   const response = await fetch(url, {
     method: 'PATCH',
-    headers: {
-      'Content-Type': 'application/json'
-    },
+    headers,
     body: JSON.stringify(updateInput)
   });
 
@@ -58,28 +57,26 @@ export const patchHabit = async (updateInput) => {
 
 export const deleteHabit = async (deleteInput) => {
   const url = `${SERVER_URL}/habit`;
+  const headers = generateHeaderOption(deleteInput.accessToken);
 
   const response = await fetch(url, {
     method: 'DELETE',
-    headers: {
-      'Content-Type': 'application/json'
-    },
-    body: JSON.stringify(deleteInput)
+    headers,
+    body: JSON.stringify({
+      targetIndex: deleteInput.targetIndex
+    })
   });
 
   return await response.json();
 };
 
-export const fetchUserName = async (email) => {
-  // 나중 토큰 verify할 때 유저 이메일 대신 토큰 넣고 겟 요청 보내기
+export const fetchUserName = async (accessToken) => {
   const url = `${SERVER_URL}/user/all`;
+  const headers = generateHeaderOption(accessToken);
 
   const response = await fetch(url, {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json'
-    },
-    body: JSON.stringify({ email })
+    method: 'GET',
+    headers
   });
 
   return await response.json();
@@ -87,13 +84,14 @@ export const fetchUserName = async (email) => {
 
 export const patchUserFollow = async (followingInfo) => {
   const url = `${SERVER_URL}/user/follow`;
+  const headers = generateHeaderOption(followingInfo.accessToken);
 
   const response = await fetch(url, {
     method: 'PATCH',
-    headers: {
-      'Content-Type': 'application/json'
-    },
-    body: JSON.stringify(followingInfo)
+    headers,
+    body: JSON.stringify({
+      followId: followingInfo.followId
+    })
   });
 
   return await response.json();
@@ -101,13 +99,14 @@ export const patchUserFollow = async (followingInfo) => {
 
 export const patchImageUri = async (imageUriPayload) => {
   const url = `${SERVER_URL}/user/image`;
+  const headers = generateHeaderOption(imageUriPayload.accessToken);
 
   const response = await fetch(url, {
     method: 'PATCH',
-    headers: {
-      'Content-Type': 'application/json'
-    },
-    body: JSON.stringify(imageUriPayload)
+    headers,
+    body: JSON.stringify({
+      uri: imageUriPayload.uri
+    })
   });
 
   return await response.json();

@@ -6,7 +6,7 @@ import ProgressHabit from './ProgressHabit';
 import CompletedHabit from './CompletedHabit';
 import Calendar from './ProfileCalendar';
 
-const Profile = ({ userInfo, email, imageUri }) => {
+const Profile = ({ userInfo, accessToken, imageUri }) => {
   const [isActingHabitOn, setActingHabit] = useState(true);
   const [isCompletedHabitOn, setCompletedHabit] = useState(false);
   const [isCalendarOn, setCalendar] = useState(false);
@@ -33,7 +33,7 @@ const Profile = ({ userInfo, email, imageUri }) => {
   return (
     <View style={styles.profileWrapper}>
       <ProfileStatus
-        email={email}
+        accessToken={accessToken}
         imageUri={imageUri}
         userInfo={userInfo}
         handleActingPress={actingHabitPressed}

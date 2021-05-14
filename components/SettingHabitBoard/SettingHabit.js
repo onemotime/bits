@@ -7,7 +7,7 @@ import { Button, View, Text, TouchableOpacity, Pressable, Modal, StyleSheet } fr
 
 const SettingHabit = () => {
   const dispatch = useDispatch();
-  const { email, habits } = useSelector(state => state.user);
+  const { email, habits, accessToken } = useSelector(state => state.user);
   const navigation = useNavigation();
 
   const [isModalShown, setModal] = useState(false);
@@ -63,7 +63,7 @@ const SettingHabit = () => {
     };
 
     const registerInput = {
-      email,
+      accessToken,
       actType: selectedAct,
       day: selectedDay,
       time: selectedTime
@@ -71,7 +71,7 @@ const SettingHabit = () => {
 
     await dispatch(registerHabit(registerInput));
 
-    navigation.navigate('Home');
+    navigation.navigate('습관');
   };
 
   return (

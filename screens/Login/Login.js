@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { View,  TouchableOpacity, StyleSheet } from 'react-native';
-import Loading from '../Loading/Loading';
 import { fetchSignin } from '../../redux/userSlice';
+import { View,  TouchableOpacity, StyleSheet } from 'react-native';
 
+import Loading from '../Loading/Loading';
 import LogoName from '../../components/shared/LogoName';
 import LoginInput from '../../components/LoginBoard/LoginInput/LoginInput';
 import LoginButtons from '../../components/LoginBoard/LoginButtons/LoginButtons';

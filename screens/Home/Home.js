@@ -17,13 +17,13 @@ const Home = () => {
   const [countDownTime, setCountDownTime] = useState(0);
   const [isStartCountBtnOn, setStartCountBtn] = useState(false);
 
-  const { habits, email } = useSelector(state => state.user);
+  const { habits, accessToken } = useSelector(state => state.user);
   const navigation = useNavigation();
   const dispatch = useDispatch();
 
   const handleDeletePress = (targetIndex) => {
     const deleteInput = {
-      email,
+      accessToken,
       targetIndex
     };
 
@@ -63,26 +63,25 @@ const Home = () => {
   return (
     <View style={styles.wrapper}>
       <TopNav />
-        {isStartCountBtnOn
-          ? <View style={styles.complement}/>
-          : habits?.length > 0
-              ? <UserHabit
-                  habits={habits}
-                  handlePress={handleRegisterHabitPress}
-                  handleIconPress={(index) => handleIconPress(index)}
-                  handlePressX={(index) => handleDeletePress(index)}
-                  isHabitSelected={isHabitSelected}
-                  targetHabit={targetHabit}
-                />
-              : <HabitRegister handlePress={handleRegisterHabitPress} />}
+        {!isStartCountBtnOn &&
+          (habits?.length > 0
+            ? <UserHabit
+                habits={habits}
+                onAddPress={handleRegisterHabitPress}
+                onIconPress={(index) => handleIconPress(index)}
+                onDeletePress={(index) => handleDeletePress(index)}
+                isHabitSelected={isHabitSelected}
+                targetHabit={targetHabit}
+              />
+            : <HabitRegister onAddPress={handleRegisterHabitPress} />)}
         {isStartCountBtnOn
           ? <CountDownBtn
               totalTime={countDownTime}
               setStartCountBtn={setStartCountBtn}
               habitType={targetHabit.habitType}
-              email={email}
+              accessToken={accessToken}
             />
-          : <StartCountDownBtn handlePress={handleStartCountDownPress} />}
+          : <StartCountDownBtn onAddPress={handleStartCountDownPress} />}
     </View>
   );
 };
@@ -91,9 +90,6 @@ const styles = StyleSheet.create({
   wrapper: {
     flex: 1,
     backgroundColor: '#F9BC56'
-  },
-  complement: {
-    height: 100
   }
 });
 

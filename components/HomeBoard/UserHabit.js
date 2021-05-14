@@ -6,9 +6,9 @@ import pickTextByType from '../../utils/pickTextByType';
 
 const UserHabit = ({
   habits,
-  handlePress,
-  handleIconPress,
-  handlePressX,
+  onAddPress,
+  onIconPress,
+  onDeletePress,
   isHabitSelected,
   targetHabit
 }) => {
@@ -25,7 +25,7 @@ const UserHabit = ({
             return (
               <View style={styles.habitInfoWrapper} key={index}>
                 <TouchableOpacity
-                  onPress={() => handleIconPress(index)}
+                  onPress={() => onIconPress(index)}
                 >
                   <View style={styles.iconWrapper}>
                     {icon}
@@ -43,7 +43,7 @@ const UserHabit = ({
                   </View>
                 </View>
                 <View style={styles.cancelWrapper}>
-                  <TouchableOpacity onPress={() => handlePressX(index)}>
+                  <TouchableOpacity onPress={() => onDeletePress(index)}>
                     <Feather name='x-circle' size={20} color='black' />
                   </TouchableOpacity>
                 </View>
@@ -52,7 +52,7 @@ const UserHabit = ({
           })}
         </ScrollView>
       </View>
-      <TouchableOpacity onPress={handlePress} style={styles.addBtnWrapper}>
+      <TouchableOpacity onPress={onAddPress} style={styles.addBtnWrapper}>
         <Entypo name="circle-with-plus" size={24} color='white' />
       </TouchableOpacity>
     </View>

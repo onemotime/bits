@@ -6,7 +6,7 @@ import { EvilIcons } from '@expo/vector-icons';
 import * as ImagePicker from 'expo-image-picker';
 
 const ProfileStatus = ({
-  email,
+  accessToken,
   imageUri,
   userInfo,
   handleActingPress,
@@ -26,7 +26,7 @@ const ProfileStatus = ({
     if (!result.cancelled) {
       const imageUriPayload = {
         uri: result.uri,
-        email
+        accessToken
       };
 
       dispatch(updateImageUri(imageUriPayload));

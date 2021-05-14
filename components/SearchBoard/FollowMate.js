@@ -4,13 +4,13 @@ import { followUser } from '../../redux/userSlice';
 import { EvilIcons, Entypo, FontAwesome } from '@expo/vector-icons';
 import { View, Text, TouchableOpacity, Image, StyleSheet, ScrollView } from 'react-native';
 
-const FollowMate = ({ allUsers, following, email, userName }) => {
+const FollowMate = ({ allUsers, following, accessToken, userName }) => {
   const dispatch = useDispatch();
 
   const handleFollowPress = (userInfo) => {
     const followingInfo = {
       followId: userInfo._id,
-      email
+      accessToken
     };
 
     dispatch(followUser(followingInfo));

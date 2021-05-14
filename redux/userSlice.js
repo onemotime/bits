@@ -6,7 +6,6 @@ export const fetchSignin = createAsyncThunk(
   async (loginInput, thunkAPI) => {
     try {
       const response = await userApi.requestSignin(loginInput);
-      // const { accessToken, currentUser } = response;
 
       if (response.status === 200) {
         return response;
@@ -72,9 +71,9 @@ export const removeHabit = createAsyncThunk(
 
 export const fetchUser = createAsyncThunk(
   'user/fetchUser',
-  async (userEmail, thunkAPI) => {
+  async (accessToken, thunkAPI) => {
     try {
-      const response = await userApi.fetchUserName(userEmail);
+      const response = await userApi.fetchUserName(accessToken);
 
       if (response.status === 200) {
         return response.payload;
