@@ -1,17 +1,11 @@
 import React from 'react';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import { pickTabIconByName } from '../utils/pickTabIconByName';
 
 import Home from '../screens/Home/Home';
 import LiveFeed from '../screens/Live/LiveFeed';
 import SearchMate from '../screens/Search/SearchMate';
 import MyProfile from '../screens/Profile/MyProfile';
-
-import {
-  Entypo,
-  Ionicons,
-  MaterialCommunityIcons,
-  FontAwesome
-} from '@expo/vector-icons';
 
 const Tab = createBottomTabNavigator();
 
@@ -20,20 +14,7 @@ const BottomTapNavigator = () => {
     <Tab.Navigator
       screenOptions={({ route }) => ({
         tabBarIcon: ({ focused, color, size }) => {
-          switch (route.name) {
-            case '습관': {
-              return <Entypo name='circle' size={18} color={color} />
-            }
-            case '라이브': {
-              return <Ionicons name='md-play' size={size} color={color} />
-            }
-            case '검색': {
-              return <MaterialCommunityIcons name='magnify' size={size} color={color} />
-            }
-            case '내정보': {
-              return <FontAwesome name='user-circle' size={size} color={color} />
-            }
-          }
+          return pickTabIconByName(route.name, color, size);
         }
       })}
 
