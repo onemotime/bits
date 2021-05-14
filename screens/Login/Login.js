@@ -2,11 +2,15 @@ import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchSignin } from '../../redux/userSlice';
 import { View,  TouchableOpacity, StyleSheet } from 'react-native';
+import pickModalMessage from '../../utils/pickModalMessage';
+import validateEmail from '../../utils/validateEmail';
+import checkInputStatus from '../../utils/checkInputStatus';
 
 import Loading from '../Loading/Loading';
 import LogoName from '../../components/shared/LogoName';
 import LoginInput from '../../components/LoginBoard/LoginInput/LoginInput';
 import LoginButtons from '../../components/LoginBoard/LoginButtons/LoginButtons';
+import LoginModal from '../../components/ReusableModal/ReusableModal';
 
 import {
   GoogleIcon,
@@ -17,12 +21,24 @@ import {
 const Login = ({ navigation }) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [isModalShown, setModal] = useState(false);
+  const [modalMessage, setModalMessage] = useState('');
 
   const { isFetching } = useSelector(state => state.user);
   const dispatch = useDispatch();
 
   const handleLoginPress = () => {
-    if (email.length === 0 || password.length === 0) return;
+    const isInputImproper = checkInputStatus(
+      'login',
+      email,
+      password,
+      null,
+      null,
+      setModalMessage,
+      setModal
+    );
+
+    if (isInputImproper) return;
 
     const loginInput = {
       email,
@@ -36,8 +52,19 @@ const Login = ({ navigation }) => {
     navigation.navigate('Signup');
   };
 
+  const handleModalPress = () => {
+    setModalMessage('');
+    setModal(false);
+  };
+
   return (
     <>
+      {isModalShown &&
+        <LoginModal
+          message={modalMessage}
+          visible={isModalShown}
+          onButtonPress={handleModalPress}
+        />}
       {isFetching
         ? <Loading />
         : <View style={styles.wrapper}>

@@ -3,11 +3,12 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useNavigation } from '@react-navigation/native';
 import { registerHabit } from '../../redux/userSlice';
 import { Picker } from '@react-native-picker/picker';
-import { Button, View, Text, TouchableOpacity, Pressable, Modal, StyleSheet } from 'react-native';
+import { Button, View, Text, TouchableOpacity, StyleSheet } from 'react-native';
+import HabitRegisterModal from '../ReusableModal/ReusableModal';
 
 const SettingHabit = () => {
   const dispatch = useDispatch();
-  const { email, habits, accessToken } = useSelector(state => state.user);
+  const { habits, accessToken } = useSelector(state => state.user);
   const navigation = useNavigation();
 
   const [isModalShown, setModal] = useState(false);
@@ -46,7 +47,7 @@ const SettingHabit = () => {
     setShowTime(false);
   };
 
-  const handleConfirmPress = () => {
+  const handleModalPress = () => {
     setModal(false);
   };
 
@@ -76,23 +77,11 @@ const SettingHabit = () => {
 
   return (
     <>
-      <Modal
-        animationType='slide'
-        transparent={true}
+      <HabitRegisterModal
+        message={'이미 등록된 습관입니다'}
         visible={isModalShown}
-      >
-        <View style={styles.moddalWrapper}>
-          <View style={styles.modal}>
-            <Text style={styles.infoText}>이미 등록된 습관입니다</Text>
-            <Pressable
-              style={styles.modalBtn}
-              onPress={handleConfirmPress}
-            >
-              <Text style={styles.confirmText}>확인</Text>
-            </Pressable>
-          </View>
-        </View>
-      </Modal>
+        onButtonPress={handleModalPress}
+      />
       <View style={styles.subscribeWrapper}>
         <Text style={styles.subscribeText}>습관을 등록해주세요</Text>
         <View style={styles.inputWrapper}>
@@ -183,44 +172,6 @@ const SettingHabit = () => {
 };
 
 const styles = StyleSheet.create({
-  moddalWrapper: {
-    backgroundColor: 'rgba(0, 0, 0, 0.5)',
-    borderWidth: 1,
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center'
-  },
-  modal: {
-    backgroundColor: 'white',
-    justifyContent: 'space-evenly',
-    alignItems: 'center',
-    width: '80%',
-    height: '30%',
-    shadowColor: 'black',
-    shadowOffset: {
-      width: 10,
-      height: 10
-    },
-    shadowOpacity: 0.5,
-    shadowRadius: 4,
-    borderRadius: 20
-  },
-  infoText: {
-    fontWeight: '600',
-    fontSize: 15
-  },
-  modalBtn: {
-    backgroundColor: '#EDCD88',
-    borderWidth: 1,
-    width: 70,
-    padding: 10,
-    borderRadius: 10,
-    justifyContent: 'center',
-    alignItems: 'center'
-  },
-  confirmText: {
-    fontWeight: '600'
-  },
   subscribeWrapper: {
     justifyContent: 'space-evenly',
     alignItems: 'center',
