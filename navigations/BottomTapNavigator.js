@@ -1,9 +1,10 @@
 import React from 'react';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import Home from '../Home/Home';
-import LiveFeed from '../Live/LiveFeed';
-import SearchMate from '../Search/SearchMate';
-import MyProfile from '../Profile/MyProfile';
+
+import Home from '../screens/Home/Home';
+import LiveFeed from '../screens/Live/LiveFeed';
+import SearchMate from '../screens/Search/SearchMate';
+import MyProfile from '../screens/Profile/MyProfile';
 
 import {
   Entypo,
@@ -14,7 +15,7 @@ import {
 
 const Tab = createBottomTabNavigator();
 
-const Main = () => {
+const BottomTapNavigator = () => {
   return (
     <Tab.Navigator
       screenOptions={({ route }) => ({
@@ -51,4 +52,4 @@ const Main = () => {
   );
 };
 
-export default Main;
+export default BottomTapNavigator;

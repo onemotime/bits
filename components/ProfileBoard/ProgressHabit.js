@@ -32,7 +32,7 @@ const ProgressHabit = ({ userInfo }) => {
 
 const styles = StyleSheet.create({
   scrollView: {
-    borderWidth: 1,
+    flex: 1,
     width: '100%'
   },
   userHabitWrapper: {
@@ -45,7 +45,8 @@ const styles = StyleSheet.create({
   },
   imgTextWrapper: {
     flexDirection: 'row',
-    alignItems: 'center'
+    alignItems: 'center',
+    height: 50
   },
   habitTypeTextWrapper: {
     justifyContent: 'center',

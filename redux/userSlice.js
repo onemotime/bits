@@ -155,6 +155,7 @@ export const userSlice = createSlice({
       state.following = payload.following;
       state.imageUri = payload.imageUri;
       state.completedDates = payload.completedDates;
+      state.completedHabits = payload.completedHabits;
       state.isFetching = false;
       state.isSuccess = true;
     },

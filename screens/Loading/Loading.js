@@ -7,12 +7,12 @@ const Loading = () => {
   return (
     <>
       <LottieView
-          source={splashAnimation}
-          autoPlay
-          loop
-          speed={2}
-          style={styles.animationWrapper}
-        />
+        source={splashAnimation}
+        autoPlay
+        loop
+        speed={2}
+        style={styles.animationWrapper}
+      />
     </>
   );
 };

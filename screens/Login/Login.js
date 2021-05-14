@@ -8,12 +8,13 @@ import { FontAwesome } from '@expo/vector-icons';
 import {
   GoogleIcon,
   FacebookIcon,
-  InstagramIcon,
+  InstagramIcon
 } from '../../assets/svgs/icon';
 
 const Login = ({ navigation }) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+
   const { isFetching } = useSelector(state => state.user);
   const dispatch = useDispatch();
 
@@ -39,7 +40,7 @@ const Login = ({ navigation }) => {
         :  <View style={styles.wrapper}>
             <View style={styles.loginWrapper}>
               <View style={styles.logoWrapper}>
-                <FontAwesome name="heartbeat" size={24} color="white" />
+                <FontAwesome name='heartbeat' size={24} color='white' />
                 <Text style={styles.logoText}>BiTS</Text>
               </View>
               <View style={styles.inputWrapper}>
