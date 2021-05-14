@@ -18,7 +18,7 @@ const MateRegister = () => {
           <Text style={styles.registerText}>새로운 메이트를 추가해보세요</Text>
         </View>
         <TouchableOpacity onPress={handleMateRegisterPress}>
-          <Entypo name="circle-with-plus" size={24} color='white' />
+          <Entypo name='circle-with-plus' size={24} color='white' />
         </TouchableOpacity>
       </View>
     </View>

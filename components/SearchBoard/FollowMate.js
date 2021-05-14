@@ -39,9 +39,9 @@ const FollowMate = ({ allUsers, following, accessToken, userName }) => {
                         />
                       </View>
                     : <EvilIcons
-                        name="user"
+                        name='user'
                         size={60}
-                        color="black"
+                        color='black'
                       />}
                   <View style={styles.userNameWrapper}>
                     <Text style={styles.userName}>{userInfo.userName}</Text>
@@ -49,10 +49,10 @@ const FollowMate = ({ allUsers, following, accessToken, userName }) => {
                 </View>
                 {isFollowing
                   ? <View style={styles.followIconWrapper}>
-                      <FontAwesome name="check" size={24} color='green' />
+                      <FontAwesome name='check' size={24} color='green' />
                     </View>
                   : <TouchableOpacity style={styles.followButton} onPress={() => handleFollowPress(userInfo, index)}>
-                      <Entypo name="circle-with-plus" size={24} color='#E8BE64' />
+                      <Entypo name='circle-with-plus' size={24} color='#E8BE64' />
                     </TouchableOpacity>}
               </View>
             );

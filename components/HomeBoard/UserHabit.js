@@ -53,7 +53,7 @@ const UserHabit = ({
         </ScrollView>
       </View>
       <TouchableOpacity onPress={onAddPress} style={styles.addBtnWrapper}>
-        <Entypo name="circle-with-plus" size={24} color='white' />
+        <Entypo name='circle-with-plus' size={24} color='white' />
       </TouchableOpacity>
     </View>
   );

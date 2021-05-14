@@ -14,7 +14,6 @@ import {
   InstagramIcon
 } from '../../assets/svgs/icon';
 
-
 const Login = ({ navigation }) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');

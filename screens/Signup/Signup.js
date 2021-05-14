@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { View, Text, StyleSheet, TouchableOpacity, TextInput } from 'react-native';
+import { View, StyleSheet } from 'react-native';
 import * as userAPI from '../../api/userApi';
 
 import LogoName from '../../components/shared/LogoName';

@@ -36,7 +36,7 @@ const TopNav = () => {
       <View style={styles.gearWrapper}>
         <TouchableOpacity onPress={handleLogoutPress}>
           <FontAwesome5
-            name="door-open"
+            name='door-open'
             size={24}
             color='black'
           />

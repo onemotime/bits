@@ -79,7 +79,7 @@ const CountdownBtn = ({
       </View>
       <View style={styles.btnWrapper}>
         <TouchableOpacity style={styles.pauseBtn} onPress={onPausePress}>
-          <MaterialCommunityIcons name="play-pause" size={40} color="black" />
+          <MaterialCommunityIcons name='play-pause' size={40} color='black' />
         </TouchableOpacity>
         <TouchableOpacity style={styles.cancelBtn} onPress={onQuitPress}>
           <MaterialIcons name='cancel' size={40} color='red' />

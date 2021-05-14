@@ -23,8 +23,8 @@ const MateHabit = ({ followingUserHabits }) => {
                         />
                       </View>
                     : <EvilIcons
-                        name="user" size={50}
-                        color="black"
+                        name='user' size={50}
+                        color='black'
                         style={styles.img}
                       />}
                   <Text style={styles.name}>{followingUser.userName}</Text>

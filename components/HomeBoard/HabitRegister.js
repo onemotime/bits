@@ -13,7 +13,7 @@ const HabitRegister = ({ onAddPress }) => {
           </View>
           <View style={styles.button}>
             <TouchableOpacity onPress={onAddPress}>
-              <Entypo name="circle-with-plus" size={24} color='white' />
+              <Entypo name='circle-with-plus' size={24} color='white' />
             </TouchableOpacity>
           </View>
         </View>
