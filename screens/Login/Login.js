@@ -6,7 +6,7 @@ import pickModalMessage from '../../utils/pickModalMessage';
 import validateEmail from '../../utils/validateEmail';
 import checkInputStatus from '../../utils/checkInputStatus';
 
-import Loading from '../Loading/Loading';
+import Loading from '../Animations/Loading/Loading';
 import LogoName from '../../components/shared/LogoName';
 import LoginInput from '../../components/LoginBoard/LoginInput/LoginInput';
 import LoginButtons from '../../components/LoginBoard/LoginButtons/LoginButtons';
@@ -28,17 +28,17 @@ const Login = ({ navigation }) => {
   const dispatch = useDispatch();
 
   const handleLoginPress = () => {
-    const isInputImproper = checkInputStatus(
-      'login',
-      email,
-      password,
-      null,
-      null,
-      setModalMessage,
-      setModal
-    );
+  //   const isInputImproper = checkInputStatus(
+  //     'login',
+  //     email,
+  //     password,
+  //     null,
+  //     null,
+  //     setModalMessage,
+  //     setModal
+  //   );
 
-    if (isInputImproper) return;
+  //   if (isInputImproper) return;
 
     const loginInput = {
       email,

@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { fetchFollowingHabits } from '../../redux/habitSlice';
 import TopNav from '../../components/shared/TopNav';
-import Loading from '../../screens/Loading/Loading';
+import Loading from '../Animations/Loading/Loading';
 
 import MateHabit from '../../components/LiveBoard/MateHabit';
 import MateRegister from '../../components/LiveBoard/MateRegister';

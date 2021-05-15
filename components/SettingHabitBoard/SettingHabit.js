@@ -70,7 +70,7 @@ const SettingHabit = () => {
       time: selectedTime
     };
 
-    await dispatch(registerHabit(registerInput));
+    dispatch(registerHabit(registerInput));
 
     navigation.navigate('습관');
   };

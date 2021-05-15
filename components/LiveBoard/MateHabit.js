@@ -1,11 +1,20 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { EvilIcons } from '@expo/vector-icons';
 import { View, Text, TouchableOpacity, Image, StyleSheet } from 'react-native';
 import { ScrollView } from 'react-native-gesture-handler';
 import pickIconByType from '../../utils/pickIconByType';
+import Like from '../../screens/Animations/Like/Like';
 
 const MateHabit = ({ followingUserHabits }) => {
-  const handleLikePress = () => {};
+  const [likeHabitId, setHabitId] = useState('');
+
+  const handleLikePress = (habitId) => {
+    setHabitId(habitId);
+  };
+
+  const handleAnimationFinish = () => {
+    setHabitId('');
+  };
 
   return (
     <View style={styles.mateHabitWrapper}>
@@ -31,15 +40,19 @@ const MateHabit = ({ followingUserHabits }) => {
                 </View>
                 <ScrollView horizontal={true}>
                   {followingUser.habits.length > 0 &&
-                    followingUser.habits.map(habitData => {
+                    followingUser.habits.map((habitData, index) => {
                       const habitIcon = pickIconByType(habitData.habitType);
 
                       return (
-                        <TouchableOpacity onPress={handleLikePress} key={habitData._id}>
+                        <TouchableOpacity onPress={() => handleLikePress(habitData._id)} key={habitData._id}>
                           <View style={styles.habitWrapper}>
                             <View style={styles.statusTextWrapper}>
                               <Text style={styles.statusText}>{habitData.habitType}</Text>
                             </View>
+                            {(likeHabitId === habitData._id) &&
+                              <Like
+                                onFinish={handleAnimationFinish}
+                              />}
                             <View style={styles.habitIcon}>{habitIcon}</View>
                             <Text style={styles.startTimeText}>BiTS</Text>
                           </View>

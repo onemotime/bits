@@ -28,17 +28,17 @@ const Signup = ({ navigation }) => {
   };
 
   const handleSingupPress = async () => {
-    const isInputImproper = checkInputStatus(
-      'signup',
-      email,
-      password,
-      userName,
-      confirmPassword,
-      setModalMessage,
-      setModal
-    );
+  //   const isInputImproper = checkInputStatus(
+  //     'signup',
+  //     email,
+  //     password,
+  //     userName,
+  //     confirmPassword,
+  //     setModalMessage,
+  //     setModal
+  //   );
 
-    if (isInputImproper) return;
+  //   if (isInputImproper) return;
 
     try {
       const signupInput = {

@@ -1,17 +1,19 @@
 import React from 'react';
-import splashAnimation from '../../assets/animation/splashAnimation.json';
 import { StyleSheet } from 'react-native';
 import LottieView from 'lottie-react-native';
 
-const Loading = () => {
+const Like = ({ onFinish }) => {
+
   return (
     <>
       <LottieView
-        source={splashAnimation}
-        autoPlay
-        loop
-        speed={2}
+        source={require('../../../assets/animation/likeAnimation.json')}
+        autoPlay={true}
+        speed={1}
+        loop={false}
+        resizeMode='cover'
         style={styles.animationWrapper}
+        onAnimationFinish={onFinish}
       />
     </>
   );
@@ -19,8 +21,8 @@ const Loading = () => {
 
 const styles = StyleSheet.create({
   animationWrapper: {
-    backgroundColor: '#F9BC56'
+    zIndex: 1
   }
 });
 
-export default Loading;
+export default Like;

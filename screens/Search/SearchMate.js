@@ -3,7 +3,7 @@ import { useSelector } from 'react-redux';
 import { useDispatch } from 'react-redux';
 import { fetchUser } from '../../redux/userSlice';
 
-import Loading from '../../screens/Loading/Loading';
+import Loading from '../Animations/Loading/Loading';
 import TopNav from '../../components/shared/TopNav';
 import FollowMate from '../../components/SearchBoard/FollowMate';
 
