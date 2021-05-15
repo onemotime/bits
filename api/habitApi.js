@@ -12,3 +12,19 @@ export const getFollowingHabits = async (accessToken) => {
 
   return await response.json();
 };
+
+export const patchHabitLike = async (updateHabitInput) => {
+  const url = `${SERVER_URL}/habit/like`;
+  const headers = generateHeaderOption(updateHabitInput.accessToken);
+
+  const response  = await fetch(url, {
+    method: 'PATCH',
+    headers,
+    body: JSON.stringify({
+      habitId: updateHabitInput.habitId,
+      userId: updateHabitInput.userId
+    })
+  });
+
+  return await response.json();
+};

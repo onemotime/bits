@@ -25,6 +25,7 @@ const LiveFeed = () => {
               {following.length > 0
                 ? <MateHabit
                     followingUserHabits={followingUserHabits}
+                    accessToken={accessToken}
                   />
                 : <MateRegister />}
           </>}

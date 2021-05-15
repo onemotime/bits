@@ -1,14 +1,25 @@
 import React, { useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { updateHabitLikes } from '../../redux/habitSlice';
 import { EvilIcons } from '@expo/vector-icons';
 import { View, Text, TouchableOpacity, Image, StyleSheet } from 'react-native';
 import { ScrollView } from 'react-native-gesture-handler';
 import pickIconByType from '../../utils/pickIconByType';
 import Like from '../../screens/Animations/Like/Like';
 
-const MateHabit = ({ followingUserHabits }) => {
+const MateHabit = ({ followingUserHabits, accessToken }) => {
   const [likeHabitId, setHabitId] = useState('');
+  const dispatch = useDispatch();
 
-  const handleLikePress = (habitId) => {
+  const handleLikePress = (userId, habitId) => {
+    const updateHabitInput = {
+      userId,
+      habitId,
+      accessToken
+    };
+
+    dispatch(updateHabitLikes(updateHabitInput));
+
     setHabitId(habitId);
   };
 
@@ -20,7 +31,9 @@ const MateHabit = ({ followingUserHabits }) => {
     <View style={styles.mateHabitWrapper}>
       <ScrollView>
         {followingUserHabits?.length > 0 &&
-          followingUserHabits.map((followingUser, index) => {
+          followingUserHabits.map((followingUser) => {
+            const userId = followingUser.userId;
+
             return (
               <View style={styles.mateLivewrapper} key={followingUser.userName}>
                 <View style={styles.profileImg}>
@@ -40,11 +53,14 @@ const MateHabit = ({ followingUserHabits }) => {
                 </View>
                 <ScrollView horizontal={true}>
                   {followingUser.habits.length > 0 &&
-                    followingUser.habits.map((habitData, index) => {
+                    followingUser.habits.map((habitData) => {
                       const habitIcon = pickIconByType(habitData.habitType);
 
                       return (
-                        <TouchableOpacity onPress={() => handleLikePress(habitData._id)} key={habitData._id}>
+                        <TouchableOpacity
+                          onPress={() => handleLikePress(userId, habitData._id)}
+                          key={habitData._id}
+                        >
                           <View style={styles.habitWrapper}>
                             <View style={styles.statusTextWrapper}>
                               <Text style={styles.statusText}>{habitData.habitType}</Text>

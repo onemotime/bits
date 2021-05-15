@@ -5,6 +5,7 @@ import ProfileStatus from './ProfileStatus';
 import ProgressHabit from './ProgressHabit';
 import CompletedHabit from './CompletedHabit';
 import Calendar from './ProfileCalendar';
+import Empty from '../../screens/Animations/Empty/Empty';
 
 const Profile = ({ userInfo, accessToken, imageUri }) => {
   const [isActingHabitOn, setActingHabit] = useState(true);
@@ -45,9 +46,8 @@ const Profile = ({ userInfo, accessToken, imageUri }) => {
           (userInfo.habits.length > 0
             ? <ProgressHabit userInfo={userInfo} />
             : <View style={styles.registerHabitWrapper}>
-                <View>
-                  <Text style={styles.registerHabitText}>등록된 습관이 없습니다</Text>
-                </View>
+                <Text style={styles.registerHabitText}>등록된 습관이 없습니다</Text>
+                <Empty />
               </View>)}
         {isCompletedHabitOn &&
           (userInfo.completedHabits.length > 0
@@ -77,14 +77,13 @@ const styles = StyleSheet.create({
     alignItems: 'center'
   },
   registerHabitWrapper: {
-    borderWidth: 1,
-    justifyContent: 'center',
+    flexDirection: 'column',
     alignItems: 'center',
   },
   registerHabitText: {
+    marginTop: 10,
     fontSize: 15,
     fontWeight: '800',
-    margin: 4
   },
   completeHabitWrapper: {
     borderWidth: 1,

@@ -2,13 +2,29 @@ import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import * as habitApi from '../api/habitApi';
 
 export const fetchFollowingHabits = createAsyncThunk(
-  'user/fetchFollowing',
-  async (userEmail, thunkApi) => {
+  'habit/fetchFollowing',
+  async (accessToken, thunkApi) => {
     try {
-      const response = await habitApi.getFollowingHabits(userEmail);
+      const response = await habitApi.getFollowingHabits(accessToken);
 
       if (response.status === 200) {
         return response.followingUserHabits
+      }
+
+      return thunkApi.rejectWithValue(response);
+    } catch (err) {
+      console.error(err);
+    }
+  }
+);
+
+export const updateHabitLikes = createAsyncThunk(
+  'habit/patchHabit',
+  async (updateHabitInput, thunkApi) => {
+    try {
+      const response = await habitApi.patchHabitLike(updateHabitInput);
+
+      if (response.status === 200) {
       }
 
       return thunkApi.rejectWithValue(response);
