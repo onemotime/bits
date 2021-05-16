@@ -1,5 +1,7 @@
 import React from 'react';
-import { View, Text, TouchableOpacity, StyleSheet } from 'react-native';
+import { View, Text, TouchableOpacity } from 'react-native';
+
+import styles from './styles';
 
 const LoginButtons = ({ onLoginPress, onSingupPress }) => {
   return (
@@ -23,39 +25,5 @@ const LoginButtons = ({ onLoginPress, onSingupPress }) => {
     </View>
   );
 };
-
-const styles = StyleSheet.create({
-  loginBtnWrapper: {
-    width: '100%',
-    height:70,
-    justifyContent: 'space-evenly',
-    alignItems: 'center',
-    flexDirection: 'row'
-  },
-  loginBtn: {
-    backgroundColor: '#D78A41',
-    borderRadius: 10,
-    paddingLeft: 30,
-    paddingRight: 30,
-    paddingTop: 10,
-    paddingBottom: 10
-  },
-  signupBtn: {
-    backgroundColor: '#D78A41',
-    borderRadius: 10,
-    paddingLeft: 30,
-    paddingRight: 30,
-    paddingTop: 10,
-    paddingBottom: 10
-  },
-  signupText: {
-    color: 'white',
-    fontWeight: '600'
-  },
-  loginText: {
-    color: 'white',
-    fontWeight: '600'
-  }
-});
 
 export default LoginButtons;

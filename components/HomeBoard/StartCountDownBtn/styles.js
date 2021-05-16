@@ -1,19 +1,4 @@
-import React from 'react';
-import { View, TouchableOpacity, Text, StyleSheet } from 'react-native';
-
-const StartCountDownBtn = ({ onStartPress }) => {
-  return (
-    <View style={styles.wrapper}>
-      <TouchableOpacity onPress={onStartPress}>
-        <View style={styles.outterCircle}>
-          <View style={styles.innerCircle}>
-            <Text style={styles.pressText}>PRESS HABIT</Text>
-          </View>
-        </View>
-      </TouchableOpacity>
-    </View>
-  );
-};
+import { StyleSheet } from 'react-native';
 
 const styles = StyleSheet.create({
   wrapper: {
@@ -44,4 +29,4 @@ const styles = StyleSheet.create({
   }
 });
 
-export default StartCountDownBtn;
+export default styles;

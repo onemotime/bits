@@ -1,7 +1,9 @@
 import React from 'react';
-import { View, Text, TouchableOpacity, StyleSheet } from 'react-native';
+import { View, Text, TouchableOpacity } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import { Entypo } from '@expo/vector-icons';
+
+import styles from './styles';
 
 const MateRegister = () => {
   const navigation = useNavigation();
@@ -24,30 +26,5 @@ const MateRegister = () => {
     </View>
   );
 };
-
-const styles = StyleSheet.create({
-  wrapper: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center'
-  },
-  mateRegisterWrapper: {
-    justifyContent: 'space-evenly',
-    alignItems: 'center',
-    backgroundColor: '#EDCD88',
-    width: '80%',
-    height: '30%',
-    borderRadius: 10
-  },
-  textWrapper: {
-    alignItems: 'center'
-  },
-  registerText: {
-    fontWeight: '900',
-    color: 'white',
-    padding: 10,
-    fontSize: 15
-  }
-});
 
 export default MateRegister;

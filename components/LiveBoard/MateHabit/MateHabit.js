@@ -1,11 +1,13 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { updateHabitLikes } from '../../redux/habitSlice';
+import { updateHabitLikes } from '../../../redux/habitSlice';
 import { EvilIcons } from '@expo/vector-icons';
-import { View, Text, TouchableOpacity, Image, StyleSheet } from 'react-native';
+import { View, Text, TouchableOpacity, Image } from 'react-native';
 import { ScrollView } from 'react-native-gesture-handler';
-import pickIconByType from '../../utils/pickIconByType';
-import Like from '../../screens/Animations/Like/Like';
+import pickIconByType from '../../../utils/pickIconByType';
+import Like from '../../../screens/Animations/Like/Like';
+
+import styles from './styles';
 
 const MateHabit = ({ followingUserHabits, accessToken }) => {
   const [likeHabitId, setHabitId] = useState('');
@@ -84,64 +86,5 @@ const MateHabit = ({ followingUserHabits, accessToken }) => {
     </View>
   );
 };
-
-const styles = StyleSheet.create({
-  mateHabitWrapper: {
-    flex: 1,
-    width: '100%',
-    backgroundColor: 'white'
-  },
-  mateLivewrapper: {
-    paddingTop: 10,
-    paddingBottom: 10
-  },
-  profileImg: {
-    flexDirection: 'row',
-    alignItems: 'center'
-  },
-  uriWrapper: {
-    marginLeft: 10,
-    paddingRight: 10
-  },
-  profileUriImg: {
-    width: 40,
-    height: 40,
-    borderRadius: 100
-  },
-  img: {
-    marginLeft: 3,
-    paddingRight: 7
-  },
-  name: {
-    marginLeft: 4,
-    fontWeight: '500'
-  },
-  habitWrapper: {
-    backgroundColor: '#E8C06C',
-    margin: 8,
-    borderRadius: 10,
-    width: 100,
-    height: 100,
-    justifyContent: 'space-evenly',
-    alignItems: 'center'
-  },
-  statusTextWrapper: {
-    width: '100%'
-  },
-  statusText: {
-    textAlign: 'right',
-    color: 'white',
-    marginRight: 10,
-    fontSize: 10
-  },
-  habitIcon: {
-    justifyContent: 'center',
-    alignItems: 'center'
-  },
-  startTimeText: {
-    color: 'white',
-    fontWeight: '800'
-  }
-});
 
 export default MateHabit;

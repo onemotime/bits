@@ -6,11 +6,11 @@ import { sendPushNotification } from '../../api/pushApi';
 import { removeHabit, fetchPushTokens } from '../../redux/userSlice';
 import convertTimeStrToSec from '../../utils/convertTimeStrToSec';
 
-import HabitRegister from '../../components/HomeBoard/HabitRegister';
-import UserHabit from '../../components/HomeBoard/UserHabit';
-import CountDownBtn from '../../components/HomeBoard/CountdownBtn';
-import StartCountDownBtn from '../../components/HomeBoard/StartCountDownBtn';
-import TopNav from '../../components/shared/TopNav';
+import HabitRegister from '../../components/HomeBoard/HabitRegister/HabitRegister';
+import UserHabit from '../../components/HomeBoard/UserHabit/UserHabit';
+import CountDownBtn from '../../components/HomeBoard/CountdownBtn/CountdownBtn';
+import StartCountDownBtn from '../../components/HomeBoard/StartCountDownBtn/StartCountDownBtn';
+import TopNav from '../../components/shared/TopNav/TopNav';
 
 const Home = () => {
   const [isHabitSelected, setSelectedHabit] = useState(false);

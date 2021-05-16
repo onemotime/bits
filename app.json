@@ -6,7 +6,7 @@
     "orientation": "portrait",
     "icon": "./assets/icon.png",
     "notification":{
-      "icon": "./assets/adaptive-cion.png"
+      "icon": "./assets/icon.png"
     },
     "splash": {
       "image": "./assets/splash.png",

@@ -1,11 +1,13 @@
 import React, { useState } from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import { View, Text } from 'react-native';
 
-import ProfileStatus from './ProfileStatus';
-import ProgressHabit from './ProgressHabit';
-import CompletedHabit from './CompletedHabit';
-import Calendar from './ProfileCalendar';
-import Empty from '../../screens/Animations/Empty/Empty';
+import ProfileStatus from '../ProfileStatus/ProfileStatus';
+import ProgressHabit from '../ProgressHabit/ProgressHabit';
+import CompletedHabit from '../CompletedHabit/CompletedHabit';
+import Calendar from '../ProfileCalendar/ProfileCalendar';
+import Empty from '../../../screens/Animations/Empty/Empty';
+
+import styles from './styles';
 
 const Profile = ({ userInfo, accessToken, imageUri }) => {
   const [isActingHabitOn, setActingHabit] = useState(true);
@@ -63,31 +65,5 @@ const Profile = ({ userInfo, accessToken, imageUri }) => {
 
   );
 };
-
-const styles = StyleSheet.create({
-  profileWrapper: {
-    backgroundColor: 'white',
-    borderWidth: 1,
-    flexGrow: 1
-  },
-  profileBottomWrapper: {
-    flexGrow: 1,
-    justifyContent: 'center',
-    alignItems: 'center'
-  },
-  registerHabitWrapper: {
-    flexDirection: 'column',
-    alignItems: 'center',
-  },
-  registerHabitText: {
-    marginTop: 10,
-    fontSize: 15,
-    fontWeight: '800',
-  },
-  completeHabitText: {
-    fontSize: 15,
-    fontWeight: '800'
-  }
-});
 
 export default Profile;

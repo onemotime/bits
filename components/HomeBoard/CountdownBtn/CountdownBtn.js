@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { updateHabit } from '../../redux/userSlice';
-import { View, Animated, Text, TouchableOpacity, StyleSheet } from 'react-native';
+import { updateHabit } from '../../../redux/userSlice';
+import { View, Animated, Text, TouchableOpacity } from 'react-native';
 import { CountdownCircleTimer } from 'react-native-countdown-circle-timer';
 import { FontAwesome5, MaterialIcons,MaterialCommunityIcons } from '@expo/vector-icons';
+
+import styles from './styles';
 
 const CountdownBtn = ({
   totalTime,
@@ -101,34 +103,5 @@ const CountdownBtn = ({
     </View>
   );
 };
-
-const styles = StyleSheet.create({
-  pressButtonWrapper: {
-    justifyContent: 'space-evenly',
-    alignItems: 'center',
-    flex: 1
-  },
-  pressButtonText: {
-    fontWeight: '700',
-    fontSize: 17,
-    color: 'white'
-  },
-  circleWrapper: {
-    marginTop: 30
-  },
-  doneText: {
-    color: '#4cd137',
-    fontWeight: '600'
-  },
-  btnWrapper: {
-    flexDirection: 'row',
-  },
-  pauseBtn: {
-    marginRight: 15
-  },
-  cancelBtn: {
-    marginLeft: 15
-  }
-});
 
 export default CountdownBtn;

@@ -1,6 +1,6 @@
 import React from 'react';
 import { View, Text } from 'react-native';
-import {Calendar, LocaleConfig } from 'react-native-calendars';
+import { Calendar, LocaleConfig } from 'react-native-calendars';
 import { AntDesign } from '@expo/vector-icons';
 
 LocaleConfig.locales['fr'] = {

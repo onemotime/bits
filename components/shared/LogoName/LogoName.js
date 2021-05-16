@@ -1,6 +1,8 @@
 import React from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import { View, Text } from 'react-native';
 import { FontAwesome } from '@expo/vector-icons';
+
+import styles from './styles';
 
 const LogoName = () => {
   return (
@@ -14,20 +16,5 @@ const LogoName = () => {
     </View>
   );
 };
-
-const styles = StyleSheet.create({
-  logoWrapper: {
-    alignItems: 'center',
-    marginTop: 20,
-    flexDirection: 'row'
-  },
-  logoText: {
-    color: 'white',
-    fontSize: 20,
-    fontWeight: 'bold',
-    marginRight: 10,
-    marginLeft: 10
-  }
-});
 
 export default LogoName;

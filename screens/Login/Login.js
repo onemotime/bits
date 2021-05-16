@@ -7,7 +7,7 @@ import validateEmail from '../../utils/validateEmail';
 import checkInputStatus from '../../utils/checkInputStatus';
 
 import Loading from '../Animations/Loading/Loading';
-import LogoName from '../../components/shared/LogoName';
+import LogoName from '../../components/shared/LogoName/LogoName';
 import LoginInput from '../../components/LoginBoard/LoginInput/LoginInput';
 import LoginButtons from '../../components/LoginBoard/LoginButtons/LoginButtons';
 import LoginModal from '../../components/ReusableModal/ReusableModal';

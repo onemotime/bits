@@ -4,7 +4,7 @@ import { useDispatch } from 'react-redux';
 import { fetchUser } from '../../redux/userSlice';
 
 import Loading from '../Animations/Loading/Loading';
-import TopNav from '../../components/shared/TopNav';
+import TopNav from '../../components/shared/TopNav/TopNav';
 import FollowMate from '../../components/SearchBoard/FollowMate';
 
 const SearchMate = () => {

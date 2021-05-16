@@ -3,7 +3,7 @@ import { View } from 'react-native';
 import * as userAPI from '../../api/userApi';
 import checkInputStatus from '../../utils/checkInputStatus';
 
-import LogoName from '../../components/shared/LogoName';
+import LogoName from '../../components/shared/LogoName/LogoName';
 import SignupInput from '../../components/SignupBoard/SignupInput/SignupInput';
 import SignupButtons from '../../components/SignupBoard/SignupButtons/SignupButtons';
 import SignupModal from '../../components/ReusableModal/ReusableModal';

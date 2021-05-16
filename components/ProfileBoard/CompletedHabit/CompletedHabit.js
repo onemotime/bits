@@ -1,10 +1,12 @@
 import React from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import { View, Text } from 'react-native';
 import { ScrollView } from 'react-native-gesture-handler';
 import { FontAwesome5 } from '@expo/vector-icons';
-import pickIconByType from '../../utils/pickIconByType';
-import pickTextByType from '../../utils/pickTextByType';
-import pickColorByCount from '../../utils/pickColorByCount';
+import pickIconByType from '../../../utils/pickIconByType';
+import pickTextByType from '../../../utils/pickTextByType';
+import pickColorByCount from '../../../utils/pickColorByCount';
+
+import styles from './styles';
 
 const CompletedHabit = ({ userInfo }) => {
   return (
@@ -46,38 +48,5 @@ const CompletedHabit = ({ userInfo }) => {
     </ScrollView>
   );
 };
-
-const styles = StyleSheet.create({
-  scrollView: {
-    flex: 1,
-    width: '100%'
-  },
-  userHabitWrapper: {
-    backgroundColor: '#E8C06C',
-    borderRadius:10,
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    padding: 20,
-    margin: 10
-  },
-  imgTextWrapper: {
-    flexDirection: 'row',
-    alignItems: 'center'
-  },
-  habitTypeTextWrapper: {
-    justifyContent: 'center',
-    alignItems: 'center'
-  },
-  habitTypeText: {
-    fontWeight: '800',
-    fontSize: 18,
-    color: 'white',
-    marginLeft: 30,
-  },
-  completeCountWrapper: {
-    justifyContent: 'center',
-    alignItems: 'center'
-  }
-});
 
 export default CompletedHabit;

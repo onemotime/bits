@@ -1,11 +1,11 @@
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { fetchFollowingHabits } from '../../redux/habitSlice';
-import TopNav from '../../components/shared/TopNav';
+import TopNav from '../../components/shared/TopNav/TopNav';
 import Loading from '../Animations/Loading/Loading';
 
-import MateHabit from '../../components/LiveBoard/MateHabit';
-import MateRegister from '../../components/LiveBoard/MateRegister';
+import MateHabit from '../../components/LiveBoard/MateHabit/MateHabit';
+import MateRegister from '../../components/LiveBoard/MateRegister/MateRegister';
 
 const LiveFeed = () => {
   const { accessToken, following } = useSelector(state => state.user);
