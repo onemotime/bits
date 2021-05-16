@@ -1,5 +1,6 @@
 import React from 'react';
 import { View, Text, TextInput } from 'react-native';
+import { STRINGS } from '../../../constants/index';
 
 import styles from './styles';
 
@@ -19,7 +20,7 @@ const LoginInput = ({
         </View>
         <View style={styles.idTextInputWrapper}>
           <TextInput
-            placeholder={'아이디를 입력해주세요'}
+            placeholder={STRINGS.TYPE_EMAIL}
             value={email}
             onChangeText={onEmailChange}
           />
@@ -33,7 +34,7 @@ const LoginInput = ({
         </View>
         <View style={styles.pwTextInputWrapper}>
           <TextInput
-            placeholder={'비밀번호를 입력해주세요'}
+            placeholder={STRINGS.TYPE_PASSWORD}
             value={password}
             onChangeText={onPasswordChange}
           />

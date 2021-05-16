@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { View, Text } from 'react-native';
+import { STRINGS } from '../../../constants/index';
 
 import ProfileStatus from '../ProfileStatus/ProfileStatus';
 import ProgressHabit from '../ProgressHabit/ProgressHabit';
@@ -48,14 +49,18 @@ const Profile = ({ userInfo, accessToken, imageUri }) => {
           (userInfo.habits.length > 0
             ? <ProgressHabit userInfo={userInfo} />
             : <View style={styles.registerHabitWrapper}>
-                <Text style={styles.registerHabitText}>진행중인 습관이 없습니다</Text>
+                <Text style={styles.registerHabitText}>
+                  {STRINGS.NO_PROGRESSING_HABIT}
+                </Text>
                 <Empty />
               </View>)}
         {isCompletedHabitOn &&
           (userInfo.completedHabits.length > 0
             ? <CompletedHabit userInfo={userInfo} />
             :  <View style={styles.registerHabitWrapper}>
-                <Text style={styles.completeHabitText}>완료된 습관이 없습니다</Text>
+                <Text style={styles.completeHabitText}>
+                  {STRINGS.NO_COMPLETED_HABIT}
+                </Text>
                 <Empty />
               </View>)}
         {isCalendarOn &&

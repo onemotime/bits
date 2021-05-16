@@ -6,6 +6,7 @@ import { View, Text, TouchableOpacity, Image } from 'react-native';
 import { ScrollView } from 'react-native-gesture-handler';
 import pickIconByType from '../../../utils/pickIconByType';
 import Like from '../../../screens/Animations/Like/Like';
+import { NAMES, SIZES, COLORS } from '../../../constants/index';
 
 import styles from './styles';
 
@@ -50,8 +51,9 @@ const MateHabit = ({ followingUserHabits, accessToken }) => {
                         />
                       </View>
                     : <EvilIcons
-                        name='user' size={50}
-                        color='black'
+                        name={NAMES.USER_ICON}
+                        size={SIZES.USER_ICON}
+                        color={COLORS.BLACK}
                         style={styles.img}
                       />}
                   <Text style={styles.name}>{followingUser.userName}</Text>

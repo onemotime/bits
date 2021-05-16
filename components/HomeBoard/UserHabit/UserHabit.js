@@ -3,6 +3,7 @@ import { ScrollView, View, Text, TouchableOpacity } from 'react-native';
 import pickImgByType from '../../../utils/pickIconByType';
 import pickTextByType from '../../../utils/pickTextByType';
 import { Feather, Entypo } from '@expo/vector-icons';
+import { NAMES, SIZES, COLORS } from '../../../constants/index';
 
 import styles from './styles';
 
@@ -20,7 +21,7 @@ const UserHabit = ({
       <View style={styles.userHabitWrapper}>
         <ScrollView horizontal={true}>
           {habits.map((data, index) => {
-            const statusPercentage = Math.floor(data.achivedDay / data.settedDay * 100);
+            const statusPercentage = Math.floor((data.achivedDay / data.settedDay) * SIZES.PERCENTAGE);
             const icon = pickImgByType(data.habitType, isHabitSelected, targetHabit?.habitType);
             const habitName = pickTextByType(data.habitType);
 
@@ -46,7 +47,11 @@ const UserHabit = ({
                 </View>
                 <View style={styles.cancelWrapper}>
                   <TouchableOpacity onPress={() => onDeletePress(index)}>
-                    <Feather name='x-circle' size={20} color='black' />
+                    <Feather
+                      name={NAMES.DELETE_ICON}
+                      size={SIZES.DELETE_ICON}
+                      color={COLORS.BLACK}
+                    />
                   </TouchableOpacity>
                 </View>
               </View>
@@ -55,7 +60,11 @@ const UserHabit = ({
         </ScrollView>
       </View>
       <TouchableOpacity onPress={onAddPress} style={styles.addBtnWrapper}>
-        <Entypo name='circle-with-plus' size={24} color='white' />
+        <Entypo
+          name={NAMES.CIRCLE_PLUS_ICON}
+          size={SIZES.CIRCLE_PLUS_ICON}
+          color={COLORS.WHITE}
+        />
       </TouchableOpacity>
     </View>
   );

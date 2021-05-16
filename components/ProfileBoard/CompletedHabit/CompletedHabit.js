@@ -5,6 +5,7 @@ import { FontAwesome5 } from '@expo/vector-icons';
 import pickIconByType from '../../../utils/pickIconByType';
 import pickTextByType from '../../../utils/pickTextByType';
 import pickColorByCount from '../../../utils/pickColorByCount';
+import { NAMES, SIZES, COLORS, NUMBERS } from '../../../constants/index';
 
 import styles from './styles';
 
@@ -30,16 +31,16 @@ const CompletedHabit = ({ userInfo }) => {
               </View>
             </View>
             <View style={styles.completeCountWrapper}>
-              {habit.completeCount < 4
+              {habit.completeCount < NUMBERS.MAXIMUM_LEVEL
                 ? <FontAwesome5
-                    name='medal'
-                    size={30}
+                    name={NAMES.MEDAL_ICON}
+                    size={SIZES.MEDAL_ICON}
                     color={colorType}
                   />
                 : <FontAwesome5
-                    name='crown'
-                    size={24}
-                    color='#2f3640'
+                    name={NAMES.CROWN_ICON}
+                    size={SIZES.CROWN_ICON}
+                    color={COLORS.CROWN_ICON}
                   />}
             </View>
           </View>
