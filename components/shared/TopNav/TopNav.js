@@ -4,6 +4,7 @@ import { userSlice } from '../../../redux/userSlice';
 import { FontAwesome5 } from '@expo/vector-icons';
 import { View, Text, Image } from 'react-native';
 import { TouchableOpacity } from 'react-native-gesture-handler';
+import { NAMES, SIZES, COLORS } from '../../../constants/index';
 
 import styles from './styles';
 
@@ -26,9 +27,9 @@ const TopNav = () => {
                   style={styles.profileImg}
                 />
               : <FontAwesome5
-                  name='user-circle'
-                  size={34}
-                  color='white'
+                  name={NAMES.USER_CIRCLE_ICON}
+                  size={SIZES.USER_CIRCLE_ICON}
+                  color={COLORS.WHITE}
                 />}
         </View>
         <View style={styles.name}>
@@ -38,9 +39,9 @@ const TopNav = () => {
       <View style={styles.gearWrapper}>
         <TouchableOpacity onPress={handleLogoutPress}>
           <FontAwesome5
-            name='door-open'
-            size={24}
-            color='black'
+            name={NAMES.LOGOUT_ICON}
+            size={SIZES.LOGOUT_ICON}
+            color={COLORS.BLACK}
           />
         </TouchableOpacity>
       </View>

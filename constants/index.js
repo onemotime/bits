@@ -14,7 +14,10 @@ const NAMES = {
   MEDAL_ICON: 'medal',
   CROWN_ICON: 'crown',
   CHECK_SQUARE: 'checksquare',
-  CHECK_ICON: 'check'
+  CHECK_ICON: 'check',
+  HEARTBEAT_ICON: 'heartbeat',
+  USER_CIRCLE_ICON: 'user-circle',
+  LOGOUT_ICON: 'door-open'
 };
 
 const SIZES = {
@@ -38,7 +41,10 @@ const SIZES = {
   CHECK_SQUARE: 20,
   PROFILE_USER_ICON: 100,
   FOLLOW_USER_ICON: 60,
-  CHECK_ICON: 24
+  CHECK_ICON: 24,
+  HEARTBEAT_ICON: 24,
+  USER_CIRCLE_ICON: 34,
+  LOGOUT_ICON: 24
 };
 
 const COLORS = {
@@ -69,7 +75,9 @@ const STRINGS = {
   CENTER: 'center',
   DISABLED: 'disabled',
   TYPE_EMAIL: '아이디를 입력해주세요',
+  TYPE_USERNAME: '이름을 입력해주세요',
   TYPE_PASSWORD: '비밀번호를 입력해주세요',
+  TYPE_CONFIRM_PASSWORD: '비밀번호를 확인해주세요',
   NO_REGISTERED_MATE: '등록된 메이트가 없습니다',
   FOLLOW_NEW_MATE: '새로운 메이트를 추가해보세요',
   NO_PROGRESSING_HABIT: '진행중인 습관이 없습니다',

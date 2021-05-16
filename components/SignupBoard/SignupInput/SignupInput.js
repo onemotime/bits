@@ -1,5 +1,6 @@
 import React from 'react';
 import { View, Text, TextInput } from 'react-native';
+import { STRINGS } from '../../../constants/index';
 
 import styles from './styles';
 
@@ -13,6 +14,7 @@ const SignupInput = ({
   onPasswordChange,
   onConfirmChange
 }) => {
+
   return (
     <View style={styles.inputWrapper}>
       <View style={styles.idInputWrapper}>
@@ -21,7 +23,7 @@ const SignupInput = ({
         </View>
         <View style={styles.idTextInputWrapper}>
           <TextInput
-            placeholder={'아이디를 입력해주세요'}
+            placeholder={STRINGS.TYPE_EMAIL}
             value={email}
             onChangeText={onEmailChange}
           />
@@ -33,7 +35,7 @@ const SignupInput = ({
         </View>
         <View style={styles.nameTextInputWrapper}>
           <TextInput
-            placeholder={'이름을 입력해주세요'}
+            placeholder={STRINGS.TYPE_USERNAME}
             value={userName}
             onChangeText={onUserNameChange}
           />
@@ -45,7 +47,7 @@ const SignupInput = ({
         </View>
         <View style={styles.pwTextInputWrapper}>
           <TextInput
-            placeholder={'비밀번호를 입력해주세요'}
+            placeholder={STRINGS.TYPE_PASSWORD}
             value={password}
             onChangeText={onPasswordChange}
           />
@@ -57,7 +59,7 @@ const SignupInput = ({
         </View>
         <View style={styles.confirmTextInputwrapper}>
           <TextInput
-            placeholder={'비밀번호를 확인해주세요'}
+            placeholder={STRINGS.TYPE_CONFIRM_PASSWORD}
             value={confirmPassword}
             onChangeText={onConfirmChange}
           />

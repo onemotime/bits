@@ -1,5 +1,6 @@
 import React from 'react';
 import { View, Text, TouchableOpacity } from 'react-native';
+import { STRINGS } from '../../../constants/index';
 
 import styles from './styles';
 
@@ -14,7 +15,7 @@ const SignupButtons = ({
         onPress={onLoginPress}
       >
         <Text style={styles.loginText}>
-          로그인
+          {STRINGS.LOGIN}
         </Text>
       </TouchableOpacity>
       <TouchableOpacity
@@ -22,7 +23,7 @@ const SignupButtons = ({
         onPress={onSignupPress}
       >
         <Text style={styles.signupText}>
-          회원가입
+          {STRINGS.SIGNUP}
         </Text>
       </TouchableOpacity>
     </View>
