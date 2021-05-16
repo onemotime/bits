@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchSignin } from '../../redux/userSlice';
 import { View,  TouchableOpacity } from 'react-native';
+import { SIZES } from '../../constants/index';
 import pickModalMessage from '../../utils/pickModalMessage';
 import validateEmail from '../../utils/validateEmail';
 import checkInputStatus from '../../utils/checkInputStatus';
@@ -85,13 +86,13 @@ const Login = ({ navigation }) => {
               />
               <View style={styles.iconWrapper}>
                 <TouchableOpacity>
-                  <GoogleIcon size={30} />
+                  <GoogleIcon size={SIZES.LOGO_ICON} />
                 </TouchableOpacity>
                 <TouchableOpacity>
-                  <FacebookIcon size={30} />
+                  <FacebookIcon size={SIZES.LOGO_ICON} />
                 </TouchableOpacity>
                 <TouchableOpacity>
-                  <InstagramIcon size={30} />
+                  <InstagramIcon size={SIZES.LOGO_ICON} />
                 </TouchableOpacity>
               </View>
             </View>

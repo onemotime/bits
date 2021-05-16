@@ -26,7 +26,10 @@ const Home = () => {
 
     const sendNotification = async () => {
       for (let index = 0; index < followerPushTokens.length; index++) {
-        sendPushNotification(followerPushTokens[index], `${userName}님이 ${targetHabit.habitType} 습관을 시작하셨습니다`);
+        sendPushNotification(
+          followerPushTokens[index],
+          `${userName}님이 ${targetHabit.habitType} 습관을 시작하셨습니다`
+        );
       }
     };
 

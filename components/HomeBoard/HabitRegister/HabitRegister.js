@@ -1,6 +1,7 @@
 import React from 'react';
 import { View, Text, TouchableOpacity } from 'react-native';
 import { Entypo } from '@expo/vector-icons';
+import { NAMES, SIZES, COLORS } from '../../../constants/index';
 
 import styles from './styles';
 
@@ -15,7 +16,11 @@ const HabitRegister = ({ onAddPress }) => {
           </View>
           <View style={styles.button}>
             <TouchableOpacity onPress={onAddPress}>
-              <Entypo name='circle-with-plus' size={24} color='white' />
+              <Entypo
+                name={NAMES.CIRCLE_PLUS_ICON}
+                size={SIZES.CIRCLE_PLUS_ICON}
+                color={COLORS.WHITE}
+              />
             </TouchableOpacity>
           </View>
         </View>

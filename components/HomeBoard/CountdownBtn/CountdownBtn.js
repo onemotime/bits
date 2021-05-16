@@ -4,6 +4,7 @@ import { updateHabit } from '../../../redux/userSlice';
 import { View, Animated, Text, TouchableOpacity } from 'react-native';
 import { CountdownCircleTimer } from 'react-native-countdown-circle-timer';
 import { FontAwesome5, MaterialIcons,MaterialCommunityIcons } from '@expo/vector-icons';
+import { SIZES, NAMES, COLORS, STRINGS } from '../../../constants/index';
 
 import styles from './styles';
 
@@ -50,31 +51,31 @@ const CountdownBtn = ({
           isPlaying={isPlaying}
           duration={totalTime}
           colors={[
-            ['#004777', 0.4],
-            ['#F7B801', 0.4],
-            ['#A30000', 0.2],
+            [COLORS.TIMER_FIRST_RENDER, SIZES.TIMER_FIRST_RATIO],
+            [COLORS.TIMER_SECOND_RENDER, SIZES.TIMER_SECOND_RATIO],
+            [COLORS.TIMER_THIRD_RENDER, SIZES.TIMER_THIRD_RATIO],
           ]}
-          size={130}
-          strokeWidth={10}
+          size={SIZES.TIMER}
+          strokeWidth={SIZES.TIMER_STROKE_WIDTH}
           onComplete={handleTimeColplete}
         >
           {({ remainingTime, animatedColor }) => (
             <Animated.Text style={{
                 color: animatedColor,
-                fontSize: 18,
-                fontWeight: '600'
+                fontSize: SIZES.TIMER_TEXT,
+                fontWeight: SIZES.TIMER_FONTWEIGHT
               }}>
               {isHabitDone
                 ? <TouchableOpacity onPress={onFinishIconPress}>
                     <Text style={styles.doneText}>
                       <FontAwesome5
-                        name='calendar-check'
-                        size={50}
-                        color='#4cd137'
+                        name={NAMES.CALENDAR_ICON}
+                        size={SIZES.FINISH_ICON}
+                        color={COLORS.CALENDAR_ICON}
                       />
                     </Text>
                   </TouchableOpacity>
-                : remainingTime + ' 초'}
+                : remainingTime + STRINGS.SECOND}
             </Animated.Text>)}
         </CountdownCircleTimer>
       </View>
@@ -84,9 +85,9 @@ const CountdownBtn = ({
           onPress={onPausePress}
         >
           <MaterialCommunityIcons
-            name='play-pause'
-            size={40}
-            color='black'
+            name={NAMES.PAUSE_ICON}
+            size={SIZES.PLAY_CANCLE}
+            color={COLORS.BLACK}
           />
         </TouchableOpacity>
         <TouchableOpacity
@@ -94,9 +95,9 @@ const CountdownBtn = ({
           onPress={onQuitPress}
         >
           <MaterialIcons
-            name='cancel'
-            size={40}
-            color='red'
+            name={NAMES.CANCLE_ICON}
+            size={SIZES.PLAY_CANCLE}
+            color={COLORS.RED}
           />
         </TouchableOpacity>
       </View>
