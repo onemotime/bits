@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { View, StyleSheet } from 'react-native';
 import { useSelector, useDispatch } from 'react-redux';
 import { useNavigation } from '@react-navigation/native';
@@ -18,9 +18,20 @@ const Home = () => {
   const [countDownTime, setCountDownTime] = useState(0);
   const [isStartCountBtnOn, setStartCountBtn] = useState(false);
 
-  const { userName, habits, accessToken, pushToken } = useSelector(state => state.user);
+  const { userName, habits, accessToken, followerPushTokens } = useSelector(state => state.user);
   const navigation = useNavigation();
   const dispatch = useDispatch();
+
+  useEffect(() => {
+
+    const sendNotification = async () => {
+      for (let i = 0; i < followerPushTokens.length; i++) {
+        sendPushNotification(followerPushTokens[i], `${userName}님이 ${targetHabit.habitType} 습관을 시작하셨습니다`);
+      }
+    };
+
+    sendNotification();
+  }, [followerPushTokens]);
 
   const handleDeletePress = (targetIndex) => {
     const deleteInput = {
@@ -59,7 +70,6 @@ const Home = () => {
 
     try {
       dispatch(fetchPushTokens(accessToken));
-      // await sendPushNotification(pushToken, `${userName}님이 ${targetHabit.habitType} 습관을 시작하셨습니다`);
     } catch (err) {
       console.log(err);
     }

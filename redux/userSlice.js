@@ -127,6 +127,7 @@ export const fetchPushTokens = createAsyncThunk(
       const response = await userApi.getPushTokens(accessToken);
 
       if (response.status === 200) {
+        return response.pushTokens;
       }
 
       return thunkApi.rejectWithValue(response);
@@ -160,7 +161,6 @@ export const userSlice = createSlice({
   initialState,
   reducers: {
     registerPushToken: (state, { payload }) => {
-      console.log('이게 있을까요? ' + payload.pushToken);
       state.pushToken = payload.pushToken;
     },
     resetUserState: () => {
@@ -262,6 +262,11 @@ export const userSlice = createSlice({
     },
     [updateImageUri.fulfilled]: (state, { payload }) => {
       state.imageUri = payload;
+      state.isFetching = false;
+      state.isSuccess = true;
+    },
+    [fetchPushTokens.fulfilled]: (state, { payload }) => {
+      state.followerPushTokens = payload;
       state.isFetching = false;
       state.isSuccess = true;
     }
