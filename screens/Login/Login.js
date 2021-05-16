@@ -24,7 +24,7 @@ const Login = ({ navigation }) => {
   const [isModalShown, setModal] = useState(false);
   const [modalMessage, setModalMessage] = useState('');
 
-  const { isFetching } = useSelector(state => state.user);
+  const { isFetching, pushToken } = useSelector(state => state.user);
   const dispatch = useDispatch();
 
   const handleLoginPress = () => {
@@ -42,7 +42,8 @@ const Login = ({ navigation }) => {
 
     const loginInput = {
       email,
-      password
+      password,
+      pushToken
     };
 
     dispatch(fetchSignin(loginInput));

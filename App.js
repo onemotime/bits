@@ -4,6 +4,7 @@ import MainStackNavigator from './navigations/MainStackNavigator';
 import store from './redux/store';
 
 const App = () => {
+
   return (
     <Provider store={store}>
       <MainStackNavigator />

@@ -130,6 +130,7 @@ const initialState = {
   completedDates: [],
   habits: [],
   accessToken: '',
+  pushToken: '',
   isFetching: false,
   isSuccess: false,
   isError: false,
@@ -141,6 +142,10 @@ export const userSlice = createSlice({
   name: 'user',
   initialState,
   reducers: {
+    registerPushToken: (state, { payload }) => {
+      console.log('이게 있을까요? ' + payload.pushToken);
+      state.pushToken = payload.pushToken;
+    },
     resetUserState: () => {
       return initialState;
     }

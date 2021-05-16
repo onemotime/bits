@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { View, StyleSheet } from 'react-native';
 import { useSelector, useDispatch } from 'react-redux';
 import { useNavigation } from '@react-navigation/native';
+import { sendPushNotification } from '../../api/pushApi';
 import { removeHabit } from '../../redux/userSlice';
 import convertTimeStrToSec from '../../utils/convertTimeStrToSec';
 
@@ -17,7 +18,7 @@ const Home = () => {
   const [countDownTime, setCountDownTime] = useState(0);
   const [isStartCountBtnOn, setStartCountBtn] = useState(false);
 
-  const { habits, accessToken } = useSelector(state => state.user);
+  const { userName, habits, accessToken, pushToken } = useSelector(state => state.user);
   const navigation = useNavigation();
   const dispatch = useDispatch();
 
@@ -53,8 +54,10 @@ const Home = () => {
     navigation.navigate('Register');
   };
 
-  const handleStartCountDownPress = () => {
+  const handleStartCountDownPress = async () => {
     if (!targetHabit?.habitType || !isHabitSelected) return;
+
+    await sendPushNotification(pushToken, `${userName}님이 ${targetHabit}습관을 시작하셨습니다`);
 
     setSelectedHabit(false);
     setStartCountBtn(true);
@@ -81,7 +84,7 @@ const Home = () => {
               habitType={targetHabit.habitType}
               accessToken={accessToken}
             />
-          : <StartCountDownBtn onAddPress={handleStartCountDownPress} />}
+          : <StartCountDownBtn onStartPress={handleStartCountDownPress} />}
     </View>
   );
 };

@@ -1,10 +1,10 @@
 import React from 'react';
 import { View, TouchableOpacity, Text, StyleSheet } from 'react-native';
 
-const StartCountDownBtn = ({ onAddPress }) => {
+const StartCountDownBtn = ({ onStartPress }) => {
   return (
     <View style={styles.wrapper}>
-      <TouchableOpacity onPress={onAddPress}>
+      <TouchableOpacity onPress={onStartPress}>
         <View style={styles.outterCircle}>
           <View style={styles.innerCircle}>
             <Text style={styles.pressText}>PRESS HABIT</Text>
