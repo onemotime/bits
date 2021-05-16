@@ -1,5 +1,4 @@
 import React from 'react';
-import { StyleSheet } from 'react-native';
 import LottieView from 'lottie-react-native';
 
 const Loading = () => {
@@ -10,16 +9,10 @@ const Loading = () => {
         autoPlay
         loop
         speed={2}
-        style={styles.animationWrapper}
+        style={{ backgroundColor: '#F9BC56' }}
       />
     </>
   );
 };
-
-const styles = StyleSheet.create({
-  animationWrapper: {
-    backgroundColor: '#F9BC56'
-  }
-});
 
 export default Loading;

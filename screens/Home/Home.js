@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { View, StyleSheet } from 'react-native';
+import { View } from 'react-native';
 import { useSelector, useDispatch } from 'react-redux';
 import { useNavigation } from '@react-navigation/native';
 import { sendPushNotification } from '../../api/pushApi';
@@ -79,7 +79,7 @@ const Home = () => {
   };
 
   return (
-    <View style={styles.wrapper}>
+    <View style={{ flex: 1, backgroundColor: '#F9BC56' }}>
       <TopNav />
         {!isStartCountBtnOn &&
           (habits?.length > 0
@@ -103,12 +103,5 @@ const Home = () => {
     </View>
   );
 };
-
-const styles = StyleSheet.create({
-  wrapper: {
-    flex: 1,
-    backgroundColor: '#F9BC56'
-  }
-});
 
 export default Home;

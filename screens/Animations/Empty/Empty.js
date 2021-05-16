@@ -1,6 +1,8 @@
 import React from 'react';
-import { View, StyleSheet } from 'react-native';
+import { View } from 'react-native';
 import LottieView from 'lottie-react-native';
+
+import styles from './styles';
 
 const Like = () => {
 
@@ -16,13 +18,5 @@ const Like = () => {
     </View>
   );
 };
-
-const styles = StyleSheet.create({
-  animationWrapper: {
-    borderColor: 'red',
-    height: 200,
-    width: 300
-  }
-});
 
 export default Like;

@@ -1,14 +1,15 @@
 import React, { useState } from 'react';
-import { View, StyleSheet } from 'react-native';
+import { View } from 'react-native';
 import * as userAPI from '../../api/userApi';
-import pickModalMessage from '../../utils/pickModalMessage';
-import validateEmail from '../../utils/validateEmail';
+import checkInputStatus from '../../utils/checkInputStatus';
 
 import LogoName from '../../components/shared/LogoName';
 import SignupInput from '../../components/SignupBoard/SignupInput/SignupInput';
 import SignupButtons from '../../components/SignupBoard/SignupButtons/SignupButtons';
 import SignupModal from '../../components/ReusableModal/ReusableModal';
-import checkInputStatus from '../../utils/checkInputStatus';
+
+import styles from './styles';
+
 
 const Signup = ({ navigation }) => {
   const [email, setEmail] = useState('');
@@ -87,21 +88,5 @@ const Signup = ({ navigation }) => {
     </>
   );
 };
-
-const styles = StyleSheet.create({
-  wrapper: {
-    flex: 1,
-    alignItems: 'center',
-    backgroundColor: '#E8BE64'
-  },
-  signupWrapper: {
-    marginTop: '40%',
-    backgroundColor: '#EDCE8A',
-    borderRadius: 10,
-    justifyContent: 'center',
-    alignItems: 'center',
-    width: '80%'
-  }
-});
 
 export default Signup;

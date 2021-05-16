@@ -1,5 +1,4 @@
 import React from 'react';
-import { StyleSheet } from 'react-native';
 import LottieView from 'lottie-react-native';
 
 const Like = ({ onFinish }) => {
@@ -12,17 +11,11 @@ const Like = ({ onFinish }) => {
         speed={1}
         loop={false}
         resizeMode='cover'
-        style={styles.animationWrapper}
+        style={{ zIndex: 1 }}
         onAnimationFinish={onFinish}
       />
     </>
   );
 };
-
-const styles = StyleSheet.create({
-  animationWrapper: {
-    zIndex: 1
-  }
-});
 
 export default Like;
