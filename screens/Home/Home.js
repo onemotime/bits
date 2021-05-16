@@ -57,7 +57,11 @@ const Home = () => {
   const handleStartCountDownPress = async () => {
     if (!targetHabit?.habitType || !isHabitSelected) return;
 
-    await sendPushNotification(pushToken, `${userName}님이 ${targetHabit}습관을 시작하셨습니다`);
+    try {
+      await sendPushNotification(pushToken, `${userName}님이 ${targetHabit.habitType} 습관을 시작하셨습니다`);
+    } catch (err) {
+      console.log(err);
+    }
 
     setSelectedHabit(false);
     setStartCountBtn(true);

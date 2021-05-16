@@ -73,7 +73,7 @@ export const fetchUser = createAsyncThunk(
   'user/fetchUser',
   async (accessToken, thunkAPI) => {
     try {
-      const response = await userApi.fetchUserName(accessToken);
+      const response = await userApi.getUsers(accessToken);
 
       if (response.status === 200) {
         return response.payload;
@@ -120,22 +120,39 @@ export const updateImageUri = createAsyncThunk(
   }
 );
 
+export const fetchPushTokens = createAsyncThunk(
+  'user/fetchPushTokens',
+  async (accessToken, thunkApi) => {
+    try {
+      const response = await userApi.getPushTokens(accessToken);
+
+      if (response.status === 200) {
+      }
+
+      return thunkApi.rejectWithValue(response);
+    } catch (err) {
+      console.error(err);
+    }
+  }
+);
+
 const initialState = {
   email: '',
   userName: '',
   imageUri: '',
+  accessToken: '',
+  pushToken: '',
+  errorMessage: '',
   followers: [],
   following: [],
   completedHabits: [],
   completedDates: [],
   habits: [],
-  accessToken: '',
-  pushToken: '',
+  allUsers: [],
+  allPushTokens: [],
   isFetching: false,
   isSuccess: false,
-  isError: false,
-  errorMessage: '',
-  allUsers: []
+  isError: false
 };
 
 export const userSlice = createSlice({

@@ -70,7 +70,7 @@ export const deleteHabit = async (deleteInput) => {
   return await response.json();
 };
 
-export const fetchUserName = async (accessToken) => {
+export const getUsers = async (accessToken) => {
   const url = `${SERVER_URL}/user/all`;
   const headers = generateHeaderOption(accessToken);
 
@@ -107,6 +107,18 @@ export const patchImageUri = async (imageUriPayload) => {
     body: JSON.stringify({
       uri: imageUriPayload.uri
     })
+  });
+
+  return await response.json();
+};
+
+export const getPushTokens = async (accessToken) => {
+  const url = `${SERVER_URL}/user/pushTokens`;
+  const headers = generateHeaderOption(accessToken);
+
+  const response = await fetch(url, {
+    method: 'GET',
+    headers
   });
 
   return await response.json();
