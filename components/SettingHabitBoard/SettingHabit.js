@@ -86,7 +86,10 @@ const SettingHabit = () => {
         <Text style={styles.subscribeText}>습관을 등록해주세요</Text>
         <View style={styles.inputWrapper}>
           {(!isActShown && !isDayShown && !isTimeShown) &&
-            <TouchableOpacity style={styles.actInput} onPress={handleActPress}>
+            <TouchableOpacity
+              style={styles.actInput}
+              onPress={handleActPress}
+            >
               <Text style={styles.actText}>Act</Text>
               {selectedAct &&
                 <Text style={styles.selectedAct}>
@@ -113,7 +116,10 @@ const SettingHabit = () => {
               <Picker.Item label='Yoga' value='yoga' />
             </Picker>}
           {(!isActShown && !isDayShown && !isTimeShown) &&
-            <TouchableOpacity style={styles.dayInput} onPress={handleDayPress}>
+            <TouchableOpacity
+              style={styles.dayInput}
+              onPress={handleDayPress}
+            >
               <Text style={styles.dayText}>Day</Text>
               {selectedDay &&
                 <Text style={styles.selectedDay}>
@@ -164,7 +170,11 @@ const SettingHabit = () => {
           </Picker>}
         </View>
         <View style={styles.buttonWrapper}>
-          <Button title='등록' color='white' onPress={handleRegisterPress} />
+          <Button
+            title='등록'
+            color='white'
+            onPress={handleRegisterPress}
+          />
         </View>
       </View>
     </>

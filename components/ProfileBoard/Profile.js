@@ -46,16 +46,15 @@ const Profile = ({ userInfo, accessToken, imageUri }) => {
           (userInfo.habits.length > 0
             ? <ProgressHabit userInfo={userInfo} />
             : <View style={styles.registerHabitWrapper}>
-                <Text style={styles.registerHabitText}>등록된 습관이 없습니다</Text>
+                <Text style={styles.registerHabitText}>진행중인 습관이 없습니다</Text>
                 <Empty />
               </View>)}
         {isCompletedHabitOn &&
           (userInfo.completedHabits.length > 0
             ? <CompletedHabit userInfo={userInfo} />
-            : <View style={styles.completeHabitWrapper}>
-                <View>
-                  <Text style={styles.completeHabitText}>완료된 습관이 없습니다</Text>
-                </View>
+            :  <View style={styles.registerHabitWrapper}>
+                <Text style={styles.completeHabitText}>완료된 습관이 없습니다</Text>
+                <Empty />
               </View>)}
         {isCalendarOn &&
           <Calendar completedDates={userInfo.completedDates} />}
@@ -84,11 +83,6 @@ const styles = StyleSheet.create({
     marginTop: 10,
     fontSize: 15,
     fontWeight: '800',
-  },
-  completeHabitWrapper: {
-    borderWidth: 1,
-    justifyContent: 'center',
-    alignItems: 'center'
   },
   completeHabitText: {
     fontSize: 15,

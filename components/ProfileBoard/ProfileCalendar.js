@@ -25,8 +25,12 @@ const ProfileCalendar = ({ completedDates }) => {
           <View>
             <Text style={{textAlign: 'center', color: state === 'disabled' ? 'gray' : 'black'}}>
               {completedDates.includes(`${date.year}-${date.month}-${date.day}`)
-                ?  <AntDesign name='checksquare' size={20} color='#4cd137' />
-                :  date.day}
+                ? <AntDesign
+                    name='checksquare'
+                    size={20}
+                    color='#4cd137'
+                  />
+                : date.day}
             </Text>
           </View>
         );

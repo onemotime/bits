@@ -35,7 +35,10 @@ const MateHabit = ({ followingUserHabits, accessToken }) => {
             const userId = followingUser.userId;
 
             return (
-              <View style={styles.mateLivewrapper} key={followingUser.userName}>
+              <View
+                style={styles.mateLivewrapper}
+                key={followingUser.userName}
+              >
                 <View style={styles.profileImg}>
                   {followingUser.imageUri
                     ? <View style={styles.uriWrapper}>
@@ -66,9 +69,7 @@ const MateHabit = ({ followingUserHabits, accessToken }) => {
                               <Text style={styles.statusText}>{habitData.habitType}</Text>
                             </View>
                             {(likeHabitId === habitData._id) &&
-                              <Like
-                                onFinish={handleAnimationFinish}
-                              />}
+                              <Like onFinish={handleAnimationFinish} />}
                             <View style={styles.habitIcon}>{habitIcon}</View>
                             <Text style={styles.startTimeText}>BiTS</Text>
                           </View>

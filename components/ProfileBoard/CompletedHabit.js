@@ -15,7 +15,10 @@ const CompletedHabit = ({ userInfo }) => {
         const colorType = pickColorByCount(habit.completeCount)
 
         return (
-          <View style={styles.userHabitWrapper} key={index}>
+          <View
+            style={styles.userHabitWrapper}
+            key={index}
+          >
             <View style={styles.imgTextWrapper}>
               <View>
                 {habitIcon}
@@ -26,8 +29,16 @@ const CompletedHabit = ({ userInfo }) => {
             </View>
             <View style={styles.completeCountWrapper}>
               {habit.completeCount < 4
-                ? <FontAwesome5 name='medal' size={30} color={colorType} />
-                : <FontAwesome5 name="crown" size={24} color='#2f3640' />}
+                ? <FontAwesome5
+                    name='medal'
+                    size={30}
+                    color={colorType}
+                  />
+                : <FontAwesome5
+                    name='crown'
+                    size={24}
+                    color='#2f3640'
+                  />}
             </View>
           </View>
         );

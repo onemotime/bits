@@ -1,13 +1,9 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
+import { updateHabit } from '../../redux/userSlice';
 import { View, Animated, Text, TouchableOpacity, StyleSheet } from 'react-native';
 import { CountdownCircleTimer } from 'react-native-countdown-circle-timer';
-import { updateHabit } from '../../redux/userSlice';
-import {
-  FontAwesome5,
-  MaterialIcons,
-  MaterialCommunityIcons
-} from '@expo/vector-icons';
+import { FontAwesome5, MaterialIcons,MaterialCommunityIcons } from '@expo/vector-icons';
 
 const CountdownBtn = ({
   totalTime,
@@ -15,11 +11,10 @@ const CountdownBtn = ({
   habitType,
   accessToken
 }) => {
+  const date = new Date();
+  const dispatch = useDispatch();
   const [isHabitDone, setHabitDone] = useState(false);
   const [isPlaying, setPlaying] = useState(true);
-
-  const dispatch = useDispatch();
-  const date = new Date();
   const currentDate = `${date.getFullYear()}-${date.getMonth() + 1}-${date.getDate()}`;
 
   const handleTimeColplete = () => {
@@ -70,7 +65,11 @@ const CountdownBtn = ({
               {isHabitDone
                 ? <TouchableOpacity onPress={onFinishIconPress}>
                     <Text style={styles.doneText}>
-                      <FontAwesome5 name='calendar-check' size={50} color='#4cd137' />
+                      <FontAwesome5
+                        name='calendar-check'
+                        size={50}
+                        color='#4cd137'
+                      />
                     </Text>
                   </TouchableOpacity>
                 : remainingTime + ' 초'}
@@ -78,11 +77,25 @@ const CountdownBtn = ({
         </CountdownCircleTimer>
       </View>
       <View style={styles.btnWrapper}>
-        <TouchableOpacity style={styles.pauseBtn} onPress={onPausePress}>
-          <MaterialCommunityIcons name='play-pause' size={40} color='black' />
+        <TouchableOpacity
+          style={styles.pauseBtn}
+          onPress={onPausePress}
+        >
+          <MaterialCommunityIcons
+            name='play-pause'
+            size={40}
+            color='black'
+          />
         </TouchableOpacity>
-        <TouchableOpacity style={styles.cancelBtn} onPress={onQuitPress}>
-          <MaterialIcons name='cancel' size={40} color='red' />
+        <TouchableOpacity
+          style={styles.cancelBtn}
+          onPress={onQuitPress}
+        >
+          <MaterialIcons
+            name='cancel'
+            size={40}
+            color='red'
+          />
         </TouchableOpacity>
       </View>
     </View>

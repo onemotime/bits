@@ -1,5 +1,5 @@
-import generateHeaderOption from '../utils/generateHeaderOption';
 import { SERVER_URL } from '@env';
+import generateHeaderOption from '../utils/generateHeaderOption';
 
 export const requestSignin = async (loginInput) => {
   const url = `${SERVER_URL}/user/login`;

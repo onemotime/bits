@@ -5,7 +5,11 @@ import { FontAwesome } from '@expo/vector-icons';
 const LogoName = () => {
   return (
     <View style={styles.logoWrapper}>
-      <FontAwesome name='heartbeat' size={24} color='white' />
+      <FontAwesome
+        name='heartbeat'
+        size={24}
+        color='white'
+      />
       <Text style={styles.logoText}>BiTS</Text>
     </View>
   );

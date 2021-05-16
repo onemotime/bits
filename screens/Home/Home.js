@@ -25,8 +25,8 @@ const Home = () => {
   useEffect(() => {
 
     const sendNotification = async () => {
-      for (let i = 0; i < followerPushTokens.length; i++) {
-        sendPushNotification(followerPushTokens[i], `${userName}님이 ${targetHabit.habitType} 습관을 시작하셨습니다`);
+      for (let index = 0; index < followerPushTokens.length; index++) {
+        sendPushNotification(followerPushTokens[index], `${userName}님이 ${targetHabit.habitType} 습관을 시작하셨습니다`);
       }
     };
 
@@ -71,7 +71,7 @@ const Home = () => {
     try {
       dispatch(fetchPushTokens(accessToken));
     } catch (err) {
-      console.log(err);
+      console.error(err);
     }
 
     setSelectedHabit(false);

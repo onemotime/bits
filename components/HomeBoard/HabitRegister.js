@@ -1,6 +1,6 @@
 import React from 'react';
-import { Entypo } from '@expo/vector-icons';
 import { View, Text, TouchableOpacity, StyleSheet } from 'react-native';
+import { Entypo } from '@expo/vector-icons';
 
 const HabitRegister = ({ onAddPress }) => {
 

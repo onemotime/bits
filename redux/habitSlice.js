@@ -24,8 +24,7 @@ export const updateHabitLikes = createAsyncThunk(
     try {
       const response = await habitApi.patchHabitLike(updateHabitInput);
 
-      if (response.status === 200) {
-      }
+      if (response.status === 200) return;
 
       return thunkApi.rejectWithValue(response);
     } catch (err) {
