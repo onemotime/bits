@@ -17,7 +17,15 @@ const NAMES = {
   CHECK_ICON: 'check',
   HEARTBEAT_ICON: 'heartbeat',
   USER_CIRCLE_ICON: 'user-circle',
-  LOGOUT_ICON: 'door-open'
+  LOGOUT_ICON: 'door-open',
+  HABIT: '습관',
+  LIVE: '라이브',
+  SEARCH: '검색',
+  MYPROFILE: '내정보',
+  LOGIN: 'Login',
+  SIGNUP: 'Signup',
+  BOTTOM_TAB_NAVIGATOR: 'BottomTabNavigator',
+  REGISTER: 'Register'
 };
 
 const SIZES = {
@@ -60,16 +68,19 @@ const COLORS = {
   ARROW: '#F9BC56',
   CHECK_SQUARE: '#4cd137',
   CHECK_ICON: 'green',
-  FOLLOW_CIRCLE_PLUS_ICON: '#E8BE64'
+  FOLLOW_CIRCLE_PLUS_ICON: '#E8BE64',
+  BOTTOM_TAB_ACTIVE: '#F48D3B',
+  BOTTOM_TAB_BACKGROUND: '#FFF0D9',
+  ANDROID_LIGHT: '#FF231F7C'
 };
 
 const STRINGS = {
   FR: 'fr',
+  NONE: 'none',
   SECOND: ' 초',
   SEARCH: '검색',
   LOGIN: '로그인',
   SIGNUP: '회원가입',
-  HABIT: '습관',
   BOLD: 'bold',
   SLIDE: 'slide',
   CENTER: 'center',
@@ -103,7 +114,10 @@ const STRINGS = {
   TWENTYEIGHT: '28',
   ACT: 'Act',
   DAY: 'Day',
-  TIME: 'Time'
+  TIME: 'Time',
+  GRANTED: 'granted',
+  DEFAULT: 'default',
+  ANDROID: 'android'
 };
 
 const MONTHS = [
@@ -141,6 +155,8 @@ const SHORTNAMES = [
   '토'
 ];
 
+const PATTERN = [0, 250, 250, 250];
+
 const ASPECT = [4, 3];
 
 const LABEL = {
@@ -163,6 +179,11 @@ const LABEL = {
   ONE_HOUR: '1 h'
 };
 
+const MESSAGE = {
+  PUSH_TOKEN_FAIL: 'Failed to get push token for push notification!',
+  PUSH_TOKEN_ERR: 'Must use physical device for Push Notifications'
+};
+
 export {
   NUMBERS,
   NAMES,
@@ -172,6 +193,8 @@ export {
   MONTHS,
   DAYS,
   SHORTNAMES,
+  PATTERN,
   ASPECT,
-  LABEL
+  LABEL,
+  MESSAGE
 };

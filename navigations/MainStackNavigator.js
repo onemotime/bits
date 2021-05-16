@@ -1,10 +1,11 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useEffect } from 'react';
 import * as Notifications from 'expo-notifications';
 import { useDispatch } from 'react-redux';
 import { userSlice } from '../redux/userSlice';
 import { Platform } from 'react-native';
 import Constants from 'expo-constants';
 import { useSelector } from 'react-redux';
+import { STRINGS, COLORS, MESSAGE, PATTERN } from '../constants/index';
 
 import AutchStackNavigator from './AuthStackNavigator';
 import UserScreenNavigator from './UserScreenNavigator';
@@ -21,9 +22,6 @@ const MainStackNavigator = () => {
   const { accessToken } = useSelector(state => state.user);
   const { registerPushToken } = userSlice.actions;
   const dispatch = useDispatch();
-  // const [notification, setNotification] = useState(false);
-  // const notificationListener = useRef();
-  // const responseListener = useRef();
 
   useEffect(() => {
     const subscribeNotification = async () => {
@@ -33,20 +31,6 @@ const MainStackNavigator = () => {
         if (pushToken) {
           dispatch(registerPushToken({ pushToken }));
         }
-
-        // notificationListener.current = Notifications.addNotificationReceivedListener(notification => {
-        //   console.log(notification);
-        //   setNotification(notification);
-        // });
-
-        // responseListener.current = Notifications.addNotificationResponseReceivedListener(response => {
-        //   console.log(response);
-        // });
-
-        // return () => {
-        //   Notifications.removeNotificationSubscription(notificationListener.current);
-        //   Notifications.removeNotificationSubscription(responseListener.current);
-        // };
       } catch(err) {
         console.log(err);
       }
@@ -63,13 +47,13 @@ const MainStackNavigator = () => {
 
       let finalStatus = existingStatus;
 
-      if (existingStatus !== 'granted') {
+      if (existingStatus !== STRINGS.GRANTED) {
         const { status } = await Notifications.requestPermissionsAsync();
         finalStatus = status;
       }
 
-      if (finalStatus !== 'granted') {
-        alert('Failed to get push token for push notification!');
+      if (finalStatus !== STRINGS.GRANTED) {
+        alert(MESSAGE.PUSH_TOKEN_FAIL);
         return;
       }
 
@@ -77,15 +61,15 @@ const MainStackNavigator = () => {
 
       return token;
     } else {
-      alert('Must use physical device for Push Notifications');
+      alert(MESSAGE.PUSH_TOKEN_ERR);
     }
 
-    if (Platform.OS === 'android') {
-      Notifications.setNotificationChannelAsync('default', {
-        name: 'default',
+    if (Platform.OS === STRINGS.ANDROID) {
+      Notifications.setNotificationChannelAsync(STRINGS.DEFAULT, {
+        name: STRINGS.DEFAULT,
         importance: Notifications.AndroidImportance.MAX,
-        vibrationPattern: [0, 250, 250, 250],
-        lightColor: '#FF231F7C',
+        vibrationPattern: [...PATTERN],
+        lightColor: COLORS.ANDROID_LIGHT,
       });
     }
   }
