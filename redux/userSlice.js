@@ -149,7 +149,7 @@ const initialState = {
   completedDates: [],
   habits: [],
   allUsers: [],
-  allPushTokens: [],
+  followerPushTokens: [],
   isFetching: false,
   isSuccess: false,
   isError: false

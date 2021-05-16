@@ -3,7 +3,7 @@ import { View, StyleSheet } from 'react-native';
 import { useSelector, useDispatch } from 'react-redux';
 import { useNavigation } from '@react-navigation/native';
 import { sendPushNotification } from '../../api/pushApi';
-import { removeHabit } from '../../redux/userSlice';
+import { removeHabit, fetchPushTokens } from '../../redux/userSlice';
 import convertTimeStrToSec from '../../utils/convertTimeStrToSec';
 
 import HabitRegister from '../../components/HomeBoard/HabitRegister';
@@ -58,7 +58,8 @@ const Home = () => {
     if (!targetHabit?.habitType || !isHabitSelected) return;
 
     try {
-      await sendPushNotification(pushToken, `${userName}님이 ${targetHabit.habitType} 습관을 시작하셨습니다`);
+      dispatch(fetchPushTokens(accessToken));
+      // await sendPushNotification(pushToken, `${userName}님이 ${targetHabit.habitType} 습관을 시작하셨습니다`);
     } catch (err) {
       console.log(err);
     }
