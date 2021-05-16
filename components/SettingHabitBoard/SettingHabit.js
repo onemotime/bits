@@ -6,6 +6,8 @@ import { Picker } from '@react-native-picker/picker';
 import { Button, View, Text, TouchableOpacity } from 'react-native';
 import HabitRegisterModal from '../ReusableModal/ReusableModal';
 
+import { NUMBERS, COLORS, STRINGS, LABEL } from '../../constants/index';
+
 import styles from './styles';
 
 const SettingHabit = () => {
@@ -74,25 +76,29 @@ const SettingHabit = () => {
 
     dispatch(registerHabit(registerInput));
 
-    navigation.navigate('습관');
+    navigation.navigate(STRINGS.HABIT);
   };
 
   return (
     <>
       <HabitRegisterModal
-        message={'이미 등록된 습관입니다'}
+        message={STRINGS.ALREADY_REGISTERED_HABIT}
         visible={isModalShown}
         onButtonPress={handleModalPress}
       />
       <View style={styles.subscribeWrapper}>
-        <Text style={styles.subscribeText}>습관을 등록해주세요</Text>
+        <Text style={styles.subscribeText}>
+          {STRINGS.REGISTER_HABIT}
+        </Text>
         <View style={styles.inputWrapper}>
           {(!isActShown && !isDayShown && !isTimeShown) &&
             <TouchableOpacity
               style={styles.actInput}
               onPress={handleActPress}
             >
-              <Text style={styles.actText}>Act</Text>
+              <Text style={styles.actText}>
+                {STRINGS.ACT}
+              </Text>
               {selectedAct &&
                 <Text style={styles.selectedAct}>
                   {selectedAct}
@@ -104,25 +110,48 @@ const SettingHabit = () => {
               onValueChange={handleActChange}
               style={{
                 transform: [
-                  { scaleX: 0.8 },
-                  { scaleY: 0.8 },
+                  { scaleX: NUMBERS.PICKER_SCALE },
+                  { scaleY: NUMBERS.PICKER_SCALE },
                 ]
               }}
             >
-              <Picker.Item label='Code' value='code' />
-              <Picker.Item label='Read' value='read' />
-              <Picker.Item label='Swim' value='swim' />
-              <Picker.Item label='Meditate' value='meditate' />
-              <Picker.Item label='Run' value='run' />
-              <Picker.Item label='Bicycle' value='bicycle' />
-              <Picker.Item label='Yoga' value='yoga' />
+              <Picker.Item
+                label={LABEL.CODE}
+                value={STRINGS.CODE}
+              />
+              <Picker.Item
+                label={LABEL.READ}
+                value={STRINGS.READ}
+              />
+              <Picker.Item
+                label={LABEL.SWIM}
+                value={STRINGS.SWIM}
+              />
+              <Picker.Item
+                label={LABEL.MEDITATE}
+                value={STRINGS.MEDITATE}
+              />
+              <Picker.Item
+                label={LABEL.RUN}
+                value={STRINGS.RUN}
+              />
+              <Picker.Item
+                label={LABEL.BICYCLE}
+                value={STRINGS.BICYCLE}
+              />
+              <Picker.Item
+                label={LABEL.YOGA}
+                value={STRINGS.YOGA}
+              />
             </Picker>}
           {(!isActShown && !isDayShown && !isTimeShown) &&
             <TouchableOpacity
               style={styles.dayInput}
               onPress={handleDayPress}
             >
-              <Text style={styles.dayText}>Day</Text>
+              <Text style={styles.dayText}>
+                {STRINGS.DAY}
+              </Text>
               {selectedDay &&
                 <Text style={styles.selectedDay}>
                   {selectedDay}
@@ -134,20 +163,37 @@ const SettingHabit = () => {
               onValueChange={handleDayChange}
               style={{
                 transform: [
-                  { scaleX: 0.8 },
-                  { scaleY: 0.8 },
+                  { scaleX: NUMBERS.PICKER_SCALE },
+                  { scaleY: NUMBERS.PICKER_SCALE },
                 ]
               }}
             >
-              <Picker.Item label='2 days' value='2' />
-              <Picker.Item label='7 days' value='7' />
-              <Picker.Item label='14 days' value='14' />
-              <Picker.Item label='21 days' value='21' />
-              <Picker.Item label='28 days' value='28' />
+              <Picker.Item
+                label={LABEL.TWO_DAYS}
+                value={STRINGS.TWO}
+              />
+              <Picker.Item
+                label={LABEL.SEVEN_DAYS}
+                value={STRINGS.SEVEN}
+              />
+              <Picker.Item
+                label={LABEL.FOURTEEN_DAYS}
+                value={STRINGS.FOURTEEN}
+              />
+              <Picker.Item
+                label={LABEL.TWENTYONE_DAYS}
+                value={STRINGS.TWENTYONE}
+              />
+              <Picker.Item
+                label={LABEL.TWENTYEIGHT_DAYS}
+                value={STRINGS.TWENTYEIGHT}
+              />
           </Picker>}
           {(!isActShown && !isDayShown && !isTimeShown) &&
             <TouchableOpacity style={styles.timeInput} onPress={handleTimePress}>
-              <Text style={styles.timeText}>Time</Text>
+              <Text style={styles.timeText}>
+                {STRINGS.TIME}
+              </Text>
               {selectedTime &&
                 <Text style={styles.selectedTime}>
                   {selectedTime}
@@ -159,22 +205,37 @@ const SettingHabit = () => {
               onValueChange={handleTimeChange}
               style={{
                 transform: [
-                  { scaleX: 0.8 },
-                  { scaleY: 0.8 },
+                  { scaleX: NUMBERS.PICKER_SCALE },
+                  { scaleY: NUMBERS.PICKER_SCALE },
                 ]
               }}
             >
-              <Picker.Item label='3 s' value='3 s' />
-              <Picker.Item label='10 s' value='10 s' />
-              <Picker.Item label='10 m' value='10 m' />
-              <Picker.Item label='30 m' value='30 m' />
-              <Picker.Item label='1 h' value='1 h' />
+              <Picker.Item
+                label={LABEL.THREE_SEC}
+                value={LABEL.THREE_SEC}
+              />
+              <Picker.Item
+                label={LABEL.TEN_SEC}
+                value={LABEL.TEN_SEC}
+              />
+              <Picker.Item
+                label={LABEL.TEN_MIN}
+                value={LABEL.TEN_MIN}
+              />
+              <Picker.Item
+                label={LABEL.THIRTY_MIN}
+                value={LABEL.THIRTY_MIN}
+              />
+              <Picker.Item
+                label={LABEL.ONE_HOUR}
+                value={LABEL.ONE_HOUR}
+              />
           </Picker>}
         </View>
         <View style={styles.buttonWrapper}>
           <Button
-            title='등록'
-            color='white'
+            title={STRINGS.REGISTER}
+            color={COLORS.WHITE}
             onPress={handleRegisterPress}
           />
         </View>

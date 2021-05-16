@@ -1,9 +1,17 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
-import { View, Text, Image, TouchableOpacity, StyleSheet } from 'react-native';
+import { View, Text, Image, TouchableOpacity } from 'react-native';
 import { updateImageUri } from '../../../redux/userSlice';
 import { EvilIcons } from '@expo/vector-icons';
 import * as ImagePicker from 'expo-image-picker';
+import {
+  NAMES,
+  NUMBERS,
+  SIZES,
+  COLORS,
+  STRINGS,
+  ASPECT
+} from '../../../constants/index';
 
 import styles from './styles';
 
@@ -21,8 +29,8 @@ const ProfileStatus = ({
     const result = await ImagePicker.launchImageLibraryAsync({
       mediaTypes: ImagePicker.MediaTypeOptions.All,
       allowsEditing: true,
-      aspect: [4, 3],
-      quality: 1,
+      aspect: [...ASPECT],
+      quality: NUMBERS.QUALITY,
     });
 
     if (!result.cancelled) {
@@ -44,9 +52,9 @@ const ProfileStatus = ({
               style={styles.profileImg}
             />
           : <EvilIcons
-              name='user'
-              size={100}
-              color='black'
+              name={NAMES.USER_ICON}
+              size={SIZES.PROFILE_USER_ICON}
+              color={COLORS.BLACK}
               style={styles.img}
             />}
       </TouchableOpacity>
@@ -74,7 +82,7 @@ const ProfileStatus = ({
             style={styles.statusText}
             onPress={handleActingPress}
           >
-            진행중
+            {STRINGS.PROGRESSING}
           </Text>
         </TouchableOpacity>
         <TouchableOpacity>
@@ -82,7 +90,7 @@ const ProfileStatus = ({
             style={styles.statusText}
             onPress={handleCompletePress}
           >
-            완료
+            {STRINGS.COMPLETED}
           </Text>
         </TouchableOpacity>
         <TouchableOpacity>
@@ -90,7 +98,7 @@ const ProfileStatus = ({
             style={styles.statusText}
             onPress={handleCalendarPress}
           >
-            달력
+            {STRINGS.CALENDAR}
           </Text>
         </TouchableOpacity>
       </View>

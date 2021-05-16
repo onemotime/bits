@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, TouchableOpacity, StyleSheet } from 'react-native';
+import { View, Text, TouchableOpacity } from 'react-native';
 import { ScrollView } from 'react-native-gesture-handler';
 import pickIconByType from '../../../utils/pickIconByType';
 import pickTextByType from '../../../utils/pickTextByType';
@@ -7,6 +7,7 @@ import pickTextByType from '../../../utils/pickTextByType';
 import styles from './styles';
 
 const ProgressHabit = ({ userInfo }) => {
+
   return (
     <ScrollView style={styles.scrollView}>
       {userInfo.habits.map(userHabit => {

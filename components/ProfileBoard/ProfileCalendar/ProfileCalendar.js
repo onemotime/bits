@@ -30,7 +30,7 @@ const ProfileCalendar = ({ completedDates }) => {
         textMonthFontWeight: STRINGS.BOLD,
         textDayFontSize: SIZES.TEXT_DAY_FONT
       }}
-      dayComponent={({date, state}) => {
+      dayComponent={({ date, state }) => {
         return (
           <View>
             <Text style={{

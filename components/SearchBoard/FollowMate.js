@@ -4,6 +4,8 @@ import { followUser } from '../../redux/userSlice';
 import { EvilIcons, Entypo, FontAwesome } from '@expo/vector-icons';
 import { View, Text, TouchableOpacity, Image, ScrollView } from 'react-native';
 
+import { NAMES, SIZES, COLORS } from '../../constants/index';
+
 import styles from './styles';
 
 const FollowMate = ({ allUsers, following, accessToken, userName }) => {
@@ -41,9 +43,9 @@ const FollowMate = ({ allUsers, following, accessToken, userName }) => {
                         />
                       </View>
                     : <EvilIcons
-                        name='user'
-                        size={60}
-                        color='black'
+                        name={NAMES.USER_ICON}
+                        size={SIZES.FOLLOW_USER_ICON}
+                        color={COLORS.BLACK}
                       />}
                   <View style={styles.userNameWrapper}>
                     <Text style={styles.userName}>{userInfo.userName}</Text>
@@ -52,9 +54,9 @@ const FollowMate = ({ allUsers, following, accessToken, userName }) => {
                 {isFollowing
                   ? <View style={styles.followIconWrapper}>
                       <FontAwesome
-                        name='check'
-                        size={24}
-                        color='green'
+                        name={NAMES.CHECK_ICON}
+                        size={SIZES.CHECK_ICON}
+                        color={COLORS.CHECK_ICON}
                       />
                     </View>
                   : <TouchableOpacity
@@ -62,9 +64,9 @@ const FollowMate = ({ allUsers, following, accessToken, userName }) => {
                       onPress={() => handleFollowPress(userInfo, index)}
                     >
                       <Entypo
-                        name='circle-with-plus'
-                        size={24}
-                        color='#E8BE64'
+                        name={NAMES.CIRCLE_PLUS_ICON}
+                        size={SIZES.CIRCLE_PLUS_ICON}
+                        color={COLORS.FOLLOW_CIRCLE_PLUS_ICON}
                       />
                     </TouchableOpacity>}
               </View>

@@ -1,5 +1,6 @@
 import React from 'react';
 import { Modal, View, Text, Pressable } from 'react-native';
+import { STRINGS } from '../../constants/index';
 
 import styles from './styles';
 
@@ -11,7 +12,7 @@ const ReusableModal = ({
 
   return (
     <Modal
-      animationType='slide'
+      animationType={STRINGS.SLIDE}
       transparent={true}
       visible={visible}
     >
@@ -22,7 +23,9 @@ const ReusableModal = ({
             style={styles.modalBtn}
             onPress={onButtonPress}
           >
-            <Text style={styles.confirmText}>확인</Text>
+            <Text style={styles.confirmText}>
+              {STRINGS.CONFIRM}
+            </Text>
           </Pressable>
         </View>
       </View>
