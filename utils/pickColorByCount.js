@@ -15,7 +15,7 @@ const pickColorByCount = (completeCount) => {
       return COLORS.SECOND_LEVEL;
 
     case NUMBERS.TWO:
-      return COLORS.TIMER_THIRD_RENDER;
+      return COLORS.THIRD_LEVEL;
 
     case NUMBERS.THREE:
       return COLORS.FOURTH_LEVEL;

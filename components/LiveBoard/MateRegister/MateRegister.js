@@ -2,7 +2,7 @@ import React from 'react';
 import { View, Text, TouchableOpacity } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import { Entypo } from '@expo/vector-icons';
-import { NAMES, SIZES, COLORS, STRINGS } from '../../../constants/index';
+import { NAMES, SIZES, COLORS, STRINGS, TESTID } from '../../../constants/index';
 
 import styles from './styles';
 
@@ -20,7 +20,10 @@ const MateRegister = () => {
           <Text style={styles.registerText}>{STRINGS.NO_REGISTERED_MATE}</Text>
           <Text style={styles.registerText}>{STRINGS.FOLLOW_NEW_MATE}</Text>
         </View>
-        <TouchableOpacity onPress={handleMateRegisterPress}>
+        <TouchableOpacity
+          onPress={handleMateRegisterPress}
+          testID={TESTID.REGISTER_PAGE_ICON}
+        >
           <Entypo
             name={NAMES.CIRCLE_PLUS_ICON}
             size={SIZES.CIRCLE_PLUS_ICON}

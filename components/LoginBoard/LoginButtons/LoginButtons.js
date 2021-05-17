@@ -10,6 +10,7 @@ const LoginButtons = ({ onLoginPress, onSingupPress }) => {
       <TouchableOpacity
         style={styles.loginBtn}
         onPress={onLoginPress}
+        testID={STRINGS.LOGIN_EN}
       >
         <Text style={styles.loginText}>
           {STRINGS.LOGIN}
@@ -18,6 +19,7 @@ const LoginButtons = ({ onLoginPress, onSingupPress }) => {
       <TouchableOpacity
         style={styles.signupBtn}
         onPress={onSingupPress}
+        testID={STRINGS.SIGNUP_EN}
       >
         <Text style={styles.signupText}>
           {STRINGS.SIGNUP}

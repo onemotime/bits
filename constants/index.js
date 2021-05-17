@@ -236,6 +236,10 @@ const MESSAGE = {
   PASSWORD_MISMATCH_KR: '비밀번호가 일치하지 않습니다'
 };
 
+const TESTID = {
+  REGISTER_PAGE_ICON: 'registerPageIcon'
+};
+
 export {
   NUMBERS,
   NAMES,
@@ -248,5 +252,6 @@ export {
   PATTERN,
   ASPECT,
   LABEL,
-  MESSAGE
+  MESSAGE,
+  TESTID
 };
