@@ -9,7 +9,7 @@ import { NAMES, MESSAGE } from '../../constants/index';
 import Loading from '../Animations/Loading/Loading';
 import LogoName from '../../components/shared/LogoName/LogoName';
 import LoginInput from '../../components/LoginBoard/LoginInput/LoginInput';
-import LoginButtons from '../../components/LoginBoard/LoginButtons/LoginButtons';
+import LoginRegisterButtons from '../../components/shared/LoginRegisterButtons/LoginRegisterButtons';
 import LoginModal from '../../components/ReusableModal/ReusableModal';
 
 import {
@@ -60,7 +60,7 @@ const Login = ({ navigation }) => {
     dispatch(fetchSignin(loginInput));
   };
 
-  const handleSingupPress = () => {
+  const handleSignupPress = () => {
     navigation.navigate(NAMES.SIGNUP);
   };
 
@@ -95,9 +95,9 @@ const Login = ({ navigation }) => {
                 password={password}
                 onPasswordChange={setPassword}
               />
-              <LoginButtons
+              <LoginRegisterButtons
                 onLoginPress={handleLoginPress}
-                onSingupPress={handleSingupPress}
+                onSignupPress={handleSignupPress}
               />
               <View style={styles.iconWrapper}>
                 <TouchableOpacity>

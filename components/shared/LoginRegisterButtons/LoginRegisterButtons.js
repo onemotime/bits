@@ -4,13 +4,13 @@ import { STRINGS } from '../../../constants/index';
 
 import styles from './styles';
 
-const SignupButtons = ({
+const LoginRegisterButtons = ({
   onLoginPress,
   onSignupPress
 }) => {
 
   return (
-    <View style={styles.signupBtnWrapper}>
+    <View style={styles.loginSignupBtnWrapper}>
       <TouchableOpacity
         style={styles.loginBtn}
         onPress={onLoginPress}
@@ -33,4 +33,4 @@ const SignupButtons = ({
   );
 };
 
-export default SignupButtons;
+export default LoginRegisterButtons;

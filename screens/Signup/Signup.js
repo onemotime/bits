@@ -6,7 +6,7 @@ import { NAMES } from '../../constants/index';
 
 import LogoName from '../../components/shared/LogoName/LogoName';
 import SignupInput from '../../components/SignupBoard/SignupInput/SignupInput';
-import SignupButtons from '../../components/SignupBoard/SignupButtons/SignupButtons';
+import LoginRegisterButtons from '../../components/shared/LoginRegisterButtons/LoginRegisterButtons';
 import SignupModal from '../../components/ReusableModal/ReusableModal';
 import { STRINGS } from '../../constants/index';
 
@@ -30,7 +30,7 @@ const Signup = ({ navigation }) => {
     navigation.navigate(NAMES.LOGIN);
   };
 
-  const handleSingupPress = async () => {
+  const handleSignupPress = async () => {
     const isInputImproper = checkInputStatus(
       STRINGS.SIGNUP_EN,
       email,
@@ -81,9 +81,9 @@ const Signup = ({ navigation }) => {
             onPasswordChange={setPassword}
             onConfirmChange={setConfirmPassword}
           />
-          <SignupButtons
+          <LoginRegisterButtons
             onLoginPress={handleLoginPress}
-            onSignupPress={handleSingupPress}
+            onSignupPress={handleSignupPress}
           />
         </View>
       </View>
