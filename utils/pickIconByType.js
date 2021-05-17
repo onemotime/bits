@@ -1,4 +1,6 @@
 import React from 'react';
+import { COLORS, NAMES, SIZES, STRINGS } from '../constants/index';
+
 import {
   AntDesign,
   FontAwesome5,
@@ -20,60 +22,66 @@ const pickImgByType = (
   targetHabitType
 ) => {
   switch (habitType) {
-    case 'code':
+    case STRINGS.CODE:
       return (
         <AntDesign
-          name='codesquare'
-          size={40}
-          color={(isHabitSelected && (targetHabitType === 'code')) ? '#4cd137' : 'white'} />
+          name={NAMES.CODING_ICON}
+          size={SIZES.CODING_ICON}
+          color={(isHabitSelected && (targetHabitType === STRINGS.CODE)) ? COLORS.LIGHT_GREEN : COLORS.WHITE} />
       );
-      case 'read':
+
+      case STRINGS.READ:
         return (
           <Entypo
-            name='open-book'
-            size={40}
-            color={(isHabitSelected && (targetHabitType === 'read')) ? '#4cd137' : 'white'}
+            name={NAMES.READING_ICON}
+            size={SIZES.READING_ICON}
+            color={(isHabitSelected && (targetHabitType === STRINGS.READ)) ? COLORS.LIGHT_GREEN : COLORS.WHITE}
           />
         );
-    case 'swim':
+
+    case STRINGS.SWIM:
       return (
         <FontAwesome5
-          name='swimmer'
-          size={40}
-          color={(isHabitSelected && (targetHabitType === 'swim')) ? '#4cd137' : 'white'}
+          name={NAMES.SWIMMING_ICON}
+          size={SIZES.SWIMMING_ICON}
+          color={(isHabitSelected && (targetHabitType === STRINGS.SWIM)) ? COLORS.LIGHT_GREEN : COLORS.WHITE}
         />
       );
-    case 'meditate':
+
+    case STRINGS.MEDITATE:
       return (
         <MaterialCommunityIcons
-          name='meditation'
-          size={40}
-          color={(isHabitSelected && (targetHabitType === 'meditate')) ? '#4cd137' : 'white'}
+          name={NAMES.MEDITATING_ICON}
+          size={SIZES.MEDITATING_ICON}
+          color={(isHabitSelected && (targetHabitType === STRINGS.MEDITATE)) ? COLORS.LIGHT_GREEN : COLORS.WHITE}
         />
       );
-    case 'run':
+
+    case STRINGS.RUN:
       return (
         <MaterialCommunityIcons
-          name='run-fast'
-          size={40}
-          color={(isHabitSelected && (targetHabitType === 'run')) ? '#4cd137' : 'white'}
+          name={NAMES.RUNNING_ICON}
+          size={SIZES.RUNNING_ICON}
+          color={(isHabitSelected && (targetHabitType === STRINGS.RUN)) ? COLORS.LIGHT_GREEN : COLORS.WHITE}
         />
       );
-    case 'bicycle':
+
+    case STRINGS.BICYCLE:
       return (
         <MaterialCommunityIcons
-          name='bicycle-basket'
-          size={50}
-          color={(isHabitSelected && (targetHabitType === 'bicycle')) ? '#4cd137' : 'white'}
+          name={NAMES.BICYCLE_ICON}
+          size={SIZES.BICYCLE_ICON}
+          color={(isHabitSelected && (targetHabitType === STRINGS.BICYCLE)) ? COLORS.LIGHT_GREEN : COLORS.WHITE}
         />
       );
-    case 'yoga':
+
+    case STRINGS.YOGA:
       return (
         <MaterialCommunityIcons
-        name='yoga'
-        size={50}
-        color={(isHabitSelected && (targetHabitType === 'yoga')) ? '#4cd137' : 'white'}
-      />
+          name={NAMES.YOGA_ICON}
+          size={SIZES.YOGA_ICON}
+          color={(isHabitSelected && (targetHabitType === STRINGS.YOGA)) ? COLORS.LIGHT_GREEN : COLORS.WHITE}
+        />
       );
   }
 };

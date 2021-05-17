@@ -1,4 +1,5 @@
 import React from 'react';
+import { NAMES, SIZES } from '../constants/index';
 
 import {
   Entypo,
@@ -17,30 +18,30 @@ import {
 
 export const pickTabIconByName = (name, color, size) => {
   switch (name) {
-    case '습관': {
+    case NAMES.HABIT: {
       return <Entypo
-              name='circle'
-              size={18}
+              name={NAMES.CIRCLE_ICON}
+              size={SIZES.CIRCLE_ICON}
               color={color}
-            />
+            />;
     }
-    case '라이브': {
+    case NAMES.LIVE: {
       return <Ionicons
-                name='md-play'
+                name={NAMES.PAUSE_ICON}
                 size={size}
                 color={color}
-              />
+              />;
     }
-    case '검색': {
+    case NAMES.SEARCH: {
       return <MaterialCommunityIcons
-                name='magnify'
+                name={NAMES.SEARCH_ICON}
                 size={size}
                 color={color}
-              />
+              />;
     }
-    case '내정보': {
+    case NAMES.MYPROFILE: {
       return <FontAwesome
-                name='user-circle'
+                name={NAMES.USER_CIRCLE_ICON}
                 size={size}
                 color={color}
               />

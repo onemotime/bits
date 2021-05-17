@@ -1,5 +1,6 @@
 import pickModalMessage from '../utils/pickModalMessage';
 import validateEmail from '../utils/validateEmail';
+import { STRINGS } from '../constants/index';
 
 /**
  * Check if users login && signup input is valid
@@ -25,8 +26,9 @@ const checkInputStatus = (
   isError
 ) => {
   const isEmail = validateEmail(email);
+
   if (isError) {
-    const message = pickModalMessage('loginFail');
+    const message = pickModalMessage(STRINGS.LOGIN_FAIL);
 
     setModalMessage(message);
     setModal(true);
@@ -35,7 +37,7 @@ const checkInputStatus = (
   }
 
   if (email.length === 0 || password.length === 0) {
-    const message = pickModalMessage('none');
+    const message = pickModalMessage(STRINGS.NONE);
 
     setModalMessage(message);
     setModal(true);
@@ -44,7 +46,7 @@ const checkInputStatus = (
   }
 
   if (!isEmail) {
-    const message = pickModalMessage('invalidEmail');
+    const message = pickModalMessage(STRINGS.INVALID_EMAIL);
 
     setModalMessage(message);
     setModal(true);
@@ -52,9 +54,9 @@ const checkInputStatus = (
     return true;
   }
 
-  if (checkType === 'signup') {
-    if (userName === '' || confirmPassword.length === 0) {
-      const message = pickModalMessage('none');
+  if (checkType === STRINGS.SIGNUP_EN) {
+    if (userName === STRINGS.EMPTY || confirmPassword.length === 0) {
+      const message = pickModalMessage(STRINGS.NONE);
 
       setModalMessage(message);
       setModal(true);
@@ -63,7 +65,7 @@ const checkInputStatus = (
     }
 
     if (password !== confirmPassword) {
-      const message = pickModalMessage('passwordMismatch')
+      const message = pickModalMessage(STRINGS.PASSWORD_MISMATCH)
 
       setModalMessage(message);
       setModal(true);

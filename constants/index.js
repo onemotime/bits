@@ -4,7 +4,11 @@ const NUMBERS = {
   PICKER_SCALE: 0.8,
   DEFAULT_ANIMATION_SPEED: 1,
   TWICE_ANIMATION_SPEED: 2,
-  LIKE_ANIMATION_ZINDEX: 1
+  LIKE_ANIMATION_ZINDEX: 1,
+  ZERO: 0,
+  ONE: 1,
+  TWO: 2,
+  THREE: 3
 };
 
 const NAMES = {
@@ -28,7 +32,17 @@ const NAMES = {
   HABIT: '습관',
   LIVE: '라이브',
   SEARCH: '검색',
-  MYPROFILE: '내정보'
+  MYPROFILE: '내정보',
+  CODING_ICON: 'codesquare',
+  READING_ICON: 'open-book',
+  SWIMMING_ICON: 'swimmer',
+  MEDITATING_ICON: 'meditation',
+  RUNNING_ICON: 'run-fast',
+  BICYCLE_ICON: 'bicycle-basket',
+  YOGA_ICON: 'yoga',
+  CIRCLE_ICON: 'circle',
+  PLAY_ICON: 'md-play',
+  SEARCH_ICON: 'magnify'
 };
 
 const SIZES = {
@@ -55,7 +69,15 @@ const SIZES = {
   CHECK_ICON: 24,
   HEARTBEAT_ICON: 24,
   USER_CIRCLE_ICON: 34,
-  LOGOUT_ICON: 24
+  LOGOUT_ICON: 24,
+  CODING_ICON: 40,
+  READING_ICON: 40,
+  SWIMMING_ICON: 40,
+  MEDITATING_ICON: 40,
+  RUNNING_ICON: 40,
+  BICYCLE_ICON: 50,
+  YOGA_ICON: 50,
+  CIRCLE_ICON: 18
 };
 
 const COLORS = {
@@ -75,18 +97,28 @@ const COLORS = {
   BOTTOM_TAB_ACTIVE: '#F48D3B',
   BOTTOM_TAB_BACKGROUND: '#FFF0D9',
   ANDROID_LIGHT: '#FF231F7C',
-  LOADING_ANIMATION_BACKGROUND: '#F9BC56'
+  LOADING_ANIMATION_BACKGROUND: '#F9BC56',
+  FIRST_LEVEL: '#fff200',
+  SECOND_LEVEL: '#4cd137',
+  THIRD_LEVEL: '#00a8ff',
+  FOURTH_LEVEL: '#7f8fa6',
+  LIGHT_GREEN: '#4cd137'
 };
 
 const STRINGS = {
+  EMPTY: '',
   TWO: '2',
   SEVEN: '7',
   FOURTEEN: '14',
   TWENTYONE: '21',
   TWENTYEIGHT: '28',
+  SEC: 's',
+  MIN: 'm',
+  HOUR: 'h',
   FR: 'fr',
   NONE: 'none',
   LOGIN_EN: 'login',
+  LOGIN_FAIL: 'loginFail',
   SIGNUP_EN: 'signup',
   BOLD: 'bold',
   SLIDE: 'slide',

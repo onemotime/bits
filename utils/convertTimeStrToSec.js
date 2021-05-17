@@ -1,3 +1,5 @@
+import { STRINGS } from '../constants/index';
+
 /**
  * Converst time string to seconds
  * @param {String} timeStr - single string 's', 'm', 'h' represent second minute hour
@@ -10,11 +12,13 @@ const convertTimeStrToSec = (timeStr) => {
   const measure = timeStrArr[1];
 
   switch (measure) {
-    case 's':
+    case STRINGS.SEC:
       return time;
-    case 'm':
+
+    case STRINGS.MIN:
       return time * 60;
-    case 'h':
+
+    case STRINGS.HOUR:
       return time * 3600;
   }
 };
