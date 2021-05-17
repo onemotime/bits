@@ -138,6 +138,7 @@ const STRINGS = {
   ACT: 'Act',
   DAY: 'Day',
   TIME: 'Time',
+  BITS: 'BiTS',
   GRANTED: 'granted',
   DEFAULT: 'default',
   ANDROID: 'android',

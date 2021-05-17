@@ -4,7 +4,11 @@ import { STRINGS } from '../../../constants/index';
 
 import styles from './styles';
 
-const LoginButtons = ({ onLoginPress, onSingupPress }) => {
+const LoginButtons = ({
+  onLoginPress,
+  onSingupPress
+}) => {
+
   return (
     <View style={styles.loginBtnWrapper}>
       <TouchableOpacity
