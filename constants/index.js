@@ -21,14 +21,14 @@ const NAMES = {
   HEARTBEAT_ICON: 'heartbeat',
   USER_CIRCLE_ICON: 'user-circle',
   LOGOUT_ICON: 'door-open',
-  HABIT: '습관',
-  LIVE: '라이브',
-  SEARCH: '검색',
-  MYPROFILE: '내정보',
   LOGIN: 'Login',
   SIGNUP: 'Signup',
   BOTTOM_TAB_NAVIGATOR: 'BottomTabNavigator',
-  REGISTER: 'Register'
+  REGISTER: 'Register',
+  HABIT: '습관',
+  LIVE: '라이브',
+  SEARCH: '검색',
+  MYPROFILE: '내정보'
 };
 
 const SIZES = {
@@ -79,18 +79,44 @@ const COLORS = {
 };
 
 const STRINGS = {
+  TWO: '2',
+  SEVEN: '7',
+  FOURTEEN: '14',
+  TWENTYONE: '21',
+  TWENTYEIGHT: '28',
   FR: 'fr',
   NONE: 'none',
-  SECOND: ' 초',
-  SEARCH: '검색',
-  LOGIN: '로그인',
   LOGIN_EN: 'login',
-  SIGNUP: '회원가입',
   SIGNUP_EN: 'signup',
   BOLD: 'bold',
   SLIDE: 'slide',
   CENTER: 'center',
   DISABLED: 'disabled',
+  INVALID_EMAIL: 'invalidEmail',
+  PASSWORD_MISMATCH: 'passwordMismatch',
+  CODE: 'code',
+  READ: 'read',
+  SWIM: 'swim',
+  MEDITATE: 'meditate',
+  RUN: 'run',
+  BICYCLE: 'bicycle',
+  YOGA: 'yoga',
+  ACT: 'Act',
+  DAY: 'Day',
+  TIME: 'Time',
+  GRANTED: 'granted',
+  DEFAULT: 'default',
+  ANDROID: 'android',
+  PROGRESSING: '진행중',
+  COMPLETED: '완료',
+  CALENDAR: '달력',
+  CONFIRM: '확인',
+  REGISTER: '등록',
+  SECOND: ' 초',
+  SEARCH: '검색',
+  LOGIN: '로그인',
+  SIGNUP: '회원가입',
+  RESIZE_MODE_COVER: 'cover',
   TYPE_EMAIL: '아이디를 입력해주세요',
   TYPE_USERNAME: '이름을 입력해주세요',
   TYPE_PASSWORD: '비밀번호를 입력해주세요',
@@ -100,31 +126,7 @@ const STRINGS = {
   NO_PROGRESSING_HABIT: '진행중인 습관이 없습니다',
   NO_COMPLETED_HABIT: '완료된 습관이 없습니다',
   ALREADY_REGISTERED_HABIT: '이미 등록된 습관입니다',
-  REGISTER_HABIT: '습관을 등록해주세요',
-  PROGRESSING: '진행중',
-  COMPLETED: '완료',
-  CALENDAR: '달력',
-  CONFIRM: '확인',
-  REGISTER: '등록',
-  CODE: 'code',
-  READ: 'read',
-  SWIM: 'swim',
-  MEDITATE: 'meditate',
-  RUN: 'run',
-  BICYCLE: 'bicycle',
-  YOGA: 'yoga',
-  TWO: '2',
-  SEVEN: '7',
-  FOURTEEN: '14',
-  TWENTYONE: '21',
-  TWENTYEIGHT: '28',
-  ACT: 'Act',
-  DAY: 'Day',
-  TIME: 'Time',
-  GRANTED: 'granted',
-  DEFAULT: 'default',
-  ANDROID: 'android',
-  RESIZE_MODE_COVER: 'cover'
+  REGISTER_HABIT: '습관을 등록해주세요'
 };
 
 const MONTHS = [
@@ -189,7 +191,10 @@ const LABEL = {
 const MESSAGE = {
   PUSH_TOKEN_FAIL: 'Failed to get push token for push notification!',
   PUSH_TOKEN_ERR: 'Must use physical device for Push Notifications',
-  CHECK_INPUT: '입력 정보를 다시 확인해주세요'
+  CHECK_INPUT: '입력 정보를 다시 확인해주세요',
+  REGISTER_ALL_INFOS: '모든 정보를 입력해주세요',
+  INVALID_EMAIL_FORM: '올바른 이메일 형식이 아닙니다',
+  PASSWORD_MISMATCH_KR: '비밀번호가 일치하지 않습니다'
 };
 
 export {
