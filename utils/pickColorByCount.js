@@ -1,3 +1,9 @@
+/**
+ * Change complete count numbers to color hex code
+ * @param {Number} completeCount - Complete counts to colors
+ * @returns {String} - Color Hex
+ */
+
 const pickColorByCount = (completeCount) => {
   switch (completeCount) {
     case 0:

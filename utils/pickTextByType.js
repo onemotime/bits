@@ -1,3 +1,9 @@
+/**
+ * habitType to KR text
+ * @param {String} habitType - HabitType in EN
+ * @returns {String} - HabitType in KR text
+ */
+
 const pickTextByType = (habitType) => {
   switch (habitType) {
     case 'code':

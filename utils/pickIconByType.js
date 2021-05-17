@@ -6,6 +6,14 @@ import {
   MaterialCommunityIcons,
 } from '@expo/vector-icons';
 
+/**
+ * Generate icons by user's selection
+ * @param {String} habitType - type of hbit
+ * @param {Boolean} isHabitSelected - User's selected habit status
+ * @param {String} targetHabitType - User's selected habit type;
+ * @returns {Component} -User's selected habit icon
+ */
+
 const pickImgByType = (
   habitType,
   isHabitSelected,
