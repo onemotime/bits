@@ -3,9 +3,9 @@ const pickModalMessage = (messageType) => {
     case 'none':
       return '모든 정보를 입력해주세요';
     case 'invalidEmail':
-      return '올바른 이메일 형식이 아닙니다'
+      return '올바른 이메일 형식이 아닙니다';
     case 'passwordMismatch':
-      return '비밀번호가 일치하지 않습니다'
+      return '비밀번호가 일치하지 않습니다';
   }
 };
 

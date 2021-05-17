@@ -5,12 +5,15 @@ import { useNavigation } from '@react-navigation/native';
 import { sendPushNotification } from '../../api/pushApi';
 import { removeHabit, fetchPushTokens } from '../../redux/userSlice';
 import convertTimeStrToSec from '../../utils/convertTimeStrToSec';
+import { NAMES } from '../../constants/index';
 
 import HabitRegister from '../../components/HomeBoard/HabitRegister/HabitRegister';
 import UserHabit from '../../components/HomeBoard/UserHabit/UserHabit';
 import CountDownBtn from '../../components/HomeBoard/CountdownBtn/CountdownBtn';
 import StartCountDownBtn from '../../components/HomeBoard/StartCountDownBtn/StartCountDownBtn';
 import TopNav from '../../components/shared/TopNav/TopNav';
+
+import styles from './styles';
 
 const Home = () => {
   const [isHabitSelected, setSelectedHabit] = useState(false);
@@ -65,7 +68,7 @@ const Home = () => {
   };
 
   const handleRegisterHabitPress = () => {
-    navigation.navigate('Register');
+    navigation.navigate(NAMES.REGISTER);
   };
 
   const handleStartCountDownPress = async () => {
@@ -82,7 +85,7 @@ const Home = () => {
   };
 
   return (
-    <View style={{ flex: 1, backgroundColor: '#F9BC56' }}>
+    <View style={styles.homeWrapper}>
       <TopNav />
         {!isStartCountBtnOn &&
           (habits?.length > 0

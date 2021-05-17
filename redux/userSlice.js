@@ -179,9 +179,12 @@ export const userSlice = createSlice({
       state.completedHabits = payload.completedHabits;
       state.isFetching = false;
       state.isSuccess = true;
+      state.isError = false;
     },
     [fetchSignin.pending]: (state) => {
       state.isFetching = true;
+      state.isError = false;
+      state.isSuccess = false;
     },
     [fetchSignin.rejected]: (state, { payload }) => {
       state.isFetching = false;

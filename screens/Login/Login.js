@@ -1,11 +1,10 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchSignin } from '../../redux/userSlice';
 import { View,  TouchableOpacity } from 'react-native';
 import { SIZES } from '../../constants/index';
-import pickModalMessage from '../../utils/pickModalMessage';
-import validateEmail from '../../utils/validateEmail';
 import checkInputStatus from '../../utils/checkInputStatus';
+import { NAMES } from '../../constants/index';
 
 import Loading from '../Animations/Loading/Loading';
 import LogoName from '../../components/shared/LogoName/LogoName';
@@ -26,22 +25,31 @@ const Login = ({ navigation }) => {
   const [password, setPassword] = useState('');
   const [isModalShown, setModal] = useState(false);
   const [modalMessage, setModalMessage] = useState('');
+  const [isLoginFailed, setLoginFailStatus] = useState(false);
 
-  const { isFetching, pushToken } = useSelector(state => state.user);
+  const { isFetching, pushToken, isError } = useSelector(state => state.user);
   const dispatch = useDispatch();
 
-  const handleLoginPress = () => {
-  //   const isInputImproper = checkInputStatus(
-  //     'login',
-  //     email,
-  //     password,
-  //     null,
-  //     null,
-  //     setModalMessage,
-  //     setModal
-  //   );
+  useEffect(() => {
+    if (isError) {
+      setModal(true);
+      setModalMessage('입력 정보를 다시 확인해주세요')
+      setLoginFailStatus(true);
+    }
+  }, [isError]);
 
-  //   if (isInputImproper) return;
+  const handleLoginPress = () => {
+    const isInputImproper = checkInputStatus(
+      'login',
+      email,
+      password,
+      null,
+      null,
+      setModalMessage,
+      setModal
+    );
+
+    if (isInputImproper) return;
 
     const loginInput = {
       email,
@@ -53,16 +61,23 @@ const Login = ({ navigation }) => {
   };
 
   const handleSingupPress = () => {
-    navigation.navigate('Signup');
+    navigation.navigate(NAMES.SIGNUP);
   };
 
   const handleModalPress = () => {
+    setLoginFailStatus(false);
     setModalMessage('');
     setModal(false);
   };
 
   return (
     <>
+      {isLoginFailed &&
+        <LoginModal
+          message={modalMessage}
+          visible={isModalShown}
+          onButtonPress={handleModalPress}
+        />}
       {isModalShown &&
         <LoginModal
           message={modalMessage}

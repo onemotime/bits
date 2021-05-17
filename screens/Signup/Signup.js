@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { View } from 'react-native';
 import * as userAPI from '../../api/userApi';
 import checkInputStatus from '../../utils/checkInputStatus';
+import { NAMES } from '../../constants/index';
 
 import LogoName from '../../components/shared/LogoName/LogoName';
 import SignupInput from '../../components/SignupBoard/SignupInput/SignupInput';
@@ -25,7 +26,7 @@ const Signup = ({ navigation }) => {
   };
 
   const handleLoginPress = () => {
-    navigation.navigate('Login');
+    navigation.navigate(NAMES.LOGIN);
   };
 
   const handleSingupPress = async () => {
@@ -51,7 +52,7 @@ const Signup = ({ navigation }) => {
       const response = await userAPI.requestSignup(signupInput);
 
       if (response.status === 201) {
-        navigation.navigate('Login');
+        navigation.navigate(NAMES.LOGIN);
       }
     } catch (err) {
       console.error(err);

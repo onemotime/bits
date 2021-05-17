@@ -8,9 +8,18 @@ const checkInputStatus = (
   userName,
   confirmPassword,
   setModalMessage,
-  setModal
+  setModal,
+  isError
 ) => {
   const isEmail = validateEmail(email);
+  if (isError) {
+    const message = pickModalMessage('loginFail');
+
+    setModalMessage(message);
+    setModal(true);
+
+    return true;
+  }
 
   if (email.length === 0 || password.length === 0) {
     const message = pickModalMessage('none');

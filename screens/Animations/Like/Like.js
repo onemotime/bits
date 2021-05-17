@@ -1,5 +1,6 @@
 import React from 'react';
 import LottieView from 'lottie-react-native';
+import { NUMBERS, STRINGS } from '../../../constants/index';
 
 const Like = ({ onFinish }) => {
 
@@ -8,10 +9,10 @@ const Like = ({ onFinish }) => {
       <LottieView
         source={require('../../../assets/animation/likeAnimation.json')}
         autoPlay={true}
-        speed={1}
+        speed={NUMBERS.DEFAULT_ANIMATION_SPEED}
         loop={false}
-        resizeMode='cover'
-        style={{ zIndex: 1 }}
+        resizeMode={STRINGS.RESIZE_MODE_COVER}
+        style={{ zIndex: NUMBERS.LIKE_ANIMATION_ZINDEX }}
         onAnimationFinish={onFinish}
       />
     </>
