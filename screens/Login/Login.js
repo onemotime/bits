@@ -2,9 +2,9 @@ import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchSignin } from '../../redux/userSlice';
 import { View,  TouchableOpacity } from 'react-native';
-import { SIZES } from '../../constants/index';
+import { SIZES, STRINGS } from '../../constants/index';
 import checkInputStatus from '../../utils/checkInputStatus';
-import { NAMES } from '../../constants/index';
+import { NAMES, MESSAGE } from '../../constants/index';
 
 import Loading from '../Animations/Loading/Loading';
 import LogoName from '../../components/shared/LogoName/LogoName';
@@ -33,14 +33,14 @@ const Login = ({ navigation }) => {
   useEffect(() => {
     if (isError) {
       setModal(true);
-      setModalMessage('입력 정보를 다시 확인해주세요')
+      setModalMessage(MESSAGE.CHECK_INPUT)
       setLoginFailStatus(true);
     }
   }, [isError]);
 
   const handleLoginPress = () => {
     const isInputImproper = checkInputStatus(
-      'login',
+      STRINGS.LOGIN_EN,
       email,
       password,
       null,

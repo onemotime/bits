@@ -8,6 +8,7 @@ import LogoName from '../../components/shared/LogoName/LogoName';
 import SignupInput from '../../components/SignupBoard/SignupInput/SignupInput';
 import SignupButtons from '../../components/SignupBoard/SignupButtons/SignupButtons';
 import SignupModal from '../../components/ReusableModal/ReusableModal';
+import { STRINGS } from '../../constants/index';
 
 import styles from './styles';
 
@@ -30,17 +31,17 @@ const Signup = ({ navigation }) => {
   };
 
   const handleSingupPress = async () => {
-  //   const isInputImproper = checkInputStatus(
-  //     'signup',
-  //     email,
-  //     password,
-  //     userName,
-  //     confirmPassword,
-  //     setModalMessage,
-  //     setModal
-  //   );
+    const isInputImproper = checkInputStatus(
+      STRINGS.SIGNUP_EN,
+      email,
+      password,
+      userName,
+      confirmPassword,
+      setModalMessage,
+      setModal
+    );
 
-  //   if (isInputImproper) return;
+    if (isInputImproper) return;
 
     try {
       const signupInput = {

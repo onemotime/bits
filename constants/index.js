@@ -84,7 +84,9 @@ const STRINGS = {
   SECOND: ' 초',
   SEARCH: '검색',
   LOGIN: '로그인',
+  LOGIN_EN: 'login',
   SIGNUP: '회원가입',
+  SIGNUP_EN: 'signup',
   BOLD: 'bold',
   SLIDE: 'slide',
   CENTER: 'center',
@@ -186,7 +188,8 @@ const LABEL = {
 
 const MESSAGE = {
   PUSH_TOKEN_FAIL: 'Failed to get push token for push notification!',
-  PUSH_TOKEN_ERR: 'Must use physical device for Push Notifications'
+  PUSH_TOKEN_ERR: 'Must use physical device for Push Notifications',
+  CHECK_INPUT: '입력 정보를 다시 확인해주세요'
 };
 
 export {
