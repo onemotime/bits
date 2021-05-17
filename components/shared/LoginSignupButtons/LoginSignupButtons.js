@@ -4,7 +4,7 @@ import { STRINGS } from '../../../constants/index';
 
 import styles from './styles';
 
-const LoginRegisterButtons = ({
+const LoginSignupButtons = ({
   onLoginPress,
   onSignupPress
 }) => {
@@ -33,4 +33,4 @@ const LoginRegisterButtons = ({
   );
 };
 
-export default LoginRegisterButtons;
+export default LoginSignupButtons;

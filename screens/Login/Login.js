@@ -9,7 +9,7 @@ import { NAMES, MESSAGE } from '../../constants/index';
 import Loading from '../Animations/Loading/Loading';
 import LogoName from '../../components/shared/LogoName/LogoName';
 import LoginInput from '../../components/LoginBoard/LoginInput/LoginInput';
-import LoginRegisterButtons from '../../components/shared/LoginRegisterButtons/LoginRegisterButtons';
+import LoginRegisterButtons from '../../components/shared/LoginSignupButtons/LoginSignupButtons';
 import LoginModal from '../../components/ReusableModal/ReusableModal';
 
 import {

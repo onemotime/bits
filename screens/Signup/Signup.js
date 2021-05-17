@@ -6,7 +6,7 @@ import { NAMES } from '../../constants/index';
 
 import LogoName from '../../components/shared/LogoName/LogoName';
 import SignupInput from '../../components/SignupBoard/SignupInput/SignupInput';
-import LoginRegisterButtons from '../../components/shared/LoginRegisterButtons/LoginRegisterButtons';
+import LoginRegisterButtons from '../../components/shared/LoginSignupButtons/LoginSignupButtons';
 import SignupModal from '../../components/ReusableModal/ReusableModal';
 import { STRINGS } from '../../constants/index';
 
