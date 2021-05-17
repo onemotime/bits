@@ -1,13 +1,22 @@
 import pickTextByType from '../../utils/pickTextByType';
+import { STRINGS } from '../../constants/index';
 
 describe('Pick text by type', () => {
   it('Should return proper habit text in KR', () => {
-    const result = pickModalMessage(STRINGS.NONE);
-    const result2 = pickModalMessage(STRINGS.INVALID_EMAIL);
-    const result3 = pickModalMessage(STRINGS.PASSWORD_MISMATCH);
+    const result = pickTextByType(STRINGS.CODE);
+    const result2 = pickTextByType(STRINGS.READ);
+    const result3 = pickTextByType(STRINGS.SWIM);
+    const result4 = pickTextByType(STRINGS.MEDITATE);
+    const result5 = pickTextByType(STRINGS.RUN);
+    const result6 = pickTextByType(STRINGS.BICYCLE);
+    const result7 = pickTextByType(STRINGS.YOGA);
 
-    expect(result).toEqual(MESSAGE.REGISTER_ALL_INFOS);
-    expect(result2).toEqual(MESSAGE.INVALID_EMAIL_FORM);
-    expect(result3).toEqual(MESSAGE.PASSWORD_MISMATCH_KR);
+    expect(result).toEqual(STRINGS.CODE_KR);
+    expect(result2).toEqual(STRINGS.READ_KR);
+    expect(result3).toEqual(STRINGS.SWIM_KR);
+    expect(result4).toEqual(STRINGS.MEDITATE_KR);
+    expect(result5).toEqual(STRINGS.RUN_KR);
+    expect(result6).toEqual(STRINGS.BICYCLE_KR);
+    expect(result7).toEqual(STRINGS.YOGA_KR);
   });
 });

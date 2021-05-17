@@ -1,3 +1,5 @@
+import { STRINGS } from '../constants/index';
+
 /**
  * habitType to KR text
  * @param {String} habitType - HabitType in EN
@@ -6,20 +8,26 @@
 
 const pickTextByType = (habitType) => {
   switch (habitType) {
-    case 'code':
-      return '코딩'
-    case 'read':
-        return '독서';
-    case 'swim':
-      return '수영';
-    case 'meditate':
-      return '명상';
-    case 'run':
-      return '달리기';
-    case 'bicycle':
-      return '자전거';
-    case 'yoga':
-      return '요가';
+    case STRINGS.CODE:
+      return STRINGS.CODE_KR;
+
+    case STRINGS.READ:
+        return STRINGS.READ_KR;
+
+    case STRINGS.SWIM:
+      return STRINGS.SWIM_KR;
+
+    case STRINGS.MEDITATE:
+      return STRINGS.MEDITATE_KR;
+
+    case STRINGS.RUN:
+      return STRINGS.RUN_KR;
+
+    case STRINGS.BICYCLE:
+      return STRINGS.BICYCLE_KR;
+
+    case STRINGS.YOGA:
+      return STRINGS.YOGA_KR;
   }
 };
 
