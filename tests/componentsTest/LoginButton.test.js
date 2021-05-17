@@ -5,7 +5,7 @@ import { NUMBERS, STRINGS } from '../../constants/index';
 
 
 describe('LoginButton component', () => {
-  it('Should have 로그인, 회원가입 text', () => {
+  it ('Should have 로그인, 회원가입 text', () => {
     const { queryByText } = render(<LoginButtons />);
 
     expect(queryByText(STRINGS.LOGIN)).not.toBeNull();

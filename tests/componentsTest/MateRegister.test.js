@@ -22,7 +22,7 @@ describe('Mate register component', () => {
     mockedDispatch.mockClear();
   });
 
-  it('Should not response if wrong elements are pressed', () => {
+  it ('Should not response if wrong elements are pressed', () => {
     const { getByTestId } = render(<MateRegister />);
     const icon = getByTestId(TESTID.REGISTER_PAGE_ICON);
 
@@ -31,7 +31,7 @@ describe('Mate register component', () => {
     expect(mockedDispatch).toHaveBeenCalledTimes(0);
   });
 
-  it('Should have register mate,, follow new mate text', () => {
+  it ('Should have register mate,, follow new mate text', () => {
     const { queryByText } = render(<MateRegister />);
 
     expect(queryByText(STRINGS.NO_REGISTERED_MATE)).not.toBeNull();

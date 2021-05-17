@@ -15,7 +15,7 @@ const LoginInput = ({
       <View style={styles.idInputWrapper}>
         <View style={styles.idTextWrapper}>
           <Text style={styles.idText}>
-            Email
+            {STRINGS.EMAIL}
           </Text>
         </View>
         <View style={styles.idTextInputWrapper}>
@@ -29,7 +29,7 @@ const LoginInput = ({
       <View style={styles.pwInputWrapper}>
         <View style={styles.pwTextWrapper}>
           <Text style={styles.pwText}>
-            PW
+            {STRINGS.PW}
           </Text>
         </View>
         <View style={styles.pwTextInputWrapper}>

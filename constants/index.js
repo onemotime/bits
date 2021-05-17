@@ -116,6 +116,8 @@ const STRINGS = {
   MIN: 'm',
   HOUR: 'h',
   FR: 'fr',
+  EMAIL: 'Email',
+  PW: 'PW',
   NONE: 'none',
   LOGIN_EN: 'login',
   LOGIN_FAIL: 'loginFail',

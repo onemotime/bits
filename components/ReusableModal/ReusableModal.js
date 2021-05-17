@@ -22,6 +22,7 @@ const ReusableModal = ({
           <Pressable
             style={styles.modalBtn}
             onPress={onButtonPress}
+            testID={STRINGS.CONFIRM}
           >
             <Text style={styles.confirmText}>
               {STRINGS.CONFIRM}
