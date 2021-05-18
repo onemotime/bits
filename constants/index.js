@@ -5,7 +5,7 @@ const ROUTES = {
   SIGNUP: '/signup',
   ALL: '/all',
   FOLLOW: '/follow',
-  IMAGE: 'image',
+  IMAGE: '/image',
   PUSH_TOKENS: 'pushTokens',
   FOLLOWING: '/following',
   LIKE: '/like',
@@ -26,8 +26,8 @@ const NUMBERS = {
 };
 
 const NAMES = {
-  CALENDAR_ICON: 'calendar-check',
-  PAUSE_ICON: 'play-pause',
+  PLAY_PAUSE_ICON: 'play-pause',
+  PLAY_ICON: 'md-play',
   CANCLE_ICON: 'cancel',
   CIRCLE_PLUS_ICON: 'circle-with-plus',
   DELETE_ICON: 'x-circle',
@@ -68,7 +68,6 @@ const SIZES = {
   TIMER_STROKE_WIDTH: 10,
   TIMER_TEXT: 18,
   TIMER_FONTWEIGHT: '600',
-  FINISH_ICON: 50,
   PLAY_CANCLE: 40,
   CIRCLE_PLUS_ICON: 24,
   PERCENTAGE: 100,
@@ -102,7 +101,6 @@ const COLORS = {
   TIMER_FIRST_RENDER: '#004777',
   TIMER_SECOND_RENDER: '#F7B801',
   TIMER_THIRD_RENDER: '#A30000',
-  CALENDAR_ICON: '#4cd137',
   CROWN_ICON: '#2f3640',
   ARROW: '#F9BC56',
   CHECK_SQUARE: '#4cd137',

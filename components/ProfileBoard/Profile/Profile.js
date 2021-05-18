@@ -33,7 +33,6 @@ const Profile = ({ userInfo, accessToken, imageUri }) => {
     setCalendar(true);
   };
 
-
   return (
     <View style={styles.profileWrapper}>
       <ProfileStatus

@@ -7,6 +7,7 @@ import { removeHabit, fetchPushTokens } from '../../redux/userSlice';
 import convertTimeStrToSec from '../../utils/convertTimeStrToSec';
 import { NAMES } from '../../constants/index';
 
+import Loading from '../Animations/Loading/Loading';
 import HabitRegister from '../../components/HomeBoard/HabitRegister/HabitRegister';
 import UserHabit from '../../components/HomeBoard/UserHabit/UserHabit';
 import CountDownBtn from '../../components/HomeBoard/CountdownBtn/CountdownBtn';
@@ -21,7 +22,7 @@ const Home = () => {
   const [countDownTime, setCountDownTime] = useState(0);
   const [isStartCountBtnOn, setStartCountBtn] = useState(false);
 
-  const { userName, habits, accessToken, followerPushTokens } = useSelector(state => state.user);
+  const { userName, habits, accessToken, followerPushTokens, isFetching } = useSelector(state => state.user);
   const navigation = useNavigation();
   const dispatch = useDispatch();
 
@@ -85,28 +86,34 @@ const Home = () => {
   };
 
   return (
-    <View style={styles.homeWrapper}>
-      <TopNav />
-        {!isStartCountBtnOn &&
-          (habits?.length > 0
-            ? <UserHabit
-                habits={habits}
-                onAddPress={handleRegisterHabitPress}
-                onIconPress={(index) => handleIconPress(index)}
-                onDeletePress={(index) => handleDeletePress(index)}
-                isHabitSelected={isHabitSelected}
-                targetHabit={targetHabit}
-              />
-            : <HabitRegister onAddPress={handleRegisterHabitPress} />)}
-        {isStartCountBtnOn
-          ? <CountDownBtn
-              totalTime={countDownTime}
-              setStartCountBtn={setStartCountBtn}
-              habitType={targetHabit.habitType}
-              accessToken={accessToken}
-            />
-          : <StartCountDownBtn onStartPress={handleStartCountDownPress} />}
-    </View>
+    <>
+      {isFetching
+        ? <Loading />
+        : <>
+            <View style={styles.homeWrapper}>
+              <TopNav />
+                {!isStartCountBtnOn &&
+                  (habits?.length > 0
+                    ? <UserHabit
+                        habits={habits}
+                        onAddPress={handleRegisterHabitPress}
+                        onIconPress={(index) => handleIconPress(index)}
+                        onDeletePress={(index) => handleDeletePress(index)}
+                        isHabitSelected={isHabitSelected}
+                        targetHabit={targetHabit}
+                      />
+                    : <HabitRegister onAddPress={handleRegisterHabitPress} />)}
+                {isStartCountBtnOn
+                  ? <CountDownBtn
+                      totalTime={countDownTime}
+                      setStartCountBtn={setStartCountBtn}
+                      habitType={targetHabit.habitType}
+                      accessToken={accessToken}
+                    />
+                  : <StartCountDownBtn onStartPress={handleStartCountDownPress} />}
+            </View>
+          </>}
+    </>
   );
 };
 

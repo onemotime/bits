@@ -10,6 +10,7 @@ import { NAMES, SIZES, COLORS, NUMBERS } from '../../../constants/index';
 import styles from './styles';
 
 const CompletedHabit = ({ userInfo }) => {
+
   return (
     <ScrollView style={styles.scrollView}>
       {userInfo.completedHabits.map((habit, index) => {

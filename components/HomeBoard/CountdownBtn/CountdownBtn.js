@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { updateHabit } from '../../../redux/userSlice';
-import { View, Animated, Text, TouchableOpacity } from 'react-native';
+import { useNavigation } from '@react-navigation/native';
+import { View, Animated, TouchableOpacity } from 'react-native';
 import { CountdownCircleTimer } from 'react-native-countdown-circle-timer';
-import { FontAwesome5, MaterialIcons,MaterialCommunityIcons } from '@expo/vector-icons';
+import { MaterialIcons,MaterialCommunityIcons } from '@expo/vector-icons';
 import { SIZES, NAMES, COLORS, STRINGS } from '../../../constants/index';
 
 import styles from './styles';
@@ -16,7 +17,7 @@ const CountdownBtn = ({
 }) => {
   const date = new Date();
   const dispatch = useDispatch();
-  const [isHabitDone, setHabitDone] = useState(false);
+  const navigation = useNavigation();
   const [isPlaying, setPlaying] = useState(true);
   const currentDate = `${date.getFullYear()}-${date.getMonth() + 1}-${date.getDate()}`;
 
@@ -27,13 +28,9 @@ const CountdownBtn = ({
       date: currentDate
     };
 
-    dispatch(updateHabit(updateInput));
-
-    setHabitDone(true);
-  };
-
-  const onFinishIconPress = () => {
     setStartCountBtn(false);
+    navigation.navigate(NAMES.HABIT);
+    dispatch(updateHabit(updateInput));
   };
 
   const onPausePress = () => {
@@ -65,17 +62,7 @@ const CountdownBtn = ({
                 fontSize: SIZES.TIMER_TEXT,
                 fontWeight: SIZES.TIMER_FONTWEIGHT
               }}>
-              {isHabitDone
-                ? <TouchableOpacity onPress={onFinishIconPress}>
-                    <Text style={styles.doneText}>
-                      <FontAwesome5
-                        name={NAMES.CALENDAR_ICON}
-                        size={SIZES.FINISH_ICON}
-                        color={COLORS.CALENDAR_ICON}
-                      />
-                    </Text>
-                  </TouchableOpacity>
-                : remainingTime + STRINGS.SECOND}
+              { remainingTime + STRINGS.SECOND}
             </Animated.Text>)}
         </CountdownCircleTimer>
       </View>
@@ -85,7 +72,7 @@ const CountdownBtn = ({
           onPress={onPausePress}
         >
           <MaterialCommunityIcons
-            name={NAMES.PAUSE_ICON}
+            name={NAMES.PLAY_PAUSE_ICON}
             size={SIZES.PLAY_CANCLE}
             color={COLORS.BLACK}
           />

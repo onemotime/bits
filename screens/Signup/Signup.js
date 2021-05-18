@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useSelector } from 'react-redux';
 import { View } from 'react-native';
 import * as userAPI from '../../api/userApi';
 import checkInputStatus from '../../utils/checkInputStatus';

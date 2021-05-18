@@ -27,7 +27,7 @@ export const pickTabIconByName = (name, color, size) => {
     }
     case NAMES.LIVE: {
       return <Ionicons
-                name={NAMES.PAUSE_ICON}
+                name={NAMES.PLAY_ICON}
                 size={size}
                 color={color}
               />;

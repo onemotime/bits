@@ -4,6 +4,7 @@ import { View, TouchableOpacity, Text } from 'react-native';
 import styles from './styles';
 
 const StartCountDownBtn = ({ onStartPress }) => {
+
   return (
     <View style={styles.wrapper}>
       <TouchableOpacity onPress={onStartPress}>

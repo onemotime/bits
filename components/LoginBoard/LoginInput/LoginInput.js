@@ -10,6 +10,7 @@ const LoginInput = ({
   password,
   onPasswordChange
 }) => {
+
   return (
     <View style={styles.inputWrapper}>
       <View style={styles.idInputWrapper}>

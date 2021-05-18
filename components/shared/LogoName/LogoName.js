@@ -7,6 +7,7 @@ import { STRINGS } from '../../../constants/index';
 import styles from './styles';
 
 const LogoName = () => {
+
   return (
     <View style={styles.logoWrapper}>
       <FontAwesome

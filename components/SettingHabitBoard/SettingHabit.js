@@ -6,7 +6,7 @@ import { Picker } from '@react-native-picker/picker';
 import { Button, View, Text, TouchableOpacity } from 'react-native';
 import HabitRegisterModal from '../ReusableModal/ReusableModal';
 
-import { NUMBERS, COLORS, STRINGS, LABEL } from '../../constants/index';
+import { NUMBERS, COLORS, STRINGS, LABEL, NAMES } from '../../constants/index';
 
 import styles from './styles';
 
@@ -56,7 +56,11 @@ const SettingHabit = () => {
   };
 
   const handleRegisterPress = async () => {
-    if (selectedAct === null || selectedDay === null || selectedTime === null) return;
+    if (
+      selectedAct === null ||
+      selectedDay === null ||
+      selectedTime === null
+    ) return;
 
     const isSameHabitRegistered = habits.some(habit => {
       return habit.habitType === selectedAct;
@@ -76,7 +80,7 @@ const SettingHabit = () => {
 
     dispatch(registerHabit(registerInput));
 
-    navigation.navigate(STRINGS.HABIT);
+    navigation.navigate(NAMES.HABIT);
   };
 
   return (

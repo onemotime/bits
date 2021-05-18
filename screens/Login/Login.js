@@ -6,7 +6,7 @@ import { SIZES, STRINGS } from '../../constants/index';
 import checkInputStatus from '../../utils/checkInputStatus';
 import { NAMES, MESSAGE } from '../../constants/index';
 
-import Loading from '../Animations/Loading/Loading';
+import LoginLoading from '../Animations/LoginLoading/LoginLoading';
 import LogoName from '../../components/shared/LogoName/LogoName';
 import LoginInput from '../../components/LoginBoard/LoginInput/LoginInput';
 import LoginRegisterButtons from '../../components/shared/LoginSignupButtons/LoginSignupButtons';
@@ -85,7 +85,7 @@ const Login = ({ navigation }) => {
           onButtonPress={handleModalPress}
         />}
       {isFetching
-        ? <Loading />
+        ? <LoginLoading />
         : <View style={styles.wrapper}>
             <View style={styles.loginWrapper}>
               <LogoName />
