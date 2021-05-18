@@ -9,6 +9,7 @@ import RegisterHabit from '../screens/RegisterHabit/RegisterHabit';
 const Stack = createStackNavigator();
 
 const UserScreenNavigator= () => {
+
   return (
     <NavigationContainer>
       <Stack.Navigator headerMode={STRINGS.NONE}>

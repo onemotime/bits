@@ -1,3 +1,5 @@
+import { ROUTES } from '../constants/index';
+
 export const sendPushNotification = async (expoPushToken, bodyMessage) => {
 
   const message = {
@@ -7,7 +9,7 @@ export const sendPushNotification = async (expoPushToken, bodyMessage) => {
     body: bodyMessage
   };
 
-  await fetch('https://exp.host/--/api/v2/push/send', {
+  await fetch(ROUTES.PUSH_URL, {
     method: 'POST',
     headers: {
       Accept: 'application/json',

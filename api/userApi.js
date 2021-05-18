@@ -1,8 +1,9 @@
 import { SERVER_URL } from '@env';
 import generateHeaderOption from '../utils/generateHeaderOption';
+import { ROUTES } from '../constants';
 
 export const requestSignin = async (loginInput) => {
-  const url = `${SERVER_URL}/user/login`;
+  const url = `${SERVER_URL}${ROUTES.USER}${ROUTES.LOGIN}`;
 
   const response = await fetch(url, {
     method: 'POST',
@@ -16,7 +17,7 @@ export const requestSignin = async (loginInput) => {
 };
 
 export const requestSignup = async (signupInput) => {
-  const url =`${SERVER_URL}/user/signup`;
+  const url =`${SERVER_URL}${ROUTES.USER}${ROUTES.SIGNUP}`;
 
   const response = await fetch(url, {
     method: 'POST',
@@ -30,7 +31,7 @@ export const requestSignup = async (signupInput) => {
 };
 
 export const postHabit = async (registerInput) => {
-  const url = `${SERVER_URL}/habit`;
+  const url = `${SERVER_URL}${ROUTES.HABIT}`;
   const headers = generateHeaderOption(registerInput.accessToken);
 
   const response = await fetch(url, {
@@ -43,7 +44,7 @@ export const postHabit = async (registerInput) => {
 };
 
 export const patchHabit = async (updateInput) => {
-  const url = `${SERVER_URL}/habit`;
+  const url = `${SERVER_URL}${ROUTES.HABIT}`;
   const headers = generateHeaderOption(updateInput.accessToken);
 
   const response = await fetch(url, {
@@ -56,7 +57,7 @@ export const patchHabit = async (updateInput) => {
 };
 
 export const deleteHabit = async (deleteInput) => {
-  const url = `${SERVER_URL}/habit`;
+  const url = `${SERVER_URL}${ROUTES.HABIT}`;
   const headers = generateHeaderOption(deleteInput.accessToken);
 
   const response = await fetch(url, {
@@ -71,7 +72,7 @@ export const deleteHabit = async (deleteInput) => {
 };
 
 export const getUsers = async (accessToken) => {
-  const url = `${SERVER_URL}/user/all`;
+  const url = `${SERVER_URL}${ROUTES.USER}${ROUTES.ALL}`;
   const headers = generateHeaderOption(accessToken);
 
   const response = await fetch(url, {
@@ -83,7 +84,7 @@ export const getUsers = async (accessToken) => {
 };
 
 export const patchUserFollow = async (followingInfo) => {
-  const url = `${SERVER_URL}/user/follow`;
+  const url = `${SERVER_URL}${ROUTES.USER}${ROUTES.FOLLOW}`;
   const headers = generateHeaderOption(followingInfo.accessToken);
 
   const response = await fetch(url, {
@@ -98,7 +99,7 @@ export const patchUserFollow = async (followingInfo) => {
 };
 
 export const patchImageUri = async (imageUriPayload) => {
-  const url = `${SERVER_URL}/user/image`;
+  const url = `${SERVER_URL}${ROUTES.USER}${ROUTES.IMAGE}`;
   const headers = generateHeaderOption(imageUriPayload.accessToken);
 
   const response = await fetch(url, {
@@ -113,7 +114,7 @@ export const patchImageUri = async (imageUriPayload) => {
 };
 
 export const getPushTokens = async (accessToken) => {
-  const url = `${SERVER_URL}/user/pushTokens`;
+  const url = `${SERVER_URL}${ROUTES.USER}${ROUTES.PUSH_TOKENS}`;
   const headers = generateHeaderOption(accessToken);
 
   const response = await fetch(url, {

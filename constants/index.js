@@ -1,3 +1,17 @@
+const ROUTES = {
+  USER: '/user',
+  HABIT: '/habit',
+  LOGIN: '/login',
+  SIGNUP: '/signup',
+  ALL: '/all',
+  FOLLOW: '/follow',
+  IMAGE: 'image',
+  PUSH_TOKENS: 'pushTokens',
+  FOLLOWING: '/following',
+  LIKE: '/like',
+  PUSH_URL: 'https://exp.host/--/api/v2/push/send'
+};
+
 const NUMBERS = {
   MAXIMUM_LEVEL: 4,
   QUALITY: 1,
@@ -246,6 +260,7 @@ const TESTID = {
 };
 
 export {
+  ROUTES,
   NUMBERS,
   NAMES,
   SIZES,

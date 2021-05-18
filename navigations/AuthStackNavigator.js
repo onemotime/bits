@@ -9,6 +9,7 @@ import Signup from '../screens/Signup/Signup';
 const Stack = createStackNavigator();
 
 const AutchStackNavigator = () => {
+
   return (
     <NavigationContainer>
       <Stack.Navigator headerMode={STRINGS.NONE}>

@@ -11,6 +11,7 @@ import MyProfile from '../screens/Profile/MyProfile';
 const Tab = createBottomTabNavigator();
 
 const BottomTapNavigator = () => {
+
   return (
     <Tab.Navigator
       screenOptions={({ route }) => ({

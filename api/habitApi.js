@@ -1,8 +1,9 @@
 import { SERVER_URL } from '@env';
 import generateHeaderOption from '../utils/generateHeaderOption';
+import { ROUTES } from '../constants/index';
 
 export const getFollowingHabits = async (accessToken) => {
-  const url = `${SERVER_URL}/user/following`;
+  const url = `${SERVER_URL}${ROUTES.USER}${ROUTES.FOLLOWING}`;
   const headers = generateHeaderOption(accessToken);
 
   const response = await fetch(url, {
@@ -14,7 +15,7 @@ export const getFollowingHabits = async (accessToken) => {
 };
 
 export const patchHabitLike = async (updateHabitInput) => {
-  const url = `${SERVER_URL}/habit/like`;
+  const url = `${SERVER_URL}${ROUTES.HABIT}${ROUTES.LIKE}`;
   const headers = generateHeaderOption(updateHabitInput.accessToken);
 
   const response  = await fetch(url, {
