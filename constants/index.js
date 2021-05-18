@@ -116,9 +116,11 @@ const STRINGS = {
   MIN: 'm',
   HOUR: 'h',
   FR: 'fr',
-  EMAIL: 'Email',
+  EMAIL: 'EMAIL',
   PW: 'PW',
+  NAME: 'NAME',
   NONE: 'none',
+  CHECK: 'CHECK',
   LOGIN_EN: 'login',
   LOGIN_FAIL: 'loginFail',
   SIGNUP_EN: 'signup',
@@ -159,10 +161,6 @@ const STRINGS = {
   RUN_KR: '달리기',
   BICYCLE_KR: '자전거',
   YOGA_KR: '요가',
-  TYPE_EMAIL: '아이디를 입력해주세요',
-  TYPE_USERNAME: '이름을 입력해주세요',
-  TYPE_PASSWORD: '비밀번호를 입력해주세요',
-  TYPE_CONFIRM_PASSWORD: '비밀번호를 확인해주세요',
   NO_REGISTERED_MATE: '등록된 메이트가 없습니다',
   FOLLOW_NEW_MATE: '새로운 메이트를 추가해보세요',
   NO_PROGRESSING_HABIT: '진행중인 습관이 없습니다',
@@ -236,7 +234,11 @@ const MESSAGE = {
   CHECK_INPUT: '입력 정보를 다시 확인해주세요',
   REGISTER_ALL_INFOS: '모든 정보를 입력해주세요',
   INVALID_EMAIL_FORM: '올바른 이메일 형식이 아닙니다',
-  PASSWORD_MISMATCH_KR: '비밀번호가 일치하지 않습니다'
+  PASSWORD_MISMATCH_KR: '비밀번호가 일치하지 않습니다',
+  TYPE_EMAIL: '아이디를 입력해주세요',
+  TYPE_USERNAME: '이름을 입력해주세요',
+  TYPE_PASSWORD: '비밀번호를 입력해주세요',
+  TYPE_CONFIRM_PASSWORD: '비밀번호를 확인해주세요'
 };
 
 const TESTID = {

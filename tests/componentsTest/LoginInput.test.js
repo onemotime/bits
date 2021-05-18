@@ -1,13 +1,13 @@
 import React from 'react';
 import { render } from '@testing-library/react-native';
 import LoginInput from '../../components/LoginBoard/LoginInput/LoginInput';
-import { STRINGS } from '../../constants/index';
+import { MESSAGE, STRINGS } from '../../constants/index';
 
 describe('Login input component', () => {
   it ('Should have email, password input', () => {
     const { getByPlaceholderText } = render(<LoginInput />);
-    const emailTextInput = getByPlaceholderText(STRINGS.TYPE_EMAIL);
-    const passwordTextInput = getByPlaceholderText(STRINGS.TYPE_PASSWORD);
+    const emailTextInput = getByPlaceholderText(MESSAGE.TYPE_EMAIL);
+    const passwordTextInput = getByPlaceholderText(MESSAGE.TYPE_PASSWORD);
 
     expect(emailTextInput).toBeDefined();
     expect(passwordTextInput).toBeDefined();
