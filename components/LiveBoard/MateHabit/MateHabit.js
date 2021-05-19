@@ -74,8 +74,12 @@ const MateHabit = ({ followingUserHabits, accessToken }) => {
                             </View>
                             {(likeHabitId === habitData._id) &&
                               <Like onFinish={handleAnimationFinish} />}
-                            <View style={styles.habitIcon}>{habitIcon}</View>
-                            <Text style={styles.startTimeText}>BiTS</Text>
+                            <View style={styles.habitIcon}>
+                              {habitIcon}
+                            </View>
+                            <Text style={styles.startTimeText}>
+                              BiTS
+                            </Text>
                           </View>
                         </TouchableOpacity>
                       );

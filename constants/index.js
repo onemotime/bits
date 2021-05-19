@@ -6,7 +6,7 @@ const ROUTES = {
   ALL: '/all',
   FOLLOW: '/follow',
   IMAGE: '/image',
-  PUSH_TOKENS: 'pushTokens',
+  PUSH_TOKENS: '/pushTokens',
   FOLLOWING: '/following',
   LIKE: '/like',
   PUSH_URL: 'https://exp.host/--/api/v2/push/send'
