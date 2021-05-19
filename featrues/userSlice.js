@@ -1,5 +1,7 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import * as userApi from '../api/userApi';
+import * as habitApi from '../api/habitApi';
+
 
 export const fetchSignin = createAsyncThunk(
   'user/fetchSignin',
@@ -22,7 +24,7 @@ export const registerHabit = createAsyncThunk(
   'user/registerHabit',
   async (registerInput, thunkAPI) => {
     try {
-      const response = await userApi.postHabit(registerInput);
+      const response = await habitApi.postHabit(registerInput);
 
       if (response.status === 201) {
         return response.habits;
@@ -39,7 +41,7 @@ export const updateHabit = createAsyncThunk(
   'user/updateHabit',
   async (updateInput, thunkAPI) => {
     try {
-      const response = await userApi.patchHabit(updateInput);
+      const response = await habitApi.patchHabit(updateInput);
 
       if (response.status === 200) {
         return response;
@@ -56,7 +58,7 @@ export const removeHabit = createAsyncThunk(
   'user/removeHabit',
   async (deleteInput, thunkAPI) => {
     try {
-      const response = await userApi.deleteHabit(deleteInput);
+      const response = await habitApi.deleteHabit(deleteInput);
 
       if (response.status === 200) {
         return deleteInput.targetIndex;

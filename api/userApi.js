@@ -2,6 +2,12 @@ import { SERVER_URL } from '@env';
 import generateHeaderOption from '../utils/generateHeaderOption';
 import { ROUTES } from '../constants';
 
+/**
+ * Post login user generate token
+ * @param {Object} loginInput - Login user info
+ * @returns Response data from server
+ */
+
 export const requestSignin = async (loginInput) => {
   const url = `${SERVER_URL}${ROUTES.USER}${ROUTES.LOGIN}`;
 
@@ -16,60 +22,11 @@ export const requestSignin = async (loginInput) => {
   return await response.json();
 };
 
-export const requestSignup = async (signupInput) => {
-  const url =`${SERVER_URL}${ROUTES.USER}${ROUTES.SIGNUP}`;
-
-  const response = await fetch(url, {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json'
-    },
-    body: JSON.stringify(signupInput)
-  });
-
-  return await response.json();
-};
-
-export const postHabit = async (registerInput) => {
-  const url = `${SERVER_URL}${ROUTES.HABIT}`;
-  const headers = generateHeaderOption(registerInput.accessToken);
-
-  const response = await fetch(url, {
-    method: 'POST',
-    headers,
-    body: JSON.stringify(registerInput)
-  });
-
-  return await response.json();
-};
-
-export const patchHabit = async (updateInput) => {
-  const url = `${SERVER_URL}${ROUTES.HABIT}`;
-  const headers = generateHeaderOption(updateInput.accessToken);
-
-  const response = await fetch(url, {
-    method: 'PATCH',
-    headers,
-    body: JSON.stringify(updateInput)
-  });
-
-  return await response.json();
-};
-
-export const deleteHabit = async (deleteInput) => {
-  const url = `${SERVER_URL}${ROUTES.HABIT}`;
-  const headers = generateHeaderOption(deleteInput.accessToken);
-
-  const response = await fetch(url, {
-    method: 'DELETE',
-    headers,
-    body: JSON.stringify({
-      targetIndex: deleteInput.targetIndex
-    })
-  });
-
-  return await response.json();
-};
+/**
+ * Get all users in database
+ * @param {String} accessToken - token to pass server validation
+ * @returns Response data from server
+ */
 
 export const getUsers = async (accessToken) => {
   const url = `${SERVER_URL}${ROUTES.USER}${ROUTES.ALL}`;
@@ -82,6 +39,12 @@ export const getUsers = async (accessToken) => {
 
   return await response.json();
 };
+
+/**
+ * Patch when follow button pressed
+ * @param {Object} followingInfo - follow user info
+ * @returns Response data from server
+ */
 
 export const patchUserFollow = async (followingInfo) => {
   const url = `${SERVER_URL}${ROUTES.USER}${ROUTES.FOLLOW}`;
@@ -98,6 +61,12 @@ export const patchUserFollow = async (followingInfo) => {
   return await response.json();
 };
 
+/**
+ * Update user image uri
+ * @param {Object} imageUriPayload - img uri with user data
+ * @returns Response data from server
+ */
+
 export const patchImageUri = async (imageUriPayload) => {
   const url = `${SERVER_URL}${ROUTES.USER}${ROUTES.IMAGE}`;
   const headers = generateHeaderOption(imageUriPayload.accessToken);
@@ -113,6 +82,12 @@ export const patchImageUri = async (imageUriPayload) => {
   return await response.json();
 };
 
+/**
+ * Get push tokens from followers
+ * @param {String} accessToken - token to pass server validation
+ * @returns Response data from server
+ */
+
 export const getPushTokens = async (accessToken) => {
   const url = `${SERVER_URL}${ROUTES.USER}${ROUTES.PUSH_TOKENS}`;
   const headers = generateHeaderOption(accessToken);
@@ -120,6 +95,44 @@ export const getPushTokens = async (accessToken) => {
   const response = await fetch(url, {
     method: 'GET',
     headers
+  });
+
+  return await response.json();
+};
+
+/**
+ * Get following users info in array
+ * @param {String} accessToken - accessToekn signed in with JWT
+ * @returns Response data from server
+ */
+
+export const getFollowingHabits = async (accessToken) => {
+  const url = `${SERVER_URL}${ROUTES.USER}${ROUTES.FOLLOWING}`;
+  const headers = generateHeaderOption(accessToken);
+
+  const response = await fetch(url, {
+    method: 'GET',
+    headers
+  });
+
+  return await response.json();
+};
+
+/**
+ * Post signed up user in database
+ * @param {Object} signupInput - signup user info
+ * @returns Response data from server
+ */
+
+export const requestSignup = async (signupInput) => {
+  const url =`${SERVER_URL}${ROUTES.USER}${ROUTES.SIGNUP}`;
+
+  const response = await fetch(url, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(signupInput)
   });
 
   return await response.json();

@@ -1,5 +1,11 @@
 import { ROUTES } from '../constants/index';
 
+/**
+ * Notify to sned push notification
+ * @param {String} expoPushToken - user's push expo push token
+ * @param {String} bodyMessage - message's to send to target user
+ */
+
 export const sendPushNotification = async (expoPushToken, bodyMessage) => {
 
   const message = {
