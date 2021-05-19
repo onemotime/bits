@@ -1,6 +1,6 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { userSlice } from '../../../redux/userSlice';
+import { userSlice } from '../../../featrues/userSlice';
 import { FontAwesome5 } from '@expo/vector-icons';
 import { View, Text, Image } from 'react-native';
 import { TouchableOpacity } from 'react-native-gesture-handler';

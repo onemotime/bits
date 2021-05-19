@@ -3,7 +3,7 @@ import { View } from 'react-native';
 import { useSelector, useDispatch } from 'react-redux';
 import { useNavigation } from '@react-navigation/native';
 import { sendPushNotification } from '../../api/pushApi';
-import { removeHabit, fetchPushTokens } from '../../redux/userSlice';
+import { removeHabit, fetchPushTokens } from '../../featrues/userSlice';
 import convertTimeStrToSec from '../../utils/convertTimeStrToSec';
 import { NAMES } from '../../constants/index';
 

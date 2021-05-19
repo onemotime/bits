@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { updateHabitLikes } from '../../../redux/habitSlice';
+import { updateHabitLikes } from '../../../featrues/habitSlice';
 import { EvilIcons } from '@expo/vector-icons';
 import { View, Text, TouchableOpacity, Image } from 'react-native';
 import { ScrollView } from 'react-native-gesture-handler';

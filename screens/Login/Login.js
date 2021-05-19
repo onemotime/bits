@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { fetchSignin } from '../../redux/userSlice';
+import { fetchSignin } from '../../featrues/userSlice';
 import { View,  TouchableOpacity } from 'react-native';
 import { SIZES, STRINGS } from '../../constants/index';
 import checkInputStatus from '../../utils/checkInputStatus';

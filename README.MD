@@ -11,8 +11,7 @@
 - [Installation](#📀-Installation)
 - [Project Schedule](#🗓-Project-Schedule)
 - [What i learend](#🧘🏻‍♂️-What-i-learned)
-- [What i regret](#🤦🏻‍♂️-What-i-regret)
-- [Things to do](#🚀-Things-to-do)
+- [Improvements](#🚀-Improvements)
 
 # 💡 Inspiration
 
@@ -92,11 +91,11 @@ DATABASE_PASSWORD=<YOUR_MONGODB_PASSWORD>
 ```
 
 # 🗓 Project-Schedule
-전체 기간 2021. 5. 3(월) ~ 2021. 5. 21(금) 총 3주 진행
+전체 기간 **2021. 5. 3(월) ~ 2021. 5. 21(금)** 총 3주 진행
 
 ### `1st week - planning`
 - 아이디어 구상 + 기술 스택 검토
-- [Figma를 이용한 Mockup 작업](https://www.notion.so/Mock-up-02ccbae0324c4527a121f7e23adb41e8);
+- [Figma를 이용한 Mockup 작업](https://www.notion.so/Mock-up-02ccbae0324c4527a121f7e23adb41e8)
 - GitHub Repository Setting(Client / Server 분리)
 
 ### `2nd week - devloping`
@@ -132,10 +131,12 @@ Home screen에서 습관 실행버튼을 누르고 완료하게 되면 카운트
 
 ### Redux toolkit && thunk
 
-[1차 프로젝트](https://github.com/steeltroop/pong-frontend) 당시 게임을 만들다 보니 비동기 처리가 끝난 후 값을 넘겨줘야 하는 상황이 없었습니다. 이번 프로젝트 에서는 데이터베이스와 교류해야 하는 상황들이 많았고, 이를 제어하기 위해 toolkit과 thunk를 사용하게 되었고 몇 가지 특징들을 체감하게 되었습니다.
+[1차 프로젝트](https://github.com/steeltroop/pong-frontend) 당시 게임을 만들다 보니 비동기 처리가 끝난 후 값을 넘겨줘야 하는 상황이 없었습니다. 이번 프로젝트 에서는 데이터베이스와 교류해야 하는 상황들이 많았고, 이를 제어하기 위해 toolkit과 thunk를 사용하게 되었고 몇 가지 특징들을 체감하게 되었습니다.
 
 **첫번째** 기존 redux 사용 시 1개의 액션을 생성해도 **action type, action creator, reducer** 등의 전부 정의 해줘야 하기 때문에 코드의 양이 엄청나게 늘어날 뿐만 아니라, 저장소 구조 자체도 복잡했었습니다. 하지만 toolkit을 이용하면 이 모든 정의들이 한 파일 구조 내에서 가능하고 조회를 하는 복잡성도 줄어들기 때문에 가독성이 엄청나게 증가했었습니다. 에러가 났을때도 상태값 업데이트와 관련된 오류는 한 파일 내에서 발생한다는 확신이 있으니 수정하는 시간도 줄어들었습니다.
 
 **두번째** 컨테이너 컴포넌트에서 존재하던 비지니스 로직들이 없어지고 thunk에 비동기 관련 처리 액션이 위임되기 때문에 코드가 더 깔끔해졌다는 장점 뿐만 아니라, 비동기 적인 흐름을 직접 제어하기 때문에 비동기가 진행 중인 시점에 원하는 형태로 ui를 조작하거나, 상태값을 비동기 작업이 끝난 후 갱신 시켜주는 등 동기적인 흐름으로 코드를 작성할 수 있었고, 비동기적인 흐름에 대한 주도권을 가질 수 있다는 점이 편리했습니다.
 
 **마지막으로** 두번째 내용에서 언급했듯 비동기 관련 처리 액션이 위임되기 때문에 컴포넌트 입장에서는 코드가 깔끔해졌다고 할 수 있지만, thunk 내부에 있는 로직의 복잡도가 증가했습니다. 프로젝트를 계속 진행해온 개발자의 입장에서는 코드를 이해하는데 어려움이 없지만, 협업을 하는 상황에서 제 3 자의 입장에서는 코드를 이해하는데 들여야 하는 시간이 더 많이 늘어나겠다는 생각을 햇었습니다. 또 각 컴포넌트 내부에서 hook을 통해 값을 조회하기 때문에 테스트 코드를 작성하기 어려웠습니다. 이런 이유 때문에 thunk가 가진 복잡도 때문에 함수가 **순수하지 않다**라고 느껴졌고, functional programming을 왜 지향하는지, 순수한 값을 반환하는 함수, 그 함수가 반환하는 값에 대한 신뢰성에 대한 중요도에 대해서 더 잘 이해할 수 있게 되었습니다. 앱의 규모가 커질수록 순수 함수가 가지는 영향력이 커질것 같다고 생각했습니다.
+
+# 🚀 Improvements

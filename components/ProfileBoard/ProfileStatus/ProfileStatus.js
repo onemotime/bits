@@ -1,7 +1,7 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
 import { View, Text, Image, TouchableOpacity } from 'react-native';
-import { updateImageUri } from '../../../redux/userSlice';
+import { updateImageUri } from '../../../featrues/userSlice';
 import { EvilIcons } from '@expo/vector-icons';
 import * as ImagePicker from 'expo-image-picker';
 import {

@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import { useDispatch } from 'react-redux';
-import { fetchUser } from '../../redux/userSlice';
+import { fetchUser } from '../../featrues/userSlice';
 
 import Loading from '../Animations/Loading/Loading';
 import TopNav from '../../components/shared/TopNav/TopNav';

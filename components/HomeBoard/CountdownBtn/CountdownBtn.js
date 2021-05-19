@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { updateHabit } from '../../../redux/userSlice';
+import { updateHabit } from '../../../featrues/userSlice';
 import { useNavigation } from '@react-navigation/native';
 import { View, Animated, TouchableOpacity } from 'react-native';
 import { CountdownCircleTimer } from 'react-native-countdown-circle-timer';

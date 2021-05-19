@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { fetchFollowingHabits } from '../../redux/habitSlice';
+import { fetchFollowingHabits } from '../../featrues/habitSlice';
 import TopNav from '../../components/shared/TopNav/TopNav';
 import Loading from '../Animations/Loading/Loading';
 

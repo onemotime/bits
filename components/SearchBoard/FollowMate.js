@@ -1,6 +1,6 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
-import { followUser } from '../../redux/userSlice';
+import { followUser } from '../../featrues/userSlice';
 import { EvilIcons, Entypo, FontAwesome } from '@expo/vector-icons';
 import { View, Text, TouchableOpacity, Image, ScrollView } from 'react-native';
 
