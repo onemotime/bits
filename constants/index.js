@@ -89,6 +89,7 @@ const SIZES = {
   MEDITATING_ICON: 40,
   RUNNING_ICON: 40,
   BICYCLE_ICON: 50,
+  SEARCH_ICON: 20,
   YOGA_ICON: 50,
   CIRCLE_ICON: 18
 };
@@ -173,6 +174,7 @@ const STRINGS = {
   RUN_KR: '달리기',
   BICYCLE_KR: '자전거',
   YOGA_KR: '요가',
+  SEARCH_FRIEND: '친구검색',
   NO_REGISTERED_MATE: '등록된 메이트가 없습니다',
   FOLLOW_NEW_MATE: '새로운 메이트를 추가해보세요',
   NO_PROGRESSING_HABIT: '진행중인 습관이 없습니다',

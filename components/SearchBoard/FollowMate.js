@@ -1,15 +1,16 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { followUser } from '../../featrues/userSlice';
-import { EvilIcons, Entypo, FontAwesome } from '@expo/vector-icons';
-import { View, Text, TouchableOpacity, Image, ScrollView } from 'react-native';
+import { EvilIcons, Entypo, FontAwesome, MaterialCommunityIcons } from '@expo/vector-icons';
+import { View, Text, TextInput, TouchableOpacity, Image, ScrollView } from 'react-native';
 
-import { NAMES, SIZES, COLORS } from '../../constants/index';
+import { NAMES, SIZES, COLORS, STRINGS } from '../../constants/index';
 
 import styles from './styles';
 
 const FollowMate = ({ allUsers, following, accessToken, userName }) => {
   const dispatch = useDispatch();
+  const [searchUserName, setUserName] = useState('');
 
   const handleFollowPress = (userInfo) => {
     const followingInfo = {
@@ -22,7 +23,23 @@ const FollowMate = ({ allUsers, following, accessToken, userName }) => {
 
   return (
     <View style={styles.followMateWrapper}>
-      <Text style={styles.recommendText}>추천친구</Text>
+      <View style={styles.searchBarWrapper}>
+        <View style={styles.searchBar}>
+          <View style={styles.searchIcon}>
+            <MaterialCommunityIcons
+              name={NAMES.SEARCH_ICON}
+              size={SIZES.SEARCH_ICON}
+              color={COLORS.BLACK}
+            />
+          </View>
+          <TextInput
+            value={searchUserName}
+            placeholder={STRINGS.SEARCH_FRIEND}
+            style={styles.searchInput}
+            onChangeText={setUserName}
+          />
+        </View>
+      </View>
       <ScrollView style={styles.scroll}>
         {allUsers.length > 0 &&
           allUsers.map((userInfo, index) => {
@@ -31,6 +48,9 @@ const FollowMate = ({ allUsers, following, accessToken, userName }) => {
             });
 
             if (userInfo.userName === userName) return;
+
+            if (!userInfo.userName.includes(searchUserName) &&
+                searchUserName !== '') return;
 
             return (
               <View style={styles.mateWrapper} key={index}>
@@ -48,7 +68,9 @@ const FollowMate = ({ allUsers, following, accessToken, userName }) => {
                         color={COLORS.BLACK}
                       />}
                   <View style={styles.userNameWrapper}>
-                    <Text style={styles.userName}>{userInfo.userName}</Text>
+                    <Text style={styles.userName}>
+                      {userInfo.userName}
+                    </Text>
                   </View>
                 </View>
                 {isFollowing

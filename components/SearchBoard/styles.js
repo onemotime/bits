@@ -6,6 +6,28 @@ const styles = StyleSheet.create({
     backgroundColor: 'white',
     flex: 1
   },
+  searchBarWrapper: {
+    alignItems: 'center'
+  },
+  searchBar: {
+    marginTop: 10,
+    width: '83%',
+    height: 40,
+    backgroundColor: '#ecf0f1',
+    flexDirection: 'row',
+    borderRadius: 10,
+    alignItems: 'center'
+  },
+  searchIcon: {
+    marginLeft: 10,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  searchInput: {
+    marginLeft: 10,
+    width: '80%',
+    height: '100%'
+  },
   recommendText: {
     marginTop: 20,
     marginLeft: 24,
