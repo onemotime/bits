@@ -1,4 +1,5 @@
 import { SERVER_URL } from '@env';
+import * as SecureStore from "expo-secure-store";
 import generateHeaderOption from '../utils/generateHeaderOption';
 import { ROUTES } from '../constants';
 
@@ -28,7 +29,8 @@ export const requestSignin = async (loginInput) => {
  * @returns Response data from server
  */
 
-export const getUsers = async (accessToken) => {
+export const getUsers = async () => {
+  const accessToken = await SecureStore.getItemAsync('token');
   const url = `${SERVER_URL}${ROUTES.USER}${ROUTES.ALL}`;
   const headers = generateHeaderOption(accessToken);
 
@@ -47,8 +49,9 @@ export const getUsers = async (accessToken) => {
  */
 
 export const patchUserFollow = async (followingInfo) => {
+  const accessToken = await SecureStore.getItemAsync('token');
   const url = `${SERVER_URL}${ROUTES.USER}${ROUTES.FOLLOW}`;
-  const headers = generateHeaderOption(followingInfo.accessToken);
+  const headers = generateHeaderOption(accessToken);
 
   const response = await fetch(url, {
     method: 'PATCH',
@@ -68,8 +71,9 @@ export const patchUserFollow = async (followingInfo) => {
  */
 
 export const patchImageUri = async (imageUriPayload) => {
+  const accessToken = await SecureStore.getItemAsync('token');
   const url = `${SERVER_URL}${ROUTES.USER}${ROUTES.IMAGE}`;
-  const headers = generateHeaderOption(imageUriPayload.accessToken);
+  const headers = generateHeaderOption(accessToken);
 
   const response = await fetch(url, {
     method: 'PATCH',
@@ -88,7 +92,8 @@ export const patchImageUri = async (imageUriPayload) => {
  * @returns Response data from server
  */
 
-export const getPushTokens = async (accessToken) => {
+export const getPushTokens = async () => {
+  const accessToken = await SecureStore.getItemAsync('token');
   const url = `${SERVER_URL}${ROUTES.USER}${ROUTES.PUSH_TOKENS}`;
   const headers = generateHeaderOption(accessToken);
 
@@ -106,7 +111,8 @@ export const getPushTokens = async (accessToken) => {
  * @returns Response data from server
  */
 
-export const getFollowingHabits = async (accessToken) => {
+export const getFollowingHabits = async () => {
+  const accessToken = await SecureStore.getItemAsync('token');
   const url = `${SERVER_URL}${ROUTES.USER}${ROUTES.FOLLOWING}`;
   const headers = generateHeaderOption(accessToken);
 

@@ -1,4 +1,5 @@
 import { SERVER_URL } from '@env';
+import * as SecureStore from "expo-secure-store";
 import generateHeaderOption from '../utils/generateHeaderOption';
 import { ROUTES } from '../constants/index';
 
@@ -9,8 +10,9 @@ import { ROUTES } from '../constants/index';
  */
 
 export const patchHabitLike = async (updateHabitInput) => {
+  const accessToken = await SecureStore.getItemAsync('token');
   const url = `${SERVER_URL}${ROUTES.HABIT}${ROUTES.LIKE}`;
-  const headers = generateHeaderOption(updateHabitInput.accessToken);
+  const headers = generateHeaderOption(accessToken);
 
   const response  = await fetch(url, {
     method: 'PATCH',
@@ -31,8 +33,9 @@ export const patchHabitLike = async (updateHabitInput) => {
  */
 
 export const postHabit = async (registerInput) => {
+  const accessToken = await SecureStore.getItemAsync('token');
   const url = `${SERVER_URL}${ROUTES.HABIT}`;
-  const headers = generateHeaderOption(registerInput.accessToken);
+  const headers = generateHeaderOption(accessToken);
 
   const response = await fetch(url, {
     method: 'POST',
@@ -50,8 +53,9 @@ export const postHabit = async (registerInput) => {
  */
 
 export const patchHabit = async (updateInput) => {
+  const accessToken = await SecureStore.getItemAsync('token');
   const url = `${SERVER_URL}${ROUTES.HABIT}`;
-  const headers = generateHeaderOption(updateInput.accessToken);
+  const headers = generateHeaderOption(accessToken);
 
   const response = await fetch(url, {
     method: 'PATCH',
@@ -69,8 +73,9 @@ export const patchHabit = async (updateInput) => {
  */
 
 export const deleteHabit = async (deleteInput) => {
+  const accessToken = await SecureStore.getItemAsync('token');
   const url = `${SERVER_URL}${ROUTES.HABIT}`;
-  const headers = generateHeaderOption(deleteInput.accessToken);
+  const headers = generateHeaderOption(accessToken);
 
   const response = await fetch(url, {
     method: 'DELETE',

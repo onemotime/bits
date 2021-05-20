@@ -1,4 +1,5 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
+import * as SecureStore from "expo-secure-store";
 import * as userApi from '../api/userApi';
 import * as habitApi from '../api/habitApi';
 
@@ -10,6 +11,10 @@ export const fetchSignin = createAsyncThunk(
       const response = await userApi.requestSignin(loginInput);
 
       if (response.status === 200) {
+        const { accessToken } = response;
+
+        await SecureStore.setItemAsync('token', accessToken);
+
         return response;
       }
 
@@ -73,9 +78,9 @@ export const removeHabit = createAsyncThunk(
 
 export const fetchUser = createAsyncThunk(
   'user/fetchUser',
-  async (accessToken, thunkAPI) => {
+  async (input, thunkAPI) => {
     try {
-      const response = await userApi.getUsers(accessToken);
+      const response = await userApi.getUsers();
 
       if (response.status === 200) {
         return response.payload;
@@ -124,9 +129,9 @@ export const updateImageUri = createAsyncThunk(
 
 export const fetchPushTokens = createAsyncThunk(
   'user/fetchPushTokens',
-  async (accessToken, thunkApi) => {
+  async (input, thunkApi) => {
     try {
-      const response = await userApi.getPushTokens(accessToken);
+      const response = await userApi.getPushTokens();
 
       if (response.status === 200) {
         return response.pushTokens;
@@ -143,7 +148,6 @@ const initialState = {
   email: '',
   userName: '',
   imageUri: '',
-  accessToken: '',
   pushToken: '',
   errorMessage: '',
   followers: [],
@@ -155,7 +159,8 @@ const initialState = {
   followerPushTokens: [],
   isFetching: false,
   isSuccess: false,
-  isError: false
+  isError: false,
+  isLogedIn: false
 };
 
 export const userSlice = createSlice({
@@ -171,7 +176,6 @@ export const userSlice = createSlice({
   },
   extraReducers: {
     [fetchSignin.fulfilled]: (state, { payload }) => {
-      state.accessToken = payload.accessToken;
       state.email = payload.email;
       state.userName = payload.userName;
       state.habits = payload.habits;
@@ -182,6 +186,7 @@ export const userSlice = createSlice({
       state.isFetching = false;
       state.isSuccess = true;
       state.isError = false;
+      state.isLogedIn = true;
     },
     [fetchSignin.pending]: (state) => {
       state.isFetching = true;

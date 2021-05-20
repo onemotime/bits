@@ -5,14 +5,13 @@ import { registerHabit } from '../../featrues/userSlice';
 import { Picker } from '@react-native-picker/picker';
 import { Button, View, Text, TouchableOpacity } from 'react-native';
 import HabitRegisterModal from '../ReusableModal/ReusableModal';
-
 import { NUMBERS, COLORS, STRINGS, LABEL, NAMES } from '../../constants/index';
 
 import styles from './styles';
 
 const SettingHabit = () => {
   const dispatch = useDispatch();
-  const { habits, accessToken } = useSelector(state => state.user);
+  const { habits } = useSelector(state => state.user);
   const navigation = useNavigation();
 
   const [isModalShown, setModal] = useState(false);
@@ -72,7 +71,6 @@ const SettingHabit = () => {
     };
 
     const registerInput = {
-      accessToken,
       actType: selectedAct,
       day: selectedDay,
       time: selectedTime

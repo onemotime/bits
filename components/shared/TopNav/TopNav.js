@@ -1,4 +1,5 @@
 import React from 'react';
+import * as SecureStore from "expo-secure-store";
 import { useSelector, useDispatch } from 'react-redux';
 import { userSlice } from '../../../featrues/userSlice';
 import { FontAwesome5 } from '@expo/vector-icons';
@@ -13,7 +14,9 @@ const TopNav = () => {
   const { resetUserState } = userSlice.actions;
   const { userName, imageUri } = useSelector(state => state.user);
 
-  const handleLogoutPress = () => {
+  const handleLogoutPress = async () => {
+    await SecureStore.deleteItemAsync('token');
+
     dispatch(resetUserState());
   };
 

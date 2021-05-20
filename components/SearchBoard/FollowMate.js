@@ -8,14 +8,13 @@ import { NAMES, SIZES, COLORS, STRINGS } from '../../constants/index';
 
 import styles from './styles';
 
-const FollowMate = ({ allUsers, following, accessToken, userName }) => {
+const FollowMate = ({ allUsers, following, userName }) => {
   const dispatch = useDispatch();
   const [searchUserName, setUserName] = useState('');
 
   const handleFollowPress = (userInfo) => {
     const followingInfo = {
-      followId: userInfo._id,
-      accessToken
+      followId: userInfo._id
     };
 
     dispatch(followUser(followingInfo));

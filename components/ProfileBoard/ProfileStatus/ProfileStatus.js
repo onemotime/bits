@@ -16,7 +16,6 @@ import {
 import styles from './styles';
 
 const ProfileStatus = ({
-  accessToken,
   imageUri,
   userInfo,
   handleActingPress,
@@ -35,8 +34,7 @@ const ProfileStatus = ({
 
     if (!result.cancelled) {
       const imageUriPayload = {
-        uri: result.uri,
-        accessToken
+        uri: result.uri
       };
 
       dispatch(updateImageUri(imageUriPayload));

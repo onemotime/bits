@@ -10,7 +10,7 @@ import Empty from '../../../screens/Animations/Empty/Empty';
 
 import styles from './styles';
 
-const Profile = ({ userInfo, accessToken, imageUri }) => {
+const Profile = ({ userInfo, imageUri }) => {
   const [isActingHabitOn, setActingHabit] = useState(true);
   const [isCompletedHabitOn, setCompletedHabit] = useState(false);
   const [isCalendarOn, setCalendar] = useState(false);
@@ -36,7 +36,6 @@ const Profile = ({ userInfo, accessToken, imageUri }) => {
   return (
     <View style={styles.profileWrapper}>
       <ProfileStatus
-        accessToken={accessToken}
         imageUri={imageUri}
         userInfo={userInfo}
         handleActingPress={actingHabitPressed}

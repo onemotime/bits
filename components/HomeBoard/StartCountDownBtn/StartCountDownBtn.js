@@ -10,7 +10,9 @@ const StartCountDownBtn = ({ onStartPress }) => {
       <TouchableOpacity onPress={onStartPress}>
         <View style={styles.outterCircle}>
           <View style={styles.innerCircle}>
-            <Text style={styles.pressText}>PRESS HABIT</Text>
+            <Text style={styles.pressText}>
+              PRESS HABIT
+            </Text>
           </View>
         </View>
       </TouchableOpacity>

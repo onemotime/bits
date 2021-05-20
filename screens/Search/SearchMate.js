@@ -8,26 +8,25 @@ import TopNav from '../../components/shared/TopNav/TopNav';
 import FollowMate from '../../components/SearchBoard/FollowMate';
 
 const SearchMate = () => {
-  const { accessToken, userName, allUsers, following, isFetching } = useSelector(state => state.user);
+  const { userName, allUsers, following, isFetching } = useSelector(state => state.user);
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(fetchUser(accessToken));
+    dispatch(fetchUser());
   }, []);
+
+  if (isFetching) {
+    return <Loading />;
+  }
 
   return (
     <>
-      {isFetching
-        ? <Loading />
-        : <>
-            <TopNav />
-            <FollowMate
-              allUsers={allUsers}
-              following={following}
-              accessToken={accessToken}
-              userName={userName}
-            />
-          </>}
+      <TopNav />
+      <FollowMate
+        allUsers={allUsers}
+        following={following}
+        userName={userName}
+      />
     </>
   );
 };

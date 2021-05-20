@@ -22,12 +22,11 @@ const Home = () => {
   const [countDownTime, setCountDownTime] = useState(0);
   const [isStartCountBtnOn, setStartCountBtn] = useState(false);
 
-  const { userName, habits, accessToken, followerPushTokens, isFetching } = useSelector(state => state.user);
+  const { userName, habits, followerPushTokens, isFetching } = useSelector(state => state.user);
   const navigation = useNavigation();
   const dispatch = useDispatch();
 
   useEffect(() => {
-
     const sendNotification = async () => {
       for (let index = 0; index < followerPushTokens.length; index++) {
         sendPushNotification(
@@ -42,7 +41,6 @@ const Home = () => {
 
   const handleDeletePress = (targetIndex) => {
     const deleteInput = {
-      accessToken,
       targetIndex
     };
 
@@ -76,7 +74,7 @@ const Home = () => {
     if (!targetHabit?.habitType || !isHabitSelected) return;
 
     try {
-      dispatch(fetchPushTokens(accessToken));
+      dispatch(fetchPushTokens());
     } catch (err) {
       console.error(err);
     }
@@ -85,35 +83,32 @@ const Home = () => {
     setStartCountBtn(true);
   };
 
+  if (isFetching) {
+    return <Loading />;
+  }
+
   return (
-    <>
-      {isFetching
-        ? <Loading />
-        : <>
-            <View style={styles.homeWrapper}>
-              <TopNav />
-                {!isStartCountBtnOn &&
-                  (habits?.length > 0
-                    ? <UserHabit
-                        habits={habits}
-                        onAddPress={handleRegisterHabitPress}
-                        onIconPress={(index) => handleIconPress(index)}
-                        onDeletePress={(index) => handleDeletePress(index)}
-                        isHabitSelected={isHabitSelected}
-                        targetHabit={targetHabit}
-                      />
-                    : <HabitRegister onAddPress={handleRegisterHabitPress} />)}
-                {isStartCountBtnOn
-                  ? <CountDownBtn
-                      totalTime={countDownTime}
-                      setStartCountBtn={setStartCountBtn}
-                      habitType={targetHabit.habitType}
-                      accessToken={accessToken}
-                    />
-                  : <StartCountDownBtn onStartPress={handleStartCountDownPress} />}
-            </View>
-          </>}
-    </>
+    <View style={styles.homeWrapper}>
+      <TopNav />
+        {!isStartCountBtnOn &&
+          (habits?.length > 0
+            ? <UserHabit
+                habits={habits}
+                onAddPress={handleRegisterHabitPress}
+                onIconPress={(index) => handleIconPress(index)}
+                onDeletePress={(index) => handleDeletePress(index)}
+                isHabitSelected={isHabitSelected}
+                targetHabit={targetHabit}
+              />
+            : <HabitRegister onAddPress={handleRegisterHabitPress} />)}
+        {isStartCountBtnOn
+          ? <CountDownBtn
+              totalTime={countDownTime}
+              setStartCountBtn={setStartCountBtn}
+              habitType={targetHabit.habitType}
+            />
+          : <StartCountDownBtn onStartPress={handleStartCountDownPress} />}
+    </View>
   );
 };
 

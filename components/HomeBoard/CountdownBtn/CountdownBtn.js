@@ -12,8 +12,7 @@ import styles from './styles';
 const CountdownBtn = ({
   totalTime,
   setStartCountBtn,
-  habitType,
-  accessToken
+  habitType
 }) => {
   const date = new Date();
   const dispatch = useDispatch();
@@ -24,7 +23,6 @@ const CountdownBtn = ({
   const handleTimeColplete = () => {
     const updateInput = {
       habitType,
-      accessToken,
       date: currentDate
     };
 

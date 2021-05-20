@@ -4,9 +4,9 @@ import * as userApi from '../api/userApi';
 
 export const fetchFollowingHabits = createAsyncThunk(
   'habit/fetchFollowing',
-  async (accessToken, thunkApi) => {
+  async (input, thunkApi) => {
     try {
-      const response = await userApi.getFollowingHabits(accessToken);
+      const response = await userApi.getFollowingHabits();
 
       if (response.status === 200) {
         return response.followingUserHabits

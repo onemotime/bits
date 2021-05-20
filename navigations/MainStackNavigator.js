@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import * as Notifications from 'expo-notifications';
 import { useDispatch } from 'react-redux';
 import { userSlice } from '../featrues/userSlice';
@@ -19,7 +19,7 @@ Notifications.setNotificationHandler({
 });
 
 const MainStackNavigator = () => {
-  const { accessToken } = useSelector(state => state.user);
+  const { isLogedIn } = useSelector(state => state.user);
   const { registerPushToken } = userSlice.actions;
   const dispatch = useDispatch();
 
@@ -40,7 +40,7 @@ const MainStackNavigator = () => {
   }, []);
 
   const registerForPushNotificationsAsync = async () => {
-    let token;
+    let pushToken;
 
     if (Constants.isDevice) {
       const { status: existingStatus } = await Notifications.getPermissionsAsync();
@@ -57,9 +57,9 @@ const MainStackNavigator = () => {
         return;
       }
 
-      token = (await Notifications.getExpoPushTokenAsync()).data;
+      pushToken = (await Notifications.getExpoPushTokenAsync()).data;
 
-      return token;
+      return pushToken;
     } else {
       alert(MESSAGE.PUSH_TOKEN_ERR);
     }
@@ -76,7 +76,7 @@ const MainStackNavigator = () => {
 
   return (
     <>
-      {accessToken
+      {isLogedIn
         ? <UserScreenNavigator />
         : <AutchStackNavigator />}
     </>

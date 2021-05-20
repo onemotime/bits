@@ -8,12 +8,12 @@ import MateHabit from '../../components/LiveBoard/MateHabit/MateHabit';
 import MateRegister from '../../components/LiveBoard/MateRegister/MateRegister';
 
 const LiveFeed = () => {
-  const { accessToken, following } = useSelector(state => state.user);
+  const { following } = useSelector(state => state.user);
   const { followingUserHabits, isFetching } = useSelector(state => state.habit);
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(fetchFollowingHabits(accessToken));
+    dispatch(fetchFollowingHabits());
   }, [following]);
 
   return (
@@ -25,7 +25,6 @@ const LiveFeed = () => {
               {following.length > 0
                 ? <MateHabit
                     followingUserHabits={followingUserHabits}
-                    accessToken={accessToken}
                   />
                 : <MateRegister />}
           </>}

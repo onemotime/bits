@@ -10,15 +10,14 @@ import { NAMES, SIZES, COLORS } from '../../../constants/index';
 
 import styles from './styles';
 
-const MateHabit = ({ followingUserHabits, accessToken }) => {
+const MateHabit = ({ followingUserHabits }) => {
   const [likeHabitId, setHabitId] = useState('');
   const dispatch = useDispatch();
 
   const handleLikePress = (userId, habitId) => {
     const updateHabitInput = {
       userId,
-      habitId,
-      accessToken
+      habitId
     };
 
     dispatch(updateHabitLikes(updateHabitInput));
