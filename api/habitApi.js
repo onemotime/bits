@@ -1,5 +1,4 @@
 import { SERVER_URL } from '@env';
-import * as SecureStore from "expo-secure-store";
 import generateHeaderOption from '../utils/generateHeaderOption';
 import { ROUTES } from '../constants/index';
 

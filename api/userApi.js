@@ -11,9 +11,7 @@ import { ROUTES } from '../constants';
 export const requestSignin = async (loginInput) => {
   const url = `${SERVER_URL}${ROUTES.USER}${ROUTES.LOGIN}`;
   const headers = await generateHeaderOption();
-  console.log('💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥');
-  console.log(headers);
-  console.log('💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥');
+
   const response = await fetch(url, {
     method: 'POST',
     headers,

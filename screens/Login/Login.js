@@ -70,6 +70,10 @@ const Login = ({ navigation }) => {
     setModal(false);
   };
 
+  if (isFetching) {
+    return <LoginLoading />;
+  }
+
   return (
     <>
       {isLoginFailed &&
@@ -84,34 +88,32 @@ const Login = ({ navigation }) => {
           visible={isModalShown}
           onButtonPress={handleModalPress}
         />}
-      {isFetching
-        ? <LoginLoading />
-        : <View style={styles.wrapper}>
-            <View style={styles.loginWrapper}>
-              <LogoName />
-              <LoginInput
-                email={email}
-                onEmailChange={setEmail}
-                password={password}
-                onPasswordChange={setPassword}
-              />
-              <LoginRegisterButtons
-                onLoginPress={handleLoginPress}
-                onSignupPress={handleSignupPress}
-              />
-              <View style={styles.iconWrapper}>
-                <TouchableOpacity>
-                  <GoogleIcon size={SIZES.LOGO_ICON} />
-                </TouchableOpacity>
-                <TouchableOpacity>
-                  <FacebookIcon size={SIZES.LOGO_ICON} />
-                </TouchableOpacity>
-                <TouchableOpacity>
-                  <InstagramIcon size={SIZES.LOGO_ICON} />
-                </TouchableOpacity>
-              </View>
+        <View style={styles.wrapper}>
+          <View style={styles.loginWrapper}>
+            <LogoName />
+            <LoginInput
+              email={email}
+              onEmailChange={setEmail}
+              password={password}
+              onPasswordChange={setPassword}
+            />
+            <LoginRegisterButtons
+              onLoginPress={handleLoginPress}
+              onSignupPress={handleSignupPress}
+            />
+            <View style={styles.iconWrapper}>
+              <TouchableOpacity>
+                <GoogleIcon size={SIZES.LOGO_ICON} />
+              </TouchableOpacity>
+              <TouchableOpacity>
+                <FacebookIcon size={SIZES.LOGO_ICON} />
+              </TouchableOpacity>
+              <TouchableOpacity>
+                <InstagramIcon size={SIZES.LOGO_ICON} />
+              </TouchableOpacity>
             </View>
-          </View>}
+          </View>
+        </View>
     </>
   );
 };

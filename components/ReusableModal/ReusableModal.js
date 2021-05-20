@@ -18,7 +18,9 @@ const ReusableModal = ({
     >
       <View style={styles.moddalWrapper}>
         <View style={styles.modal}>
-          <Text style={styles.infoText}>{message}</Text>
+          <Text style={styles.infoText}>
+            {message}
+          </Text>
           <Pressable
             style={styles.modalBtn}
             onPress={onButtonPress}

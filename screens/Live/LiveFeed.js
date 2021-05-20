@@ -16,18 +16,18 @@ const LiveFeed = () => {
     dispatch(fetchFollowingHabits());
   }, [following]);
 
+  if (isFetching) {
+    return <Loading />;
+  }
+
   return (
     <>
-      {isFetching
-        ? <Loading />
-        : <>
-            <TopNav />
-              {following.length > 0
-                ? <MateHabit
-                    followingUserHabits={followingUserHabits}
-                  />
-                : <MateRegister />}
-          </>}
+      <TopNav />
+        {following.length > 0
+          ? <MateHabit
+              followingUserHabits={followingUserHabits}
+            />
+          : <MateRegister />}
     </>
   );
 };
