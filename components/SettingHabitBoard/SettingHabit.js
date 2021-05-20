@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigation } from '@react-navigation/native';
-import { registerHabit } from '../../redux/userSlice';
+import { registerHabit } from '../../featrues/userSlice';
 import { Picker } from '@react-native-picker/picker';
 import { Button, View, Text, TouchableOpacity } from 'react-native';
 import HabitRegisterModal from '../ReusableModal/ReusableModal';

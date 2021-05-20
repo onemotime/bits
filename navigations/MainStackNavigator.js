@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import * as Notifications from 'expo-notifications';
 import { useDispatch } from 'react-redux';
-import { userSlice } from '../redux/userSlice';
+import { userSlice } from '../featrues/userSlice';
 import { Platform } from 'react-native';
 import Constants from 'expo-constants';
 import { useSelector } from 'react-redux';
