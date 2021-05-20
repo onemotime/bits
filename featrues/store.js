@@ -3,10 +3,24 @@ import ReduxThunk from 'redux-thunk';
 import { createLogger } from 'redux-logger';
 import { userSlice } from './userSlice';
 import { habitSlice } from './habitSlice';
+import AsyncStorage from '@react-native-async-storage/async-storage';
+import { persistStore, persistReducer } from 'redux-persist';
+
+const userPersistConfig = {
+  key: 'user',
+  storage: AsyncStorage,
+  blacklist: ['status', 'error']
+};
+
+const habitPersistConfig = {
+  key: 'habit',
+  storage: AsyncStorage,
+  blacklist: ['status', 'error']
+};
 
 const reducer = {
-  user: userSlice.reducer,
-  habit: habitSlice.reducer
+  user: persistReducer(userPersistConfig, userSlice.reducer),
+  habit: persistReducer(habitPersistConfig, habitSlice.reducer)
 };
 
 const middleware = [ReduxThunk, createLogger()];
@@ -16,4 +30,6 @@ const store = configureStore({
   middleware
 });
 
-export default store;
+const persistedStore = persistStore(store);
+
+export { store, persistedStore };
