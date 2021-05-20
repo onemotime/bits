@@ -1,5 +1,4 @@
 import { SERVER_URL } from '@env';
-import * as SecureStore from "expo-secure-store";
 import generateHeaderOption from '../utils/generateHeaderOption';
 import { ROUTES } from '../constants';
 
@@ -11,12 +10,13 @@ import { ROUTES } from '../constants';
 
 export const requestSignin = async (loginInput) => {
   const url = `${SERVER_URL}${ROUTES.USER}${ROUTES.LOGIN}`;
-
+  const headers = await generateHeaderOption();
+  console.log('💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥');
+  console.log(headers);
+  console.log('💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥💥');
   const response = await fetch(url, {
     method: 'POST',
-    headers: {
-      'Content-Type': 'application/json'
-    },
+    headers,
     body: JSON.stringify(loginInput)
   });
 
@@ -25,14 +25,12 @@ export const requestSignin = async (loginInput) => {
 
 /**
  * Get all users in database
- * @param {String} accessToken - token to pass server validation
  * @returns Response data from server
  */
 
 export const getUsers = async () => {
-  const accessToken = await SecureStore.getItemAsync('token');
   const url = `${SERVER_URL}${ROUTES.USER}${ROUTES.ALL}`;
-  const headers = generateHeaderOption(accessToken);
+  const headers = await generateHeaderOption();
 
   const response = await fetch(url, {
     method: 'GET',
@@ -49,9 +47,8 @@ export const getUsers = async () => {
  */
 
 export const patchUserFollow = async (followingInfo) => {
-  const accessToken = await SecureStore.getItemAsync('token');
   const url = `${SERVER_URL}${ROUTES.USER}${ROUTES.FOLLOW}`;
-  const headers = generateHeaderOption(accessToken);
+  const headers = await generateHeaderOption();
 
   const response = await fetch(url, {
     method: 'PATCH',
@@ -71,9 +68,8 @@ export const patchUserFollow = async (followingInfo) => {
  */
 
 export const patchImageUri = async (imageUriPayload) => {
-  const accessToken = await SecureStore.getItemAsync('token');
   const url = `${SERVER_URL}${ROUTES.USER}${ROUTES.IMAGE}`;
-  const headers = generateHeaderOption(accessToken);
+  const headers = await generateHeaderOption();
 
   const response = await fetch(url, {
     method: 'PATCH',
@@ -88,14 +84,12 @@ export const patchImageUri = async (imageUriPayload) => {
 
 /**
  * Get push tokens from followers
- * @param {String} accessToken - token to pass server validation
  * @returns Response data from server
  */
 
 export const getPushTokens = async () => {
-  const accessToken = await SecureStore.getItemAsync('token');
   const url = `${SERVER_URL}${ROUTES.USER}${ROUTES.PUSH_TOKENS}`;
-  const headers = generateHeaderOption(accessToken);
+  const headers = await generateHeaderOption();
 
   const response = await fetch(url, {
     method: 'GET',
@@ -107,14 +101,12 @@ export const getPushTokens = async () => {
 
 /**
  * Get following users info in array
- * @param {String} accessToken - accessToekn signed in with JWT
  * @returns Response data from server
  */
 
 export const getFollowingHabits = async () => {
-  const accessToken = await SecureStore.getItemAsync('token');
   const url = `${SERVER_URL}${ROUTES.USER}${ROUTES.FOLLOWING}`;
-  const headers = generateHeaderOption(accessToken);
+  const headers = await generateHeaderOption();
 
   const response = await fetch(url, {
     method: 'GET',
@@ -132,12 +124,11 @@ export const getFollowingHabits = async () => {
 
 export const requestSignup = async (signupInput) => {
   const url =`${SERVER_URL}${ROUTES.USER}${ROUTES.SIGNUP}`;
+  const headers = await generateHeaderOption();
 
   const response = await fetch(url, {
     method: 'POST',
-    headers: {
-      'Content-Type': 'application/json'
-    },
+    headers,
     body: JSON.stringify(signupInput)
   });
 

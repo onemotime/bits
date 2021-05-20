@@ -1,12 +1,20 @@
+import * as SecureStore from 'expo-secure-store';
+
 /**
- * Generate request headers with accessToken
- * @param {String} accessToken - accessToken made from server by JWT
+ * Generate request headers with accessToken or default headers
  * @returns {Object} - request headers
  */
 
-const generateHeaderOption = (accessToken) => {
+const generateHeaderOption = async () => {
+  const defaultHeader = { 'Content-Type': 'application/json' };
+  const accessToken = await SecureStore.getItemAsync('token');
+
+  if (!accessToken) {
+    return defaultHeader;
+  }
+
   return {
-    'Content-Type': 'application/json',
+    ...defaultHeader,
     'Authorization': `${accessToken}`
   };
 };
