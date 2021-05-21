@@ -21,7 +21,9 @@ const styles = StyleSheet.create({
   profileUriImg: {
     width: 40,
     height: 40,
-    borderRadius: 100
+    borderRadius: 100,
+    borderWidth: 1,
+    borderColor: 'gray'
   },
   img: {
     marginLeft: 3,

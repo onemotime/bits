@@ -9,10 +9,11 @@ const styles = StyleSheet.create({
     marginTop: 7,
   },
   profileImg: {
-    borderColor: 'grey',
     width: 80,
     height: 80,
-    borderRadius: 100
+    borderRadius: 100,
+    borderWidth: 1,
+    borderColor: 'gray'
   },
   actMateWrapper: {
     flexDirection: 'row',

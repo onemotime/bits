@@ -44,7 +44,7 @@ const Profile = ({ userInfo, imageUri }) => {
       />
       <View style={styles.profileBottomWrapper}>
         {isActingHabitOn &&
-          (userInfo.habits.length > 0
+          (userInfo?.habits.length > 0
             ? <ProgressHabit userInfo={userInfo} />
             : <View style={styles.registerHabitWrapper}>
                 <Text style={styles.registerHabitText}>
@@ -53,7 +53,7 @@ const Profile = ({ userInfo, imageUri }) => {
                 <Empty />
               </View>)}
         {isCompletedHabitOn &&
-          (userInfo.completedHabits.length > 0
+          (userInfo?.completedHabits.length > 0
             ? <CompletedHabit userInfo={userInfo} />
             :  <View style={styles.registerHabitWrapper}>
                 <Text style={styles.completeHabitText}>

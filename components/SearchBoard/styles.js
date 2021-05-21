@@ -56,7 +56,9 @@ const styles = StyleSheet.create({
   userProfileImg: {
     width: 50,
     height: 50,
-    borderRadius: 100
+    borderRadius: 100,
+    borderWidth: 1,
+    borderColor: 'gray'
   },
   userNameWrapper: {
     justifyContent: 'center',
