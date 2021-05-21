@@ -39,10 +39,18 @@ const UserHabit = ({
                     <Text style={styles.name}>{habitName}</Text>
                   </View>
                   <View style={styles.dayMateLike}>
-                    <Text style={styles.day}>Day {data.achivedDay} / {data.settedDay}</Text>
-                    <Text style={styles.mate}>Mate {data.mate}</Text>
-                    <Text style={styles.like}>Like {data.like}</Text>
-                    <Text style={styles.status}>Status {statusPercentage}%</Text>
+                    <Text style={styles.day}>
+                      Day {data.achivedDay} / {data.settedDay}
+                    </Text>
+                    <Text style={styles.mate}>
+                      Mate {data.mate}
+                    </Text>
+                    <Text style={styles.like}>
+                      Like {data.like}
+                    </Text>
+                    <Text style={styles.status}>
+                      Status {statusPercentage}%
+                    </Text>
                   </View>
                 </View>
                 <View style={styles.cancelWrapper}>

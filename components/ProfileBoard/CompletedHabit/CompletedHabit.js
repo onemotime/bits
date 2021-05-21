@@ -28,7 +28,9 @@ const CompletedHabit = ({ userInfo }) => {
                 {habitIcon}
               </View>
               <View style={styles.habitTypeTextWrapper}>
-                <Text style={styles.habitTypeText}>{habitText}</Text>
+                <Text style={styles.habitTypeText}>
+                  {habitText}
+                </Text>
               </View>
             </View>
             <View style={styles.completeCountWrapper}>

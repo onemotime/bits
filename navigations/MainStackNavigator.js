@@ -72,7 +72,7 @@ const MainStackNavigator = () => {
         lightColor: COLORS.ANDROID_LIGHT,
       });
     }
-  }
+  };
 
   return (
     <>

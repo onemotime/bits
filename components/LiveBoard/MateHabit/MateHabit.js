@@ -55,7 +55,9 @@ const MateHabit = ({ followingUserHabits }) => {
                         color={COLORS.BLACK}
                         style={styles.img}
                       />}
-                  <Text style={styles.name}>{followingUser.userName}</Text>
+                  <Text style={styles.name}>
+                    {followingUser.userName}
+                  </Text>
                 </View>
                 <ScrollView horizontal={true}>
                   {followingUser.habits.length > 0 &&
@@ -69,7 +71,9 @@ const MateHabit = ({ followingUserHabits }) => {
                         >
                           <View style={styles.habitWrapper}>
                             <View style={styles.statusTextWrapper}>
-                              <Text style={styles.statusText}>{habitData.habitType}</Text>
+                              <Text style={styles.statusText}>
+                                {habitData.habitType}
+                              </Text>
                             </View>
                             {(likeHabitId === habitData._id) &&
                               <Like onFinish={handleAnimationFinish} />}

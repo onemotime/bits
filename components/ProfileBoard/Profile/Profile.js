@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { View, Text } from 'react-native';
-import { STRINGS } from '../../../constants/index';
+import { MESSAGE } from '../../../constants/index';
 
 import ProfileStatus from '../ProfileStatus/ProfileStatus';
 import ProgressHabit from '../ProgressHabit/ProgressHabit';
@@ -48,7 +48,7 @@ const Profile = ({ userInfo, imageUri }) => {
             ? <ProgressHabit userInfo={userInfo} />
             : <View style={styles.registerHabitWrapper}>
                 <Text style={styles.registerHabitText}>
-                  {STRINGS.NO_PROGRESSING_HABIT}
+                  {MESSAGE.NO_PROGRESSING_HABIT}
                 </Text>
                 <Empty />
               </View>)}
@@ -57,7 +57,7 @@ const Profile = ({ userInfo, imageUri }) => {
             ? <CompletedHabit userInfo={userInfo} />
             :  <View style={styles.registerHabitWrapper}>
                 <Text style={styles.completeHabitText}>
-                  {STRINGS.NO_COMPLETED_HABIT}
+                  {MESSAGE.NO_COMPLETED_HABIT}
                 </Text>
                 <Empty />
               </View>)}

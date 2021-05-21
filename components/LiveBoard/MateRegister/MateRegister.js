@@ -2,7 +2,7 @@ import React from 'react';
 import { View, Text, TouchableOpacity } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import { Entypo } from '@expo/vector-icons';
-import { NAMES, SIZES, COLORS, STRINGS, TESTID } from '../../../constants/index';
+import { NAMES, SIZES, COLORS, STRINGS, TESTID, MESSAGE } from '../../../constants/index';
 
 import styles from './styles';
 
@@ -17,8 +17,12 @@ const MateRegister = () => {
     <View style={styles.wrapper}>
       <View style={styles.mateRegisterWrapper}>
         <View style={styles.textWrapper}>
-          <Text style={styles.registerText}>{STRINGS.NO_REGISTERED_MATE}</Text>
-          <Text style={styles.registerText}>{STRINGS.FOLLOW_NEW_MATE}</Text>
+          <Text style={styles.registerText}>
+            {MESSAGE.NO_REGISTERED_MATE}
+          </Text>
+          <Text style={styles.registerText}>
+            {MESSAGE.FOLLOW_NEW_MATE}
+          </Text>
         </View>
         <TouchableOpacity
           onPress={handleMateRegisterPress}

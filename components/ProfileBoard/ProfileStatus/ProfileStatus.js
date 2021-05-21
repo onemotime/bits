@@ -4,6 +4,7 @@ import { View, Text, Image, TouchableOpacity } from 'react-native';
 import { updateImageUri } from '../../../featrues/userSlice';
 import { EvilIcons } from '@expo/vector-icons';
 import * as ImagePicker from 'expo-image-picker';
+
 import {
   NAMES,
   NUMBERS,

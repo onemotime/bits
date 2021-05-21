@@ -13,9 +13,7 @@ const FollowMate = ({ allUsers, following, userName }) => {
   const [searchUserName, setUserName] = useState('');
 
   const handleFollowPress = (userInfo) => {
-    const followingInfo = {
-      followId: userInfo._id
-    };
+    const followingInfo = { followId: userInfo._id };
 
     dispatch(followUser(followingInfo));
   };

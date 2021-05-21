@@ -5,7 +5,15 @@ import { registerHabit } from '../../featrues/userSlice';
 import { Picker } from '@react-native-picker/picker';
 import { Button, View, Text, TouchableOpacity } from 'react-native';
 import HabitRegisterModal from '../ReusableModal/ReusableModal';
-import { NUMBERS, COLORS, STRINGS, LABEL, NAMES } from '../../constants/index';
+
+import {
+  NUMBERS,
+  COLORS,
+  STRINGS,
+  LABEL,
+  NAMES,
+  MESSAGE
+} from '../../constants/index';
 
 import styles from './styles';
 
@@ -84,13 +92,13 @@ const SettingHabit = () => {
   return (
     <>
       <HabitRegisterModal
-        message={STRINGS.ALREADY_REGISTERED_HABIT}
+        message={MESSAGE.ALREADY_REGISTERED_HABIT}
         visible={isModalShown}
         onButtonPress={handleModalPress}
       />
       <View style={styles.subscribeWrapper}>
         <Text style={styles.subscribeText}>
-          {STRINGS.REGISTER_HABIT}
+          {MESSAGE.REGISTER_HABIT}
         </Text>
         <View style={styles.inputWrapper}>
           {(!isActShown && !isDayShown && !isTimeShown) &&

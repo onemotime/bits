@@ -15,7 +15,7 @@ const BottomTapNavigator = () => {
   return (
     <Tab.Navigator
       screenOptions={({ route }) => ({
-        tabBarIcon: ({ focused, color, size }) => {
+        tabBarIcon: ({ _, color, size }) => {
           return pickTabIconByName(route.name, color, size);
         }
       })}

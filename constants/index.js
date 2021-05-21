@@ -174,13 +174,7 @@ const STRINGS = {
   RUN_KR: '달리기',
   BICYCLE_KR: '자전거',
   YOGA_KR: '요가',
-  SEARCH_FRIEND: '친구검색',
-  NO_REGISTERED_MATE: '등록된 메이트가 없습니다',
-  FOLLOW_NEW_MATE: '새로운 메이트를 추가해보세요',
-  NO_PROGRESSING_HABIT: '진행중인 습관이 없습니다',
-  NO_COMPLETED_HABIT: '완료된 습관이 없습니다',
-  ALREADY_REGISTERED_HABIT: '이미 등록된 습관입니다',
-  REGISTER_HABIT: '습관을 등록해주세요'
+  SEARCH_FRIEND: '친구검색'
 };
 
 const MONTHS = [
@@ -245,6 +239,8 @@ const LABEL = {
 const MESSAGE = {
   PUSH_TOKEN_FAIL: 'Failed to get push token for push notification!',
   PUSH_TOKEN_ERR: 'Must use physical device for Push Notifications',
+  NO_REGISTERED_MATE: '등록된 메이트가 없습니다',
+  FOLLOW_NEW_MATE: '새로운 메이트를 추가해보세요',
   CHECK_INPUT: '입력 정보를 다시 확인해주세요',
   REGISTER_ALL_INFOS: '모든 정보를 입력해주세요',
   INVALID_EMAIL_FORM: '올바른 이메일 형식이 아닙니다',
@@ -252,7 +248,11 @@ const MESSAGE = {
   TYPE_EMAIL: '아이디를 입력해주세요',
   TYPE_USERNAME: '이름을 입력해주세요',
   TYPE_PASSWORD: '비밀번호를 입력해주세요',
-  TYPE_CONFIRM_PASSWORD: '비밀번호를 확인해주세요'
+  TYPE_CONFIRM_PASSWORD: '비밀번호를 확인해주세요',
+  REGISTER_HABIT: '습관을 등록해주세요',
+  NO_PROGRESSING_HABIT: '진행중인 습관이 없습니다',
+  NO_COMPLETED_HABIT: '완료된 습관이 없습니다',
+  ALREADY_REGISTERED_HABIT: '이미 등록된 습관입니다'
 };
 
 const TESTID = {
