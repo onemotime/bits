@@ -4,7 +4,7 @@ import * as userApi from '../api/userApi';
 
 export const fetchFollowingHabits = createAsyncThunk(
   'habit/fetchFollowing',
-  async (input, thunkApi) => {
+  async (_, thunkApi) => {
     try {
       const response = await userApi.getFollowingHabits();
 

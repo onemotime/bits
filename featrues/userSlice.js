@@ -78,7 +78,7 @@ export const removeHabit = createAsyncThunk(
 
 export const fetchUser = createAsyncThunk(
   'user/fetchUser',
-  async (input, thunkAPI) => {
+  async (_, thunkAPI) => {
     try {
       const response = await userApi.getUsers();
 
@@ -129,7 +129,7 @@ export const updateImageUri = createAsyncThunk(
 
 export const fetchPushTokens = createAsyncThunk(
   'user/fetchPushTokens',
-  async (input, thunkApi) => {
+  async (_, thunkApi) => {
     try {
       const response = await userApi.getPushTokens();
 

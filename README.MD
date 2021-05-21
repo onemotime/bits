@@ -11,7 +11,7 @@
 - [Installation](#📀-Installation)
 - [Project Schedule](#🗓-Project-Schedule)
 - [What i learend](#🧘🏻‍♂️-What-i-learned)
-- [Improvements](#🚀-Improvements)
+- [Improvements](#📈-Improvementss)
 
 # 💡 Inspiration
 
@@ -74,7 +74,7 @@ Local환경에서 실행시 아래와 같이 준비가 필요합니다.
 Root 디렉토리에 .env 파일을 만들고 다음과 같이 설정해주세요
 
 ```
-SERVER_URL=<YOUR_SERVER_URL_WITH_PROT>
+SERVER_URL=<YOUR_IP_ADDRESS_WITH_PROT>
 ```
 
 ### Server
@@ -91,7 +91,7 @@ DATABASE_PASSWORD=<YOUR_MONGODB_PASSWORD>
 ```
 
 # 🗓 Project-Schedule
-전체 기간 **2021. 5. 3(월) ~ 2021. 5. 21(금)** 총 3주 진행
+전체 기간 **2021. 5. 3(월) ~ 2021. 5. 21(금)** 총 3주
 
 ### `1st week - planning`
 - 아이디어 구상 + 기술 스택 검토
@@ -139,4 +139,8 @@ Home screen에서 습관 실행버튼을 누르고 완료하게 되면 카운트
 
 **마지막으로** 두번째 내용에서 언급했듯 비동기 관련 처리 액션이 위임되기 때문에 컴포넌트 입장에서는 코드가 깔끔해졌다고 할 수 있지만, thunk 내부에 있는 로직의 복잡도가 증가했습니다. 프로젝트를 계속 진행해온 개발자의 입장에서는 코드를 이해하는데 어려움이 없지만, 협업을 하는 상황에서 제 3 자의 입장에서는 코드를 이해하는데 들여야 하는 시간이 더 많이 늘어나겠다는 생각을 햇었습니다. 또 각 컴포넌트 내부에서 hook을 통해 값을 조회하기 때문에 테스트 코드를 작성하기 어려웠습니다. 이런 이유 때문에 thunk가 가진 복잡도 때문에 함수가 **순수하지 않다**라고 느껴졌고, functional programming을 왜 지향하는지, 순수한 값을 반환하는 함수, 그 함수가 반환하는 값에 대한 신뢰성에 대한 중요도에 대해서 더 잘 이해할 수 있게 되었습니다. 앱의 규모가 커질수록 순수 함수가 가지는 영향력이 커질것 같다고 생각했습니다.
 
-# 🚀 Improvements
+# 📈 Improvements
+
+- React Native Expo를 이용하면서 **bare workflow 와 managed workflow** 두 가지의 방향으로 작업을 진행할 수 있었습니다. push notification 이나 build service 등 직접 설정해줘야 하는 부분들을 expo에서 자동으로 build 해주기 때문에 편리하게 작업을 할 수 있었습니다. 하지만 작업을 하면서 expo에서 대체해주는 생략된 과정들이 어떤것들인지 직접 겪어봐야 흐름을 이해할 수 있을것 같다는 추후에 앱 작업을 할 일이 생긴다면 bare workflow를 통해 진행해 봐야겠다는 생각이 들었습니다.
+
+- 이번 프로젝트를 하면서 custom hook을 이용해 재사용성을 높여주는 로직을 작성하려고 했습니다. 전체적인 로직들을 다 적고 리팩토링을 시작하려고 하니 함수 내에서 외부에 의존하는 있는 값들이 많아 커스텀 훅으로 추출해내기가 어려웠습니다. 그리고 의존된 값들이 많아질수록 컴포넌트를 테스트 하기도 어려워 졌습니다. 왜 사람들이 순수함수를 지향하는지 알 수 있었고. 믿을 수 있는 값을 반환하는 순수함수를 통해 확장성도 달라질수 있겠다는 생각이 들었습니다.

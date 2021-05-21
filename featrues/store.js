@@ -9,13 +9,13 @@ import { persistStore, persistReducer } from 'redux-persist';
 const userPersistConfig = {
   key: 'user',
   storage: AsyncStorage,
-  blacklist: ['status', 'error']
+  blacklist: ['isSuccess', 'isError', 'isFetching']
 };
 
 const habitPersistConfig = {
   key: 'habit',
   storage: AsyncStorage,
-  blacklist: ['status', 'error']
+  blacklist: ['isSuccess', 'isError', 'isFetching']
 };
 
 const reducer = {

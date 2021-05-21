@@ -33,7 +33,7 @@ const Login = ({ navigation }) => {
   useEffect(() => {
     if (isError) {
       setModal(true);
-      setModalMessage(MESSAGE.CHECK_INPUT)
+      setModalMessage(MESSAGE.CHECK_INPUT);
       setLoginFailStatus(true);
     }
   }, [isError]);
