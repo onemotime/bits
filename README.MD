@@ -2,6 +2,11 @@
 
 **Bits**는 자신이 원하는 습관을 구독하고. 팔로우한 친구들과 함께 자신이 구독한 습관을 성취해나가는 앱입니다.
 
+# 🎥 발표영상
+
+<img width="1243" alt="프로젝트 발표" src="https://user-images.githubusercontent.com/72064489/119790455-ea858b80-bf0e-11eb-81e3-f09d760f8916.png">
+<a href='https://youtu.be/F8OHnevCS30?t=2523'>유튜브 링크 [ 42분 03초 시작 ] </a>
+
 # 📌 Table Contents
 
 - [Inspiration](#💡-Inspiration)
