@@ -6,7 +6,7 @@ import { View, Text, TouchableOpacity, Image } from 'react-native';
 import { ScrollView } from 'react-native-gesture-handler';
 import pickIconByType from '../../../utils/pickIconByType';
 import Like from '../../../screens/Animations/Like/Like';
-import { NAMES, SIZES, COLORS } from '../../../constants/index';
+import { NAMES, SIZES, COLORS, STRINGS } from '../../../constants/index';
 
 import styles from './styles';
 
@@ -81,7 +81,7 @@ const MateHabit = ({ followingUserHabits }) => {
                               {habitIcon}
                             </View>
                             <Text style={styles.startTimeText}>
-                              BiTS
+                              {STRINGS.BITS}
                             </Text>
                           </View>
                         </TouchableOpacity>

@@ -200,7 +200,10 @@ const SettingHabit = () => {
               />
           </Picker>}
           {(!isActShown && !isDayShown && !isTimeShown) &&
-            <TouchableOpacity style={styles.timeInput} onPress={handleTimePress}>
+            <TouchableOpacity
+              style={styles.timeInput}
+              onPress={handleTimePress}
+            >
               <Text style={styles.timeText}>
                 {STRINGS.TIME}
               </Text>

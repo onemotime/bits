@@ -44,7 +44,10 @@ const ProfileStatus = ({
 
   return (
     <View style={styles.profileTopWrapper}>
-      <TouchableOpacity onPress={pickImage} style={styles.profileImgWrapper}>
+      <TouchableOpacity
+        onPress={pickImage}
+        style={styles.profileImgWrapper}
+      >
         {imageUri
           ? <Image
               source={{ uri: imageUri }}

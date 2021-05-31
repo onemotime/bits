@@ -1,7 +1,7 @@
 import React from 'react';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { pickTabIconByName } from '../utils/pickTabIconByName';
-import { STRINGS, COLORS, NAMES } from '../constants/index';
+import { COLORS, NAMES } from '../constants/index';
 
 import Home from '../screens/Home/Home';
 import LiveFeed from '../screens/Live/LiveFeed';
